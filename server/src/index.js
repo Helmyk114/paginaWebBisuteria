@@ -1,13 +1,9 @@
-const express = require('express')
-const cors = require('cors')
+const app = require('./app')
 
-const productos = require('./components/productos/producto.routes')
-
-const app = express()
-app.use(cors())
-
-app.use('/', productos)
-
-
-
-app.listen(4000)
+app.listen(app.get('port'),(err) =>{
+    if(err){
+        console.log(`Error startting the server: ${err}`)
+    } else {
+        console.log(`🚀The server is started on the port: ${app.get('port')}`)
+    }
+})

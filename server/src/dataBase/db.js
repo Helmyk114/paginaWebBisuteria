@@ -12,7 +12,7 @@ db.connect(function(err){
     if(err){
         console.error(err);
     } else {
-        console.log('🎆 Conexion a la base de datos 🎆')
+        console.log('🎆 Connection to active database 🎆')
     }
 })
 
