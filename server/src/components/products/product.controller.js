@@ -1,4 +1,5 @@
 const db = require('../../dataBase/db')
+const ids = require('../../config/ids')
 
 /**
  * Obtener lista de la base de datos
@@ -32,7 +33,34 @@ const getProduct = (req,res) =>{}
  * @param {*} req 
  * @param {*} res 
  */
-const createProduct = (req,res) =>{}
+const createProduct = (req,res) =>{
+    const { nameProduct, description, price, laborPrice, image, idCategory} = req.body
+    const table = 'products'
+
+    ids(table, (idProduct, err) =>{
+        if(err){
+            console.log({data: `error id: ${err}`})
+        }
+        const product ={
+            idProduct: idProduct,
+            nameProduct: nameProduct,
+            description: description,
+            price: price,
+            laborPrice: laborPrice,
+            image: image,
+            idCategory: idCategory
+        }
+
+        const sql = 'INSERT INTO products(idProduct, nameProduct, description, price, laborPrice, image, idCategory) VAlUES (?,?,?,?,?,?,?)'
+        db.query(sql, [product.idProduct,product.nameProduct,product.description,product.price,product.laborPrice,product.image,product.idCategory], (err, result) =>{
+            if(err){
+                console.log({data: `Internal Server Error: ${err}`})
+            } else {
+                res.json({data: result})
+            }
+        })
+    })
+}
 
 /**
  * Actualizar un registro
