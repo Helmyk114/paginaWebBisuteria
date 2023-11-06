@@ -7,18 +7,22 @@ const ids = require('../../config/ids')
  * @param {*} res 
  */
 const getAllProduct = (req,res) =>{
-    let sql = 'SELECT * FROM products'
-    db.query(sql,(err,rows,field) =>{
-        if(!err){
-            if(rows < 1){
-                res.json({data: `Error no found products`})
+    try {
+        let sql = 'SELECT * FROM products'
+        db.query(sql,(err,rows,field) =>{
+            if(!err){
+                if(rows.length < 1){
+                    res.json({data: `Error no found products`})
+                } else {
+                    res.json({data: rows})
+                }
             } else {
-                res.json({data: rows})
+                throw err
             }
-        } else {
-            console.log({data: `Internal Server Error: ${err}`})
-        }
-    })
+        })
+    } catch (err) {
+        console.log({data: `Internal Server Error: ${err}`})
+    }
 }
 
 /**
@@ -26,7 +30,26 @@ const getAllProduct = (req,res) =>{
  * @param {*} req 
  * @param {*} res 
  */
-const getProduct = (req,res) =>{}
+const getProduct = (req,res) =>{
+    const { idProduct } = req.body
+
+    try {
+        let sql = 'SELECT * FROM products WHERE idProduct = ?'
+        db.query(sql,idProduct,(err,rows,field) =>{
+            if(!err){
+                if(rows.length < 1){
+                    res.json({data: `Error no found products`})
+                } else {
+                    res.json({data: rows})
+                }
+            } else {
+                throw err
+            }
+        })  
+    } catch (err) {
+        console.log({data: `Internal Server Error: ${err}`})
+    }
+}
 
 /**
  * Insertar un registro
@@ -34,7 +57,7 @@ const getProduct = (req,res) =>{}
  * @param {*} res 
  */
 const createProduct = (req,res) =>{
-    const { nameProduct, description, price, laborPrice, image, idCategory} = req.body
+    const { nameProduct, description, price, laborPrice, image, idCategory } = req.body
     const table = 'products'
 
     ids(table, (idProduct, err) =>{
@@ -51,14 +74,18 @@ const createProduct = (req,res) =>{
             idCategory: idCategory
         }
 
-        const sql = 'INSERT INTO products(idProduct, nameProduct, description, price, laborPrice, image, idCategory) VAlUES (?,?,?,?,?,?,?)'
+        try {
+            const sql = 'INSERT INTO products(idProduct, nameProduct, description, price, laborPrice, image, idCategory) VAlUES (?,?,?,?,?,?,?)'
         db.query(sql, [product.idProduct,product.nameProduct,product.description,product.price,product.laborPrice,product.image,product.idCategory], (err, result) =>{
             if(err){
-                console.log({data: `Internal Server Error: ${err}`})
+                throw err
             } else {
                 res.json({data: result})
             }
         })
+        } catch (error) {
+            console.log({data: `Internal Server Error: ${err}`})
+        }
     })
 }
 
@@ -67,14 +94,52 @@ const createProduct = (req,res) =>{
  * @param {*} req 
  * @param {*} res 
  */
-const updateProduct = (req,res) =>{}
+const updateProduct = (req,res) =>{
+    const { idProduct, nameProduct, description, price, laborPrice, image, idCategory } = req.body;
+
+    try {
+        const sql = 'UPDATE products SET nameProduct = ?, description = ?, price = ?, laborPrice = ?, image = ?, idCategory = ? WHERE idProduct = ?';
+        db.query(sql, [nameProduct, description, price, laborPrice, image, idCategory, idProduct], (err, result) => {
+            if (err) {
+                throw err;
+            } else {
+                if (result.affectedRows === 0) {
+                    res.json({ data: `Error: Product with ID ${idProduct} not found` });
+                } else {
+                    res.json({ data: `Product with ID ${idProduct} has been updated successfully` });
+                }
+            }
+        });
+    } catch (error) {
+        console.log({ data: `Internal Server Error: ${error}` });
+    }
+}
 
 /**
  * Eliminar un registro
  * @param {*} req 
  * @param {*} res 
  */
-const deleteProduct = (req,res) =>{}
+const deleteProduct = (req,res) =>{
+    const { idProduct } = req.body
+
+    try {
+        let sql = 'DELETE FROM products WHERE idProduct = ?'
+        db.query(sql,idProduct,(err,result,field) =>{
+            if(!err){
+                if(result.affectedRows === 0){
+                    res.json({data: `Error: Product with ID: ${idProduct} not found`})
+                } else {
+                    res.json({data: result})
+                }
+            } else {
+                throw err
+            }
+        })  
+    } catch (err) {
+        console.log({data: `Internal Server Error: ${err}`})
+    }
+}
 
 
 module.exports = {

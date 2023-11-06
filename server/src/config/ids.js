@@ -2,7 +2,7 @@ const uuid = require('uuid')
 const db = require('../dataBase/db')
 
 //Generate a new Id
-const generateId = (table, callback,) =>{
+const generateId = (table, callback) =>{
     let newId = uuid.v4()
     checkId(table, newId,(exists) =>{
         if(exists){
