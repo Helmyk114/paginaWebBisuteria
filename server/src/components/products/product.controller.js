@@ -1,11 +1,7 @@
 const db = require('../../dataBase/db')
 const ids = require('../../config/ids')
 
-/**
- * Obtener lista de la base de datos
- * @param {*} req 
- * @param {*} res 
- */
+//Obtener lista de la base de datos
 const getAllProduct = (req,res) =>{
     try {
         let sql = 'SELECT * FROM products'
@@ -25,11 +21,7 @@ const getAllProduct = (req,res) =>{
     }
 }
 
-/**
- * Obtener un detalle
- * @param {*} req 
- * @param {*} res 
- */
+ //Obtener un detalle
 const getProduct = (req,res) =>{
     const { idProduct } = req.body
 
@@ -51,11 +43,7 @@ const getProduct = (req,res) =>{
     }
 }
 
-/**
- * Insertar un registro
- * @param {*} req 
- * @param {*} res 
- */
+//Insertar un registro
 const createProduct = (req,res) =>{
     const { nameProduct, description, price, laborPrice, image, idCategory } = req.body
     const table = 'products'
@@ -89,11 +77,7 @@ const createProduct = (req,res) =>{
     })
 }
 
-/**
- * Actualizar un registro
- * @param {*} req 
- * @param {*} res 
- */
+//Actualizar un registro
 const updateProduct = (req,res) =>{
     const { idProduct, nameProduct, description, price, laborPrice, image, idCategory } = req.body;
 
@@ -115,11 +99,7 @@ const updateProduct = (req,res) =>{
     }
 }
 
-/**
- * Eliminar un registro
- * @param {*} req 
- * @param {*} res 
- */
+//Eliminar un registro
 const deleteProduct = (req,res) =>{
     const { idProduct } = req.body
 
@@ -140,7 +120,6 @@ const deleteProduct = (req,res) =>{
         console.log({data: `Internal Server Error: ${err}`})
     }
 }
-
 
 module.exports = {
     getAllProduct,
