@@ -1,6 +1,6 @@
 import React, {useState} from 'react'; 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './styleImgRegistroT.css'; 
+import './imagen.css'; 
 import { Card } from 'react-bootstrap';
 
 const Imagen = ({ onImageChange }) =>{
