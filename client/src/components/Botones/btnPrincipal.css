@@ -1,0 +1,13 @@
+.botones{
+    margin-top: 150px; 
+}
+
+.btn p{
+    color: black;
+    margin-top: 6px;
+}
+
+.btn svg{
+    margin-top: 20px;
+    color:rgb(105, 119, 228, 1) ; 
+}
