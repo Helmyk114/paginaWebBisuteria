@@ -1,11 +1,17 @@
 import React from "react";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar, { Titulo, Notificacion } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer"
 
 function CrearProducto() {
     return (
         <div>
-            <Navbar/>
+            <Navbar>
+                <Titulo 
+                    texto='Crear Producto'
+                />
+                <Notificacion/>
+            </Navbar>
+
             <Footer/>
         </div>
     );
