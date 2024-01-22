@@ -1,0 +1,36 @@
+.content1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    background-color: rgb(238, 238, 238, 1);
+    margin: 10px;
+}
+
+.form{
+    padding: 10px;
+}
+
+.custom-width {
+    width: 50%;
+}
+
+.Boton{
+    display: block;
+    margin: 0 auto;
+    width: 95%;
+    background-color: #6977;
+    color: #fff; 
+    padding: 8px;
+    border: none; 
+    border-radius: 8px; 
+    font-size: 1em;
+    cursor: pointer;
+}
+
+/* Estilo al pasar el mouse sobre el botón */
+.Boton:hover {
+    background-color: #5b66c7;
+}

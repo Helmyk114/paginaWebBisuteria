@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {Form } from 'react-bootstrap'
-import { categoriaAPI } from '../../api/productos'
+import { categoriaAPI } from '../../../api/productos'
 
 const ComboBox = ({ titulo, idCombox, tituloRegistro, valorDefecto,apiEndpoint, control, idOpcion, texto }) => {
 
@@ -29,7 +29,6 @@ const ComboBox = ({ titulo, idCombox, tituloRegistro, valorDefecto,apiEndpoint, 
     <Form.Group  className="mb-3" controlId={idCombox} >
     <Form.Label >{titulo}</Form.Label>
         <Form.Select  
-        id="Select" 
         {...control.register(tituloRegistro)}
         value={opcionSeleccionada} 
         onChange={handleChange} >
