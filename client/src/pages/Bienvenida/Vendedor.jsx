@@ -51,6 +51,7 @@ function BienvenidaVendedor() {
             </svg>
         }
         texto="Productos"
+        ruta="/productos"
     />
 
      <BtnIndividual

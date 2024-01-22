@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Row, Col} from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 import'./../Botones/btnPrincipal.css'
-import { NavLink } from 'react-router-dom'
 
 function Botones({children}) {
   return (
@@ -14,12 +14,14 @@ function Botones({children}) {
   );
 };
 
-function BtnIndividual ({icono, texto}) {
+function BtnIndividual ({ruta, icono, texto}) {
     return(
 
         <Col className='btn'>
+          <Link to={ruta}>
             {icono}
             <p>{texto}</p>
+          </Link>
         </Col>
     );
 };

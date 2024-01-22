@@ -1,16 +1,10 @@
 import './App.css';
-import BienvenidaAdmi from './pages/Bienvenida/Administrador';
-import BienvenidaTrabajador from './pages/Bienvenida/Trabajador';
-import BienvenidaVendedor from './pages/Bienvenida/Vendedor';
-import Login from './pages/login';
-import CrearProducto from './pages/Productos/crearProducto';
+import AppRouter from './AppRouter';
 
 function App() {
   return (
     <div>
-      
-       <CrearProducto/>
-
+       <AppRouter />
     </div>
   );
 }
