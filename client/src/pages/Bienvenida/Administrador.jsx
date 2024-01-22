@@ -48,6 +48,7 @@ function BienvenidaAdmi() {
             </svg>
         }
         texto="Lista de trabajo"
+        ruta="/listaTrabajo"
     />
 
     <BtnIndividual
@@ -103,6 +104,7 @@ function BienvenidaAdmi() {
             </svg>
         }
         texto="Pedidos"
+        ruta="/pedidos"
     />
 
     <BtnIndividual

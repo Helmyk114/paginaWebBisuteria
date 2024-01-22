@@ -19,7 +19,7 @@
    display:block;
    justify-content: left;
    padding-left: 0%;
-   align-items: start;
+   align-items: flex-start;
   }
 
   .txtBienvenido{
@@ -46,7 +46,7 @@
    margin-right: 10px;
    display: flex;
    justify-content: right;
-   align-items: end;
+   align-items: flex-end;
  }
  
  .ImgPerfil{
