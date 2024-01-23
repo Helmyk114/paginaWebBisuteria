@@ -23,7 +23,7 @@ const Imagen = ({ onImageChange }) =>{
 
     return(
       <div className='content'>
-        <Card className='card' style={{width: '40rem'}}>
+        <Card className='card' style={{width: '400rem'}}>
         <div className='img'>
           {imageSrc ? (
             <img 

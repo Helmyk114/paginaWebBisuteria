@@ -28,9 +28,11 @@
     border-radius: 8px; 
     font-size: 1em;
     cursor: pointer;
+    margin-bottom: 180px;
 }
 
 /* Estilo al pasar el mouse sobre el botón */
 .Boton:hover {
     background-color: #5b66c7;
 }
+

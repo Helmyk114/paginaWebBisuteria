@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import { añadiProductoAPI } from "../../api/productos";
 import { Button, Form } from "react-bootstrap";
 import FormularioProducto from "../../components/Formularios/añadirProducto";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function CrearProducto() {
 
@@ -35,7 +37,7 @@ function CrearProducto() {
                 <Notificacion/>
             </Navbar>
 
-            <Form onSubmit={handleSubmit(onSubmit)}>
+            <Form style={{display:'block', justifyContent:'center', padding: '10px'}} onSubmit={handleSubmit(onSubmit)}>
                 <Imagen onImageChange={setSelectedImage} />
                 <FormularioProducto control={control} />
                 <Button className="Boton" type="submit">Añadir producto</Button>
