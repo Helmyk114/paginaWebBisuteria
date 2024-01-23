@@ -28,17 +28,23 @@ const ComboBox = ({ titulo, idCombox, tituloRegistro, valorDefecto,apiEndpoint, 
    
     <Form.Group  className="mb-3" controlId={idCombox} >
     <Form.Label >{titulo}</Form.Label>
-        <Form.Select  
+      <Form.Select  
         {...control.register(tituloRegistro)}
         value={opcionSeleccionada} 
         onChange={handleChange} >
         <option value="" disabled>{valorDefecto}</option>
-        {opciones.map((opcion)=> (
-          <option key={opcion[idOpcion]} value={opcion[idOpcion]}>
-            {opcion[texto]}
+        {opciones && opciones.length > 0 ? (
+          opciones.map((opcion) => (
+            <option key={opcion[idOpcion]} value={opcion[idOpcion]}>
+              {opcion[texto]}
+            </option>
+          ))
+        ) : (
+          <option value="" disabled>
+            No hay opciones disponibles
           </option>
-        ))}
-        </Form.Select> 
+        )}
+      </Form.Select> 
      </Form.Group>
   );
 };
