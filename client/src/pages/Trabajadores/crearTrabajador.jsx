@@ -33,7 +33,7 @@ function CrearTrabajador() {
                 />
                 <Notificacion/>
             </Navbar>
-            <Form style={{display:'block', justifyContent:'center', padding: '10px'}} onSubmit={handleSubmit(onSubmit)}>
+            <Form style={{display:'block', justifyContent:'center', padding: '10px', marginLeft:'0', marginRight:'0'}} onSubmit={handleSubmit(onSubmit)}>
                 <Imagen onImageChange={setSelectedImage} />
                 <FormularioTrabajador control={control} />
                 <Button className="Boton" type="submit">Añadir producto</Button>
