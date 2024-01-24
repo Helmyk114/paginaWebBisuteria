@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {Form } from 'react-bootstrap'
-import { categoriaAPI } from '../../../api/productos'
+import { infoComboBox } from '../../../api/formularios'
 
 const ComboBox = ({ titulo, idCombox, tituloRegistro, valorDefecto,apiEndpoint, control, idOpcion, texto }) => {
 
@@ -10,7 +10,7 @@ const ComboBox = ({ titulo, idCombox, tituloRegistro, valorDefecto,apiEndpoint, 
   useEffect(() => {
     const obtenerOpciones = async () => {
       try {
-        const response = await categoriaAPI(apiEndpoint)
+        const response = await infoComboBox(apiEndpoint)
         setOpciones(response.data);
       } catch (error) {
         console.error('Error al obtener opciones:', error);
