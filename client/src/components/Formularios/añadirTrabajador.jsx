@@ -15,7 +15,7 @@ function FormularioTrabajador({ control }) {
             <Row>
             <Col>
             <CampoTexto 
-                  idCampo="idCardWorker" 
+                  idCampo="nombreTrabajador" 
                   titulo="Nombre" 
                   apiName="workerName" 
                   titulo2=" " 
@@ -25,7 +25,7 @@ function FormularioTrabajador({ control }) {
             </Col>
             <Col>
             <CampoTexto 
-                  idCampo="idCardWorker" 
+                  idCampo="apellidoTrabajador" 
                   titulo="Apellido" 
                   apiName="workerLastName" 
                   titulo2="" 
@@ -38,7 +38,7 @@ function FormularioTrabajador({ control }) {
             <Row>
             <Col>
             <CampoTexto 
-                  idCampo="idCardWorker" 
+                  idCampo="CorreoTrabajador" 
                   titulo="Correo" 
                   apiName="workEmail" 
                   titulo2="" 
@@ -54,12 +54,23 @@ function FormularioTrabajador({ control }) {
             
             <Col>
             <CampoTexto 
-                  idCampo="idCardWorker" 
+                  idCampo="celularTrabajador" 
                   titulo="Celular" 
                   apiName="workerPhone" 
                   titulo2="" 
                   control={control}
-                  ancho='100%' 
+                  ancho='50%' 
+                />
+
+            </Col>
+            <Col>
+            <CampoTexto 
+                  idCampo="ccTrabajador" 
+                  titulo="Cedula" 
+                  apiName="idCardWorker" 
+                  titulo2="" 
+                  control={control}
+                  ancho='50%' 
                 />
 
             </Col>
@@ -70,27 +81,30 @@ function FormularioTrabajador({ control }) {
             <Col>
             
             <CampoTexto 
-                  idCampo="idCardWorker" 
+                  idCampo="usuarioTrabajador" 
                   titulo="Usuario" 
                   apiName="userName" 
                   titulo2=" " 
                   control={control}
-                  ancho='80%' 
-                />
-
-            </Col>
-            <Col>
-            <CampoTexto 
-                  idCampo="idCardWorker" 
-                  titulo="Contraseña" 
-                  apiName="password" 
-                  titulo2="" 
-                  control={control}
-                  ancho='150%' 
+                  ancho='100%' 
                 />
 
             </Col>
             </Row>
+            <Row>
+            <Col>
+            <CampoTexto 
+                  idCampo="contraseñaTrabajador" 
+                  titulo="Contraseña" 
+                  apiName="password" 
+                  titulo2="" 
+                  control={control}
+                  ancho='100%' 
+                />
+
+            </Col>
+            </Row>
+
             <Row>
             <Col>
             <ComboBox 
@@ -110,7 +124,7 @@ function FormularioTrabajador({ control }) {
             <Row>
             <Col>
             <CampoTexto 
-                  idCampo="idCardWorker" 
+                  idCampo="nCuentaTrabajador" 
                   titulo="Numero de cuenta" 
                   apiName="password" 
                   titulo2="" 
