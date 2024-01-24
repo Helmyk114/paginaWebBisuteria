@@ -13,10 +13,7 @@ function FormularioTrabajador({ control }) {
           <Card className='card' style={{width: '40rem'}}>
             
             <Row>
-
-            <Row>
             <Col>
-            
             <CampoTexto 
                   idCampo="idCardWorker" 
                   titulo="Nombre" 
@@ -25,45 +22,117 @@ function FormularioTrabajador({ control }) {
                   control={control}
                   ancho='80%' 
                 />
-
             </Col>
             <Col>
             <CampoTexto 
-                  idCampo="precioComercial" 
+                  idCampo="idCardWorker" 
                   titulo="Apellido" 
-                  apiName="price" 
-                  titulo2="COP" 
+                  apiName="workerLastName" 
+                  titulo2="" 
                   control={control}
                   ancho='150%' 
                 />
 
             </Col>
+            </Row>
+            <Row>
+            <Col>
+            <CampoTexto 
+                  idCampo="idCardWorker" 
+                  titulo="Correo" 
+                  apiName="workEmail" 
+                  titulo2="" 
+                  control={control}
+                  ancho='100%' 
+                />
+
+            </Col>
+
+            </Row>
+            
+            <Row>
+            
+            <Col>
+            <CampoTexto 
+                  idCampo="idCardWorker" 
+                  titulo="Celular" 
+                  apiName="workerPhone" 
+                  titulo2="" 
+                  control={control}
+                  ancho='100%' 
+                />
+
+            </Col>
                 
             </Row>
-              
-                
-                <CampoTexto 
-                  idCampo="precioObra" 
-                  titulo="Precio mano de obra (PO)" 
-                  apiName="laborPrice" 
-                  titulo2="COP" 
+
+            <Row>
+            <Col>
+            
+            <CampoTexto 
+                  idCampo="idCardWorker" 
+                  titulo="Usuario" 
+                  apiName="userName" 
+                  titulo2=" " 
                   control={control}
-                  ancho='40%' 
+                  ancho='80%' 
                 />
-                
-                <ComboBox 
-                  idCombox="categoria"
-                  titulo="Categoria" 
-                  tituloRegistro= "idCategory"
-                  valorDefecto="Selecciona una categoria"
+
+            </Col>
+            <Col>
+            <CampoTexto 
+                  idCampo="idCardWorker" 
+                  titulo="Contraseña" 
+                  apiName="password" 
+                  titulo2="" 
                   control={control}
-                  apiEndpoint="categoria"
-                  idOpcion="idCategory"
+                  ancho='150%' 
+                />
+
+            </Col>
+            </Row>
+            <Row>
+            <Col>
+            <ComboBox 
+                  idCombox=""
+                  titulo="Rol" 
+                  tituloRegistro= "idRole"
+                  valorDefecto="Selecciona un rol"
+                  control={control}
+                  apiEndpoint="rol"
+                  idOpcion="idRole"
                   texto="categorys"
                 />
-                
-            
+
+            </Col>
+
             </Row>
+            <Row>
+            <Col>
+            <CampoTexto 
+                  idCampo="idCardWorker" 
+                  titulo="Numero de cuenta" 
+                  apiName="password" 
+                  titulo2="" 
+                  control={control}
+                  ancho='150%' 
+                />
+
+            </Col>
+            <Col>
+            <ComboBox 
+                  idCombox=""
+                  titulo="Banco" 
+                  tituloRegistro= "idRole"
+                  valorDefecto="Selecciona un banco"
+                  control={control}
+                  apiEndpoint="rol"
+                  idOpcion="idRole"
+                  texto="categorys"
+                />
+            </Col>
+            </Row>
+             
           </Card>
         </FormProvider>
       </div>
