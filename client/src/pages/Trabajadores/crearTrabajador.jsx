@@ -10,15 +10,15 @@ import { Button, Form } from "react-bootstrap";
 function CrearTrabajador() {
     const { handleSubmit, control } = useForm();
     const [selectedImage, setSelectedImage] = useState();
-    const endPoint = 'producto'
+    const endPoint = 'trabajador'
 
     const onSubmit = async (data) => {
-        const producto = {
+        const trabajador = {
         ...data,
-        image: selectedImage,
+        photo: selectedImage,
         };
         try {
-            await añadiProductoAPI(producto, endPoint)
+            await añadiProductoAPI(trabajador, endPoint)
             // Swal.fire('Producto creado', 'success')
         } catch (error) {
             // Swal.fire('Error', 'No se pudo crear el producto', 'error');
@@ -38,9 +38,6 @@ function CrearTrabajador() {
                 <FormularioTrabajador control={control} />
                 <Button className="Boton" type="submit">Añadir Trabajador</Button>
             </Form>
-            
-            
-            
             <Footer/>
         </div>
     );

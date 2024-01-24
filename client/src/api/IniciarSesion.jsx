@@ -4,7 +4,7 @@ const raizUrl = process.env.REACT_APP_API_URL;
 
 const inicioSesion = async (userName, password, endPoint) => {
 
-  const url =  `${raizUrl}/${endPoint}`
+  const url = `${raizUrl}/${endPoint}`
 
   try {
     const response = await axios.post(url, {
