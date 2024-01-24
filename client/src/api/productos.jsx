@@ -19,19 +19,6 @@ async function añadiProductoAPI (producto, endPoint) {
   });
 };
 
-async function categoriaAPI (endPoint) {
-
-  const url =  `${raizUrl}/${endPoint}`
-    
-  try {
-    const response = await axios.get(url);
-    return response.data;
-  } catch (error) {
-    console.error("Error en la API categorias:", error);
-    return [];
-  }
-};
-
 async function listarProductos(endPoint) {
   
   const url = `${raizUrl}/${endPoint}`
@@ -48,6 +35,5 @@ async function listarProductos(endPoint) {
 
 export { 
   añadiProductoAPI, 
-  categoriaAPI, 
   listarProductos 
 }
