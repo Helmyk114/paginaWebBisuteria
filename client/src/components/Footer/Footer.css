@@ -3,14 +3,25 @@
     padding: 0;
     display: inline;
 }
-body, html, #root {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
+
 
 .footer {
     width: 100%;
-    position: fixed;
-    bottom: 0; 
+    position: relative;
+
+    clear: both;
+}
+
+.footer-container{
+    margin-bottom: 80px;
+}
+@media (max-width: 576px) {
+    .footer {
+    
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+   
+
 }

@@ -5,6 +5,7 @@ body {
     background-repeat: no-repeat;
     margin: 0;
     font-family: 'Arial', sans-serif;
+    
 }
   
 .form-container {
@@ -15,7 +16,9 @@ body {
     max-width: 400px;
     margin: 30px auto;
     position: relative;
+   
 }
+
   
 .titulo {
     color: #6977E4;
@@ -36,6 +39,19 @@ body {
   
   /* Estilos para pantallas pequeñas (576px o menos) */
 @media (max-width: 576px) {
+    .form-container{
+        margin-top: 100px;
+        width: 90%;
+        position: relative;
+        
+    
+    }
+    input{
+        width: 100%;
+    }
+    .login-button{
+        width: 100%;
+    }
     .titulo {
       font-size: 1.2em;
     }
@@ -46,8 +62,8 @@ body {
 }
 
 form {
-    /* display: flex;
-    flex-direction: column; */
+    display: flex;
+    flex-direction: column;
     max-width: 300px; 
     margin: auto; 
 }
