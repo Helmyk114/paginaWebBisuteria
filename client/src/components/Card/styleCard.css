@@ -1,0 +1,97 @@
+/* Estilos comunes para todos los tamaños de pantalla */
+.gray-container {
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 20px;
+}
+
+.round-image-container {
+  margin-right: 20px;
+}
+
+.content-card {
+  background-color: #f0f0f0;
+  flex-grow: 1;
+  max-width: calc(100% - 120px);
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos para dispositivos grandes (por ejemplo, computadoras de escritorio) */
+@media (min-width: 1200px) {
+  .round-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 8px;
+  }
+
+  h2.title {
+    font-size: 24px;
+  }
+
+  p.subtitulo1,
+  p.subtitulo2, label {
+    font-size: 24px;
+  }
+}
+
+/* Estilos para dispositivos medianos (por ejemplo, tabletas) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .round-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+  }
+
+  h2.title {
+    font-size: 20px;
+  }
+
+  p.subtitulo1,
+  p.subtitulo2, label{
+    font-size: 20px;
+  }
+}
+
+/* Estilos para dispositivos pequeños (por ejemplo, teléfonos móviles) */
+@media (max-width: 767px) {
+  .round-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+
+  .icon {
+    width: 18px;
+    height: 18px;
+    margin-left: 8px;
+    margin-top: 20px;
+  }
+
+  h2.title {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+
+  p.subtitulo1,
+  p.subtitulo2, label {
+    font-size: 14px;
+  }
+}

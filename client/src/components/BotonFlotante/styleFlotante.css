@@ -1,0 +1,34 @@
+.fabContainer {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    background-color: #6977E4;
+    border-radius: 50%;
+    width: 100px; /* Ancho relativo al ancho de la ventana */
+    height: 100px; /* Alto relativo al ancho de la ventana */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease; /* Agregada una transición suave en el cambio de color de fondo */
+  }
+  
+  .icon {
+    width: 24px; /* Tamaño del icono en píxeles o ajusta según tus necesidades */
+    height: 24px; /* Tamaño del icono en píxeles o ajusta según tus necesidades */
+  }
+  
+  @media (max-width: 767px) {
+    /* Estilos específicos para dispositivos móviles */
+    .fabContainer {
+      width: 18vw; /* Ajusta el ancho para dispositivos móviles */
+      height: 18vw; /* Ajusta el alto para dispositivos móviles */
+    }
+  
+    .icon {
+      width: 20px; /* Ajusta el tamaño del icono para dispositivos móviles */
+      height: 20px; /* Ajusta el tamaño del icono para dispositivos móviles */
+    }
+  }
+  
