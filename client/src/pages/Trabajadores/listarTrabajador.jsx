@@ -3,7 +3,9 @@ import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/
 import Footer from "../../components/Footer/Footer";
 import Flotante from '../../components/Botones/BotonFlotante/Flotante';
 import CustomCard from '../../components//Card/card'; 
-import { CardContent, Editar, Eliminar, Nombre, Subtitulo1, Subtitulo2} from '../../components/Card/card';
+import { CardContent, Editar, Eliminar, Nombre, Subtitulo1,
+  Subtitulo2} from '../../components/Card/card';
+import img from "../../img/trabajo-en-equipo.png"
 
 function ListarTrabajador() {
     return (
@@ -30,8 +32,7 @@ function ListarTrabajador() {
         <Titulo texto="Trabajadores" />
         <Notificacion />
       </Navbar>
-      
-      <CustomCard>
+      <CustomCard img={img}>
         <CardContent />
         <Nombre nombre="julia jimenez" />
         <Editar />
@@ -39,7 +40,7 @@ function ListarTrabajador() {
       </CustomCard>
 
 
-      <CustomCard>
+      <CustomCard img={img}>
         <CardContent />
         <Nombre nombre="julia jimenez" />
         <Editar />
@@ -47,7 +48,7 @@ function ListarTrabajador() {
       </CustomCard>
 
 
-      <CustomCard>
+      <CustomCard img={img}>
         <CardContent />
         <Nombre nombre="julia jimenez" />
         <Editar />
@@ -55,14 +56,14 @@ function ListarTrabajador() {
       </CustomCard>
 
 
-      <CustomCard>
+      <CustomCard img={img}>
         <CardContent />
         <Nombre nombre="julia jimenez" />
         <Editar />
         <Eliminar />
       </CustomCard>
 
-      <CustomCard>
+      <CustomCard img={img}>
         <CardContent />
         <Nombre nombre="julia jimenez" />
         <Editar />
@@ -70,7 +71,7 @@ function ListarTrabajador() {
       </CustomCard>
     
 
-      <CustomCard>
+      <CustomCard img={img}>
         <CardContent />
         <Nombre nombre="julia jimenez" />
         <Editar />

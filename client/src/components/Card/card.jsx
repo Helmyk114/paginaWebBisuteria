@@ -1,16 +1,15 @@
 import React from 'react';
 import BootstrapCard from 'react-bootstrap/Card';
 import { Container, Row, Col} from 'react-bootstrap'
-import './styleCard.css';
-import trabajador from '../../img/trabajo-en-equipo.png';
+import './styleCard.css'; // Asegúrate de importar los estilos necesarios
 
 // Componente principal
-function CustomCard({ children , nombre, precio1, precio2}) {
+function CustomCard({ children , img}) {
   return (
     <div>
       <div className="gray-container">
         <div className="round-image-container">
-          <img className="round-image" src={trabajador} alt="Round Image" />
+          <img className="round-image" src={img} alt="Round Image" />
         </div>
         {children}
       </div>
