@@ -19,7 +19,7 @@ async function añadiProductoAPI (producto, endPoint) {
   });
 };
 
-async function listarProductos(endPoint) {
+async function listarInformacion(endPoint) {
   
   const url = `${raizUrl}/${endPoint}`
 
@@ -27,7 +27,7 @@ async function listarProductos(endPoint) {
     const response = await axios.get(url);
     return response.data;
   } catch (error) {
-    console.error("Error en al API Productos:", error);
+    console.error("Error en al API listar:", error);
     return [];
   }
 };
@@ -35,5 +35,5 @@ async function listarProductos(endPoint) {
 
 export { 
   añadiProductoAPI, 
-  listarProductos 
+  listarInformacion
 }

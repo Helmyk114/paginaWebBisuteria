@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import Navbar, { Titulo, Notificacion } from "../../components/Navbar/Navbar";
+import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer"
 import FormularioTrabajador from "../../components/Formularios/añadirTrabajador";
 import Imagen from "../../components/Formularios/Controles/imagen";
@@ -28,6 +28,7 @@ function CrearTrabajador() {
     return (
         <div>
             <Navbar>
+                <BotonRetroceder/>
                 <Titulo 
                     texto='Añadir trabajador'
                 />

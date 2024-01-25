@@ -42,7 +42,7 @@ const AppRouter = () =>{
                 {/* Pantallas de Trabajadores */}
                 <Route path="/trabajadores" element={<ListarTrabajador/>} />
                 <Route path="/crear/trabajador" element={<CrearTrabajador/>} />
-                <Route path="/editar/trabajador" element={<ActualizarTrabajador/>} />
+                <Route path="/editar/trabajador/:idCardWorker" element={<ActualizarTrabajador/>} />
 
                 {/* Pantallas de Pedidos */}
                 <Route path="/pedidos" element={<ListarPedido/>} />

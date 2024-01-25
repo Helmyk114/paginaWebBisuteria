@@ -1,11 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './styleFlotante.css'
 
 // Componente para el icono de Agregar trabajador
-function Flotante({ addIcon }) {
+function Flotante({ addIcon, ruta }) {
   return (
     <div className='fabContainer'>
-      {addIcon}
+      <Link to={ruta}>
+        {addIcon}
+      </Link>
     </div>
     
   );
