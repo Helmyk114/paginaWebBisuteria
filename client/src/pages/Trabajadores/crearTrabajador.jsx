@@ -43,4 +43,4 @@ function CrearTrabajador() {
     );
 };
 
-export default CrearTrabajador
+export default CrearTrabajador;
