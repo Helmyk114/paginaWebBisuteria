@@ -9,7 +9,7 @@ function InicioSesion() {
   
   const onSubmit = async (data) => {
     const endPoint = 'login';
-    const { success, token, error: errorMsg } = await iniciarSesion(data.correo, data.password, endPoint);
+    const { success, token, error: errorMsg } = await iniciarSesion(data.userName, data.password, endPoint);
 
     if (success && token) {
       console.log('Token recibido:', token);
