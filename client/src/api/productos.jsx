@@ -19,7 +19,7 @@ async function añadiProductoAPI (producto, endPoint) {
   });
 };
 
-async function listarInformacion(endPoint) {
+async function listarInformacionApi (endPoint) {
   
   const url = `${raizUrl}/${endPoint}`
 
@@ -35,5 +35,5 @@ async function listarInformacion(endPoint) {
 
 export { 
   añadiProductoAPI, 
-  listarInformacion
+  listarInformacionApi
 }
