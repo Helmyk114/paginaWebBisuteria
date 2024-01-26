@@ -1,14 +1,12 @@
 .wave{
-    margin-bottom: 0;
-    padding: 0;
-    display: flex;
+    
 }
 
 
 .footer {
     width: 100%;
-    position: flex;
-
+    position: fixed;
+    bottom: 0;
     clear: both;
 }
 
@@ -18,7 +16,7 @@
 @media (max-width: 576px) {
     .footer {
     
-        position: flex;
+        position: fixed;
         bottom: 0;
         left: 0;
     }

@@ -26,7 +26,7 @@ function CrearTrabajador() {
     };
 
     return (
-        <div>
+        <div >
             <Navbar>
                 <BotonRetroceder/>
                 <Titulo 
@@ -34,10 +34,10 @@ function CrearTrabajador() {
                 />
                 <Notificacion/>
             </Navbar>
-            <Form style={{display:'block', justifyContent:'center', padding: '10px', marginLeft:'0', marginRight:'0'}} onSubmit={handleSubmit(onSubmit)}>
+            <Form style={{margin:'0 auto', width:'100%'}}onSubmit={handleSubmit(onSubmit)}>
                 <Imagen onImageChange={setSelectedImage} />
                 <FormularioTrabajador control={control} />
-                <Button className="Boton" type="submit">Añadir Trabajador</Button>
+                <Button style={{marginBottom:'230px', backgroundColor:'#6977E4'}} type="submit">Añadir Trabajador</Button>
             </Form>
             <Footer/>
         </div>

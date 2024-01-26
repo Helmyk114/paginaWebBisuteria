@@ -2,19 +2,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .card{
     background-color: rgb(238, 238, 238, 1);
     margin: 10px;
+    margin-bottom: 20px;
+    
 }
 
-.form{
-    padding: 10px;
-}
 
 .custom-width {
-    width: 50%;
+    width: 100%;
 }
 
 .Boton{
@@ -29,6 +29,9 @@
     font-size: 1em;
     cursor: pointer;
     margin-bottom: 180px;
+}
+.campoCrearTrabajador{
+    padding: 18px;
 }
 
 /* Estilo al pasar el mouse sobre el botón */

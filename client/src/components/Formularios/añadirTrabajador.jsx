@@ -20,7 +20,8 @@ function FormularioTrabajador({ control }) {
                     apiName="workerName" 
                     titulo2=" " 
                     control={control}
-                    ancho='80%' 
+                    ancho='100%' 
+                    
               />
               </Col>
               <Col>
@@ -30,7 +31,7 @@ function FormularioTrabajador({ control }) {
                     apiName="workerLastName" 
                     titulo2="" 
                     control={control}
-                    ancho='150%' 
+                    ancho='100%' 
               />
               </Col>
             </Row>
@@ -56,7 +57,7 @@ function FormularioTrabajador({ control }) {
                     apiName="workerPhone" 
                     titulo2="" 
                     control={control}
-                    ancho='50%' 
+                    ancho='100%' 
               />
               </Col>
 
@@ -67,7 +68,7 @@ function FormularioTrabajador({ control }) {
                     apiName="idCardWorker" 
                     titulo2="" 
                     control={control}
-                    ancho='50%' 
+                    ancho='100%' 
               />
               </Col>    
             </Row>
@@ -121,7 +122,7 @@ function FormularioTrabajador({ control }) {
                     apiName="password" 
                     titulo2="" 
                     control={control}
-                    ancho='150%' 
+                    ancho='100%' 
               />
               </Col>
 

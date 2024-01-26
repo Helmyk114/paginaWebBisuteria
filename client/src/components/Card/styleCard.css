@@ -41,7 +41,7 @@
   }
 
   p.subtitulo1,
-  p.subtitulo2, label {
+  p.subtitulo2 {
     font-size: 24px;
   }
 }
@@ -65,7 +65,7 @@
   }
 
   p.subtitulo1,
-  p.subtitulo2, label{
+  p.subtitulo2{
     font-size: 20px;
   }
 }
