@@ -1,15 +1,14 @@
 import { useForm } from 'react-hook-form';
 import React, { useState } from 'react';
 import iniciarSesion from '../../api/IniciarSesion';
-import './InicioSesion.css'
+import './InicioSesion.css';
 
 function InicioSesion() {
-
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [error, setError] = useState('');
   
   const onSubmit = async (data) => {
-    const endPoint = 'login'
+    const endPoint = 'login';
     const { success, token, error: errorMsg } = await iniciarSesion(data.correo, data.password, endPoint);
 
     if (success && token) {
@@ -37,16 +36,16 @@ function InicioSesion() {
 
         <label htmlFor="password">Contraseña</label>
         <input 
-            type="password" 
-            id="password" 
-            name="password" 
-            {...register("password", { required: { value: true, message: "Contraseña es requerida" } })} />
-            {errors.password && <span>{errors.password.message}</span>}
+          type="password" 
+          id="password" 
+          name="password" 
+          {...register("password", { required: { value: true, message: "Contraseña es requerida" } })} />
+        {errors.password && <span>{errors.password.message}</span>}
 
         <button className='login-button' type="submit">Iniciar Sesión</button>
       </form>
     </div>
   );
-};
+}
 
 export default InicioSesion;

@@ -23,4 +23,4 @@ const inicioSesion = async (userName, password, endPoint) => {
   }
 };
 
-export default inicioSesion
+export default inicioSesion;
