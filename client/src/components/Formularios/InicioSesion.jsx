@@ -1,15 +1,15 @@
 import { useForm } from 'react-hook-form';
 import React, { useState } from 'react';
 import iniciarSesion from '../../api/IniciarSesion';
-import './InicioSesion.css'
+import './InicioSesion.css';
 
 function InicioSesion() {
-
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [error, setError] = useState('');
-
+  
   const onSubmit = async (data) => {
-    const { success, token, error: errorMsg } = await iniciarSesion(data.correo, data.password);
+    const endPoint = 'login';
+    const { success, token, error: errorMsg } = await iniciarSesion(data.userName, data.password, endPoint);
 
     if (success && token) {
       console.log('Token recibido:', token);
@@ -26,26 +26,26 @@ function InicioSesion() {
       <div className="subtitulo-login">Inicia sesión con tu nombre de usuario y contraseña asignada</div>
       {error && <span>{error}</span>}
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="correo">Usuario</label>
+        <label htmlFor="userName">Usuario</label>
         <input 
             type="text" 
-            id="correo" 
-            name="correo" 
-            {...register("correo", { required: { value: true, message: "Email es requerido" } })} />
+            id="userName" 
+            name="userName" 
+            {...register("userName", { required: { value: true, message: "Email es requerido" } })} />
             {errors.correo && <span>{errors.correo.message}</span>}
 
         <label htmlFor="password">Contraseña</label>
         <input 
-            type="password" 
-            id="password" 
-            name="password" 
-            {...register("password", { required: { value: true, message: "Contraseña es requerida" } })} />
-            {errors.password && <span>{errors.password.message}</span>}
+          type="password" 
+          id="password" 
+          name="password" 
+          {...register("password", { required: { value: true, message: "Contraseña es requerida" } })} />
+        {errors.password && <span>{errors.password.message}</span>}
 
         <button className='login-button' type="submit">Iniciar Sesión</button>
       </form>
     </div>
   );
-};
+}
 
 export default InicioSesion;

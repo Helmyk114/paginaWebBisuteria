@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import Flotante from '../../components/Botones/BotonFlotante/Flotante';
 import CustomCard from '../../components//Card/card'; 
-import { CardContent, Editar, Eliminar, Nombre, Subtitulo1, Subtitulo2} from '../../components/Card/card';
-import { useState } from "react";
-import { listarInformacion } from "../../api/productos";
+import { CardContent, Editar, Eliminar, Nombre } from '../../components/Card/card';
+import { listarInformacionApi } from "../../api/productos";
 
 function ListarTrabajador() {
 
@@ -18,7 +17,7 @@ function ListarTrabajador() {
     
     const data = async() =>{
       try {
-        const informacionTrabajador = await listarInformacion(endPoint);
+        const informacionTrabajador = await listarInformacionApi(endPoint);
         setInformacion(informacionTrabajador.data);
         setCargando(false);
       } catch (error) {
@@ -59,18 +58,22 @@ function ListarTrabajador() {
         <p>Cargando productos...</p>
       ) : (
         <div>
-          {informacion.map((datos) => (
-            <CustomCard 
-              key={datos.idCardWorker} 
-              img={`${urlImage}/${datos.photo}`}>
-              <CardContent />
-              <Nombre nombre={datos.workerName} />
-              <Editar
-                ruta={`/editar/trabajador/${datos.idCardWorker}`}
-              />
-              <Eliminar />
-            </CustomCard>
-            ))}
+          {informacion && informacion.length > 0 ?(
+            informacion.map((datos) => (
+              <CustomCard 
+                key={datos.idCardWorker} 
+                img={`${urlImage}/${datos.photo}`}>
+                <CardContent />
+                <Nombre nombre={datos.workerName} />
+                <Editar
+                  ruta={`/editar/trabajador/${datos.idCardWorker}`}
+                />
+                <Eliminar />
+              </CustomCard>
+          ))
+          ) : (
+            <p>No hay trabajadores disponibles.</p>
+          )}
         </div>
       )}
       <Footer/>
