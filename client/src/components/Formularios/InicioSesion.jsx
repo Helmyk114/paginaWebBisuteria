@@ -8,7 +8,7 @@ function InicioSesion() {
   const [error, setError] = useState('');
   
   const onSubmit = async (data) => {
-    const endPoint = 'login';
+    const endPoint = 'login'
     const { success, token, error: errorMsg } = await iniciarSesion(data.userName, data.password, endPoint);
 
     if (success && token) {
@@ -22,8 +22,8 @@ function InicioSesion() {
 
   return (
     <div className="form-container">
-      <div className="titulo-login">TEJIENDO UN MUNDO MULTICOLOR</div>
-      <div className="subtitulo-login">Inicia sesión con tu nombre de usuario y contraseña asignada</div>
+      <div className="titulo">TEJIENDO UN MUNDO MULTICOLOR</div>
+      <div className="subtitulo">Inicia sesión con tu nombre de usuario y contraseña asignada</div>
       {error && <span>{error}</span>}
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="userName">Usuario</label>
@@ -31,8 +31,8 @@ function InicioSesion() {
             type="text" 
             id="userName" 
             name="userName" 
-            {...register("userName", { required: { value: true, message: "Email es requerido" } })} />
-            {errors.correo && <span>{errors.correo.message}</span>}
+            {...register("userName", { required: { value: true, message: "userName es requerido" } })} />
+            {errors.userName && <span>{errors.userName.message}</span>}
 
         <label htmlFor="password">Contraseña</label>
         <input 

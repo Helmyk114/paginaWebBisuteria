@@ -119,7 +119,7 @@ function FormularioTrabajador({ control }) {
               <CampoTexto 
                     idCampo="cuentaTrabajador" 
                     titulo="Numero de cuenta" 
-                    apiName="password" 
+                    apiName="numberBank" 
                     titulo2="" 
                     control={control}
                     ancho='100%' 
