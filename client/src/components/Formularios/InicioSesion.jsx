@@ -22,8 +22,8 @@ function InicioSesion() {
 
   return (
     <div className="form-container">
-      <div className="titulo">TEJIENDO UN MUNDO MULTICOLOR</div>
-      <div className="subtitulo">Inicia sesión con tu nombre de usuario y contraseña asignada</div>
+      <div className="titulo-login">TEJIENDO UN MUNDO MULTICOLOR</div>
+      <div className="subtitulo-login">Inicia sesión con tu nombre de usuario y contraseña asignada</div>
       {error && <span>{error}</span>}
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="userName">Usuario</label>
