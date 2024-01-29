@@ -4,7 +4,7 @@ import Footer from "../../components/Footer/Footer";
 import Flotante from '../../components/Botones/BotonFlotante/Flotante';
 import CustomCard from '../../components//Card/card'; 
 import { CardContent, Editar, Eliminar, Nombre } from '../../components/Card/card';
-import { listarInformacionApi } from "../../api/productos";
+import { eliminarInformacion, listarInformacionApi } from "../../api/productos";
 
 function ListarTrabajador() {
 
@@ -27,6 +27,17 @@ function ListarTrabajador() {
     };
     data();
   }, []);
+
+  const eliminarTrabajador = async (idCardWorker) => {
+    try {
+      await eliminarInformacion(endPoint, idCardWorker)
+      const nuevaInformacion = informacion.filter((datos) => datos.idCardWorker !== idCardWorker);
+      setInformacion(nuevaInformacion)
+      console.log('se elimino el registro')
+    } catch (error) {
+      console.error('error al eliminar: ',error)
+    }
+  };
   
   return (
     <>
@@ -68,7 +79,7 @@ function ListarTrabajador() {
                 <Editar
                   ruta={`/editar/trabajador/${datos.idCardWorker}`}
                 />
-                <Eliminar />
+                <Eliminar eliminar={() => eliminarTrabajador(datos.idCardWorker)}/>
               </CustomCard>
           ))
           ) : (

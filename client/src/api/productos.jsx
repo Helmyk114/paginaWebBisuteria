@@ -32,8 +32,20 @@ async function listarInformacionApi (endPoint) {
   }
 };
 
+async function eliminarInformacion (endPoint, idCardWorker) {
+  const url = `${raizUrl}/${endPoint}`
+
+  try {
+    const response = await axios.delete(`${url}/${idCardWorker}`)
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
 
 export { 
   añadiProductoAPI, 
-  listarInformacionApi
-}
+  listarInformacionApi,
+  eliminarInformacion
+};

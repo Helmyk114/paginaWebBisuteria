@@ -66,9 +66,9 @@ function Completado() {
 };
 
 // Componente para el icono de eliminar
-function Eliminar() {
+function Eliminar({ eliminar }) {
   return(
-    <div className='icon'>
+    <div className='icon' onClick={eliminar}>
       <svg 
         xmlns="http://www.w3.org/2000/svg" 
         fill="currentColor" 
