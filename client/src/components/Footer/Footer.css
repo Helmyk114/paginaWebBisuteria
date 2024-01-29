@@ -1,8 +1,10 @@
 
 
 .footer {
-    width: 100%;
     bottom: 0;
+    display: none; 
+    width: 100%;
+
 }
 
 .footer-container{
@@ -10,10 +12,16 @@
 }
 @media (max-width: 576px) {
     .footer {
-        position: absolute;
+        
         bottom: 0;
         left: 0;
     }
    
 
+}
+
+@media (max-height: 100vh) {
+    .footer {
+        display: block;
+    }
 }
