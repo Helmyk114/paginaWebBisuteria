@@ -17,6 +17,7 @@ function CrearTrabajador() {
         ...data,
         photo: selectedImage,
         };
+        console.log('objeto creado: ',trabajador)
         try {
             await añadiProductoAPI(trabajador, endPoint)
             // Swal.fire('Producto creado', 'success')
