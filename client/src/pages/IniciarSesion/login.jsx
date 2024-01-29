@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
+import { useForm } from 'react-hook-form';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
-import { useForm } from 'react-hook-form';
 import iniciarSesion from '../../api/IniciarSesion';
 import Cookies from 'js-cookie'; 
 import './login.css';
-import { jwtDecode } from 'jwt-decode';
 
 function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm();
