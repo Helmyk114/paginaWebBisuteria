@@ -1,5 +1,5 @@
 .body-login {
-    /* background-image: url('../../img/fondo.png');  */
+     background-image: url('../../img/fondo.png');  
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;
@@ -26,8 +26,6 @@
     border-radius: 16px;
     box-sizing: border-box;
 }
-  
-
   
 .main-div {
     height: 50px;
@@ -120,6 +118,7 @@ span{
 @media (min-width: 1024px) {
     .form-container{
         margin-top: 50px;
+        margin-bottom: 220px;
         width: 40%;
         position: relative;
         height: 400px;

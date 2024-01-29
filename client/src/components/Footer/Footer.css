@@ -1,13 +1,8 @@
-.wave{
-    
-}
 
 
 .footer {
     width: 100%;
-    position: fixed;
     bottom: 0;
-    clear: both;
 }
 
 .footer-container{
@@ -15,8 +10,7 @@
 }
 @media (max-width: 576px) {
     .footer {
-    
-        position: fixed;
+        position: absolute;
         bottom: 0;
         left: 0;
     }
