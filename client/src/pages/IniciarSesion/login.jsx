@@ -53,15 +53,16 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className='body-login'>
       <Navbar />
       <div className="form-container">
         <div className="titulo">TEJIENDO UN MUNDO MULTICOLOR</div>
         <div className="subtitulo">Inicia sesión con tu nombre de usuario y contraseña asignada</div>
         {error && <span>{error}</span>}
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="userName">Usuario</label>
+        <form className='form-login' onSubmit={handleSubmit(onSubmit)}>
+          <label className='label-login' htmlFor="userName">Usuario</label>
           <input
+           className='input-login'
             type="text"
             id="userName"
             name="userName"
@@ -69,8 +70,9 @@ function Login() {
           />
           {errors.userName && <span>{errors.userName.message}</span>}
 
-          <label htmlFor="password">Contraseña</label>
+          <label className='label-login' htmlFor="password">Contraseña</label>
           <input
+            className='input-login'
             type="password"
             id="password"
             name="password"
