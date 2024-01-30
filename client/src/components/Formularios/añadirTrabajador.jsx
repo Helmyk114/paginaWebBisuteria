@@ -10,7 +10,7 @@ function FormularioTrabajador({ control }) {
     return (
         <div className='content1'>
         <FormProvider {...useForm({ control })}>
-          <Card className='card' style={{width: '40rem'}}>
+          <Card className='card'>
             
             <Row>
               <Col>

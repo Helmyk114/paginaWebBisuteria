@@ -38,7 +38,7 @@ function CrearTrabajador() {
             <Form style={{margin:'0 auto', width:'100%'}}onSubmit={handleSubmit(onSubmit)}>
                 <Imagen onImageChange={setSelectedImage} />
                 <FormularioTrabajador control={control} />
-                <Button style={{marginBottom:'230px', backgroundColor:'#6977E4'}} type="submit">Añadir Trabajador</Button>
+                <Button style={{marginBottom:'40px', backgroundColor:'#6977E4', display:'flex', justifyContent:'center', margin:'0 auto', width:'47%'}} type="submit">Añadir Trabajador</Button>
             </Form>
             <Footer/>
         </div>
