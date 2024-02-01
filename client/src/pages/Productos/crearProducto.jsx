@@ -5,7 +5,7 @@ import Imagen from "../../components/Formularios/Controles/imagen"
 import { useForm } from "react-hook-form";
 import { añadirInformacionAPI } from "../../api/productos";
 import { Button, Form } from "react-bootstrap";
-import FormularioProducto from "../../components/Formularios/añadirProducto";
+import FormularioProducto from "../../components/Formularios/Producto/añadirProducto";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Swal from 'sweetalert2'
 

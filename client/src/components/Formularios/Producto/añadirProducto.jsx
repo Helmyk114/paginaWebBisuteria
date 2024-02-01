@@ -1,9 +1,9 @@
 import React from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './añadirProducto.css';
-import CampoTexto from './Controles/campoTexto';
-import ComboBox from './Controles/comboBox';
+import '../Producto/añadirProducto.css';
+import CampoTexto from '../Controles/campoTexto';
+import ComboBox from '../Controles/comboBox';
 
 function FormularioProducto({ control }) {
     

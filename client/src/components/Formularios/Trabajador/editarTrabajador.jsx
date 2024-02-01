@@ -1,11 +1,11 @@
 import React from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './añadirTrabajador.css';
-import CampoTexto from './Controles/campoTexto';
-import ComboBox from './Controles/comboBox';
+import '../Producto/añadirProducto.css';
+import CampoTexto from '../Controles/campoTexto';
+import ComboBox from '../Controles/comboBox';
 
-function FormularioTrabajador({ control }) {
+function EditarTrabajador({ control }) {
     
     return (
         <div className='content1'>
@@ -47,9 +47,7 @@ function FormularioTrabajador({ control }) {
                     ancho='100%' 
               />
               </Col>
-            </Row>
-            
-            <Row>
+        
               <Col>
               <CampoTexto 
                     idCampo="celularTrabajador" 
@@ -61,16 +59,6 @@ function FormularioTrabajador({ control }) {
               />
               </Col>
 
-              <Col>
-              <CampoTexto 
-                    idCampo="ccTrabajador" 
-                    titulo="Cedula" 
-                    apiName="idCardWorker" 
-                    titulo2="" 
-                    control={control}
-                    ancho='100%' 
-              />
-              </Col>    
             </Row>
 
             <Row>
@@ -84,9 +72,6 @@ function FormularioTrabajador({ control }) {
                     ancho='100%' 
               />
               </Col>
-            </Row>
-
-            <Row>
               <Col>
               <CampoTexto 
                     idCampo="contraseñaTrabajador" 
@@ -95,21 +80,6 @@ function FormularioTrabajador({ control }) {
                     titulo2="" 
                     control={control}
                     ancho='100%' 
-              />
-              </Col>
-            </Row>
-
-            <Row>
-              <Col>
-              <ComboBox 
-                    idCombox="rol"
-                    titulo="Rol" 
-                    tituloRegistro= "idRole"
-                    valorDefecto="Selecciona un rol"
-                    control={control}
-                    apiEndpoint="rol"
-                    idOpcion="idRole"
-                    texto="roles"
               />
               </Col>
             </Row>
@@ -145,4 +115,4 @@ function FormularioTrabajador({ control }) {
     );
 };
 
-export default FormularioTrabajador;
+export default EditarTrabajador;

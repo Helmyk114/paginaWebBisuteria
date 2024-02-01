@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer"
-import FormularioTrabajador from "../../components/Formularios/añadirTrabajador";
+import FormularioTrabajador from "../../components/Formularios/Trabajador/añadirTrabajador";
 import Imagen from "../../components/Formularios/Controles/imagen";
 import { useForm } from "react-hook-form";
 import { añadirInformacionAPI } from "../../api/productos";
