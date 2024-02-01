@@ -5,7 +5,7 @@ import Footer from '../../components/Footer/Footer'
 
 function BienvenidaAdmi() {
   return (
-    <div>
+    <div style={{minHeight:'100%'}}>
     <Navegar>
     <ImagenPerfil/>
 

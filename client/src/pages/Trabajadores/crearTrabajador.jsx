@@ -5,7 +5,8 @@ import FormularioTrabajador from "../../components/Formularios/añadirTrabajador
 import Imagen from "../../components/Formularios/Controles/imagen";
 import { useForm } from "react-hook-form";
 import { añadiProductoAPI } from "../../api/productos";
-import { Button, Form } from "react-bootstrap";
+import {  Form } from "react-bootstrap";
+import BtnFormularios from "../../components/Botones/BotonFormularios/btnFormularios";
 
 function CrearTrabajador() {
     const { handleSubmit, control } = useForm();
@@ -38,8 +39,9 @@ function CrearTrabajador() {
             <Form style={{margin:'0 auto', width:'100%'}}onSubmit={handleSubmit(onSubmit)}>
                 <Imagen onImageChange={setSelectedImage} />
                 <FormularioTrabajador control={control} />
-                <Button style={{marginBottom:'40px', backgroundColor:'#6977E4', display:'flex', justifyContent:'center', margin:'0 auto', width:'47%'}} type="submit">Añadir Trabajador</Button>
+            {/* <BtnFormularios type={'submit'} btnTitulo={'registrar trabjador'}/> */}
             </Form>
+                
             <Footer/>
         </div>
     );
