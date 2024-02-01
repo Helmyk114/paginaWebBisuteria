@@ -1,4 +1,4 @@
-import React, { FormProvider, useForm } from 'react-hook-form'
+import React from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './añadirProducto.css';
@@ -9,7 +9,6 @@ function FormularioProducto({ control }) {
     
     return (
         <div className='content1'>
-        <FormProvider {...useForm({ control })}>
           <Card className='card' style={{width: '40rem'}}>
             <Row>
               <Col>
@@ -52,7 +51,6 @@ function FormularioProducto({ control }) {
               </Col>
             </Row>
           </Card>
-        </FormProvider>
       </div>
     );
 };

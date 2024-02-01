@@ -3,11 +3,11 @@ import Navbar, { Titulo, Notificacion } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer"
 import Imagen from "../../components/Formularios/Controles/imagen"
 import { useForm } from "react-hook-form";
-import { añadiProductoAPI } from "../../api/productos";
+import { añadirInformacionAPI } from "../../api/productos";
 import { Button, Form } from "react-bootstrap";
 import FormularioProducto from "../../components/Formularios/añadirProducto";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Swal from 'sweetalert2'
 
 function CrearProducto() {
 
@@ -21,10 +21,21 @@ function CrearProducto() {
         image: selectedImage,
         };
         try {
-            await añadiProductoAPI(producto, endPoint)
-            // Swal.fire('Producto creado', 'success')
+            await añadirInformacionAPI(producto, endPoint)
+            Swal.fire({
+                icon: "success",
+                title: "Se ha añadido un producto!",
+                showConfirmButton: false,
+                timer: 1500
+              });
         } catch (error) {
-            // Swal.fire('Error', 'No se pudo crear el producto', 'error');
+            console.error('Error al crear un producto', error)
+            Swal.fire({
+                icon: "error",
+                title: "No Se puede crear el producto",
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
     };
 

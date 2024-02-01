@@ -2,21 +2,21 @@ import axios from "axios";
 
 const raizUrl = process.env.REACT_APP_API_URL;
 
-async function añadiProductoAPI (producto, endPoint) {
+async function añadirInformacionAPI (producto, endPoint) {
   
   const url =  `${raizUrl}/${endPoint}`
 
-  await axios.post(url, producto,{
-    headers: {
-    'Content-Type': 'multipart/form-data',
-    },
-  })
-  .then(function (response) {
-    return response.data;
-  })
-  .catch(function (error) {
-    console.log("Error en la API crear producto:", error);
-  });
+  try {
+    const response = await axios.post(url, producto,{
+      headers: {
+      'Content-Type': 'multipart/form-data',
+      },
+    });
+    return response.data
+  } catch (error) {
+    console.log("Error en la API crear: ", error);
+    throw error
+  }
 };
 
 async function listarInformacionApi (endPoint) {
@@ -32,7 +32,7 @@ async function listarInformacionApi (endPoint) {
   }
 };
 
-async function eliminarInformacion (endPoint, idCardWorker) {
+async function eliminarInformacionApi (endPoint, idCardWorker) {
   const url = `${raizUrl}/${endPoint}`
 
   try {
@@ -45,7 +45,7 @@ async function eliminarInformacion (endPoint, idCardWorker) {
 
 
 export { 
-  añadiProductoAPI, 
+  añadirInformacionAPI, 
   listarInformacionApi,
-  eliminarInformacion
+  eliminarInformacionApi
 };
