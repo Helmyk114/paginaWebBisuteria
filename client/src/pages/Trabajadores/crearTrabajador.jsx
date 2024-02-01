@@ -5,10 +5,8 @@ import FormularioTrabajador from "../../components/Formularios/añadirTrabajador
 import Imagen from "../../components/Formularios/Controles/imagen";
 import { useForm } from "react-hook-form";
 import { añadirInformacionAPI } from "../../api/productos";
-import { Button, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import Swal from 'sweetalert2'
-import { añadiProductoAPI } from "../../api/productos";
-import {  Form } from "react-bootstrap";
 import BtnFormularios from "../../components/Botones/BotonFormularios/btnFormularios";
 
 function CrearTrabajador() {
@@ -53,7 +51,7 @@ function CrearTrabajador() {
             <Form style={{margin:'0 auto', width:'100%'}}onSubmit={handleSubmit(onSubmit)}>
                 <Imagen onImageChange={setSelectedImage} />
                 <FormularioTrabajador control={control} />
-            {/* <BtnFormularios type={'submit'} btnTitulo={'registrar trabjador'}/> */}
+                <BtnFormularios type={'submit'} btnTitulo={'Registrar trabajador'}/>
             </Form>
                 
             <Footer/>
