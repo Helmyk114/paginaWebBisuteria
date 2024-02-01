@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import { useForm } from 'react-hook-form';
 import Navbar from '../../components/Navbar/Navbar';
-import Footer from '../../components/Footer/Footer';
+import { Imagen } from '../../components/Navbar/Navbar';
+import { Wave } from '../../components/Navbar/Navbar';
 import iniciarSesion from '../../api/IniciarSesion';
 import Cookies from 'js-cookie'; 
 import './login.css';
@@ -54,7 +55,18 @@ function Login() {
 
   return (
     <div className='body-login'>
-      <Navbar />
+      <Navbar >
+      <div >
+      </div >
+      <Imagen/>
+      <div >
+      </div >
+      
+      
+      
+
+      </Navbar>
+
       <div className="form-container">
         <div className="titulo">TEJIENDO UN MUNDO MULTICOLOR</div>
         <div className="subtitulo">Inicia sesión con tu nombre de usuario y contraseña asignada</div>
@@ -83,7 +95,9 @@ function Login() {
           <button className='login-button' type="submit">Iniciar Sesión</button>
         </form>
       </div>
-      <Footer />
+
+      
+      
     </div>
   );
 }
