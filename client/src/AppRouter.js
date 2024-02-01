@@ -1,10 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
 
 import Login from "./pages/IniciarSesion/login";
 
 import BienvenidaAdmi from "./pages/Bienvenida/Administrador";
-import BienvenidaVendedor from "./pages/Bienvenida/Vendedor"
+import BienvenidaVendedor from "./pages/Bienvenida/Vendedor";
 import BienvenidaTrabajador from "./pages/Bienvenida/Trabajador";
 
 import ListarListaTrabajo from "./pages/ListaTrabajo/listarListaTrabajo";
@@ -23,40 +23,50 @@ import ListarTrabajador from "./pages/Trabajadores/listarTrabajador";
 import CrearTrabajador from "./pages/Trabajadores/crearTrabajador";
 import ActualizarTrabajador from "./pages/Trabajadores/actualizarTrabajardor";
 
-const AppRouter = () =>{
-    return(
-        <Router>
-            <Routes>
-                <Route path="/" element={<Login/>} />
+import Unauthorized from "./components/PrivateRoute/Unauthorized";
+import ProtectedRoute from "./components/PrivateRoute/protectedRoute";
 
-                {/* Pantallas de Bienvenida */}
-                <Route path="/Administracion" element={<BienvenidaAdmi/>} />
-                <Route path="/Artesano" element={<BienvenidaTrabajador/>} />
-                <Route path="/Vendedor" element={<BienvenidaVendedor/>} />
+const AppRouter = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
 
-                {/* Pantallas de Productos */}
-                <Route path="/productos" element={<ListarProducto/>} />
-                <Route path="/crear/producto" element={<CrearProducto/>} />
-                <Route path="/editar/producto" element={<ActualizarProducto/>} />
+        {/* Pantallas de Bienvenida */}
+        <Route path="/Administracion" element={<ProtectedRoute element={<BienvenidaAdmi />} role={1} />}/>
+        <Route path="/Artesano" element={<ProtectedRoute element={<BienvenidaTrabajador />} role={2} />}/>
+        <Route path="/Vendedor" element={<ProtectedRoute element={<BienvenidaVendedor />} role={3} />}/>
 
-                {/* Pantallas de Trabajadores */}
-                <Route path="/trabajadores" element={<ListarTrabajador/>} />
-                <Route path="/crear/trabajador" element={<CrearTrabajador/>} />
-                <Route path="/editar/trabajador/:idCardWorker" element={<ActualizarTrabajador/>} />
+        {/* Pantallas de Productos */}
+        <Route path="/productos" element={<ListarProducto />} />
+        <Route path="/crear/producto" element={<CrearProducto />} />
+        <Route path="/editar/producto" element={<ActualizarProducto />} />
 
-                {/* Pantallas de Pedidos */}
-                <Route path="/pedidos" element={<ListarPedido/>} />
-                <Route path="/crear/pedidos" element={<CrearPedido/>} />
-                <Route path="/editar/pedidos" element={<ActualizarPedido/>} />
+        {/* Pantallas de Trabajadores */}
+        <Route path="/trabajadores" element={<ListarTrabajador />} />
+        <Route path="/crear/trabajador" element={<CrearTrabajador />} />
+        <Route
+          path="/editar/trabajador/:idCardWorker"
+          element={<ActualizarTrabajador />}
+        />
 
-                {/* Pantallas de Lista Trabajdos */}
-                <Route path="/listaTrabajo" element={<ListarListaTrabajo/>} />
-                <Route path="/crear/listaTrabajo" element={<CrearListaTrabajo/>} />
-                <Route path="/editar/listaTrabajo" element={<ActualizarListaTrabajo/>} />
-                
-            </Routes>
-        </Router>
-    );
+        {/* Pantallas de Pedidos */}
+        <Route path="/pedidos" element={<ListarPedido />} />
+        <Route path="/crear/pedidos" element={<CrearPedido />} />
+        <Route path="/editar/pedidos" element={<ActualizarPedido />} />
+
+        {/* Pantallas de Lista Trabajdos */}
+        <Route path="/listaTrabajo" element={<ListarListaTrabajo />} />
+        <Route path="/crear/listaTrabajo" element={<CrearListaTrabajo />} />
+        <Route
+          path="/editar/listaTrabajo"
+          element={<ActualizarListaTrabajo />}
+        />
+
+        <Route path="/unauthorized" element={<Unauthorized />} />
+      </Routes>
+    </Router>
+  );
 };
 
-export default AppRouter
+export default AppRouter;
