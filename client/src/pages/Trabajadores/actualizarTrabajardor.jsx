@@ -12,7 +12,7 @@ function ActualizarTrabajador() {
                 />
                 <Notificacion/>
             </Navbar>
-            n
+            
             <Footer/>
         </div>
     );

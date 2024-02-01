@@ -4,6 +4,9 @@ import Footer from "../../components/Footer/Footer"
 import FormularioTrabajador from "../../components/Formularios/añadirTrabajador";
 import Imagen from "../../components/Formularios/Controles/imagen";
 import { useForm } from "react-hook-form";
+import { añadirInformacionAPI } from "../../api/productos";
+import { Button, Form } from "react-bootstrap";
+import Swal from 'sweetalert2'
 import { añadiProductoAPI } from "../../api/productos";
 import {  Form } from "react-bootstrap";
 import BtnFormularios from "../../components/Botones/BotonFormularios/btnFormularios";
@@ -20,10 +23,21 @@ function CrearTrabajador() {
         };
         console.log('objeto creado: ',trabajador)
         try {
-            await añadiProductoAPI(trabajador, endPoint)
-            // Swal.fire('Producto creado', 'success')
+            await añadirInformacionAPI(trabajador, endPoint)
+            Swal.fire({
+                icon: "success",
+                title: "Se ha creado un trabajador!",
+                showConfirmButton: false,
+                timer: 1500
+              });
         } catch (error) {
-            // Swal.fire('Error', 'No se pudo crear el producto', 'error');
+            console.error('Error al crear un trabajador', error)
+            Swal.fire({
+                icon: "error",
+                title: "No Se puede crear un trabajador!",
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
     };
 

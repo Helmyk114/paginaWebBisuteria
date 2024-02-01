@@ -4,7 +4,8 @@ import Footer from "../../components/Footer/Footer";
 import Flotante from '../../components/Botones/BotonFlotante/Flotante';
 import CustomCard from '../../components//Card/card'; 
 import { CardContent, Editar, Eliminar, Nombre } from '../../components/Card/card';
-import { eliminarInformacion, listarInformacionApi } from "../../api/productos";
+import { eliminarInformacionApi, listarInformacionApi } from "../../api/productos";
+import Swal from 'sweetalert2'
 
 function ListarTrabajador() {
 
@@ -30,10 +31,24 @@ function ListarTrabajador() {
 
   const eliminarTrabajador = async (idCardWorker) => {
     try {
-      await eliminarInformacion(endPoint, idCardWorker)
-      const nuevaInformacion = informacion.filter((datos) => datos.idCardWorker !== idCardWorker);
-      setInformacion(nuevaInformacion)
-      console.log('se elimino el registro')
+      const result = await Swal.fire({
+        title: "¿Quieres eliminar este trabajador?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#6977E4",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Eliminar"
+      });
+      if(result.isConfirmed) {
+         await eliminarInformacionApi(endPoint, idCardWorker)
+         const nuevaInformacion = informacion.filter((datos) => datos.idCardWorker !== idCardWorker);
+         setInformacion(nuevaInformacion)
+         
+          Swal.fire({
+            title: "Trabajador elimindao",
+            icon: "success"
+          });
+      }
     } catch (error) {
       console.error('error al eliminar: ',error)
     }

@@ -1,7 +1,7 @@
-import React, { FormProvider, useForm } from 'react-hook-form'
+import React from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './añadirProducto.css';
+import './añadirTrabajador.css';
 import CampoTexto from './Controles/campoTexto';
 import ComboBox from './Controles/comboBox';
 
@@ -9,15 +9,15 @@ function FormularioTrabajador({ control }) {
     
     return (
         <div className='content1'>
-        <FormProvider {...useForm({ control })}>
-          <Card className='card'>
+          <Card className='card' style={{width: '40rem'}}>
             
             <Row>
               <Col>
               <CampoTexto 
                     idCampo="nombreTrabajador" 
                     titulo="Nombre" 
-                    apiName="workerName" 
+                    apiName="workerName"
+                    mensaje="Nombre"
                     titulo2=" " 
                     control={control}
                     ancho='100%' 
@@ -141,7 +141,6 @@ function FormularioTrabajador({ control }) {
             </Row>
              
           </Card>
-        </FormProvider>
       </div>
     );
 };
