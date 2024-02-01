@@ -71,6 +71,7 @@ function BienvenidaTrabajador() {
             </svg>
         }
         texto="Cerrar sesión"
+        
     />
     </Botones>
 
