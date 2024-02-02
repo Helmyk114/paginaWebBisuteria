@@ -5,8 +5,12 @@ import '../Producto/añadirProducto.css';
 import CampoTexto from '../Controles/campoTexto';
 import ComboBox from '../Controles/comboBox';
 
-function EditarTrabajador({ control }) {
-    
+function EditarTrabajador({ control, informacionTrabajador }) {
+  
+      if (!informacionTrabajador || Object.keys(informacionTrabajador).length === 0) {
+            return <div>Cargando...</div>;
+        }
+
     return (
         <div className='content1'>
           <Card className='card' style={{width: '40rem'}}>
@@ -21,6 +25,7 @@ function EditarTrabajador({ control }) {
                     titulo2=" " 
                     control={control}
                     ancho='100%' 
+                    valorDefecto={informacionTrabajador[0].workerName ?? ""}
                     
               />
               </Col>
@@ -32,6 +37,7 @@ function EditarTrabajador({ control }) {
                     titulo2="" 
                     control={control}
                     ancho='100%' 
+                    valorDefecto={informacionTrabajador[0].workerLastName ?? ""}
               />
               </Col>
             </Row>
@@ -45,6 +51,7 @@ function EditarTrabajador({ control }) {
                     titulo2="" 
                     control={control}
                     ancho='100%' 
+                    valorDefecto={informacionTrabajador[0].workerEmail}
               />
               </Col>
         
@@ -55,7 +62,8 @@ function EditarTrabajador({ control }) {
                     apiName="workerPhone" 
                     titulo2="" 
                     control={control}
-                    ancho='100%' 
+                    ancho='100%'
+                    valorDefecto={informacionTrabajador[0].workerPhone}
               />
               </Col>
 
@@ -70,6 +78,7 @@ function EditarTrabajador({ control }) {
                     titulo2=" " 
                     control={control}
                     ancho='100%' 
+                    valorDefecto={informacionTrabajador[0].userName}
               />
               </Col>
               <Col>
@@ -80,6 +89,7 @@ function EditarTrabajador({ control }) {
                     titulo2="" 
                     control={control}
                     ancho='100%' 
+                    valorDefecto={informacionTrabajador[0].password}
               />
               </Col>
             </Row>
@@ -93,6 +103,7 @@ function EditarTrabajador({ control }) {
                     titulo2="" 
                     control={control}
                     ancho='100%' 
+                    valorDefecto={informacionTrabajador[0].numberBank}
               />
               </Col>
 
@@ -101,7 +112,7 @@ function EditarTrabajador({ control }) {
                     idCombox="banco"
                     titulo="Banco" 
                     tituloRegistro= "idBank"
-                    valorDefecto="Selecciona un banco"
+                    valorDefecto={informacionTrabajador[0].idBank}
                     control={control}
                     apiEndpoint="banco"
                     idOpcion="idBank"

@@ -32,14 +32,26 @@ async function listarInformacionApi (endPoint) {
   }
 };
 
-async function eliminarInformacionApi (endPoint, idCardWorker) {
+async function eliminarInformacionApi (endPoint, id) {
   const url = `${raizUrl}/${endPoint}`
 
   try {
-    const response = await axios.delete(`${url}/${idCardWorker}`)
+    const response = await axios.delete(`${url}/${id}`)
     return response.data;
   } catch (error) {
     throw error;
+  }
+}
+
+async function detalleInformacionApi (endPoint, id) {
+  const url = `${raizUrl}/${endPoint}`
+
+  try {
+    const response = await axios.get(`${url}/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error en al API listar:", error);
+    return [];
   }
 }
 
@@ -47,5 +59,6 @@ async function eliminarInformacionApi (endPoint, idCardWorker) {
 export { 
   añadirInformacionAPI, 
   listarInformacionApi,
-  eliminarInformacionApi
+  eliminarInformacionApi,
+  detalleInformacionApi
 };

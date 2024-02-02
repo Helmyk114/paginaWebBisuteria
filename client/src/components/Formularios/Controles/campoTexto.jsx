@@ -2,8 +2,10 @@ import React from 'react-hook-form'
 import { Form, FormGroup } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-const CampoTexto = ({ idCampo, titulo, apiName, mensaje, titulo2, control, ancho }) => {
+const CampoTexto = ({ idCampo, titulo, apiName, mensaje, titulo2, control, ancho, valorDefecto }) => {
     
+    const valorPorDefecto = valorDefecto ?? "";
+
     return (
         <FormGroup controlId={idCampo}>
             <Form.Label>{titulo}</Form.Label>
@@ -13,6 +15,7 @@ const CampoTexto = ({ idCampo, titulo, apiName, mensaje, titulo2, control, ancho
                 type="text" 
                 className="custom-width" 
                 style={{borderRadius: '10px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)', width: ancho}} 
+                defaultValue={valorPorDefecto} 
             />
             
           <Form.Label style={{marginLeft: '6px'}}>{titulo2}</Form.Label>
