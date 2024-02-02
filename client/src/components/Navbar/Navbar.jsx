@@ -98,7 +98,7 @@ function Wave(){
 function TituloBienvenido({texto, nombretrabajador, rol}){
   return(
     <div className='bienvenido'>
-    <Navbar.Brand className='txtBienvenido text-left' href="#">
+    <Navbar.Brand className='txtBienvenido text-left' >
       <h1>{texto}</h1>
       <h6>{nombretrabajador}</h6>
       <h6>{rol}</h6>
