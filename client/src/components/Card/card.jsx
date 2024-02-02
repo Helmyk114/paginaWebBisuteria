@@ -55,7 +55,9 @@ function Completado() {
     <div className='icon'>
       <svg 
         xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor" 
+        width={30}
+        height={30}
+        fill="rgb(105, 119, 228, 1)" 
         className="bi bi-check-circle-fill" 
         viewBox="0 0 16 16">
         <path 
@@ -131,5 +133,6 @@ export {
   Eliminar,
   Nombre,
   PrecioPC,
-  PrecioPO
+  PrecioPO,
+  Completado
 };
