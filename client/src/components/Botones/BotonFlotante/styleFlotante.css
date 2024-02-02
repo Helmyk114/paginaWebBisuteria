@@ -1,18 +1,27 @@
 .fabContainer {
-    position: fixed;
-    bottom: 5%;
-    right: 5%;
-    background-color: #6977E4;
-    border-radius: 50%;
-    width: 100px; /* Ancho relativo al ancho de la ventana */
-    height: 100px; /* Alto relativo al ancho de la ventana */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease; /* Agregada una transición suave en el cambio de color de fondo */
-  }
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  background-color: #6977E4;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  z-index: 1000; /* Ajusta este valor según sea necesario para asegurarte de que esté por encima de otros elementos */
+}
+
+.fabContainer:active,
+.fabContainer:focus {
+    transform: scale(0.87); /* Puedes ajustar la escala según tus preferencias */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Agregado sombreado adicional */
+    background-color: #5464D2; /* Cambio de color al presionar o enfocar */
+}
+
   
   .icon {
     width: 24px; /* Tamaño del icono en píxeles o ajusta según tus necesidades */

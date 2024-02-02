@@ -97,7 +97,7 @@ function Nombre({ nombre }) {
 };
 
 // Componente para el primer subtitulo
-function Subtitulo1({ precio1 }) {
+function PrecioPC({ precio1 }) {
   return (
     <div>
       <Row className="justify-content-md-center">
@@ -111,7 +111,7 @@ function Subtitulo1({ precio1 }) {
 };
 
 // Componente para el segundo subtitulo
-function Subtitulo2({ precio2 }) {
+function PrecioPO({ precio2 }) {
   return (
     <div>
       <Row className="justify-content-md-center">
@@ -130,6 +130,6 @@ export {
   Editar,
   Eliminar,
   Nombre,
-  Subtitulo1,
-  Subtitulo2
+  PrecioPC,
+  PrecioPO
 };
