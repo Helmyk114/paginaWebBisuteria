@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import {Form } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 import { infoComboBox } from '../../../api/formularios'
 
-const ComboBox = ({ titulo, idCombox, tituloRegistro, valorDefecto,apiEndpoint, control, idOpcion, texto }) => {
+const ComboBox = ({ titulo, idCombox, tituloRegistro, valorDefecto, apiEndpoint, control, idOpcion, texto }) => {
 
   const [opcionSeleccionada, setOpcionSeleccionada] = useState('')
   const [opciones, setOpciones] = useState([]);
@@ -25,12 +25,12 @@ const ComboBox = ({ titulo, idCombox, tituloRegistro, valorDefecto,apiEndpoint, 
   };
 
   return (
-   
-    <Form.Group  className="mb-3" controlId={idCombox} >
-    <Form.Label >{titulo}</Form.Label>
-      <Form.Select  
+
+    <Form.Group className="mb-3" controlId={idCombox} >
+      <Form.Label >{titulo}</Form.Label>
+      <Form.Select
         {...control.register(tituloRegistro)}
-        value={opcionSeleccionada} 
+        value={opcionSeleccionada}
         onChange={handleChange} >
         <option value="" disabled>{valorDefecto}</option>
         {opciones && opciones.length > 0 ? (
@@ -44,8 +44,8 @@ const ComboBox = ({ titulo, idCombox, tituloRegistro, valorDefecto,apiEndpoint, 
             No hay opciones disponibles
           </option>
         )}
-      </Form.Select> 
-     </Form.Group>
+      </Form.Select>
+    </Form.Group>
   );
 };
 

@@ -40,15 +40,12 @@ const AppRouter = () => {
         {/* Pantallas de Productos */}
         <Route path="/productos" element={<ListarProducto />} />
         <Route path="/crear/producto" element={<CrearProducto />} />
-        <Route path="/editar/producto" element={<ActualizarProducto />} />
+        <Route path="/editar/producto/:idProduct" element={<ActualizarProducto />} />
 
         {/* Pantallas de Trabajadores */}
         <Route path="/trabajadores" element={<ListarTrabajador />} />
         <Route path="/crear/trabajador" element={<CrearTrabajador />} />
-        <Route
-          path="/editar/trabajador/:idCardWorker"
-          element={<ActualizarTrabajador />}
-        />
+        <Route path="/editar/trabajador/:idCardWorker" element={<ActualizarTrabajador />} />
 
         {/* Pantallas de Pedidos */}
         <Route path="/pedidos" element={<ListarPedido />} />
@@ -58,10 +55,7 @@ const AppRouter = () => {
         {/* Pantallas de Lista Trabajdos */}
         <Route path="/listaTrabajo" element={<ListarListaTrabajo />} />
         <Route path="/crear/listaTrabajo" element={<CrearListaTrabajo />} />
-        <Route
-          path="/editar/listaTrabajo"
-          element={<ActualizarListaTrabajo />}
-        />
+        <Route path="/editar/listaTrabajo"element={<ActualizarListaTrabajo />} />
 
         <Route path="/unauthorized" element={<Unauthorized />} />
       </Routes>

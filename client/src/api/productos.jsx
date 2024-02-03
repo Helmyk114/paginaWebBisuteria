@@ -2,14 +2,14 @@ import axios from "axios";
 
 const raizUrl = process.env.REACT_APP_API_URL;
 
-async function añadirInformacionAPI (producto, endPoint) {
-  
-  const url =  `${raizUrl}/${endPoint}`
+async function añadirInformacionAPI(producto, endPoint) {
+
+  const url = `${raizUrl}/${endPoint}`
 
   try {
-    const response = await axios.post(url, producto,{
+    const response = await axios.post(url, producto, {
       headers: {
-      'Content-Type': 'multipart/form-data',
+        'Content-Type': 'multipart/form-data',
       },
     });
     return response.data
@@ -19,8 +19,8 @@ async function añadirInformacionAPI (producto, endPoint) {
   }
 };
 
-async function listarInformacionApi (endPoint) {
-  
+async function listarInformacionApi(endPoint) {
+
   const url = `${raizUrl}/${endPoint}`
 
   try {
@@ -32,7 +32,7 @@ async function listarInformacionApi (endPoint) {
   }
 };
 
-async function eliminarInformacionApi (endPoint, id) {
+async function eliminarInformacionApi(endPoint, id) {
   const url = `${raizUrl}/${endPoint}`
 
   try {
@@ -43,21 +43,21 @@ async function eliminarInformacionApi (endPoint, id) {
   }
 }
 
-async function detalleInformacionApi (endPoint, id) {
+async function detalleInformacionApi(endPoint, id) {
   const url = `${raizUrl}/${endPoint}`
 
   try {
     const response = await axios.get(`${url}/${id}`);
     return response.data;
   } catch (error) {
-    console.error("Error en al API listar:", error);
+    console.error("Error en al API listarDetalle:", error);
     return [];
   }
 }
 
 
-export { 
-  añadirInformacionAPI, 
+export {
+  añadirInformacionAPI,
   listarInformacionApi,
   eliminarInformacionApi,
   detalleInformacionApi
