@@ -2,6 +2,7 @@ import React from 'react'
 import Navegar, { ImagenPerfil, TituloBienvenido, Notificacion }  from '../../components/Navbar/Navbar'
 import Botones, { BtnIndividual } from '../../components/Botones/btnPrincipal'
 import Footer from '../../components/Footer/Footer'
+import { Container } from 'react-bootstrap'
 
 function BienvenidaAdmi() {
   return (
@@ -16,9 +17,12 @@ function BienvenidaAdmi() {
 
     <Notificacion/>
     </Navegar>
-
+    <Container>
+    
+    
     <Botones>
     <BtnIndividual
+
         icono={
             <svg 
                 xmlns="http://www.w3.org/2000/svg" 
@@ -128,6 +132,7 @@ function BienvenidaAdmi() {
         texto="Cerrar sesión"
     />
     </Botones>
+    </Container>
     
     <Footer/>
     </div>
