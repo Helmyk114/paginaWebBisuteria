@@ -8,6 +8,7 @@ import EditarProducto from "../../components/Formularios/Producto/editarProducto
 import Imagen from "../../components/Formularios/Controles/imagen";
 import BtnFormularios from "../../components/Botones/BotonFormularios/btnFormularios";
 import { actualizarInformacionApi, detalleInformacionApi } from "../../api/productos";
+import procesarImagen from "../../utils/procesadorImagenes";
 import Swal from "sweetalert2";
 
 function ActualizarProducto() {
@@ -31,17 +32,7 @@ function ActualizarProducto() {
 			}
 		};
 		obtenerDatos();
-	}, [idProduct]);
-
-	function procesarImagen(url) {
-		const patron = /^.*\/IRis\/uploads\/products\//;
-
-		if (patron.test(url)) {
-			return url.replace(/^.*\/uploads/, "uploads") 
-		} else {
-			return url
-		}
-	};
+	}, [idProduct, raizUrl]);
 
 	const onSubmit = async (data) =>{
 		const producto = {
@@ -79,8 +70,8 @@ function ActualizarProducto() {
 				<Notificacion />
 			</Navbar>
 			<Form style={{ display: 'block', justifyContent: 'center', padding: '10px' }} onSubmit={handleSubmit(onSubmit)}>
-				<Imagen onImageChange={setSelectedImage} defaultImageSrc={ informacionProducto || ""}/>
-				<EditarProducto control={control} informacionProducto={informacionProducto}/>
+				<Imagen onImageChange={setSelectedImage} defaultImageSrc={ informacionProducto || ""} />
+				<EditarProducto control={control} informacionProducto={informacionProducto} />
 				<BtnFormularios type={'submit'} btnTitulo={'Editar producto'} />
 			</Form>
 			<Footer />

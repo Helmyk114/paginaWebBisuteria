@@ -11,6 +11,9 @@ const Imagen = ({ onImageChange, defaultImageSrc }) => {
     if (defaultImageSrc && defaultImageSrc[0] && defaultImageSrc[0].image) {
       const imageUrl = `${raizUrl}/${defaultImageSrc[0].image}`;
       setImageSrc(imageUrl);
+    } else if (defaultImageSrc && defaultImageSrc[0] && defaultImageSrc[0].photo) {
+      const imageUrl = `${raizUrl}/${defaultImageSrc[0].photo}`;
+      setImageSrc(imageUrl);
     }
   }, [defaultImageSrc, raizUrl]);
 

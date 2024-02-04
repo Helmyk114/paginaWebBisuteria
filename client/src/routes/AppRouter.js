@@ -1,30 +1,30 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
 
-import Login from "./pages/IniciarSesion/login";
+import Login from "../pages/IniciarSesion/login";
 
-import BienvenidaAdmi from "./pages/Bienvenida/Administrador";
-import BienvenidaVendedor from "./pages/Bienvenida/Vendedor";
-import BienvenidaTrabajador from "./pages/Bienvenida/Trabajador";
+import BienvenidaAdmi from "../pages/Bienvenida/Administrador";
+import BienvenidaVendedor from "../pages/Bienvenida/Vendedor";
+import BienvenidaTrabajador from "../pages/Bienvenida/Trabajador";
 
-import ListarListaTrabajo from "./pages/ListaTrabajo/listarListaTrabajo";
-import CrearListaTrabajo from "./pages/ListaTrabajo/crearListaTrabajo";
-import ActualizarListaTrabajo from "./pages/ListaTrabajo/actualizarListaTrabajo";
+import ListarListaTrabajo from "../pages/ListaTrabajo/listarListaTrabajo";
+import CrearListaTrabajo from "../pages/ListaTrabajo/crearListaTrabajo";
+import ActualizarListaTrabajo from "../pages/ListaTrabajo/actualizarListaTrabajo";
 
-import ListarPedido from "./pages/Pedidos/listarPedido";
-import CrearPedido from "./pages/Pedidos/crearPedido";
-import ActualizarPedido from "./pages/Pedidos/actualizarPedido";
+import ListarPedido from "../pages/Pedidos/listarPedido";
+import CrearPedido from "../pages/Pedidos/crearPedido";
+import ActualizarPedido from "../pages/Pedidos/actualizarPedido";
 
-import ListarProducto from "./pages/Productos/listarProducto";
-import CrearProducto from "./pages/Productos/crearProducto";
-import ActualizarProducto from "./pages/Productos/actualizarProducto";
+import ListarProducto from "../pages/Productos/listarProducto";
+import CrearProducto from "../pages/Productos/crearProducto";
+import ActualizarProducto from "../pages/Productos/actualizarProducto";
 
-import ListarTrabajador from "./pages/Trabajadores/listarTrabajador";
-import CrearTrabajador from "./pages/Trabajadores/crearTrabajador";
-import ActualizarTrabajador from "./pages/Trabajadores/actualizarTrabajardor";
+import ListarTrabajador from "../pages/Trabajadores/listarTrabajador";
+import CrearTrabajador from "../pages/Trabajadores/crearTrabajador";
+import ActualizarTrabajador from "../pages/Trabajadores/actualizarTrabajardor";
 
-import Unauthorized from "./components/PrivateRoute/Unauthorized";
-import ProtectedRoute from "./components/PrivateRoute/protectedRoute";
+import Unauthorized from "../components/PrivateRoute/Unauthorized";
+import ProtectedRoute from "../components/PrivateRoute/protectedRoute";
 
 const AppRouter = () => {
   return (
