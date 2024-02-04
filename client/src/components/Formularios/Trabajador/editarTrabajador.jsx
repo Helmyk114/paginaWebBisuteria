@@ -88,7 +88,7 @@ function EditarTrabajador({ control, informacionTrabajador }) {
 							titulo2=""
 							control={control}
 							ancho='100%'
-							valorDefecto={informacionTrabajador[0].password}
+							valorDefecto={""}
 						/>
 					</Col>
 				</Row>
@@ -111,7 +111,7 @@ function EditarTrabajador({ control, informacionTrabajador }) {
 							idCombox="banco"
 							titulo="Banco"
 							tituloRegistro="idBank"
-							valorDefecto={informacionTrabajador[0].idBank}
+							valorDefecto={'Seleccione un banco'}
 							control={control}
 							apiEndpoint="banco"
 							idOpcion="idBank"

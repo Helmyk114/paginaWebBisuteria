@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { jwtDecode } from 'jwt-decode';
 import { useForm } from 'react-hook-form';
 import Navbar from '../../components/Navbar/Navbar';
 import { Imagen } from '../../components/Navbar/Navbar';
 import { Wave } from '../../components/Navbar/Navbar';
 import iniciarSesion from '../../api/IniciarSesion';
-import Cookies from 'js-cookie'; 
 import './login.css';
+import { guardarToken, decodificarToken } from '../../utils/token';
 
 function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -19,17 +18,10 @@ function Login() {
     const { success, token, error: errorMsg } = await iniciarSesion(data.userName, data.password, endPoint);
 
     if (success && token) {
-      console.log('Token recibido:', token);
-
       try {
-        const decodedToken = jwtDecode(token);
-        console.log('Información del token decodificado:', decodedToken);
+        guardarToken(token)
 
-        const numeroDelRol = decodedToken.role;
-        console.log('Número del rol:', numeroDelRol);
-
-        // Guarda el token en una cookie con una duración de 1 hora (ajusta según tus necesidades)
-        Cookies.set('token', token, { expires: 1 / 24 }); 
+        const numeroDelRol = decodificarToken(token).role;
 
         switch (numeroDelRol) {
           case 1:
@@ -56,15 +48,12 @@ function Login() {
   return (
     <div className='body-login'>
       <Navbar >
-      <div >
-      </div >
-      <Imagen/>
-      <div >
-      </div >
-      
-      
-      
-
+        <div >
+        </div >
+        <Imagen />
+        <div >
+        </div >
+        
       </Navbar>
 
       <div className="form-container">
@@ -74,7 +63,7 @@ function Login() {
         <form className='form-login' onSubmit={handleSubmit(onSubmit)}>
           <label className='label-login' htmlFor="userName">Usuario</label>
           <input
-           className='input-login'
+            className='input-login'
             type="text"
             id="userName"
             name="userName"
@@ -95,9 +84,6 @@ function Login() {
           <button className='login-button' type="submit">Iniciar Sesión</button>
         </form>
       </div>
-
-      
-      
     </div>
   );
 }

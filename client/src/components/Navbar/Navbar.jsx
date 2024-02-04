@@ -22,10 +22,10 @@ function Navegar({ children }) {
   )
 }
 
-function ImagenPerfil() {
+function ImagenPerfil({ img }) {
   return (
     <div className='ImgPerfil'>
-      {/* <Image src={Perfil} roundedCircle  width="70px" height="70px" /> */}
+      <Image src={img} alt="una Imagen" roundedCircle  width="70px" height="70px" />
     </div>
   );
 }
@@ -65,7 +65,7 @@ function Imagen() {
   return (
     <div className='titulo'>
       <Navbar.Brand >
-        <img src={Logo} width="80px" height="80px" style={{ display: 'flex', justifyContent: 'center' }} />
+        <img src={Logo} alt="Logo" width="80px" height="80px" style={{ display: 'flex', justifyContent: 'center' }} />
       </Navbar.Brand>
     </div>
   );
