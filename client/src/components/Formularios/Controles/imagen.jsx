@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './imagen.css';
 import { Card } from 'react-bootstrap';
 
-const Imagen = ({ onImageChange }) => {
-  const [imageSrc, setImageSrc] = useState();
+const Imagen = ({ onImageChange, defaultImageSrc }) => {
+  const raizUrl = process.env.REACT_APP_API_URL;
+  const [imageSrc, setImageSrc] = useState(defaultImageSrc || null);
+
+  useEffect(() => {
+    if (defaultImageSrc && defaultImageSrc[0] && defaultImageSrc[0].image) {
+      const imageUrl = `${raizUrl}/${defaultImageSrc[0].image}`;
+      setImageSrc(imageUrl);
+    }
+  }, [defaultImageSrc, raizUrl]);
 
   const handleFileChange = (e) => {
 

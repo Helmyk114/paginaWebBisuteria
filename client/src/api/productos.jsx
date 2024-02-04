@@ -41,7 +41,7 @@ async function eliminarInformacionApi(endPoint, id) {
   } catch (error) {
     throw error;
   }
-}
+};
 
 async function detalleInformacionApi(endPoint, id) {
   const url = `${raizUrl}/${endPoint}`
@@ -53,12 +53,31 @@ async function detalleInformacionApi(endPoint, id) {
     console.error("Error en al API listarDetalle:", error);
     return [];
   }
-}
+};
 
+async function actualizarInformacionApi(endPoint, id, informacion){
+  const url = `${raizUrl}/${endPoint}`
+
+  try {
+    const response = await axios.put(`${url}/${id}`,informacion, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    if(response.status == 200){
+      console.log('Se actualizo la informacion api');
+    } else {
+      console.error(response.data.error);
+    }
+  } catch (error) {
+    console.error(`Error en la Api actualizar: ${error.message}`);
+  }
+};
 
 export {
   añadirInformacionAPI,
   listarInformacionApi,
   eliminarInformacionApi,
-  detalleInformacionApi
+  detalleInformacionApi,
+  actualizarInformacionApi
 };
