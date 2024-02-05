@@ -1,10 +1,9 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-import Cookies from 'js-cookie';
-import { jwtDecode } from 'jwt-decode';
+import { decodificarToken, obtenerToken } from '../../utils/token';
 
 const ProtectedRoute = ({ element, role }) => {
-  const token = Cookies.get('token');
+  const token = obtenerToken()
 
   if (!token) {
     // Si no hay token, redirige a la página de inicio de sesión
@@ -12,7 +11,7 @@ const ProtectedRoute = ({ element, role }) => {
   }
 
   // Decodifica el token para obtener el rol del usuario
-  const decodedToken = jwtDecode(token);
+  const decodedToken = decodificarToken(token)
   const userRole = decodedToken.role;
 
   // Comprueba si el rol del usuario coincide con el rol permitido para la ruta
