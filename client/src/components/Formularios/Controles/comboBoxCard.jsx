@@ -19,7 +19,7 @@ return (
         opciones.map((opcion) => (
           <Dropdown.Item  key={opcion.id} onClick={() => onSelectOption(opcion)}>
             <CustomCard>
-              <CardContent />
+              <CardContent/>
               <p>{opcion.texto}</p>
             </CustomCard>
           </Dropdown.Item>

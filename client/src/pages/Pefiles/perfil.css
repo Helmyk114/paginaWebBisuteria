@@ -1,0 +1,38 @@
+.card-perfil{
+    width: 100%;
+    height: 300px;
+    margin: 0 auto;
+    background-color: rgb(105, 119, 228, 1) ;
+    position: absolute;
+
+}
+
+@media(min-width: 1200px){
+    .card-perfil{
+        max-width:1600px ;
+    }
+}
+
+.tituloPerfil{
+color: white;
+}
+
+.componentes{
+    position: relative;
+    top: 120px;
+}
+
+.img-perfil{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.card-info{
+width: 80%;
+height: 500px;
+background-color: rgba(238, 238, 238, 1) ;
+border-radius: 8%;
+position: relative;
+top: 240px;
+}
