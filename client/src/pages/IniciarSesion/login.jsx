@@ -7,6 +7,8 @@ import { Wave } from '../../components/Navbar/Navbar';
 import iniciarSesion from '../../api/IniciarSesion';
 import './login.css';
 import { guardarToken, decodificarToken } from '../../utils/token';
+import { Button } from "@nextui-org/react";
+import InputText from '../../components/Formularios/Controles/inputText'
 
 function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -53,7 +55,7 @@ function Login() {
         <Imagen />
         <div >
         </div >
-        
+
       </Navbar>
 
       <div className="form-container">
@@ -81,7 +83,11 @@ function Login() {
           />
           {errors.password && <span>{errors.password.message}</span>}
 
-          <button className='login-button' type="submit">Iniciar Sesión</button>
+          <InputText />
+
+          <Button color="primary" type='submit'>
+            Iniciar sesion
+          </Button>
         </form>
       </div>
     </div>
