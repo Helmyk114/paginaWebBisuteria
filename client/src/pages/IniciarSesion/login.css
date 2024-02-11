@@ -4,8 +4,6 @@
     background-position: center;
     background-repeat: no-repeat;
     margin: 0;
-    font-family: 'Josefin Sans';
-
 
 }
 
@@ -15,30 +13,16 @@
     margin: auto;
 }
 
-.label-login {
-    font-weight: bolder;
-    margin-bottom: 5px;
-    font-size: 16px;
-}
-
-.input-login {
-    padding: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #d4d1d1;
-    border-radius: 16px;
-    box-sizing: border-box;
-}
-
 .main-div {
     height: 50px;
     background-color: #6977E4;
 }
 
 span {
-    margin-top: -15px;
+    margin-left: 15px;
     display: block;
     color: tomato;
-    font-size: x-small;
+    font-size: small;
 }
 
 .form-container {
@@ -49,24 +33,33 @@ span {
     padding: 3%;
     border-radius: 20px;
     margin: 30px auto;
-
 }
 
 
-.titulo {
+.titulo1 {
     color: #6977E4;
-    margin-bottom: 10px;
     text-align: center;
-    font-size: 18px;
-    font-weight: bolder;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.titulo2 {
+    color: #6977E4;
+    margin-bottom: 5px;
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .subtitulo {
     color: black;
-    font-weight: 500;
     margin-bottom: 20px;
     text-align: center;
-    margin-top: 25px;
+    margin-top: 5px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: italic;
 }
 
 .login-button {
@@ -92,23 +85,17 @@ span {
 
     }
 
-
-    .input-login {
-        width: 100%;
+    .titulo1 {
+        font-size: 32px;
     }
 
-    .titulo {
-        font-size: 20px;
+    .titulo2 {
+        margin-top: -25px;
+        font-size: 52px;
     }
 
     .subtitulo {
-        font-size: 16px;
-    }
-
-    .login-button {
-        font-size: 16px;
-        width: 100%;
-        height: 36px;
+        font-size: 14px;
     }
 
     .footer-login {

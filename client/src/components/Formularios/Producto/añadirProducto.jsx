@@ -37,6 +37,8 @@ function FormularioProducto({ control }) {
               ancho='40%'
             />
 
+            
+
             <ComboBox
               idCombox="categoria"
               titulo="Categoria"

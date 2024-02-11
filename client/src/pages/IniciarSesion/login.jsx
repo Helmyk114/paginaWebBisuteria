@@ -1,89 +1,63 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import Navbar from '../../components/Navbar/Navbar';
 import { Imagen } from '../../components/Navbar/Navbar';
-import { Wave } from '../../components/Navbar/Navbar';
-import iniciarSesion from '../../api/IniciarSesion';
 import './login.css';
-import { guardarToken, decodificarToken } from '../../utils/token';
-import { Button } from "@nextui-org/react";
-import InputText from '../../components/Formularios/Controles/inputText'
+import InputText from '../../components/UI/formulario/inputText'
+
+
+import { Button, Spacer } from "@nextui-org/react";
 
 function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const [error, setError] = useState('');
-  const navigate = useNavigate();
+  const refs = useRef({
+    userName: null,
+    password: null
+  });
 
   const onSubmit = async (data) => {
-    const endPoint = 'login';
-    const { success, token, error: errorMsg } = await iniciarSesion(data.userName, data.password, endPoint);
-
-    if (success && token) {
-      try {
-        guardarToken(token)
-
-        const numeroDelRol = decodificarToken(token).role;
-
-        switch (numeroDelRol) {
-          case 1:
-            navigate('/Administracion');
-            break;
-          case 2:
-            navigate('/Artesano');
-            break;
-          case 3:
-            navigate('/Vendedor');
-            break;
-          default:
-            navigate('/default');
-            break;
-        }
-      } catch (error) {
-        console.error('Error al decodificar el token:', error.message);
-      }
-    } else {
-      setError(errorMsg);
-    }
+    console.log(data)
   };
 
   return (
     <div className='body-login'>
       <Navbar >
-        <div >
-        </div >
+  
         <Imagen />
-        <div >
-        </div >
 
       </Navbar>
 
       <div className="form-container">
-        <div className="titulo">TEJIENDO UN MUNDO MULTICOLOR</div>
-        <div className="subtitulo">Inicia sesión con tu nombre de usuario y contraseña asignada</div>
-        {error && <span>{error}</span>}
+        <div className="titulo1">TEJIENDO UN MUNDO</div>
+        <div className="titulo2">MULTICOLOR</div>
+        <div className="subtitulo">Inicia sesión con tu nombre de <br></br>usuario y contraseña asignada</div>
+
         <form className='form-login' onSubmit={handleSubmit(onSubmit)}>
-          <label className='label-login' htmlFor="userName">Usuario</label>
-          <input
-            className='input-login'
+          <InputText
+            ref={(el) => { refs.current.userName = el; }}
+            {...register("userName", { required: { value:true, message: 'Usuario requerido' }})}
             type="text"
-            id="userName"
-            name="userName"
-            {...register("userName", { required: { value: true, message: "userName es requerido" } })}
+            key="userName"
+            placeholder={"Escriba su usuario"}
+            variant="underlined"
+            size="sm"
           />
           {errors.userName && <span>{errors.userName.message}</span>}
 
-          <label className='label-login' htmlFor="password">Contraseña</label>
-          <input
-            className='input-login'
+          <Spacer y={4} />
+
+          <InputText 
+            ref={(el) => { refs.current.password = el; }}
+            {...register("password", { required: { value:true, message: 'Constraseña requerida' }})}
             type="password"
-            id="password"
-            name="password"
-            {...register("password", { required: { value: true, message: "Contraseña es requerida" } })}
+            key="password"
+            placeholder={"Escriba su constraseña"}
+            variant="underlined"
+            size="sm"
           />
           {errors.password && <span>{errors.password.message}</span>}
 
-          <InputText />
+          <Spacer y={5} />
 
           <Button color="primary" type='submit'>
             Iniciar sesion
