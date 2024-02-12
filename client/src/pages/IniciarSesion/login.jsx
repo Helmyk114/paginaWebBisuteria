@@ -3,12 +3,16 @@ import { useForm } from 'react-hook-form';
 import Navbar from '../../components/Navbar/Navbar';
 import { Imagen } from '../../components/Navbar/Navbar';
 import './login.css';
-import InputText from '../../components/UI/formulario/inputText'
-
 
 import { Spacer } from "@nextui-org/react";
 import BotonEnviar from '../../components/UI/botones/botonEnviar';
+import InputText from '../../components/UI/formulario/inputText'
 import InputPassword from '../../components/UI/formulario/inputPassword';
+
+import inicioSesion from '../../api/IniciarSesion';
+import { guardarToken, decodificarToken } from '../../utils/token';
+import { useNavigate } from 'react-router-dom';
+
 
 function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -16,9 +20,36 @@ function Login() {
     userName: null,
     password: null
   });
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    console.log(data)
+
+    const { success, token, error: errorMsg } = await inicioSesion(data.userName, data.password, "login");
+
+    if (success && token) {
+      try {
+        guardarToken(token)
+
+        switch (decodificarToken(token).role) {
+          case 1:
+            navigate('/Administracion');
+            break;
+          case 2:
+            navigate('/Artesano');
+            break;
+          case 3:
+            navigate('/Vendedor');
+            break;
+          default:
+            navigate('/default');
+            break;
+        }
+      } catch (error) {
+        console.error('Error al decodificar el token:', error.message);
+      }
+    } else {
+      console.error(errorMsg);
+    }
   };
 
   return (
