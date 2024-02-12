@@ -4,7 +4,6 @@
     background-position: center;
     background-repeat: no-repeat;
     margin: 0;
-
 }
 
 .form-login {
@@ -13,28 +12,22 @@
     margin: auto;
 }
 
-.main-div {
-    height: 50px;
-    background-color: #6977E4;
-}
-
 span {
-    margin-left: 15px;
+    margin-left: 10px;
     display: block;
     color: tomato;
-    font-size: small;
+    font-size: 10px;
 }
 
 .form-container {
     display: block;
     justify-content: center;
     align-items: center;
-    background-color: rgb(252, 252, 252, 0.788);
+    background-color: rgba(255, 255, 255, 0.91);
     padding: 3%;
     border-radius: 20px;
     margin: 30px auto;
 }
-
 
 .titulo1 {
     color: #6977E4;
@@ -45,7 +38,6 @@ span {
 }
 .titulo2 {
     color: #6977E4;
-    margin-bottom: 5px;
     text-align: center;
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
@@ -56,33 +48,26 @@ span {
     color: black;
     margin-bottom: 20px;
     text-align: center;
-    margin-top: 5px;
+    margin-top: -10px;
     font-family: "Roboto", sans-serif;
     font-weight: 300;
     font-style: italic;
 }
-
-.login-button {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    border-radius: 25px;
-    background-color: #6977E4;
-    font-weight: 500;
-    color: #fff;
-    cursor: pointer;
-    border: none;
-    padding: 6px;
+.custom-label{
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    color: black;
+    margin-left: 10px;
 }
 
 /* Estilos para celulares */
 @media (max-width: 767px) {
     .form-container {
-        margin-top: 50px;
+        margin-top: -25px;
         width: 80%;
         height: 42%;
         position: relative;
         top: 18%;
-
     }
 
     .titulo1 {
@@ -98,14 +83,7 @@ span {
         font-size: 14px;
     }
 
-    .footer-login {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-    }
-
     .body-login {
-
         height: 1000px;
     }
 }
@@ -113,37 +91,55 @@ span {
 /* Estilos para tabletas */
 @media (min-width: 767px) and (max-width: 1023px) {
     .form-container {
-        margin-top: 170px;
+        margin-top: 150px;
         width: 80%;
         position: relative;
-        height: 400px;
+        height: 500px;
+    }
+
+    .titulo1 {
+        font-size: 42px;
+    }
+
+    .titulo2 {
+        margin-top: -35px;
+        font-size: 68px;
+    }
+
+    .subtitulo {
+        font-size: 18px;
     }
 
     .body-login {
-
-        height: 660px;
+        height: 1200px;
     }
 }
 
 /* Estilos para computadores */
 @media (min-width: 1024px) {
     .form-container {
-        margin-top: 180px;
-        margin-bottom: 220px;
-        width: 40%;
+        margin-top: 150px;
+        width: 50%;
         position: relative;
-        height: 430px;
-        padding: 3%;
+        height: 50%;
     }
 
-    .login-button {
+    .titulo1 {
+        margin-top: -35px;
+        font-size: 62px;
+    }
 
-        margin-top: 25px;
+    .titulo2 {
+        margin-top: -55px;
+        font-size: 100px;
+    }
 
+    .subtitulo {
+        margin-top: -25px;
+        font-size: 25px;
     }
 
     .body-login {
-
-        height: 700px;
+        height: 1000px;
     }
 }

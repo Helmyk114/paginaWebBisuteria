@@ -6,7 +6,9 @@ import './login.css';
 import InputText from '../../components/UI/formulario/inputText'
 
 
-import { Button, Spacer } from "@nextui-org/react";
+import { Spacer } from "@nextui-org/react";
+import BotonEnviar from '../../components/UI/botones/botonEnviar';
+import InputPassword from '../../components/UI/formulario/inputPassword';
 
 function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -36,32 +38,34 @@ function Login() {
           <InputText
             ref={(el) => { refs.current.userName = el; }}
             {...register("userName", { required: { value:true, message: 'Usuario requerido' }})}
+            key="usuario"
             type="text"
-            key="userName"
+            label={<span className="custom-label">Usuario</span>}
+            labelPlacement="outside"
             placeholder={"Escriba su usuario"}
-            variant="underlined"
-            size="sm"
+            size="md"
           />
           {errors.userName && <span>{errors.userName.message}</span>}
 
           <Spacer y={4} />
 
-          <InputText 
-            ref={(el) => { refs.current.password = el; }}
-            {...register("password", { required: { value:true, message: 'Constraseña requerida' }})}
-            type="password"
+          <InputPassword
+            ref={(el) => { refs.current.password = el;}}
+            {...register("password", { required: { value:true, message: 'Contraseña requerida' }})}
             key="password"
+            label={<span className="custom-label">Contraseña</span>}
+            labelPlacement={"outside"}
             placeholder={"Escriba su constraseña"}
-            variant="underlined"
-            size="sm"
+            size="md"
           />
           {errors.password && <span>{errors.password.message}</span>}
 
-          <Spacer y={5} />
+          <Spacer y={4} />
 
-          <Button color="primary" type='submit'>
-            Iniciar sesion
-          </Button>
+          <BotonEnviar 
+            text="Iniciar sesión"
+            type="submit"
+          />
         </form>
       </div>
     </div>
