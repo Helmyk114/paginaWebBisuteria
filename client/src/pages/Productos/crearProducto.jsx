@@ -1,27 +1,36 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Button, Form } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/Navbar/Navbar";
-import FormularioProducto from "../../components/Formularios/Producto/añadirProducto";
 import Footer from "../../components/Footer/Footer"
 import Imagen from "../../components/Formularios/Controles/imagen"
 import { añadirInformacionAPI } from "../../api/productos";
 import Swal from 'sweetalert2'
 
+import BotonEnviar from "../../components/UI/botones/botonEnviar";
+import InputText from "../../components/UI/formulario/Inputs/inputText";
+import { Card, Spacer } from "@nextui-org/react";
+import ListBoxSimple from "../../components/UI/formulario/Combox/listBoxSimple";
+
 function CrearProducto() {
 
-	const { handleSubmit, control } = useForm();
+	const { register, handleSubmit, formState: { errors } } = useForm();
 	const [selectedImage, setSelectedImage] = useState();
-	const endPoint = 'producto'
+	const refs = useRef({
+		productName: null,
+		price: null,
+		laborPrice: null,
+		category:null
+	});
 
 	const onSubmit = async (data) => {
+		console.log(data)
 		const producto = {
 			...data,
 			image: selectedImage,
 		};
 		try {
-			await añadirInformacionAPI(producto, endPoint)
+			await añadirInformacionAPI(producto, 'producto')
 			Swal.fire({
 				icon: "success",
 				title: "Se ha añadido un producto!",
@@ -49,11 +58,86 @@ function CrearProducto() {
 				<Notificacion />
 			</Navbar>
 
-			<Form style={{ display: 'block', justifyContent: 'center', padding: '10px' }} onSubmit={handleSubmit(onSubmit)}>
+			<form style={{ display: 'block', justifyContent: 'center', padding: '10px' }} onSubmit={handleSubmit(onSubmit)}>
 				<Imagen onImageChange={setSelectedImage} />
-				<FormularioProducto control={control} />
-				<Button className="Boton" type="submit">Añadir producto</Button>
-			</Form>
+				<div className='content1'>
+					<Card className='card' style={{ width: '90%' }}>
+						<InputText ref={(el) => { refs.current.productName = el; }}
+							{...register("productName", { required: { value: true, message: 'El nombre del producto es requerido' } })}
+							key="productName"
+							type="text"
+							label={<span className="custom-label">Nombre del producto</span>}
+							labelPlacement="outside"
+							placeholder={"Escriba el nombre del producto"}
+							size="md"
+						/>
+						{errors.productName && <span>{errors.productName.message}</span>}
+
+						<Spacer y={4} />
+
+						<InputText ref={(el) => { refs.current.price = el; }}
+							{...register("price", { required: { value: true, message: 'El precio del producto es requerido' } })}
+							key="price"
+							type="number"
+							label={<span className="custom-label">Precio comercial (PC)</span>}
+							labelPlacement="outside"
+							placeholder={"0.00"}
+							size="md"
+							endContent={
+								<div className="pointer-events-none flex items-center">
+									<span className="text-default-400 text-small">$COP</span>
+								</div>
+							}
+						/>
+						{errors.price && <span>{errors.price.message}</span>}
+
+						<Spacer y={4} />
+
+						<InputText 
+							ref={(el) => { refs.current.laborPrice = el; }}
+							{...register("laborPrice", { required: { value: true, message: 'El precio de mano de obra es requerido' } })}
+							key="laborPrice"
+							type="number"
+							label={<span className="custom-label">Precio mano de obra (PO)</span>}
+							labelPlacement="outside"
+							placeholder={"0.00"}
+							size="md"
+							endContent={
+								<div className="pointer-events-none flex items-center">
+									<span className="text-default-400 text-small">$COP</span>
+								</div>
+							}
+						/>
+						{errors.laborPrice && <span>{errors.laborPrice.message}</span>}
+
+						<Spacer y={4} />
+
+						<ListBoxSimple
+							ref={(el) => { refs.current.category = el;}}
+							{...register("category", { required: { value:true, message:'La categoria es requerido'}})}
+							key="category"
+							type="text"
+							label={<span className="custom-label">Categoria</span>}
+							labelPlacement="outside"
+							placeholder="Seleccione una categoria"
+							size="md"
+							apiEndpoint="categoria"
+							idOpcion="idCategory"
+							text="categorys"
+						/>
+						{errors.category && <span>{errors.category.message}</span>}
+
+						<Spacer y={4} />
+
+						<BotonEnviar
+							text="Añadir producto"
+							type="submit"
+						/>
+
+						<Spacer y={4} />
+					</Card>
+				</div>
+			</form>
 
 			<Footer />
 		</div>

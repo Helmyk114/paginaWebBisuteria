@@ -6,13 +6,12 @@ import './login.css';
 
 import { Spacer } from "@nextui-org/react";
 import BotonEnviar from '../../components/UI/botones/botonEnviar';
-import InputText from '../../components/UI/formulario/inputText'
-import InputPassword from '../../components/UI/formulario/inputPassword';
+import InputText from '../../components/UI/formulario/Inputs/inputText'
+import InputPassword from '../../components/UI/formulario/Inputs/password/inputPassword';
 
 import inicioSesion from '../../api/IniciarSesion';
 import { guardarToken, decodificarToken } from '../../utils/token';
 import { useNavigate } from 'react-router-dom';
-
 
 function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -97,6 +96,8 @@ function Login() {
             text="Iniciar sesión"
             type="submit"
           />
+
+          <Spacer y={4} />
         </form>
       </div>
     </div>

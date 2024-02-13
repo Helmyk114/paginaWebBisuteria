@@ -11,7 +11,7 @@ const InputText = forwardRef(({ className, placement ,fontSize, ...props }, ref)
           className={className} 
           labelPlacement={placement}
           radius="full" 
-          style={{ fontFamily: "Roboto, sans-serif", fontSize: fontSize || "11px"}}
+          style={{ fontFamily: "Roboto, sans-serif", fontSize: fontSize || "12px"}}
           {...props}
         />
       </div>
