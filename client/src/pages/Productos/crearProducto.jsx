@@ -1,15 +1,14 @@
 import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer"
 import Imagen from "../../components/Formularios/Controles/imagen"
 import { añadirInformacionAPI } from "../../api/productos";
 import Swal from 'sweetalert2'
 
+import { Card, Spacer } from "@nextui-org/react";
 import BotonEnviar from "../../components/UI/botones/botonEnviar";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
-import { Card, Spacer } from "@nextui-org/react";
 import ListBoxSimple from "../../components/UI/formulario/Combox/listBoxSimple";
 
 function CrearProducto() {
@@ -17,35 +16,37 @@ function CrearProducto() {
 	const { register, handleSubmit, formState: { errors } } = useForm();
 	const [selectedImage, setSelectedImage] = useState();
 	const refs = useRef({
-		productName: null,
+		nameProduct: null,
 		price: null,
 		laborPrice: null,
-		category:null
+		idCategory:null
 	});
 
 	const onSubmit = async (data) => {
-		console.log(data)
+
 		const producto = {
 			...data,
 			image: selectedImage,
+			
 		};
-		try {
-			await añadirInformacionAPI(producto, 'producto')
-			Swal.fire({
-				icon: "success",
-				title: "Se ha añadido un producto!",
-				showConfirmButton: false,
-				timer: 1500
-			});
-		} catch (error) {
-			console.error('Error al crear un producto', error)
-			Swal.fire({
-				icon: "error",
-				title: "No Se puede crear el producto",
-				showConfirmButton: false,
-				timer: 1500
-			});
-		}
+		console.log(producto)
+		// try {
+		// 	await añadirInformacionAPI(producto, 'producto')
+		// 	Swal.fire({
+		// 		icon: "success",
+		// 		title: "Se ha añadido un producto!",
+		// 		showConfirmButton: false,
+		// 		timer: 1500
+		// 	});
+		// } catch (error) {
+		// 	console.error('Error al crear un producto', error)
+		// 	Swal.fire({
+		// 		icon: "error",
+		// 		title: "No Se puede crear el producto",
+		// 		showConfirmButton: false,
+		// 		timer: 1500
+		// 	});
+		// }
 	};
 
 	return (
@@ -62,16 +63,16 @@ function CrearProducto() {
 				<Imagen onImageChange={setSelectedImage} />
 				<div className='content1'>
 					<Card className='card' style={{ width: '90%' }}>
-						<InputText ref={(el) => { refs.current.productName = el; }}
-							{...register("productName", { required: { value: true, message: 'El nombre del producto es requerido' } })}
-							key="productName"
+						<InputText ref={(el) => { refs.current.nameProduct = el; }}
+							{...register("nameProduct", { required: { value: true, message: 'El nombre del producto es requerido' } })}
+							key="nameProduct"
 							type="text"
 							label={<span className="custom-label">Nombre del producto</span>}
 							labelPlacement="outside"
 							placeholder={"Escriba el nombre del producto"}
 							size="md"
 						/>
-						{errors.productName && <span>{errors.productName.message}</span>}
+						{errors.nameProduct && <span>{errors.nameProduct.message}</span>}
 
 						<Spacer y={4} />
 
@@ -113,9 +114,9 @@ function CrearProducto() {
 						<Spacer y={4} />
 
 						<ListBoxSimple
-							ref={(el) => { refs.current.category = el;}}
-							{...register("category", { required: { value:true, message:'La categoria es requerido'}})}
-							key="category"
+							ref={(el) => { refs.current.idCategory = el;}}
+							{...register("idCategory", { required: { value:true, message:'La categoria es requerido'}})}
+							key="idCategory"
 							type="text"
 							label={<span className="custom-label">Categoria</span>}
 							labelPlacement="outside"
@@ -123,9 +124,9 @@ function CrearProducto() {
 							size="md"
 							apiEndpoint="categoria"
 							idOpcion="idCategory"
-							text="categorys"
+							texto="categorys"
 						/>
-						{errors.category && <span>{errors.category.message}</span>}
+						{errors.idCategory && <span>{errors.idCategory.message}</span>}
 
 						<Spacer y={4} />
 

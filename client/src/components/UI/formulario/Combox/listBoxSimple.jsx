@@ -1,7 +1,5 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState, useEffect } from "react";
 import { Autocomplete, AutocompleteItem } from "@nextui-org/react";
-import { useState } from "react";
-import { useEffect } from "react";
 import { infoComboBox } from "../../../../api/formularios";
 
 const ListBoxSimple = forwardRef(({ placement, fontSize, apiEndpoint, idOpcion, texto, ...props }, ref) => {
@@ -19,6 +17,7 @@ const ListBoxSimple = forwardRef(({ placement, fontSize, apiEndpoint, idOpcion, 
     };
     obtenerOpciones();
   }, [apiEndpoint]);
+  console.log(opciones)
 
   return (
     <div className="flex flex-col gap-2">
@@ -26,17 +25,21 @@ const ListBoxSimple = forwardRef(({ placement, fontSize, apiEndpoint, idOpcion, 
         <Autocomplete
           ref={ref}
           labelPlacement={placement}
-          className="max-w-xs"
+          className="max-w-sm"
           radius="full"
           style={{ fontFamily: "Roboto, sans-serif", fontSize: fontSize || "12px" }}
           {...props}
+          defaultItems={opciones}
         >
-          {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
-          {opciones.map((opcion) => (
-            <AutocompleteItem key={opcion[idOpcion]} value={opcion[idOpcion]} >
-              {opcion[texto]}
-            </AutocompleteItem>
-          ))}
+          {(item) => 
+          <AutocompleteItem 
+            key={item[idOpcion]} 
+            value={item[idOpcion]} 
+            textValue={item[texto]}
+          >
+            {item[texto]}
+          </AutocompleteItem>}
+
         </Autocomplete>
       </div>
     </div>
