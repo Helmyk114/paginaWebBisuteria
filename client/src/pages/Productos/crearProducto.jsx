@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer"
@@ -19,7 +19,7 @@ function CrearProducto() {
 		nameProduct: null,
 		price: null,
 		laborPrice: null,
-		idCategory:null
+		idCategory:null,
 	});
 
 	const onSubmit = async (data) => {
@@ -27,7 +27,6 @@ function CrearProducto() {
 		const producto = {
 			...data,
 			image: selectedImage,
-			
 		};
 		console.log(producto)
 		// try {
@@ -63,6 +62,9 @@ function CrearProducto() {
 				<Imagen onImageChange={setSelectedImage} />
 				<div className='content1'>
 					<Card className='card' style={{ width: '90%' }}>
+
+					<Spacer y={4} />
+
 						<InputText ref={(el) => { refs.current.nameProduct = el; }}
 							{...register("nameProduct", { required: { value: true, message: 'El nombre del producto es requerido' } })}
 							key="nameProduct"
@@ -115,7 +117,7 @@ function CrearProducto() {
 
 						<ListBoxSimple
 							ref={(el) => { refs.current.idCategory = el;}}
-							{...register("idCategory", { required: { value:true, message:'La categoria es requerido'}})}
+							{...register("idCategory", { required: { value: true, message: 'La categoria es requerido' } })}
 							key="idCategory"
 							type="text"
 							label={<span className="custom-label">Categoria</span>}
@@ -139,7 +141,6 @@ function CrearProducto() {
 					</Card>
 				</div>
 			</form>
-
 			<Footer />
 		</div>
 	);

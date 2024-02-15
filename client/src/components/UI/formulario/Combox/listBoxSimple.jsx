@@ -17,7 +17,7 @@ const ListBoxSimple = forwardRef(({ placement, fontSize, apiEndpoint, idOpcion, 
     };
     obtenerOpciones();
   }, [apiEndpoint]);
-  console.log(opciones)
+
 
   return (
     <div className="flex flex-col gap-2">
@@ -35,11 +35,9 @@ const ListBoxSimple = forwardRef(({ placement, fontSize, apiEndpoint, idOpcion, 
           <AutocompleteItem 
             key={item[idOpcion]} 
             value={item[idOpcion]} 
-            textValue={item[texto]}
           >
             {item[texto]}
           </AutocompleteItem>}
-
         </Autocomplete>
       </div>
     </div>
