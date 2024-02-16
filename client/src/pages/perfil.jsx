@@ -1,27 +1,44 @@
 import React from "react";
-import {Card, Image} from "@nextui-org/react";
+import {Spacer} from "@nextui-org/react";
+
 import CardPerfil from "../components/UI/perfil/cardInfo";
 
 
 export default function Perfilinfo() {
   return (
-    <Card style={{width:"90%"}}>
-      
+
+    <div style={{backgroundColor:"red", width:"100%", padding:"1px", borderRadius:"13px"}}>
+       <Spacer y={4} />
       <CardPerfil
-      texto={"Usuario1"}
-      
-      >
-
+      texto={"Usuario"}
+      texto2={"Usuario1"}
+      icon={"gridicons:user-circle"}>
       </CardPerfil>
-      <div style={{width:"100%", margin:"0 auto", display:"flex", justifyContent:"center", opacity:"100"}}>
-      <Image
-      src= "https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
-      />
-        
-      </div>
-
-       
-      
-    </Card>
+      <Spacer y={4} />
+      <CardPerfil
+      texto={"Cedula"}
+      texto2={"012345"}
+      icon={"mdi:user-card-details"}>
+      </CardPerfil>
+      <Spacer y={4} />
+      <CardPerfil
+      texto={"Email"}
+      texto2={"Usuario1@gmial.com"}
+      icon={"mdi:email"}>
+      </CardPerfil>
+      <Spacer y={4} />
+      <CardPerfil
+      texto={"Celular"}
+      texto2={"301393939"}
+      icon={"mdi:telephone"}>
+      </CardPerfil>
+      <Spacer y={4} />
+      <CardPerfil
+      texto={"Numero de cuenta"}
+      texto2={"00001"}
+      icon={"mdi:cash-multiple"}>
+      </CardPerfil>
+    </div>
+   
   );
 }
