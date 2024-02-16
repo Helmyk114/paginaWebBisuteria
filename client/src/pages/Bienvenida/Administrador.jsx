@@ -53,6 +53,7 @@ function BienvenidaAdmi() {
 				</div>
 			)};
 			<Container>
+	
 
 				<Botones>
 					<BtnIndividual

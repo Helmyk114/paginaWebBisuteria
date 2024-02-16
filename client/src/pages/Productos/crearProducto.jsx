@@ -1,15 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer"
-import Imagen from "../../components/Formularios/Controles/imagen"
 import { añadirInformacionAPI } from "../../api/productos";
 import Swal from 'sweetalert2'
 
 import { Card, Spacer } from "@nextui-org/react";
-import BotonEnviar from "../../components/UI/botones/botonEnviar";
+import SubirImagen from "../../components/UI/formulario/Imagen/imagen";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import ListBoxSimple from "../../components/UI/formulario/Combox/listBoxSimple";
+import BotonEnviar from "../../components/UI/botones/botonEnviar";
 
 function CrearProducto() {
 
@@ -29,23 +29,23 @@ function CrearProducto() {
 			image: selectedImage,
 		};
 		console.log(producto)
-		// try {
-		// 	await añadirInformacionAPI(producto, 'producto')
-		// 	Swal.fire({
-		// 		icon: "success",
-		// 		title: "Se ha añadido un producto!",
-		// 		showConfirmButton: false,
-		// 		timer: 1500
-		// 	});
-		// } catch (error) {
-		// 	console.error('Error al crear un producto', error)
-		// 	Swal.fire({
-		// 		icon: "error",
-		// 		title: "No Se puede crear el producto",
-		// 		showConfirmButton: false,
-		// 		timer: 1500
-		// 	});
-		// }
+		try {
+			await añadirInformacionAPI(producto, 'producto')
+			Swal.fire({
+				icon: "success",
+				title: "Se ha añadido un producto!",
+				showConfirmButton: false,
+				timer: 1500
+			});
+		} catch (error) {
+			console.error('Error al crear un producto', error)
+			Swal.fire({
+				icon: "error",
+				title: "No Se puede crear el producto",
+				showConfirmButton: false,
+				timer: 1500
+			});
+		}
 	};
 
 	return (
@@ -59,7 +59,7 @@ function CrearProducto() {
 			</Navbar>
 
 			<form style={{ display: 'block', justifyContent: 'center', padding: '10px' }} onSubmit={handleSubmit(onSubmit)}>
-				<Imagen onImageChange={setSelectedImage} />
+				<SubirImagen onImageChange={setSelectedImage} />
 				<div className='content1'>
 					<Card className='card' style={{ width: '90%' }}>
 

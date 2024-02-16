@@ -8,17 +8,12 @@
     width: 100%;
     
 }
-   
+
 .card{
     background-color: rgb(238, 238, 238, 1);
     margin: 10px;
     width: 100%;
     padding: 10px;
-}
-
-.titulo{
-    margin-left: 15px;
-    margin: 10px;
 }
 
 .img{

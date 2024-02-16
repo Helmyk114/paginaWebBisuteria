@@ -4,12 +4,13 @@ import { useParams } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer"
-import Imagen from "../../components/Formularios/Controles/imagen";
+
 import { actualizarInformacionApi, detalleInformacionApi } from "../../api/productos";
 import procesarImagen from "../../utils/procesadorImagenes";
 import Swal from "sweetalert2";
 
 import { Card, Spacer } from "@nextui-org/react";
+import SubirImagen from "../../components/UI/formulario/Imagen/imagen";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import BotonEnviar from "../../components/UI/botones/botonEnviar";
 
@@ -43,8 +44,6 @@ function ActualizarProducto() {
 		};
 		obtenerDatos();
 	}, [idProduct, raizUrl]);
-
-
 
 	const onSubmit = async (data) => {
 		const producto = {
@@ -87,7 +86,7 @@ function ActualizarProducto() {
 				<Notificacion />
 			</Navbar>
 			<Form style={{ display: 'block', justifyContent: 'center', padding: '10px' }} onSubmit={handleSubmit(onSubmit)}>
-				<Imagen onImageChange={setSelectedImage} defaultImageSrc={informacionProducto || ""} />
+				<SubirImagen onImageChange={setSelectedImage} defaultImageSrc={informacionProducto || ""} />
 				<Card>
 
 					<Spacer y={4} />

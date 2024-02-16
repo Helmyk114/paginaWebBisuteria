@@ -23,8 +23,8 @@ import ListarTrabajador from "../pages/Trabajadores/listarTrabajador";
 import CrearTrabajador from "../pages/Trabajadores/crearTrabajador";
 import ActualizarTrabajador from "../pages/Trabajadores/actualizarTrabajardor";
 
-import Unauthorized from "../components/PrivateRoute/Unauthorized";
-import ProtectedRoute from "../components/PrivateRoute/protectedRoute";
+import Unauthorized from "./PrivateRoute/Unauthorized";
+import ProtectedRoute from "./PrivateRoute/protectedRoute";
 import Perfil from "../pages/Pefiles/perfilTrabajador";
 import Perfilinfo from "../pages/perfil";
 

@@ -5,11 +5,13 @@ import { Form } from "react-bootstrap";
 import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer"
 import EditarTrabajador from "../../components/Formularios/Trabajador/editarTrabajador";
-import Imagen from "../../components/Formularios/Controles/imagen";
+
 import BtnFormularios from "../../components/Botones/BotonFormularios/btnFormularios";
 import { actualizarInformacionApi, detalleInformacionApi } from "../../api/productos";
 import procesarImagen from "../../utils/procesadorImagenes";
 import Swal from "sweetalert2";
+
+import SubirImagen from "../../components/UI/formulario/Imagen/imagen";
 
 function ActualizarTrabajador() {
 
@@ -71,7 +73,7 @@ function ActualizarTrabajador() {
 				<Notificacion />
 			</Navbar>
 			<Form style={{ margin: '0 auto', width: '100%' }} onSubmit={handleSubmit(onSubmit)}>
-				<Imagen onImageChange={setSelectedImage} defaultImageSrc={informacionTrabajador || "" } />
+				<SubirImagen onImageChange={setSelectedImage} defaultImageSrc={informacionTrabajador || "" } />
 				<EditarTrabajador control={control} informacionTrabajador={informacionTrabajador} />
 				<BtnFormularios type={'submit'} btnTitulo={'Registrar trabajador'} />
 			</Form>
