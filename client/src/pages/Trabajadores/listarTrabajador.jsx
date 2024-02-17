@@ -3,9 +3,14 @@ import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/
 import Footer from "../../components/Footer/Footer";
 import Flotante from '../../components/Botones/BotonFlotante/Flotante';
 import CustomCard from '../../components//Card/card';
-import { CardContent, Editar, Eliminar, Nombre } from '../../components/Card/card';
+import { CardContent, Nombre } from '../../components/Card/card';
 import { eliminarInformacionApi, listarInformacionApi } from "../../api/productos";
 import Swal from 'sweetalert2'
+
+
+import EditIcon from "../../components/UI/iconos/Editar";
+import { Spacer, Tooltip } from "@nextui-org/react";
+import DeleteIcon from "../../components/UI/iconos/Eliminar";
 
 function ListarTrabajador() {
 
@@ -79,7 +84,7 @@ function ListarTrabajador() {
         <Titulo texto="Trabajadores" />
         <Notificacion />
       </Navbar>
-
+      <Spacer y={20} />
       {cargando ? (
         <p>Cargando información de los trabajadores...</p>
       ) : (
@@ -91,8 +96,18 @@ function ListarTrabajador() {
                 img={`${urlImage}/${datos.photo}`}>
                 <CardContent />
                 <Nombre nombre={datos.workerName} />
-                <Editar ruta={`/editar/trabajador/${datos.idCardWorker}`} />
-                <Eliminar eliminar={() => eliminarTrabajador(datos.idCardWorker)} />
+                <div className="relative flex items-center gap-4">
+                  <Tooltip content="Editar trabajador">
+                    <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
+                      <EditIcon ruta={`/editar/trabajador/${datos.idCardWorker}`} />
+                    </span>
+                  </Tooltip>
+                  <Tooltip content="Eliminar trabajador">
+                    <span className="text-lg text-danger cursor-pointer active:opacity-50">
+                      <DeleteIcon eliminar={() => eliminarTrabajador(datos.idCardWorker)} />
+                    </span>
+                  </Tooltip>
+                </div>
               </CustomCard>
             ))
           ) : (

@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import CustomCard from '../../components//Card/card';
-import { CardContent, Editar, Eliminar, Nombre, PrecioPC, PrecioPO } from '../../components/Card/card';
+import { CardContent, Nombre, PrecioPC, PrecioPO } from '../../components/Card/card';
 import Flotante from '../../components/Botones/BotonFlotante/Flotante';
 import { eliminarInformacionApi, listarInformacionApi } from "../../api/productos";
 import Swal from "sweetalert2";
+import { Spacer, Tooltip } from "@nextui-org/react";
+
+import EditIcon from "../../components/UI/iconos/Editar";
+import DeleteIcon from "../../components/UI/iconos/Eliminar";
 
 function ListarProducto() {
 
@@ -81,6 +85,7 @@ function ListarProducto() {
 				/>
 				<Notificacion />
 			</Navbar>
+			<Spacer y={20} />
 
 			{cargando ? (
 				<p>Cargando información de los productos...</p>
@@ -91,12 +96,23 @@ function ListarProducto() {
 							<CustomCard
 								key={datos.idProduct}
 								img={`${urlImage}/${datos.image}`}>
+								
 								<CardContent />
 								<Nombre nombre={datos.nameProduct} />
 								<PrecioPC precio1={datos.price} />
 								<PrecioPO precio2={datos.laborPrice} />
-								<Editar ruta={`/editar/producto/${datos.idProduct}`} />
-								<Eliminar eliminar={() => eliminarProducto(datos.idProduct)}/>
+								<div className="relative flex items-center gap-4">
+                <Tooltip content="Editar producto">
+                  <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
+                  <EditIcon  ruta={`/editar/producto/${datos.idProduct}`} />
+                  </span>
+                </Tooltip>
+                <Tooltip content="Eliminar producto">
+                  <span className="text-lg text-danger cursor-pointer active:opacity-50">
+                    <DeleteIcon eliminar={() => eliminarProducto(datos.idProduct)} />
+                  </span>
+                </Tooltip>
+                </div>
 							</CustomCard>
 						))
 					) : (

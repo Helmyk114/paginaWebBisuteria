@@ -1,8 +1,6 @@
 import React from "react";
 import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer"
-import ComboBox from "../../components/Formularios/Controles/comboBox";
-import DropdownWithCards from "../../components/Formularios/Controles/comboBoxCard";
 
 function CrearPedido() {
     return (
@@ -14,7 +12,6 @@ function CrearPedido() {
                 />
                 <Notificacion />
             </Navbar>
-            {/* <DropdownWithCards/> */}
 
             <Footer />
         </div>
