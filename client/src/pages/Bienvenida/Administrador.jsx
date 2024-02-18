@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import Navegar, { ImagenPerfil, TituloBienvenido, Notificacion } from '../../components/Navbar/Navbar'
-import Botones, { BtnIndividual } from '../../components/Botones/btnPrincipal'
+// import Botones, { BtnIndividual } from '../../components/Botones/btnPrincipal'
 import Footer from '../../components/Footer/Footer'
-import { Container } from 'react-bootstrap'
+
 import { useState } from 'react'
 import { decodificarToken, obtenerToken } from '../../utils/token'
 import { detalleInformacionApi } from '../../api/productos'
@@ -52,7 +52,7 @@ function BienvenidaAdmi() {
 					)}
 				</div>
 			)};
-			<Container>
+			{/* <Container>
 	
 
 				<Botones>
@@ -166,7 +166,7 @@ function BienvenidaAdmi() {
 						texto="Cerrar sesión"
 					/>
 				</Botones>
-			</Container>
+			</Container> */}
 			<Footer />
 		</div>
 	);

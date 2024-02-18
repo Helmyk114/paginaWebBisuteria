@@ -1,7 +1,7 @@
 import React from 'react'
 import Navegar from '../../components/Navbar/Navbar'
 import { ImagenPerfil, TituloBienvenido, Notificacion } from '../../components/Navbar/Navbar'
-import Botones, { BtnIndividual }  from '../../components/Botones/btnPrincipal'
+// import Botones, { BtnIndividual }  from '../../components/Botones/btnPrincipal'
 import Footer from '../../components/Footer/Footer'
 
 function BienvenidaTrabajador() {
@@ -17,7 +17,7 @@ function BienvenidaTrabajador() {
     <Notificacion/>
     </Navegar>
     
-    <Botones>
+    {/* <Botones>
     <BtnIndividual
         icono={
             <svg 
@@ -73,7 +73,7 @@ function BienvenidaTrabajador() {
         texto="Cerrar sesión"
         
     />
-    </Botones>
+    </Botones> */}
 
     <Footer/>
     </div>

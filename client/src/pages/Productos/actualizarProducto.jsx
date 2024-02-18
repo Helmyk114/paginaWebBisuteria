@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-import { Form } from "react-bootstrap";
 import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer"
 
@@ -85,7 +84,7 @@ function ActualizarProducto() {
 				/>
 				<Notificacion />
 			</Navbar>
-			<Form style={{ display: 'block', justifyContent: 'center', padding: '10px' }} onSubmit={handleSubmit(onSubmit)}>
+			<form style={{ display: 'block', justifyContent: 'center', padding: '10px' }} onSubmit={handleSubmit(onSubmit)}>
 				<SubirImagen onImageChange={setSelectedImage} defaultImageSrc={informacionProducto || ""} />
 				<Card>
 
@@ -155,7 +154,7 @@ function ActualizarProducto() {
 					<Spacer y={4} />
 
 				</Card>
-			</Form>
+			</form>
 			<Footer />
 		</div>
 	);

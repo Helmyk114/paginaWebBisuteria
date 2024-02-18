@@ -1,7 +1,5 @@
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import Navbar from '../../components/Navbar/Navbar';
-import { Imagen } from '../../components/Navbar/Navbar';
 import './login.css';
 
 import { Spacer } from "@nextui-org/react";
@@ -53,11 +51,6 @@ function Login() {
 
   return (
     <div className='body-login'>
-      <Navbar >
-  
-        <Imagen />
-
-      </Navbar>
 
       <div className="form-container">
         <div className="titulo1">TEJIENDO UN MUNDO</div>

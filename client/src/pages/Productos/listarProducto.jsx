@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import CustomCard from '../../components//Card/card';
 import { CardContent } from '../../components/Card/card';
@@ -79,13 +78,7 @@ function ListarProducto() {
 				ruta="/crear/producto"
 			/>
 
-			<Navbar>
-				<BotonRetroceder />
-				<Titulo
-					texto='Productos'
-				/>
-				<Notificacion />
-			</Navbar>
+	
 			<Spacer y={20} />
 
 			{cargando ? (
