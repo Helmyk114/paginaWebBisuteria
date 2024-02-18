@@ -76,15 +76,15 @@ function ActualizarProducto() {
 
 	return (
 		<div>
-			<Navbar>
+			{/* <Navbar>
 				<BotonRetroceder />
 
 				<Titulo
 					texto='Actualizar Producto'
 				/>
 				<Notificacion />
-			</Navbar>
-			<form style={{ display: 'block', justifyContent: 'center', padding: '10px' }} onSubmit={handleSubmit(onSubmit)}>
+			</Navbar> */}
+			<Form style={{ display: 'block', justifyContent: 'center', padding: '10px' }} onSubmit={handleSubmit(onSubmit)}>
 				<SubirImagen onImageChange={setSelectedImage} defaultImageSrc={informacionProducto || ""} />
 				<Card>
 

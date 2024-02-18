@@ -5,13 +5,13 @@ import Footer from "../../components/Footer/Footer"
 function ListarPedido() {
 	return (
 		<div>
-			<Navbar>
+			{/* <Navbar>
 				<BotonRetroceder />
 				<Titulo
 					texto='Pedidos'
 				/>
 				<Notificacion />
-			</Navbar>
+			</Navbar> */}
 
 			<Footer />
 		</div>

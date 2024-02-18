@@ -5,13 +5,13 @@ import Footer from "../../components/Footer/Footer"
 function ActualizarPedido() {
     return (
         <div>
-            <Navbar>
+            {/* <Navbar>
                 <BotonRetroceder />
                 <Titulo 
                     texto='Actualizar pedido'
                 />
                 <Notificacion />
-            </Navbar>
+            </Navbar> */}
             
             <Footer />
         </div>
