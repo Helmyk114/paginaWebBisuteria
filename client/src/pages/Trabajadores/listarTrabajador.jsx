@@ -3,7 +3,7 @@ import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/
 import Footer from "../../components/Footer/Footer";
 import Flotante from '../../components/Botones/BotonFlotante/Flotante';
 import CustomCard from '../../components//Card/card';
-import { CardContent, Nombre } from '../../components/Card/card';
+import { CardContent } from '../../components/Card/card';
 import { eliminarInformacionApi, listarInformacionApi } from "../../api/productos";
 import Swal from 'sweetalert2'
 
@@ -91,7 +91,7 @@ function ListarTrabajador() {
                 key={datos.idCardWorker}
                 img={`${urlImage}/${datos.photo}`}>
                 <CardContent />
-                <Nombre nombre={datos.workerName} />
+                
                 <div className="relative flex items-center gap-4">
                   <Tooltip content="Editar trabajador">
                     <span className="text-lg text-default-400 cursor-pointer active:opacity-50">

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import CustomCard from '../../components//Card/card';
-import { CardContent, Nombre, PrecioPC, PrecioPO } from '../../components/Card/card';
+import { CardContent } from '../../components/Card/card';
 import Flotante from '../../components/Botones/BotonFlotante/Flotante';
 import { eliminarInformacionApi, listarInformacionApi } from "../../api/productos";
 import Swal from "sweetalert2";
@@ -10,6 +10,7 @@ import { Spacer, Tooltip } from "@nextui-org/react";
 
 import EditIcon from "../../components/UI/iconos/Editar";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
+import Avatares from "../../components/UI/avatar/Avatares";
 
 function ListarProducto() {
 
@@ -25,7 +26,7 @@ function ListarProducto() {
 				setInformacion(informacionProducto.data);
 				setCargando(false);
 			} catch (error) {
-				console.error('Error al acceder a la informacion: ',error);
+				console.error('Error al acceder a la informacion: ', error);
 				setCargando(false);
 			}
 		};
@@ -33,29 +34,29 @@ function ListarProducto() {
 	}, []);
 
 	const eliminarProducto = async (idProduct) => {
-    try {
-      const result = await Swal.fire({
-        title: "¿Quieres eliminar este producto?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#6977E4",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Eliminar"
-      });
-      if (result.isConfirmed) {
-        await eliminarInformacionApi(endPoint, idProduct)
-        const nuevaInformacion = informacion.filter((datos) => datos.idProduct !== idProduct);
-        setInformacion(nuevaInformacion)
+		try {
+			const result = await Swal.fire({
+				title: "¿Quieres eliminar este producto?",
+				icon: "warning",
+				showCancelButton: true,
+				confirmButtonColor: "#6977E4",
+				cancelButtonColor: "#d33",
+				confirmButtonText: "Eliminar"
+			});
+			if (result.isConfirmed) {
+				await eliminarInformacionApi(endPoint, idProduct)
+				const nuevaInformacion = informacion.filter((datos) => datos.idProduct !== idProduct);
+				setInformacion(nuevaInformacion)
 
-        Swal.fire({
-          title: "Producto elimindao",
-          icon: "success"
-        });
-      }
-    } catch (error) {
-      console.error('error al eliminar: ', error)
-    }
-  };
+				Swal.fire({
+					title: "Producto elimindao",
+					icon: "success"
+				});
+			}
+		} catch (error) {
+			console.error('error al eliminar: ', error)
+		}
+	};
 
 
 	return (
@@ -93,33 +94,45 @@ function ListarProducto() {
 				<div>
 					{informacion && informacion.length > 0 ? (
 						informacion.map((datos) => (
-							<CustomCard
-								key={datos.idProduct}
-								img={`${urlImage}/${datos.image}`}>
-								
+							<CustomCard key={datos.price}>
+								<Avatares
+									radio={"md"}
+									tamaño={"lg"}
+								/>
 								<CardContent />
-								<Nombre nombre={datos.nameProduct} />
-								<PrecioPC precio1={datos.price} />
-								<PrecioPO precio2={datos.laborPrice} />
+
+								<div className="flex flex-col justify-center">
+										<p className="font-semibold text-md">{datos.nameProduct} </p>
+								</div>
+
+								<div className="flex flex-col justify-center">
+									<div className="relative flex gap-1">
+										<p className="font-semibold text-md">{"PC"} </p>
+										<p className="font-semibold text-md">{datos.price} </p>
+										<p className="font-semibold text-md">{"$"} </p>
+									</div>
+									<p className="font-semibold text-md">{`PO ${datos.laborPrice} $`}</p>
+								</div>
+
 								<div className="relative flex items-center gap-4">
-                <Tooltip content="Editar producto">
-                  <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                  <EditIcon  ruta={`/editar/producto/${datos.idProduct}`} />
-                  </span>
-                </Tooltip>
-                <Tooltip content="Eliminar producto">
-                  <span className="text-lg text-danger cursor-pointer active:opacity-50">
-                    <DeleteIcon eliminar={() => eliminarProducto(datos.idProduct)} />
-                  </span>
-                </Tooltip>
-                </div>
+									<Tooltip content="Editar producto">
+										<span className="text-lg text-default-400 cursor-pointer active:opacity-50">
+											<EditIcon ruta={`/editar/producto/${datos.idProduct}`} />
+										</span>
+									</Tooltip>
+									<Tooltip content="Eliminar producto">
+										<span className="text-lg text-danger cursor-pointer active:opacity-50">
+											<DeleteIcon eliminar={() => eliminarProducto(datos.idProduct)} />
+										</span>
+									</Tooltip>
+								</div>
 							</CustomCard>
 						))
 					) : (
 						<p>No hay productos disponibles.</p>
 					)}
-					</div>
-				)}
+				</div>
+			)}
 
 			<Footer />
 		</div>

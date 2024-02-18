@@ -1,16 +1,12 @@
 import React from 'react';
-import { Row, Col } from 'react-bootstrap'
 import { Card } from '@nextui-org/react'
 import './styleCard.css'; 
 
 // Componente principal
-function CustomCard({ children, img }) {
+function CustomCard({ children }) {
   return (
     <div>
       <div className="gray-container">
-        <div className="round-image-container">
-          <img className="round-image" src={img} alt="Round Image" />
-        </div>
         {children}
       </div>
     </div>
@@ -44,52 +40,8 @@ function Completado() {
   );
 };
 
-// Componente para el título centrado
-function Nombre({ nombre }) {
-  return (
-    <div>
-      <Row className="justify-content-md-center" style={{ marginRight: '30px' }}>
-        <Col xs={2} md={6} lg={12}>
-          <h2 className="title">{nombre}</h2>
-        </Col>
-      </Row>
-    </div>
-  );
-};
-
-// Componente para el primer subtitulo
-function PrecioPC({ precio1 }) {
-  return (
-    <div>
-      <Row className="justify-content-md-center">
-        <Col xs={6} md={6} lg={6}>
-          <label className='label'>PC</label>
-          <p className="subtitulo1">{precio1}</p>
-        </Col>
-      </Row>
-    </div>
-  );
-};
-
-// Componente para el segundo subtitulo
-function PrecioPO({ precio2 }) {
-  return (
-    <div>
-      <Row className="justify-content-md-center">
-        <Col xs={12} md={6} lg={6}>
-          <label className='label'>PO</label>
-          <p className="subtitulo2">{precio2}</p>
-        </Col>
-      </Row>
-    </div>
-  );
-};
-
 export default CustomCard;
 export {
   CardContent,
-  Nombre,
-  PrecioPC,
-  PrecioPO,
   Completado
 };
