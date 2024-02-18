@@ -8,13 +8,13 @@ import { Col, Row, Image, Container, Card } from "react-bootstrap";
 function Perfil() {
   return (
     <div>
-      <Navbar>
+      {/* <Navbar>
         <BotonRetroceder />
         <Titulo
           texto='Perfil'
         />
         <Notificacion />
-      </Navbar>
+      </Navbar> */}
       <Container className="card-perfil">
         <Row className='componentes' xs={2} md={2} lg={2} >
           <Col>

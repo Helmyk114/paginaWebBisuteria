@@ -54,14 +54,16 @@ function CrearTrabajador() {
 	};
 
 	return (
+		
 		<div >
-			<Navbar>
+			{/* <Navbar>
 				<BotonRetroceder />
 				<Titulo
 					texto='Añadir trabajador'
 				/>
 				<Notificacion />
-			</Navbar>
+			</Navbar> */}
+			<div  className="container-crear">
 			<form style={{ margin: '0 auto', width: '100%' }} onSubmit={handleSubmit(onSubmit)}>
 				<SubirImagen onImageChange={setSelectedImage} />
 				<Card className='card' style={{ width: '90%' }}>
@@ -205,8 +207,10 @@ function CrearTrabajador() {
 
 				</Card>
 			</form>
-
+		</div>
+		
 			<Footer />
+
 		</div>
 	);
 };

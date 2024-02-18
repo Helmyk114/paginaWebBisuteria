@@ -1,38 +1,35 @@
-
-.wave{
-    position: relative;
-}
 .footer {
+    /* position: fixed; */
     bottom: 0;
-    position: relative;
     width: 100%;
-
-}
-
-.footer-container{
-    margin-bottom: 80px;
+    z-index: 9999; 
 }
 @media (max-width: 576px) {
     .footer {
-        position: relative;
+        /* position: fixed; */
         bottom: 0;
         left: 0;
     }
-   
 }
 
 @media (max-height: 100vh) {
     .footer {
-        position: relative;
+        /* position: fixed; */
         bottom: 0;
         left: 0;
-
     }
 }
 
 @media (min-width: 767px) and (max-width: 1023px) {
-    .footer{
-        position: fixed;
+    .footer {
+        /* position: fixed; */
         bottom: 0;
         left: 0;
-    }}
+    }
+}
+
+.footerBienvenido{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

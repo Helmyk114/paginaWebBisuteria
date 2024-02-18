@@ -7,10 +7,10 @@ import { CardContent, Nombre } from '../../components/Card/card';
 import { eliminarInformacionApi, listarInformacionApi } from "../../api/productos";
 import Swal from 'sweetalert2'
 
-
 import EditIcon from "../../components/UI/iconos/Editar";
 import { Spacer, Tooltip } from "@nextui-org/react";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
+import Capoeira from "../../components/UI/navbar/navbar";
 
 function ListarTrabajador() {
 
@@ -79,12 +79,8 @@ function ListarTrabajador() {
         ruta="/crear/trabajador"
       />
 
-      <Navbar>
-        <BotonRetroceder />
-        <Titulo texto="Trabajadores" />
-        <Notificacion />
-      </Navbar>
-      <Spacer y={20} />
+      <Capoeira></Capoeira>
+      <Spacer y={5} />
       {cargando ? (
         <p>Cargando información de los trabajadores...</p>
       ) : (

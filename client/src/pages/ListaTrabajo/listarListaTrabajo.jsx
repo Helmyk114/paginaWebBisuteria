@@ -25,13 +25,13 @@ function ListarListaTrabajo() {
 					} 
 				/>
 
-				<Navbar>
+				{/* <Navbar>
 					<BotonRetroceder />
 					<Titulo
 						texto='Lista de trabajo'
 					/>
 					<Notificacion />
-				</Navbar>
+				</Navbar> */}
 				{/* <CustomCard img={img}> */}
 				<CustomCard>
 					<CardContent />

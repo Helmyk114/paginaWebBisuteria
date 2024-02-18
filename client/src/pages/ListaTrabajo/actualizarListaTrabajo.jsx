@@ -5,13 +5,13 @@ import Footer from "../../components/Footer/Footer"
 function ActualizarListaTrabajo() {
     return (
         <div>
-            <Navbar>
+            {/* <Navbar>
                 <BotonRetroceder />
                 <Titulo 
                     texto='Editar lista de trabajo'
                 />
                 <Notificacion />
-            </Navbar>
+            </Navbar> */}
             
             <Footer />
         </div>

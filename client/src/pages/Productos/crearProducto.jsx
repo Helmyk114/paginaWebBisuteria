@@ -50,13 +50,13 @@ function CrearProducto() {
 
 	return (
 		<div>
-			<Navbar>
+			{/* <Navbar>
 				<BotonRetroceder />
 				<Titulo
 					texto='Crear Producto'
 				/>
 				<Notificacion />
-			</Navbar>
+			</Navbar> */}
 
 			<form style={{ display: 'block', justifyContent: 'center', padding: '10px' }} onSubmit={handleSubmit(onSubmit)}>
 				<SubirImagen onImageChange={setSelectedImage} />

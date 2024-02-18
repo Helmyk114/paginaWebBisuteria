@@ -78,13 +78,13 @@ function ListarProducto() {
 				ruta="/crear/producto"
 			/>
 
-			<Navbar>
+			{/* <Navbar>
 				<BotonRetroceder />
 				<Titulo
 					texto='Productos'
 				/>
 				<Notificacion />
-			</Navbar>
+			</Navbar> */}
 			<Spacer y={20} />
 
 			{cargando ? (

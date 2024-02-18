@@ -82,13 +82,13 @@ function ActualizarTrabajador() {
 
 	return (
 		<div>
-			<Navbar>
+			{/* <Navbar>
 				<BotonRetroceder />
 				<Titulo
 					texto='Actualizar información'
 				/>
 				<Notificacion />
-			</Navbar>
+			</Navbar> */}
 
 				<form style={{ margin: '0 auto', width: '100%' }} onSubmit={handleSubmit(onSubmit)}>
 				<SubirImagen onImageChange={setSelectedImage} defaultImageSrc={informacionTrabajador || "" } />
