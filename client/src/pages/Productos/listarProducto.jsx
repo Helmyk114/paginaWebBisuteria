@@ -11,6 +11,9 @@ import EditIcon from "../../components/UI/iconos/Editar";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
 import Avatares from "../../components/UI/avatar/Avatares";
 import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
+import Loader from "../../components/UI/cargando/loader";
+
+
 
 function ListarProducto() {
 
@@ -88,7 +91,7 @@ function ListarProducto() {
 			<Spacer y={5} />
 
 			{cargando ? (
-				<p>Cargando información de los productos...</p>
+				<Loader />
 			) : (
 				<div>
 					{informacion && informacion.length > 0 ? (
@@ -101,7 +104,7 @@ function ListarProducto() {
 								<CardContent />
 
 								<div className="flex flex-col justify-center">
-										<p className="font-semibold text-md">{datos.nameProduct} </p>
+									<p className="font-semibold text-md">{datos.nameProduct} </p>
 								</div>
 
 								<div className="flex flex-col justify-center">
@@ -132,7 +135,6 @@ function ListarProducto() {
 					)}
 				</div>
 			)}
-
 			<Footer />
 		</div>
 	);

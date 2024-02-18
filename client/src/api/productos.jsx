@@ -64,7 +64,7 @@ async function actualizarInformacionApi(endPoint, id, informacion){
         'Content-Type': 'multipart/form-data',
       },
     });
-    if(response.status == 200){
+    if(response.status === 200){
       console.log('Se actualizo la informacion api');
     } else {
       console.error(response.data.error);
