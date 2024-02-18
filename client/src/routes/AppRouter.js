@@ -34,7 +34,7 @@ const AppRouter = () => {
         <Route path="/" element={<Login />} />
 
         {/* Pantallas de Perfiles */}
-        <Route path="/perfil" element={<Perfilinfo/>} />
+        <Route path="/perfil" element={<Perfilinfo />} />
 
         {/* Pantallas de Bienvenida */}
         <Route path="/Administracion" element={<ProtectedRoute element={<BienvenidaAdmi />} role={1} />}/>
