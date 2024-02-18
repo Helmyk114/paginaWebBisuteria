@@ -1,89 +1,90 @@
 import React from "react";
 import Botones, { BtnIndividual } from "../../components/Botones/btnPrincipal";
 import Footer from "../../components/Footer/Footer";
-import { NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/react";
 import BotonRetroceder from "../../components/UI/iconos/Retroceder";
 import Notificacion from "../../components/UI/iconos/Notificacion";
 import Content from "../../components/UI/navbar/Content";
-import Navbar from "../../components/UI/navbar/navbar";
+import Navigate from "../../components/UI/navbar/navbar";
+
 
 function BienvenidaTrabajador() {
-  return (
-    <div>
-      <Navbar>
-        <Content espacio="start">
-            <BotonRetroceder/>
-        </Content>
-        <Content espacio="center">
-            <p>BIENVENIDO ARTESANO</p>
-        </Content>
-        <Content espacio="end">
-            <Notificacion/>
-        </Content>
-      </Navbar>
+	return (
+		<div>
+			<Navigate>
+				<Content espacio="start">
+					<BotonRetroceder />
+				</Content>
+				<Content espacio="center">
+					<p>BIENVENIDO ARTESANO</p>
+				</Content>
+				<Content espacio="end">
+					<Notificacion />
+				</Content>
+			</Navigate>
+			
 
-      <Botones>
-        <BtnIndividual
-          icono={
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="76"
-              height="76"
-              fill="currentColor"
-              className="bi bi-person-fill"
-              viewBox="0 0 16 16"
-            >
-              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-            </svg>
-          }
-          texto="Perfil"
-        />
+			<Botones>
+				<BtnIndividual
+					icono={
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="76"
+							height="76"
+							fill="currentColor"
+							className="bi bi-person-fill"
+							viewBox="0 0 16 16"
+						>
+							<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+						</svg>
+					}
+					texto="Perfil"
+				/>
 
-        <BtnIndividual
-          icono={
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="76"
-              height="76"
-              fill="currentColor"
-              className="bi bi-file-earmark-text-fill"
-              viewBox="0 0 16 16"
-            >
-              <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1z" />
-            </svg>
-          }
-          texto="Lista de trabajo"
-        />
+				<BtnIndividual
+					icono={
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="76"
+							height="76"
+							fill="currentColor"
+							className="bi bi-file-earmark-text-fill"
+							viewBox="0 0 16 16"
+						>
+							<path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1z" />
+						</svg>
+					}
+					texto="Lista de trabajo"
+				/>
 
-        <BtnIndividual
-          icono={
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="76"
-              height="76"
-              fill="currentColor"
-              className="bi bi-box-arrow-right"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"
-              />
-              <path
-                fillRule="evenodd"
-                d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
-              />
-            </svg>
-          }
-          texto="Cerrar sesión"
-        />
-      </Botones>
+				<BtnIndividual
+					icono={
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="76"
+							height="76"
+							fill="currentColor"
+							className="bi bi-box-arrow-right"
+							viewBox="0 0 16 16"
+						>
+							<path
+								fillRule="evenodd"
+								d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"
+							/>
+							<path
+								fillRule="evenodd"
+								d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
+							/>
+						</svg>
+					}
+					texto="Cerrar sesión"
+				/>
+			</Botones>
 
-      <div className="footerBienvenido">
-        <Footer />
-      </div>
-    </div>
-  );
+			<div className="footerBienvenido">
+				<Footer />
+			</div>
+		</div>
+	);
 }
 
 export default BienvenidaTrabajador;

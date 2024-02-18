@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import Flotante from '../../components/Botones/BotonFlotante/Flotante';
 import CustomCard from '../../components//Card/card';
@@ -10,7 +9,7 @@ import Swal from 'sweetalert2'
 import EditIcon from "../../components/UI/iconos/Editar";
 import { Spacer, Tooltip } from "@nextui-org/react";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
-import Capoeira from "../../components/UI/navbar/navbar";
+import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 
 function ListarTrabajador() {
 
@@ -79,7 +78,12 @@ function ListarTrabajador() {
         ruta="/crear/trabajador"
       />
 
-      <Capoeira></Capoeira>
+      <Navigate>
+        <Retroceder />
+        <Titulo espacio="center" titulo="Trabajadores" />
+        <Notificacion />
+      </Navigate>
+
       <Spacer y={5} />
       {cargando ? (
         <p>Cargando información de los trabajadores...</p>
@@ -91,7 +95,7 @@ function ListarTrabajador() {
                 key={datos.idCardWorker}
                 img={`${urlImage}/${datos.photo}`}>
                 <CardContent />
-                
+
                 <div className="relative flex items-center gap-4">
                   <Tooltip content="Editar trabajador">
                     <span className="text-lg text-default-400 cursor-pointer active:opacity-50">

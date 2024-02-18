@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
-import Navegar, { ImagenPerfil, TituloBienvenido, Notificacion } from '../../components/Navbar/Navbar'
 import Botones, { BtnIndividual } from '../../components/Botones/btnPrincipal'
 import Footer from '../../components/Footer/Footer'
-import { Container } from 'react-bootstrap'
 import { useState } from 'react'
 import { decodificarToken, obtenerToken } from '../../utils/token'
 import { detalleInformacionApi } from '../../api/productos'
@@ -33,7 +31,7 @@ function BienvenidaAdmi() {
 
 	return (
 		<div style={{ minHeight: '100%' }}>
-			{cargando ? (
+			{/* {cargando ? (
 				<p>Cargando informacion del NAvbar...</p>
 			) : (
 				<div>
@@ -53,8 +51,8 @@ function BienvenidaAdmi() {
 						<p>No hay informacion disponible.</p>
 					)}
 				</div>
-			)};
-			<Container>
+			)}; */}
+			{/* <Container>
 	
 
 				<Botones>
@@ -169,8 +167,10 @@ function BienvenidaAdmi() {
 						texto="Cerrar sesión"
 					/>
 				</Botones>
-			</Container>
+			</Container> */}
 			<Footer />
 		</div>
 	);
 };
+
+export default BienvenidaAdmi;

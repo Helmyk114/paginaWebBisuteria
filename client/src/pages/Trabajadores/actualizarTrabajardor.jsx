@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer"
 import { actualizarInformacionApi, detalleInformacionApi } from "../../api/productos";
 import procesarImagen from "../../utils/procesadorImagenes";
@@ -12,6 +11,7 @@ import SubirImagen from "../../components/UI/formulario/Imagen/imagen";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import InputPassword from "../../components/UI/formulario/Inputs/password/inputPassword";
 import BotonEnviar from "../../components/UI/botones/botonEnviar";
+import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 
 function ActualizarTrabajador() {
 
@@ -82,13 +82,12 @@ function ActualizarTrabajador() {
 
 	return (
 		<div>
-			{/* <Navbar>
-				<BotonRetroceder />
-				<Titulo
-					texto='Actualizar información'
-				/>
+
+		<Navigate>
+				<Retroceder />
+				<Titulo espacio="center" titulo="Actualizar información" />
 				<Notificacion />
-			</Navbar> */}
+			</Navigate>
 
 				<form style={{ margin: '0 auto', width: '100%' }} onSubmit={handleSubmit(onSubmit)}>
 				<SubirImagen onImageChange={setSelectedImage} defaultImageSrc={informacionTrabajador || "" } />

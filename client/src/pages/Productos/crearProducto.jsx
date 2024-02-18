@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer"
 import { añadirInformacionAPI } from "../../api/productos";
 import Swal from 'sweetalert2'
@@ -10,6 +9,7 @@ import SubirImagen from "../../components/UI/formulario/Imagen/imagen";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import ListBoxSimple from "../../components/UI/formulario/Combox/listBoxSimple";
 import BotonEnviar from "../../components/UI/botones/botonEnviar";
+import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 
 function CrearProducto() {
 
@@ -19,7 +19,7 @@ function CrearProducto() {
 		nameProduct: null,
 		price: null,
 		laborPrice: null,
-		idCategory:null,
+		idCategory: null,
 	});
 
 	const onSubmit = async (data) => {
@@ -50,20 +50,18 @@ function CrearProducto() {
 
 	return (
 		<div>
-			{/* <Navbar>
-				<BotonRetroceder />
-				<Titulo
-					texto='Crear Producto'
-				/>
+			<Navigate>
+				<Retroceder />
+				<Titulo espacio="center" titulo="Añadir producto" />
 				<Notificacion />
-			</Navbar> */}
+			</Navigate>
 
 			<form style={{ display: 'block', justifyContent: 'center', padding: '10px' }} onSubmit={handleSubmit(onSubmit)}>
 				<SubirImagen onImageChange={setSelectedImage} />
 				<div className='content1'>
 					<Card className='card' style={{ width: '90%' }}>
 
-					<Spacer y={4} />
+						<Spacer y={4} />
 
 						<InputText ref={(el) => { refs.current.nameProduct = el; }}
 							{...register("nameProduct", { required: { value: true, message: 'El nombre del producto es requerido' } })}
@@ -96,7 +94,7 @@ function CrearProducto() {
 
 						<Spacer y={4} />
 
-						<InputText 
+						<InputText
 							ref={(el) => { refs.current.laborPrice = el; }}
 							{...register("laborPrice", { required: { value: true, message: 'El precio de mano de obra es requerido' } })}
 							key="laborPrice"
@@ -116,7 +114,7 @@ function CrearProducto() {
 						<Spacer y={4} />
 
 						<ListBoxSimple
-							ref={(el) => { refs.current.idCategory = el;}}
+							ref={(el) => { refs.current.idCategory = el; }}
 							{...register("idCategory", { required: { value: true, message: 'La categoria es requerido' } })}
 							key="idCategory"
 							type="text"

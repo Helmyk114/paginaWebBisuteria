@@ -1,10 +1,4 @@
 import React from "react";
-import Navegar from "../../components/Navbar/Navbar";
-import {
-  ImagenPerfil,
-  TituloBienvenido,
-  Notificacion,
-} from "../../components/Navbar/Navbar";
 import Botones, { BtnIndividual } from "../../components/Botones/btnPrincipal";
 import Footer from "../../components/Footer/Footer";
 import Capoeira from "../../components/UI/navbar/navbar";
@@ -12,14 +6,7 @@ import Capoeira from "../../components/UI/navbar/navbar";
 function BienvenidaVendedor() {
   return (
     <div>
-      {/* <Navegar>
-    <ImagenPerfil/>
-    <TituloBienvenido 
-        texto="Bienvenido"
-        nombretrabajador="Sara Cadavid"
-        rol="Vendedor"/>
-    <Notificacion/>
-    </Navegar> */}
+
       <Capoeira>
       </Capoeira>
       <Botones>

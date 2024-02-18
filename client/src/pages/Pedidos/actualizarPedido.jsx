@@ -1,21 +1,19 @@
 import React from "react";
-import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer"
+import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 
 function ActualizarPedido() {
-    return (
-        <div>
-            {/* <Navbar>
-                <BotonRetroceder />
-                <Titulo 
-                    texto='Actualizar pedido'
-                />
-                <Notificacion />
-            </Navbar> */}
-            
-            <Footer />
-        </div>
-    );
+	return (
+		<div>
+			<Navigate>
+				<Retroceder />
+				<Titulo espacio="center" titulo="Editar pedido" />
+				<Notificacion />
+			</Navigate>
+
+			<Footer />
+		</div>
+	);
 };
 
 export default ActualizarPedido

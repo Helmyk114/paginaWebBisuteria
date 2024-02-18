@@ -5,11 +5,12 @@ import { CardContent } from '../../components/Card/card';
 import Flotante from '../../components/Botones/BotonFlotante/Flotante';
 import { eliminarInformacionApi, listarInformacionApi } from "../../api/productos";
 import Swal from "sweetalert2";
-import { Spacer, Tooltip } from "@nextui-org/react";
 
+import { Spacer, Tooltip } from "@nextui-org/react";
 import EditIcon from "../../components/UI/iconos/Editar";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
 import Avatares from "../../components/UI/avatar/Avatares";
+import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 
 function ListarProducto() {
 
@@ -78,8 +79,13 @@ function ListarProducto() {
 				ruta="/crear/producto"
 			/>
 
-	
-			<Spacer y={20} />
+			<Navigate>
+				<Retroceder />
+				<Titulo espacio="center" titulo="Productos" />
+				<Notificacion />
+			</Navigate>
+
+			<Spacer y={5} />
 
 			{cargando ? (
 				<p>Cargando información de los productos...</p>

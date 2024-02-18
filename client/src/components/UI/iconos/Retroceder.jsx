@@ -15,6 +15,7 @@ function BotonRetroceder() {
           fill="currentColor"
           className="bi bi-chevron-left"
           viewBox="0 0 16 16"
+          color="#fff"
         >
           <path
             fillRule="evenodd"

@@ -1,8 +1,6 @@
 import React from "react";
-import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import CustomCard from '../../components//Card/card';
-import { CardContent, Completado } from '../../components/Card/card';
+
 import Flotante from '../../components/Botones/BotonFlotante/Flotante';
 
 function ListarListaTrabajo() {
@@ -25,19 +23,7 @@ function ListarListaTrabajo() {
 					} 
 				/>
 
-				{/* <Navbar>
-					<BotonRetroceder />
-					<Titulo
-						texto='Lista de trabajo'
-					/>
-					<Notificacion />
-				</Navbar> */}
-				{/* <CustomCard img={img}> */}
-				<CustomCard>
-					<CardContent />
-					
-					<Completado />
-				</CustomCard>
+			
 				<Footer />
 			</div>
 		</div>

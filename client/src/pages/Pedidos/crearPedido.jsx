@@ -1,17 +1,15 @@
 import React from "react";
-import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer"
+import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 
 function CrearPedido() {
     return (
         <div>
-            {/* <Navbar>
-                <BotonRetroceder />
-                <Titulo 
-                    texto='Crear un nuevo pedido'
-                />
-                <Notificacion />
-            </Navbar> */}
+           <Navigate>
+				<Retroceder />
+				<Titulo espacio="center" titulo="Crear pedido" />
+				<Notificacion />
+			</Navigate>
 
             <Footer />
         </div>

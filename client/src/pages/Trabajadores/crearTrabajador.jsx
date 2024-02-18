@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import Navbar, { Titulo, Notificacion, BotonRetroceder } from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer"
 import { useForm } from "react-hook-form";
 import { añadirInformacionAPI } from "../../api/productos";
@@ -11,6 +10,7 @@ import SubirImagen from "../../components/UI/formulario/Imagen/imagen";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import InputPassword from "../../components/UI/formulario/Inputs/password/inputPassword";
 import BotonEnviar from "../../components/UI/botones/botonEnviar";
+import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 
 function CrearTrabajador() {
 	const { register, handleSubmit, formState: { errors } } = useForm();
@@ -54,15 +54,13 @@ function CrearTrabajador() {
 	};
 
 	return (
-		
 		<div >
-			{/* <Navbar>
-				<BotonRetroceder />
-				<Titulo
-					texto='Añadir trabajador'
-				/>
+			<Navigate>
+				<Retroceder />
+				<Titulo espacio="center" titulo="Registrar trabajador" />
 				<Notificacion />
-			</Navbar> */}
+			</Navigate>
+			
 			<div  className="container-crear">
 			<form style={{ margin: '0 auto', width: '100%' }} onSubmit={handleSubmit(onSubmit)}>
 				<SubirImagen onImageChange={setSelectedImage} />
