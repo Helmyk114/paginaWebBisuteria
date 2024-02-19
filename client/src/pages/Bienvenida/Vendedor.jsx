@@ -26,13 +26,7 @@ function BienvenidaVendedor() {
     const data = async () => {
       try {
         const infobd = await detalleInformacionApi("bienvenida", id);
-
-        console.log(infobd);
-
-        setInformacion(infobd);
-
-        console.log("holas", informacion)
-
+        setInformacion(infobd.data);
         setCargando(false);
       } catch (error) {
         console.error("Error a traer la información", error);
@@ -47,11 +41,8 @@ function BienvenidaVendedor() {
         <p>Cargando información</p>
       ) : (
         <div>
-          
-          {informacion && informacion.lenght > 0 ? (
-           
+          {informacion && informacion.length > 0 ? (
             informacion.map((datos) => (
-              
               <Navigate height={"100px"}>
                 <Icono
                   radio={""}
@@ -62,7 +53,7 @@ function BienvenidaVendedor() {
 
                 <Texto
                   titulo={"Bienvenido"}
-                  nombre={`${(datos.workerName, datos.workerLastName)}`}
+                  nombre={`${(datos.workerName)} ${(datos.workerLastName)}`}
                   rol={"Vendedor"}
                 />
 
