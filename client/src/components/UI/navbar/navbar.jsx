@@ -1,13 +1,27 @@
 import React from "react";
-import { Navbar, NavbarContent, NavbarItem } from "@nextui-org/react";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+} from "@nextui-org/react";
 import Campana from "../iconos/Notificacion";
 import BotonRetroceder from "../iconos/Retroceder";
+import Avatares from "../avatar/Avatares";
 
-export default function Navigate({ children }) {
+export default function Navigate({ children, height }) {
   return (
-    <Navbar style={{ backgroundColor: "#6977E4" }} height="80px">
+    <Navbar style={{ backgroundColor: "#6977E4" }} height={height || "80px"}>
       {children}
     </Navbar>
+  );
+}
+
+const Icono = ({ radio, imagen, height, width }) => {
+  return (
+    <NavbarBrand style={{ marginTop: "3px" }}>
+      <Avatares radio={radio} imagen={imagen} height={height} width={width} />
+    </NavbarBrand>
   );
 };
 
@@ -20,7 +34,7 @@ const Titulo = ({ titulo, espacio }) => {
           style={{
             fontFamily: "Bebas Neue, sans-serif",
             fontSize: "30px",
-            color: "#fff"
+            color: "#fff",
           }}
         >
           {titulo}
@@ -30,11 +44,57 @@ const Titulo = ({ titulo, espacio }) => {
   );
 };
 
+const Texto = ({ titulo, nombre, rol }) => {
+  return (
+    <NavbarContent>
+      <NavbarItem>
+        <h1
+          ClassName="titulo"
+          style={{
+            marginTop: "25px",
+            marginBottom:  "5px",
+            fontFamily: "Bebas Neue, sans-serif",
+            fontSize: "40px",
+            color: "#fff",
+          }}
+        >
+          {titulo}
+        </h1>
+        <h2
+          ClassName="nombre"
+          style={{
+            marginTop: "15px",
+            fontFamily: "Roboto, sans-serif",
+            fontSize: "16px",
+            color: "#fff",
+          }}
+        >
+          {nombre}
+        </h2>
+
+        <h3
+          ClassName="rol"
+          style={{
+            marginTop: "-9px",
+            marginBottom: "15px",
+            //PONER EL ITALIC
+            fontFamily: "Roboto italic, sans-serif",
+            fontSize: "12px",
+            color: "#fff",
+          }}
+        >
+          {rol}
+        </h3>
+      </NavbarItem>
+    </NavbarContent>
+  );
+};
+
 const Notificacion = () => {
   return (
     <NavbarContent style={{ marginTop: "10px" }} justify="end">
       <NavbarItem>
-        <Campana/>
+        <Campana />
       </NavbarItem>
     </NavbarContent>
   );
@@ -50,9 +110,4 @@ const Retroceder = () => {
   );
 };
 
-
-export {
-  Titulo,
-  Notificacion,
-  Retroceder
-};
+export { Titulo, Notificacion, Retroceder, Icono, Texto };
