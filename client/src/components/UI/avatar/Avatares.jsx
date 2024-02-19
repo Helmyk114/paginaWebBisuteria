@@ -1,14 +1,14 @@
 import React from "react";
 import {Image} from "@nextui-org/react";
 
-const Avatares = ({ radio, imagen, height, width }) => {
+const Avatares = ({ radio, tamaño, src, className }) => {
   return (
     <div>
       <Image 
         radius={radio} 
-        src={imagen}
-        height={height}
-        width={width}
+        src={src}
+        size={tamaño}
+        className={className}
       />
     </div>
   );

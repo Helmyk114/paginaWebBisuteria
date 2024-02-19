@@ -1,48 +1,58 @@
-import React, { useRef } from 'react';
-import { useForm } from 'react-hook-form';
-import './login.css';
+import React, { useRef } from "react";
+import { useForm } from "react-hook-form";
+import "./login.css";
+
+import Logo from '../../img/1-removebg-preview - copia.png'
 
 import { Spacer } from "@nextui-org/react";
-import BotonEnviar from '../../components/UI/botones/botonEnviar';
-import InputText from '../../components/UI/formulario/Inputs/inputText'
-import InputPassword from '../../components/UI/formulario/Inputs/password/inputPassword';
+import BotonEnviar from "../../components/UI/botones/botonEnviar";
+import InputText from "../../components/UI/formulario/Inputs/inputText";
+import InputPassword from "../../components/UI/formulario/Inputs/password/inputPassword";
 
-import inicioSesion from '../../api/IniciarSesion';
-import { guardarToken, decodificarToken } from '../../utils/token';
-import { useNavigate } from 'react-router-dom';
+import inicioSesion from "../../api/IniciarSesion";
+import { guardarToken, decodificarToken } from "../../utils/token";
+import { useNavigate } from "react-router-dom";
+import Navigate, { Icono } from "../../components/UI/navbar/navbar";
 
 function Login() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const refs = useRef({
     userName: null,
-    password: null
+    password: null,
   });
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-
-    const { success, token, error: errorMsg } = await inicioSesion(data.userName, data.password, "login");
+    const {
+      success,
+      token,
+      error: errorMsg,
+    } = await inicioSesion(data.userName, data.password, "login");
 
     if (success && token) {
       try {
-        guardarToken(token)
+        guardarToken(token);
 
         switch (decodificarToken(token).role) {
           case 1:
-            navigate('/Administracion');
+            navigate("/Administracion");
             break;
           case 2:
-            navigate('/Artesano');
+            navigate("/Artesano");
             break;
           case 3:
-            navigate('/Vendedor');
+            navigate("/Vendedor");
             break;
           default:
-            navigate('/default');
+            navigate("/default");
             break;
         }
       } catch (error) {
-        console.error('Error al decodificar el token:', error.message);
+        console.error("Error al decodificar el token:", error.message);
       }
     } else {
       console.error(errorMsg);
@@ -50,17 +60,32 @@ function Login() {
   };
 
   return (
-    <div className='body-login'>
+    <div className="body-login">
+
+      <Navigate>
+       <Icono
+        radio={''}
+        imagen={Logo}
+        height={'80px'}
+        width={'80px'}
+       />
+      </Navigate>
 
       <div className="form-container">
         <div className="titulo1">TEJIENDO UN MUNDO</div>
         <div className="titulo2">MULTICOLOR</div>
-        <div className="subtitulo">Inicia sesión con tu nombre de <br></br>usuario y contraseña asignada</div>
+        <div className="subtitulo">
+          Inicia sesión con tu nombre de <br></br>usuario y contraseña asignada
+        </div>
 
-        <form className='form-login' onSubmit={handleSubmit(onSubmit)}>
+        <form className="form-login" onSubmit={handleSubmit(onSubmit)}>
           <InputText
-            ref={(el) => { refs.current.userName = el; }}
-            {...register("userName", { required: { value:true, message: 'Usuario requerido' }})}
+            ref={(el) => {
+              refs.current.userName = el;
+            }}
+            {...register("userName", {
+              required: { value: true, message: "Usuario requerido" },
+            })}
             key="usuario"
             type="text"
             label={<span className="custom-label">Usuario</span>}
@@ -73,8 +98,12 @@ function Login() {
           <Spacer y={4} />
 
           <InputPassword
-            ref={(el) => { refs.current.password = el;}}
-            {...register("password", { required: { value:true, message: 'Contraseña requerida' }})}
+            ref={(el) => {
+              refs.current.password = el;
+            }}
+            {...register("password", {
+              required: { value: true, message: "Contraseña requerida" },
+            })}
             key="password"
             label={<span className="custom-label">Contraseña</span>}
             labelPlacement={"outside"}
@@ -85,10 +114,7 @@ function Login() {
 
           <Spacer y={4} />
 
-          <BotonEnviar 
-            text="Iniciar sesión"
-            type="submit"
-          />
+          <BotonEnviar text="Iniciar sesión" type="submit" />
 
           <Spacer y={4} />
         </form>
