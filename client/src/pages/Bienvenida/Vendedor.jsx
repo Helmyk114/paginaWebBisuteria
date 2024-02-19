@@ -15,12 +15,15 @@ import CerrarSesionIcono from "../../components/UI/iconos/CerrarSesion";
 import Logo from "../../img/1-removebg-preview - copia.png";
 import { decodificarToken, obtenerToken } from "../../utils/token";
 import { detalleInformacionApi } from "../../api/productos";
+import Avatares from "../../components/UI/avatar/Avatares";
 
 function BienvenidaVendedor() {
   const [informacion, setInformacion] = useState([]);
   const [cargando, setCargando] = useState(true);
   const token = obtenerToken();
   const id = decodificarToken(token).userId;
+
+  const urlImage = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const data = async () => {
@@ -43,10 +46,11 @@ function BienvenidaVendedor() {
         <div>
           {informacion && informacion.length > 0 ? (
             informacion.map((datos) => (
-              <Navigate height={"100px"}>
+              <Navigate  key={id}>
+              <Avatares img={`${urlImage}/${datos.photo}` || ""}  height={"100px"} />
                 <Icono
                   radio={""}
-                  imagen={Logo}
+                  imagen={`${(datos.Avatares)}}`}
                   height={"80px"}
                   width={"80px"}
                 />
