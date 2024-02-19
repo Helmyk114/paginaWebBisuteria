@@ -6,9 +6,7 @@ import Flotante from '../../components/Botones/BotonFlotante/Flotante';
 import { eliminarInformacionApi, listarInformacionApi } from "../../api/productos";
 import Swal from "sweetalert2";
 
-import { Spacer, Tooltip } from "@nextui-org/react";
-import EditIcon from "../../components/UI/iconos/Editar";
-import DeleteIcon from "../../components/UI/iconos/Eliminar";
+import { Spacer } from "@nextui-org/react";
 import Avatares from "../../components/UI/avatar/Avatares";
 import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import Loader from "../../components/UI/cargando/loader";
@@ -99,9 +97,11 @@ function ListarProducto() {
 					{informacion && informacion.length > 0 ? (
 						informacion.map((datos) => (
 							<CustomCard key={datos.price}>
-								<Avatares
-									radio={"md"}
-									tamaño={"lg"}
+								<Avatares 
+									radio={"lg"}
+									imagen={`${urlImage}/${datos.image}`}
+									height="100px"
+									width="100px"
 								/>
 								<CardContent />
 

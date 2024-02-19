@@ -1,16 +1,17 @@
 import React from "react";
-import {Avatar} from "@nextui-org/react";
+import {Image} from "@nextui-org/react";
 
-const Avatares = ({ radio, tamaño }) => {
+const Avatares = ({ radio, imagen, height, width }) => {
   return (
-    <div className="flex items-center">
-      <Avatar 
+    <div>
+      <Image 
         radius={radio} 
-        src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-        size={tamaño}
+        src={imagen}
+        height={height}
+        width={width}
       />
     </div>
   );
-}
+};
 
 export default Avatares;
