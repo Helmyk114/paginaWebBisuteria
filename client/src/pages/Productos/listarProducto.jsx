@@ -12,6 +12,8 @@ import DeleteIcon from "../../components/UI/iconos/Eliminar";
 import Avatares from "../../components/UI/avatar/Avatares";
 import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import Loader from "../../components/UI/cargando/loader";
+import BotonEditar from "../../components/UI/botones/botonEditar";
+import BotonEliminar from "../../components/UI/botones/botonEliminar";
 
 
 
@@ -117,16 +119,8 @@ function ListarProducto() {
 								</div>
 
 								<div className="relative flex items-center gap-4">
-									<Tooltip content="Editar producto">
-										<span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-											<EditIcon ruta={`/editar/producto/${datos.idProduct}`} />
-										</span>
-									</Tooltip>
-									<Tooltip content="Eliminar producto">
-										<span className="text-lg text-danger cursor-pointer active:opacity-50">
-											<DeleteIcon eliminar={() => eliminarProducto(datos.idProduct)} />
-										</span>
-									</Tooltip>
+									<BotonEditar  texto={"Editar producto"} ruta={`/editar/producto/${datos.idProduct}`}/>
+									<BotonEliminar texto={"Eliminar producto"} funcEliminar={() => eliminarProducto(datos.idProduct)} />
 								</div>
 							</CustomCard>
 						))

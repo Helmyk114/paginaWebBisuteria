@@ -12,6 +12,7 @@ import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/
 import SubirImagen from "../../components/UI/formulario/Imagen/imagen";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import BotonEnviar from "../../components/UI/botones/botonEnviar";
+import Loader from "../../components/UI/cargando/loader";
 
 function ActualizarProducto() {
 	const { register, handleSubmit, formState: { errors } } = useForm();
@@ -71,7 +72,9 @@ function ActualizarProducto() {
 	};
 
 	if (!informacionProducto || Object.keys(informacionProducto).length === 0) {
-		return <div>Cargando...</div>
+		return (
+			<Loader />
+		);
 	};
 
 	return (
