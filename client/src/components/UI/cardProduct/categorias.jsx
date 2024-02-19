@@ -1,14 +1,15 @@
 import React from "react";
 import { Avatar } from "@nextui-org/react";
 import { Spacer } from "@nextui-org/react";
+import './categorias.css';
 
 export default function Categorias({ imgC }) {
   return (
     <div className="flex gap-4 items-center justify-center">
       <a href="todas-las-categorias">
-        <figure className="relative w-40 h-40 sm:w-32 md:w-24">
+        <figure className="relative w-40 h-40 sm:w-32 md:w-24" style={{borderRadius:'5px'}}>
           <img src={imgC} alt="Imagen" className="w-full h-full object-cover" />
-          <figcaption className="absolute bottom-0 w-full bg-black bg-opacity-50 text-white text-center p-2">
+          <figcaption className="texto">
             Todo
           </figcaption>
         </figure>
@@ -16,7 +17,7 @@ export default function Categorias({ imgC }) {
       <a href="pulseras">
         <figure className="relative w-40 h-40 sm:w-32 md:w-24">
           <img src={imgC} alt="Imagen" className="w-full h-full object-cover" />
-          <figcaption className="absolute bottom-0 w-full bg-black bg-opacity-50 text-white text-center p-2">
+          <figcaption className="texto">
             Pulseras
           </figcaption>
         </figure>
@@ -24,7 +25,7 @@ export default function Categorias({ imgC }) {
       <a href="aretes">
         <figure className="relative w-40 h-40 sm:w-32 md:w-24">
           <img src={imgC} alt="Imagen" className="w-full h-full object-cover" />
-          <figcaption className="absolute bottom-0 w-full bg-black bg-opacity-50 text-white text-center p-2">
+          <figcaption className="texto">
             Aretas
           </figcaption>
         </figure>
@@ -32,7 +33,7 @@ export default function Categorias({ imgC }) {
       <a href="chockers">
         <figure className="relative w-40 h-40 sm:w-32 md:w-24">
           <img src={imgC} alt="Imagen" className="w-full h-full object-cover" />
-          <figcaption className="absolute bottom-0 w-full bg-black bg-opacity-50 text-white text-center p-2">
+          <figcaption className="texto">
             Chockers
           </figcaption>
         </figure>
@@ -40,7 +41,7 @@ export default function Categorias({ imgC }) {
       <a href="anillos">
         <figure className="relative w-40 h-40 sm:w-32 md:w-24">
           <img src={imgC} alt="Imagen" className="w-full h-full object-cover" />
-          <figcaption className="absolute bottom-0 w-full bg-black bg-opacity-50 text-white text-center p-2">
+          <figcaption className="texto">
             Anillos
           </figcaption>
         </figure>

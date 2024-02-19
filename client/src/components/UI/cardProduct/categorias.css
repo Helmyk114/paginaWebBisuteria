@@ -1,0 +1,10 @@
+.texto {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #6977E4;
+    opacity: 0.8;
+    color: white;
+    text-align: center;
+  }
+
