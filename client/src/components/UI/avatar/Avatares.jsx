@@ -1,10 +1,10 @@
 import React from "react";
-import {Avatar} from "@nextui-org/react";
+import {Image} from "@nextui-org/react";
 
 const Avatares = ({ radio, tamaño, src, className }) => {
   return (
-    <div className="flex items-center">
-      <Avatar 
+    <div>
+      <Image 
         radius={radio} 
         src={src}
         size={tamaño}
@@ -12,6 +12,6 @@ const Avatares = ({ radio, tamaño, src, className }) => {
       />
     </div>
   );
-}
+};
 
 export default Avatares;
