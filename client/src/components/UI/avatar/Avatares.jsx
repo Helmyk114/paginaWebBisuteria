@@ -1,13 +1,14 @@
 import React from "react";
 import {Avatar} from "@nextui-org/react";
 
-const Avatares = ({ radio, tamaño }) => {
+const Avatares = ({ radio, tamaño, src, className }) => {
   return (
     <div className="flex items-center">
       <Avatar 
         radius={radio} 
-        src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+        src={src}
         size={tamaño}
+        className={className}
       />
     </div>
   );
