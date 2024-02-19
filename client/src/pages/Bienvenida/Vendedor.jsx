@@ -70,7 +70,7 @@ function BienvenidaVendedor() {
 
       <PerfilIcono ruta="/perfil" />
       <ProductoIcono ruta="" />
-      <PedidoIcono ruta="" />
+      <PedidoIcono ruta="/productos/vendedor" />
       <CerrarSesionIcono ruta="/" />
 
       <div className="footerBienvenido">
