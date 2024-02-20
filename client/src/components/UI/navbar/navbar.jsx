@@ -17,10 +17,11 @@ export default function Navigate({ children, height }) {
   );
 }
 
-const Icono = ({ radio, imagen, height, width }) => {
+const Icono = ({ radio, imagen, height, width, className, espacio } ) => {
+
   return (
-    <NavbarBrand style={{ marginTop: "3px" }}>
-      <Avatares radio={radio} imagen={imagen} height={height} width={width} />
+    <NavbarBrand justify={espacio} style={{ marginTop: "5px" }}  >
+      <Avatares radio={radio} src={imagen} height={height} width={width} className={className} />
     </NavbarBrand>
   );
 };
