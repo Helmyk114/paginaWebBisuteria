@@ -47,10 +47,10 @@ function BienvenidaVendedor() {
           {informacion && informacion.length > 0 ? (
             informacion.map((datos) => (
               <Navigate  key={id}>
-              <Avatares img={`${urlImage}/${datos.photo}` || ""}  height={"100px"} />
-                <Icono
+                             
+                <Icono 
                   radio={""}
-                  imagen={`${(datos.Avatares)}}`}
+                  imagen={`${(urlImage)}/${datos.photo}}`}
                   height={"80px"}
                   width={"80px"}
                 />

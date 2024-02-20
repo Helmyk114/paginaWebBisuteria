@@ -62,8 +62,8 @@ function Login() {
   return (
     <div className="body-login">
 
-      <Navigate>
-       <Icono
+      <Navigate style>
+       <Icono espacio={"center"}
         radio={''}
         imagen={Logo}
         height={'80px'}
