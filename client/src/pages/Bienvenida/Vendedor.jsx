@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navigate, {
   Icono,
   Notificacion,
-  Retroceder,
   Texto,
-  Titulo,
 } from "../../components/UI/navbar/navbar";
 import Footer from "../../components/Footer/Footer";
 import PerfilIcono from "../../components/UI/iconos/Perfil";
@@ -12,10 +10,8 @@ import PedidoIcono from "../../components/UI/iconos/Pedido";
 import ProductoIcono from "../../components/UI/iconos/Producto";
 import CerrarSesionIcono from "../../components/UI/iconos/CerrarSesion";
 
-import Logo from "../../img/1-removebg-preview - copia.png";
 import { decodificarToken, obtenerToken } from "../../utils/token";
 import { detalleInformacionApi } from "../../api/productos";
-import Avatares from "../../components/UI/avatar/Avatares";
 
 function BienvenidaVendedor() {
   const [informacion, setInformacion] = useState([]);
@@ -48,9 +44,9 @@ function BienvenidaVendedor() {
             informacion.map((datos) => (
               <Navigate  key={id}>
                              
-                <Icono 
+                <Icono className="justify-end"
                   radio={""}
-                  imagen={`${(urlImage)}/${datos.photo}}`}
+                  imagen={`${(urlImage)}/${datos.photo}`}
                   height={"80px"}
                   width={"80px"}
                 />
