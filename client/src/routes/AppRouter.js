@@ -16,6 +16,7 @@ import CrearPedido from "../pages/Pedidos/crearPedido";
 import ActualizarPedido from "../pages/Pedidos/actualizarPedido";
 
 import ListarProducto from "../pages/Productos/listarProducto";
+import ListarProductoVendedor from "../pages/Productos/listarProductoVendedor";
 import CrearProducto from "../pages/Productos/crearProducto";
 import ActualizarProducto from "../pages/Productos/actualizarProducto";
 
@@ -43,6 +44,7 @@ const AppRouter = () => {
 
         {/* Pantallas de Productos */}
         <Route path="/productos" element={<ListarProducto />} />
+        <Route path="/productos/vendedor" element={<ListarProductoVendedor />} />
         <Route path="/crear/producto" element={<CrearProducto />} />
         <Route path="/editar/producto/:idProduct" element={<ActualizarProducto />} />
 
