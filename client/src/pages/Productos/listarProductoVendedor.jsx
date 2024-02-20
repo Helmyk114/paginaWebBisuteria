@@ -14,7 +14,7 @@ export default function ListProduct() {
     <div>
        <Navigate>
 				<Retroceder/>
-				<Titulo espacio="center" titulo="Bienvenido"/>
+				<Titulo espacio="center" titulo="PRODUCTOS"/>
 				<Notificacion/>
 			</Navigate>
       <Spacer y={5}/>
