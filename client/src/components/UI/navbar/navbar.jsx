@@ -28,7 +28,7 @@ const Icono = ({ radio, imagen, height, width, className, espacio } ) => {
 
 const Titulo = ({ titulo, espacio }) => {
   return (
-    <NavbarContent style={{ marginTop: "80px" }} justify={espacio}>
+    <NavbarContent style={{ marginTop: "0px" }} justify={espacio}>
       <NavbarItem>
         <h1
           className="titulo"
@@ -93,7 +93,7 @@ const Texto = ({ titulo, nombre, rol }) => {
 
 const Notificacion = () => {
   return (
-    <NavbarContent style={{ marginTop: "10px" }} justify="end">
+    <NavbarContent style={{ marginTop: "0px" }} justify="end">
       <NavbarItem>
         <Campana />
       </NavbarItem>
@@ -103,7 +103,7 @@ const Notificacion = () => {
 
 const Retroceder = () => {
   return (
-    <NavbarContent style={{ marginTop: "10px" }} justify="start">
+    <NavbarContent style={{ marginTop: "0px" }} justify="start">
       <NavbarItem>
         <BotonRetroceder />
       </NavbarItem>
