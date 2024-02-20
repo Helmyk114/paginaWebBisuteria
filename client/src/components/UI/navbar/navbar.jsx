@@ -11,7 +11,7 @@ import Avatares from "../avatar/Avatares";
 
 export default function Navigate({ children, height }) {
   return (
-    <Navbar style={{ backgroundColor: "#6977E4" }} height={height || "80px"}>
+    <Navbar style={{ backgroundColor: "#6977E4", marginBottom: "20px" }} height={height || "80px"}>
       {children}
     </Navbar>
   );
