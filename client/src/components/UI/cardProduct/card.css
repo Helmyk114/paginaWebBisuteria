@@ -1,0 +1,19 @@
+.card1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .card2 {
+    grid-column: span 1;
+    max-width: 220px;
+    width: 80%;
+  }
+  
+  @media (min-width: 768px) {
+    .card1 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
