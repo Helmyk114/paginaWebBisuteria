@@ -9,11 +9,12 @@ export default function CardProduct({ producto, precio, img }) {
     gridTemplateColumns: "repeat(2, 1fr)",
     alignItems: "center",
     justifyItems: "center",
+    marginBottom: "30px",
   };
 
   const cardContainerStyle = {
     gridColumn: "span 1",
-    width: "70%",
+    width: "80%",
   };
 
   return (
@@ -32,11 +33,13 @@ export default function CardProduct({ producto, precio, img }) {
         <CardFooter className="text-small justify-between" style={{ background: "#6977E4" }}>
           <div className="display-flex flex-col-2">
             <div className="relative flex gap-2">
-              <b style={{ color: "#fff" }}>{producto}</b>
-              <Icon icon={"gridicons:user-circle"} width="32" height="32" style={{ color: " #fff" }} />
+              <b style={{ color: "#fff"}}>{producto}</b>
+              <div>
+                <Icon icon={"gridicons:user-circle"} width="32" height="32" />
+              </div>
             </div>
             <div>
-              <p className="text-default-500 " style={{ color: "#fff" }}>
+              <p className="text-default-500 " style={{ color: "#fff",  marginRight: '39px' }}>
                 Precio: {precio} $
               </p>
             </div>
