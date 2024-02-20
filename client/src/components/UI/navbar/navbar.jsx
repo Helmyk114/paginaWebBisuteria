@@ -11,7 +11,7 @@ import Avatares from "../avatar/Avatares";
 
 export default function Navigate({ children, height }) {
   return (
-    <Navbar style={{ backgroundColor: "#6977E4" }} height={height || "80px"}>
+    <Navbar style={{ backgroundColor: "#6977E4" }} height={height || "90px"}>
       {children}
     </Navbar>
   );
@@ -20,7 +20,7 @@ export default function Navigate({ children, height }) {
 const Icono = ({ radio, imagen, height, width, className, espacio } ) => {
 
   return (
-    <NavbarBrand justify={espacio} style={{ marginTop: "5px" }}  >
+    <NavbarBrand className="justify-center" style={{ marginTop: "5px" }}  >
       <Avatares radio={radio} src={imagen} height={height} width={width} className={className} />
     </NavbarBrand>
   );
@@ -28,7 +28,7 @@ const Icono = ({ radio, imagen, height, width, className, espacio } ) => {
 
 const Titulo = ({ titulo, espacio }) => {
   return (
-    <NavbarContent style={{ marginTop: "10px" }} justify={espacio}>
+    <NavbarContent style={{ marginTop: "80px" }} justify={espacio}>
       <NavbarItem>
         <h1
           className="titulo"
@@ -52,7 +52,7 @@ const Texto = ({ titulo, nombre, rol }) => {
         <h1
           ClassName="titulo"
           style={{
-            marginTop: "25px",
+            marginTop: "35px",
             marginBottom:  "5px",
             fontFamily: "Bebas Neue, sans-serif",
             fontSize: "40px",
@@ -64,7 +64,7 @@ const Texto = ({ titulo, nombre, rol }) => {
         <h2
           ClassName="nombre"
           style={{
-            marginTop: "15px",
+            marginTop: "5px",
             fontFamily: "Roboto, sans-serif",
             fontSize: "16px",
             color: "#fff",
