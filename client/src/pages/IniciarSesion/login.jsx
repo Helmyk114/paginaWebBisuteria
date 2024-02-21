@@ -63,12 +63,12 @@ function Login() {
     <div className="body-login">
 
       <Navigate style>
-       <Icono espacio={"center"}
-        radio={''}
-        imagen={Logo}
-        height={'80px'}
-        width={'80px'}
-       />
+        <Icono espacio={"center"}
+          radio={''}
+          imagen={Logo}
+          height={'80px'}
+          width={'80px'}
+        />
       </Navigate>
 
       <div className="form-container">
