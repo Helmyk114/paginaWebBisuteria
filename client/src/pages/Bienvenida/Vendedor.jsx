@@ -69,8 +69,8 @@ function BienvenidaVendedor() {
       )}
 
       <PerfilIcono ruta="/perfil" />
-      <ProductoIcono ruta="" />
-      <PedidoIcono ruta="/productos/vendedor" />
+      <ProductoIcono ruta="/productos/vendedor" />
+      <PedidoIcono ruta="/pedidos/vendedor" />
       <CerrarSesionIcono ruta="/" />
 
       <div className="footerBienvenido">

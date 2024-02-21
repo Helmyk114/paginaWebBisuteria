@@ -4,11 +4,7 @@ import { decodificarToken, obtenerToken } from "../../utils/token";
 import { detalleInformacionApi } from "../../api/productos";
 
 import { Spacer } from "@nextui-org/react";
-import Navigate, {
-  Icono,
-  Notificacion,
-  Texto,
-} from "../../components/UI/navbar/navbar";
+import Navigate, {Icono, Notificacion, Texto} from "../../components/UI/navbar/navbar";
 import PerfilIcono from "../../components/UI/iconos/Perfil";
 import ListaTrabajoIcono from "../../components/UI/iconos/ListaTrabajo";
 import ProductoIcono from "../../components/UI/iconos/Producto";
@@ -52,13 +48,11 @@ function BienvenidaAdmi() {
                   height={"80px"}
                   width={"80px"}
                 />
-
                 <Texto
                   titulo={"Bienvenido"}
                   nombre={`${datos.workerName} ${datos.workerLastName}`}
                   rol={"Administrador"}
                 />
-
                 <Notificacion />
               </Navigate>
             ))
@@ -76,7 +70,7 @@ function BienvenidaAdmi() {
           </div>
           <Spacer x={2} />
           <div className="flex flex-col items-center">
-            <ListaTrabajoIcono ruta="/listaTrabajo" />
+            <ListaTrabajoIcono ruta="/listaTrabajo/administracion" />
             <h1>Lista de trabajo</h1>
           </div>
           <Spacer x={2} />
@@ -97,7 +91,7 @@ function BienvenidaAdmi() {
           </div>
           <Spacer x={2} />
           <div className="flex flex-col items-center">
-            <PedidoIcono ruta="/pedidos" />
+            <PedidoIcono ruta="/pedidos/administracion" />
             <h1>Pedidos</h1>
           </div>
           <Spacer x={2} />

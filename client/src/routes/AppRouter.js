@@ -7,11 +7,13 @@ import BienvenidaAdmi from "../pages/Bienvenida/Administrador";
 import BienvenidaVendedor from "../pages/Bienvenida/Vendedor";
 import BienvenidaTrabajador from "../pages/Bienvenida/Trabajador";
 
-import ListarListaTrabajo from "../pages/ListaTrabajo/listarListaTrabajo";
+import ListarListaTrabajoAdministrador from "../pages/ListaTrabajo/listarListaTrabajoAdministrador";
+import ListarListaTrabajoVendedor from "../pages/ListaTrabajo/listarListaTrabajoVendedor";
 import CrearListaTrabajo from "../pages/ListaTrabajo/crearListaTrabajo";
 import ActualizarListaTrabajo from "../pages/ListaTrabajo/actualizarListaTrabajo";
 
-import ListarPedido from "../pages/Pedidos/listarPedido";
+import ListarPedidoAdministrador from "../pages/Pedidos/listarPedidoAdministrador";
+import ListarPedidoVendedor from "../pages/Pedidos/listarPedidoVendedor";
 import CrearPedido from "../pages/Pedidos/crearPedido";
 import ActualizarPedido from "../pages/Pedidos/actualizarPedido";
 
@@ -54,12 +56,14 @@ const AppRouter = () => {
         <Route path="/editar/trabajador/:idCardWorker" element={<ActualizarTrabajador />} />
 
         {/* Pantallas de Pedidos */}
-        <Route path="/pedidos" element={<ListarPedido />} />
+        <Route path="/pedidos/administracion" element={<ListarPedidoAdministrador />} />
+        <Route path="/pedidos/vendedor" element={<ListarPedidoVendedor />} />
         <Route path="/crear/pedidos" element={<CrearPedido />} />
         <Route path="/editar/pedidos" element={<ActualizarPedido />} />
 
         {/* Pantallas de Lista Trabajdos */}
-        <Route path="/listaTrabajo" element={<ListarListaTrabajo />} />
+        <Route path="/listaTrabajo/administracion" element={<ListarListaTrabajoAdministrador />} />
+        <Route path="/listaTrabajo/vendedor" element={<ListarListaTrabajoVendedor />} />
         <Route path="/crear/listaTrabajo" element={<CrearListaTrabajo />} />
         <Route path="/editar/listaTrabajo"element={<ActualizarListaTrabajo />} />
 

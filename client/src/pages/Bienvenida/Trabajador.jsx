@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Navigate, {Icono,
-	Notificacion,
-	Texto, } from "../../components/UI/navbar/navbar";
+import Navigate, {
+  Icono,
+  Notificacion,
+  Texto,
+} from "../../components/UI/navbar/navbar";
 import Footer from "../../components/Footer/Footer";
 import PerfilIcono from "../../components/UI/iconos/Perfil";
 import ListaTrabajoIcono from "../../components/UI/iconos/ListaTrabajo";
@@ -61,6 +63,10 @@ function BienvenidaTrabajador() {
           )}
         </div>
       )}
+
+      <PerfilIcono ruta="/perfil" />
+      <ListaTrabajoIcono ruta="/listaTrabajo/vendedor" />
+      <CerrarSesionIcono ruta="/" />
 
       <div className="footerBienvenido">
         <Footer />

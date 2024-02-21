@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "../../components/Footer/Footer"
 import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 
-function ListarPedido() {
+function ListarPedidoVendedor() {
 	return (
 		<div>
 			<Navigate>
@@ -16,4 +16,4 @@ function ListarPedido() {
 	);
 };
 
-export default ListarPedido
+export default ListarPedidoVendedor;

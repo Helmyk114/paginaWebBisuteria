@@ -4,7 +4,7 @@ import Footer from "../../components/Footer/Footer";
 import Flotante from '../../components/Botones/BotonFlotante/Flotante';
 import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 
-function ListarListaTrabajo() {
+function ListarListaTrabajoAdministrador() {
 	return (
 		<div>
 			<div>
@@ -36,4 +36,4 @@ function ListarListaTrabajo() {
 	);
 };
 
-export default ListarListaTrabajo
+export default ListarListaTrabajoAdministrador;

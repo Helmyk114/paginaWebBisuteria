@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-} from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/react";
 import Campana from "../iconos/Notificacion";
 import BotonRetroceder from "../iconos/Retroceder";
 import Avatares from "../avatar/Avatares";
@@ -15,9 +10,9 @@ export default function Navigate({ children, height }) {
       {children}
     </Navbar>
   );
-}
+};
 
-const Icono = ({ radio, imagen, height, width, className, espacio } ) => {
+const Icono = ({ radio, imagen, height, width, className } ) => {
 
   return (
     <NavbarBrand className="justify-center" style={{ marginTop: "5px" }}  >
@@ -50,7 +45,7 @@ const Texto = ({ titulo, nombre, rol }) => {
     <NavbarContent>
       <NavbarItem>
         <h1
-          ClassName="titulo"
+          className="titulo"
           style={{
             marginTop: "35px",
             marginBottom:  "5px",
@@ -62,7 +57,7 @@ const Texto = ({ titulo, nombre, rol }) => {
           {titulo}
         </h1>
         <h2
-          ClassName="nombre"
+          className="nombre"
           style={{
             marginTop: "5px",
             fontFamily: "Roboto, sans-serif",
@@ -74,7 +69,7 @@ const Texto = ({ titulo, nombre, rol }) => {
         </h2>
 
         <h3
-          ClassName="rol"
+          className="rol"
           style={{
             marginTop: "-9px",
             marginBottom: "15px",
@@ -111,4 +106,10 @@ const Retroceder = () => {
   );
 };
 
-export { Titulo, Notificacion, Retroceder, Icono, Texto };
+export { 
+  Titulo, 
+  Notificacion, 
+  Retroceder, 
+  Icono, 
+  Texto 
+};
