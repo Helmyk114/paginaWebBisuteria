@@ -21,7 +21,7 @@ function ActualizarProducto() {
 	const { idProduct } = useParams();
 	const raizUrl = process.env.REACT_APP_API_URL;
 
-	const refs = useRef({
+	 const refs = useRef({
 		nameProduct: null,
 		price: null,
 		laborPrice: null,
