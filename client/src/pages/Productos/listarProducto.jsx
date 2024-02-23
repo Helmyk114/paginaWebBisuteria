@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Footer from "../../components/Footer/Footer";
 import CustomCard from '../../components//Card/card';
 import { CardContent } from '../../components/Card/card';
 import Flotante from '../../components/Botones/BotonFlotante/Flotante';
@@ -7,11 +6,12 @@ import { eliminarInformacionApi, listarInformacionApi } from "../../api/producto
 import Swal from "sweetalert2";
 
 import { Spacer } from "@nextui-org/react";
-import Avatares from "../../components/UI/avatar/Avatares";
 import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
+import Avatares from "../../components/UI/avatar/Avatares";
 import Loader from "../../components/UI/cargando/loader";
 import BotonEditar from "../../components/UI/botones/botonEditar";
 import BotonEliminar from "../../components/UI/botones/botonEliminar";
+import Footer from "../../components/UI/Footer/Footer";
 
 
 
@@ -97,7 +97,7 @@ function ListarProducto() {
 					{informacion && informacion.length > 0 ? (
 						informacion.map((datos) => (
 							<CustomCard key={datos.price}>
-								<Avatares 
+								<Avatares
 									radio={"lg"}
 									imagen={`${urlImage}/${datos.image}`}
 									height="100px"
@@ -119,7 +119,7 @@ function ListarProducto() {
 								</div>
 
 								<div className="relative flex items-center gap-4">
-									<BotonEditar  texto={"Editar producto"} ruta={`/editar/producto/${datos.idProduct}`}/>
+									<BotonEditar texto={"Editar producto"} ruta={`/editar/producto/${datos.idProduct}`} />
 									<BotonEliminar texto={"Eliminar producto"} funcEliminar={() => eliminarProducto(datos.idProduct)} />
 								</div>
 							</CustomCard>
@@ -134,4 +134,4 @@ function ListarProducto() {
 	);
 };
 
-export default ListarProducto
+export default ListarProducto;

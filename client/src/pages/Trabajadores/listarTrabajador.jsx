@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import Footer from "../../components/Footer/Footer";
 import Flotante from '../../components/Botones/BotonFlotante/Flotante';
 import CustomCard from '../../components//Card/card';
 import { CardContent } from '../../components/Card/card';
 import { eliminarInformacionApi, listarInformacionApi } from "../../api/productos";
 import Swal from 'sweetalert2'
 
-import EditIcon from "../../components/UI/iconos/Editar";
 import { Spacer, Tooltip } from "@nextui-org/react";
-import DeleteIcon from "../../components/UI/iconos/Eliminar";
 import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
+import EditIcon from "../../components/UI/iconos/Editar";
+import DeleteIcon from "../../components/UI/iconos/Eliminar";
+import Footer from "../../components/UI/Footer/Footer";
 
 function ListarTrabajador() {
 

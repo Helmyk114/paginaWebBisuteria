@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../../components/Footer/Footer"
+import Footer from "../../components/UI/Footer/Footer";
 
 function CrearListaTrabajo() {
     return (

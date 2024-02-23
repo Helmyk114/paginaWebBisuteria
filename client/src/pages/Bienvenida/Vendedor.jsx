@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Navigate, {
-  Icono,
-  Notificacion,
-  Texto,
-} from "../../components/UI/navbar/navbar";
-import Footer from "../../components/Footer/Footer";
+
+import Navigate, { Icono, Notificacion, Texto } from "../../components/UI/navbar/navbar";
 import PerfilIcono from "../../components/UI/iconos/Perfil";
 import PedidoIcono from "../../components/UI/iconos/Pedido";
 import ProductoIcono from "../../components/UI/iconos/Producto";
 import CerrarSesionIcono from "../../components/UI/iconos/CerrarSesion";
+import Footer from "../../components/UI/Footer/Footer";
 
 import { decodificarToken, obtenerToken } from "../../utils/token";
 import { detalleInformacionApi } from "../../api/productos";

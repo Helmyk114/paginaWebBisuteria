@@ -3,13 +3,13 @@ import { Avatar, Spacer } from "@nextui-org/react";
 import Navigate, { Notificacion, Retroceder, Titulo } from "../components/UI/navbar/navbar";
 import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../components/UI/perfil/cardInfo";
 import Avatares from "../components/UI/avatar/Avatares";
-import Footer from "../components/Footer/Footer";
+import Loader from "../components/UI/cargando/loader";
+import Footer from "../components/UI/Footer/Footer";
+
 import { detalleInformacionApi } from "../api/productos";
 import { decodificarToken, obtenerToken } from "../utils/token";
 import Loader from "../components/UI/cargando/loader";
 import { Link } from "react-router-dom";
-import '../pages/perfil2.css'
-
 
 export default function Perfilinfo() {
 

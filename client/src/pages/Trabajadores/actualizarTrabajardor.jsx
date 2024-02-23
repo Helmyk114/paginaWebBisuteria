@@ -1,17 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-import Footer from "../../components/Footer/Footer"
 import { actualizarInformacionApi, detalleInformacionApi } from "../../api/productos";
 import procesarImagen from "../../utils/procesadorImagenes";
 import Swal from "sweetalert2";
 
 import { Card, Spacer } from "@nextui-org/react";
+import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import SubirImagen from "../../components/UI/formulario/Imagen/imagen";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import InputPassword from "../../components/UI/formulario/Inputs/password/inputPassword";
 import BotonEnviar from "../../components/UI/botones/botonEnviar";
-import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
+import Footer from "../../components/UI/Footer/Footer";
 
 function ActualizarTrabajador() {
 

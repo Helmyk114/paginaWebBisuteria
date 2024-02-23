@@ -1,6 +1,7 @@
 import React from "react";
-import Footer from "../../components/Footer/Footer"
+
 import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
+import Footer from "../../components/UI/Footer/Footer";
 
 function ListarPedidoVendedor() {
 	return (

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
-import Footer from "../../components/Footer/Footer"
 
 import { actualizarInformacionApi, detalleInformacionApi } from "../../api/productos";
 import procesarImagen from "../../utils/procesadorImagenes";
@@ -13,6 +12,7 @@ import SubirImagen from "../../components/UI/formulario/Imagen/imagen";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import BotonEnviar from "../../components/UI/botones/botonEnviar";
 import Loader from "../../components/UI/cargando/loader";
+import Footer from "../../components/UI/Footer/Footer";
 
 function ActualizarProducto() {
 	const { register, handleSubmit, formState: { errors } } = useForm();
@@ -21,7 +21,7 @@ function ActualizarProducto() {
 	const { idProduct } = useParams();
 	const raizUrl = process.env.REACT_APP_API_URL;
 
-	 const refs = useRef({
+	const refs = useRef({
 		nameProduct: null,
 		price: null,
 		laborPrice: null,
