@@ -1,7 +1,7 @@
 import React from "react";
 import {Image} from "@nextui-org/react";
 
-const Avatares = ({ radio, tamaño, src, className, height, width }) => {
+const Avatares = ({ radio, tamaño, src, className, height, width, maxWidth }) => {
   return (
     <div>
       <Image 
@@ -11,6 +11,7 @@ const Avatares = ({ radio, tamaño, src, className, height, width }) => {
         className={className}
         height={height}
         width={width}
+        style={{maxWidth:maxWidth || "50px"}}
       />
     </div>
   );
