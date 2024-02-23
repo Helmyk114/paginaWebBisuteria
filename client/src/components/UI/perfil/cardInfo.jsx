@@ -1,13 +1,14 @@
 import React from "react";
 import { Icon } from '@iconify/react';
-import { Card, CardHeader, Image } from "@nextui-org/react";
+import { Card, CardHeader} from "@nextui-org/react";
+import '../perfil/cardInfo.css'
 
-export default function CardPerfil({children,alignItems, gap }) {
+export default function CardPerfil({children,alignItems, gap, display }) {
 
   return (
-    <Card style={{ width: "90%", margin: "0 auto" }}>
-      <CardHeader className="">
-      <div className="flex gap-5" style={{ alignItems:alignItems || "start", gap:gap|| "13px"}}>
+    <Card className="card">
+      <CardHeader>
+      <div className="" style={{ display:display|| "flex", alignItems:alignItems || "start", gap:gap|| "13px"}}>
         {children}
       </div> 
       </CardHeader>
@@ -21,10 +22,10 @@ export function IconoCard ({icon, width, height, color}){
      </div>
  )
 }
-export function Texto1Card ({texto, fontSize}){
+export function Texto1Card ({texto, fontSize,  fontWeight}){
   return(
     
-    <h4 className="text-base font-semibold leading-none text-default-600" style={{fontSize:fontSize}}>{texto} </h4>
+    <h4 className="text-base  leading-none text-default-600" style={{fontSize:fontSize, fontWeight:fontWeight || "600"}}>{texto} </h4>
   )
 }
 
