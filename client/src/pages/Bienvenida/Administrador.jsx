@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import { decodificarToken, obtenerToken } from "../../utils/token";
 import { detalleInformacionApi } from "../../api/productos";
 

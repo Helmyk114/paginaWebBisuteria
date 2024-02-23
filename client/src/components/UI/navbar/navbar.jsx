@@ -1,8 +1,10 @@
 import React from "react";
+import './navbar.css'
+
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/react";
+import Avatares from "../avatar/Avatares";
 import Campana from "../iconos/Notificacion";
 import BotonRetroceder from "../iconos/Retroceder";
-import Avatares from "../avatar/Avatares";
 
 export default function Navigate({ children, height }) {
   return (
@@ -74,7 +76,7 @@ const Texto = ({ titulo, nombre, rol }) => {
             marginTop: "-9px",
             marginBottom: "15px",
             //PONER EL ITALIC
-            fontFamily: "Roboto italic, sans-serif",
+            fontFamily: "Roboto, sans-serif",
             fontSize: "12px",
             color: "#fff",
           }}
