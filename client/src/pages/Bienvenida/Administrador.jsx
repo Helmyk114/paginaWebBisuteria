@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Footer from "../../components/Footer/Footer";
 import { decodificarToken, obtenerToken } from "../../utils/token";
 import { detalleInformacionApi } from "../../api/productos";
 
@@ -11,6 +10,7 @@ import ProductoIcono from "../../components/UI/iconos/Producto";
 import TrabajadorIcono from "../../components/UI/iconos/Trbajador";
 import PedidoIcono from "../../components/UI/iconos/Pedido";
 import CerrarSesionIcono from "../../components/UI/iconos/CerrarSesion";
+import Footer from "../../components/UI/Footer/Footer";
 
 function BienvenidaAdmi() {
   const [informacion, setInformacion] = useState([]);

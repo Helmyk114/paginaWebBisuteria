@@ -1,8 +1,9 @@
 import React from "react";
-import Footer from "../../components/Footer/Footer";
 
 import Flotante from '../../components/Botones/BotonFlotante/Flotante';
+
 import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
+import Footer from "../../components/UI/Footer/Footer";
 
 function ListarListaTrabajoAdministrador() {
 	return (

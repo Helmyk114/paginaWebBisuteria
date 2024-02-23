@@ -1,15 +1,15 @@
 import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import Footer from "../../components/Footer/Footer"
 import { añadirInformacionAPI } from "../../api/productos";
 import Swal from 'sweetalert2'
 
 import { Card, Spacer } from "@nextui-org/react";
+import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import SubirImagen from "../../components/UI/formulario/Imagen/imagen";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import ListBoxSimple from "../../components/UI/formulario/Combox/listBoxSimple";
 import BotonEnviar from "../../components/UI/botones/botonEnviar";
-import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
+import Footer from "../../components/UI/Footer/Footer";
 
 function CrearProducto() {
 
