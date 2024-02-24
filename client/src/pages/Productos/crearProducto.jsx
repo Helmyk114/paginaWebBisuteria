@@ -10,6 +10,8 @@ import InputText from "../../components/UI/formulario/Inputs/inputText";
 import ListBoxSimple from "../../components/UI/formulario/Combox/listBoxSimple";
 import BotonEnviar from "../../components/UI/botones/botonEnviar";
 import Footer from "../../components/UI/Footer/Footer";
+import ComboBox from "../../components/Formularios/Controles/comboBox";
+import App from "../../components/UI/formulario/Combox/pruebacombobox";
 
 function CrearProducto() {
 
@@ -26,26 +28,28 @@ function CrearProducto() {
 
 		const producto = {
 			...data,
+			idCategory: data.idCategory.replace(/\D/g, ''),
 			image: selectedImage,
 		};
 		console.log(producto)
-		try {
-			await añadirInformacionAPI(producto, 'producto')
-			Swal.fire({
-				icon: "success",
-				title: "Se ha añadido un producto!",
-				showConfirmButton: false,
-				timer: 1500
-			});
-		} catch (error) {
-			console.error('Error al crear un producto', error)
-			Swal.fire({
-				icon: "error",
-				title: "No Se puede crear el producto",
-				showConfirmButton: false,
-				timer: 1500
-			});
-		}
+		
+		// try {
+		// 	await añadirInformacionAPI(producto, 'producto')
+		// 	Swal.fire({
+		// 		icon: "success",
+		// 		title: "Se ha añadido un producto!",
+		// 		showConfirmButton: false,
+		// 		timer: 1500
+		// 	});
+		// } catch (error) {
+		// 	console.error('Error al crear un producto', error)
+		// 	Swal.fire({
+		// 		icon: "error",
+		// 		title: "No Se puede crear el producto",
+		// 		showConfirmButton: false,
+		// 		timer: 1500
+		// 	});
+		// }
 	};
 
 	return (
@@ -58,6 +62,7 @@ function CrearProducto() {
 
 			<form style={{ display: 'block', justifyContent: 'center', padding: '10px' }} onSubmit={handleSubmit(onSubmit)}>
 				<SubirImagen onImageChange={setSelectedImage} />
+						<Spacer y={4} />
 				<div className='content1'>
 					<Card className='card' style={{ width: '90%' }}>
 
@@ -113,7 +118,7 @@ function CrearProducto() {
 
 						<Spacer y={4} />
 
-						<ListBoxSimple
+						{/* <ListBoxSimple
 							ref={(el) => { refs.current.idCategory = el; }}
 							{...register("idCategory", { required: { value: true, message: 'La categoria es requerido' } })}
 							key="idCategory"
@@ -126,7 +131,25 @@ function CrearProducto() {
 							idOpcion="idCategory"
 							texto="categorys"
 						/>
-						{errors.idCategory && <span>{errors.idCategory.message}</span>}
+						{errors.idCategory && <span>{errors.idCategory.message}</span>} */}
+
+							{/* <ComboBox 
+								
+								titulo="Categoria"
+								apiEndpoint="categoria"
+								idOpcion={"idCategory"}
+								texto="categorys"
+							/>
+							{errors.idCategory && <span>{errors.idCategory.message}</span>} */}
+
+							<App 
+							ref={(el) => { refs.current.idCategory = el; }}
+							{...register("idCategory", { required: { value: true, message: 'La categoria es requerido' } })}
+	
+							/>
+{errors.idCategory && <span>{errors.idCategory.message}</span>}
+
+
 
 						<Spacer y={4} />
 

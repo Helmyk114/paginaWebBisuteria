@@ -96,7 +96,7 @@ function ListarProducto() {
 				<div>
 					{informacion && informacion.length > 0 ? (
 						informacion.map((datos) => (
-							<CustomCard key={datos.price}>
+							<CustomCard key={datos.idProduct}>
 								<Avatares
 									radio={"lg"}
 									imagen={`${urlImage}/${datos.image}`}
