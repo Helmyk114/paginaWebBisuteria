@@ -64,7 +64,8 @@ export default function Perfilinfo() {
                 <Spacer y={4} />
                 <div style={{ backgroundColor: "#EEEEEE", width: "90%", padding: "1px", borderRadius: "13px", margin: "0 auto", marginBottom: "30px", position: "relative", top: "185px", zIndex: "1" }}>
                   <Spacer y={4} />
-                  <CardPerfil>
+                  <CardPerfil
+                  gap={"13px"}>
                     <IconoCard icon={"gridicons:user-circle"} />
                     <div style={{ display: "block" }}>
                       <Texto1Card
@@ -74,7 +75,8 @@ export default function Perfilinfo() {
                     </div>
                   </CardPerfil>
                   <Spacer y={3} />
-                  <CardPerfil>
+                  <CardPerfil
+                  gap={"13px"}>
                     <IconoCard icon={"mdi:user-card-details"} />
                     <div style={{ display: "block" }}>
                       <Texto1Card
@@ -84,7 +86,8 @@ export default function Perfilinfo() {
                     </div>
                   </CardPerfil>
                   <Spacer y={3} />
-                  <CardPerfil>
+                  <CardPerfil
+                  gap={"13px"}>
                     <IconoCard icon={"mdi:email"} />
                     <div style={{ display: "block" }}>
                       <Texto1Card
@@ -115,6 +118,7 @@ export default function Perfilinfo() {
                   </CardPerfil>
                   <Spacer y={3} />
                   <CardPerfil
+                  justifyContent={"space-between"}
                    className="cardPerfil"
                    alignItems={"center"}>
                     <Avatares
@@ -128,16 +132,23 @@ export default function Perfilinfo() {
                         <Texto2Card
                         texto2={"hola"} />
                     </div>
-                    <div>  
+                    <div
+                    style={{display:"flex"}}>  
                       <IconoCard
-                    icon={"bxs:trash"} />
+                    icon={"bxs:trash"}
+                    width={"25"}
+                    height={"25"} />
+                    <IconoCard
+                    icon={"bxs:trash"}
+                    width={"25"}
+                    height={"25"} />
                       </div>  
+                      
                   </CardPerfil>
                   <Spacer y={3} />
                   <Link to={`/editar/trabajador/${datos.idCardWorker}`}>
                     <CardPerfil  alignItems={"center"}
-                      gap={"70px"}
-                      style={{ display: "flex", justifyContent: " space-between" }}>
+                    justifyContent={"space-between"}>
                       <IconoCard icon={"akar-icons:edit"} />
                       <div>
                       <Texto1Card
@@ -149,7 +160,6 @@ export default function Perfilinfo() {
                         width={"35"}
                         height={"35"} />
                       </div>
-                      
                     </CardPerfil>
                   </Link>
                 </div>

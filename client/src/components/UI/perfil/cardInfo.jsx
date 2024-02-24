@@ -3,12 +3,12 @@ import { Icon } from '@iconify/react';
 import { Card, CardHeader} from "@nextui-org/react";
 import '../perfil/cardInfo.css'
 
-export default function CardPerfil({children,alignItems, gap, display }) {
+export default function CardPerfil({children,alignItems, justifyContent,  display, gap }) {
 
   return (
     <Card className="card">
       <CardHeader>
-      <div className="" style={{ display:display|| "flex", alignItems:alignItems || "start", gap:gap|| "13px"}}>
+      <div className="cardGap" style={{ display:display|| "flex", alignItems:alignItems || "start", justifyContent:justifyContent, gap:gap||"13px"}}>
         {children}
       </div> 
       </CardHeader>
@@ -18,7 +18,7 @@ export default function CardPerfil({children,alignItems, gap, display }) {
 export function IconoCard ({icon, width, height, color}){
   return(
     <div>
-          <Icon icon={icon} style={{ color: color || "#6977e4", width:width || "45", height:height ||"45" }} />
+          <Icon icon={icon} className="iconoCard"style={{ color: color, width:width, height:height}} />
      </div>
  )
 }
@@ -29,8 +29,8 @@ export function Texto1Card ({texto, fontSize,  fontWeight}){
   )
 }
 
-export function Texto2Card ({texto2}){
+export function Texto2Card ({texto2, fontSize}){
   return(
-    <h5 className="text-small tracking-tight text-default-400">{texto2}</h5>
+    <h5 className=" tracking-tight text-default-400" style={{fontSize:fontSize}}>{texto2}</h5>
   )
 }

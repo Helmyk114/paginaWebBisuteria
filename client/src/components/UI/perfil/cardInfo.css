@@ -1,15 +1,43 @@
 .card{
     margin: 0 auto;
+
+}
+.iconoCard{
+    color:#6977e4;
+
 }
 
 @media screen and (max-width: 767px) {
     .card{
         width: 90%;
+        font-size: 12px;
+        
     }
+    .cardGap{
+        gap: 13px;
+        width: 100%;
+    }
+    .iconoCard{
+        width: 32px;
+        height: 32px;
+        
+    }
+    
 }
 
 @media screen and (min-width: 1024px) {
     .card{
         width: 70%;
+        
+    }
+    .cardGap{
+        gap: 190px;
+        width: 100%;
+        
+    }
+    .iconoCard{
+        width: 45px;
+        height: 45px;
+        
     }
 }
