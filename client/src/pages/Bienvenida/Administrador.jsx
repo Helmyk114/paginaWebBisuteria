@@ -8,7 +8,7 @@ import Navigate, {Icono, Notificacion, Texto} from "../../components/UI/navbar/n
 import PerfilIcono from "../../components/UI/iconos/Perfil";
 import ListaTrabajoIcono from "../../components/UI/iconos/ListaTrabajo";
 import ProductoIcono from "../../components/UI/iconos/Producto";
-import TrabajadorIcono from "../../components/UI/iconos/Trbajador";
+import TrabajadorIcono from "../../components/UI/iconos/Trabajador";
 import PedidoIcono from "../../components/UI/iconos/Pedido";
 import CerrarSesionIcono from "../../components/UI/iconos/CerrarSesion";
 import Footer from "../../components/UI/Footer/Footer";
