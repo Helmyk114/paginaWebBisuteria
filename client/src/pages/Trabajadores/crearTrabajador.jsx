@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { añadirInformacionAPI } from "../../api/productos";
+import '../Trabajadores/trabajadores.css'
 
 import Swal from 'sweetalert2'
 
@@ -60,11 +61,32 @@ function CrearTrabajador() {
 				<Titulo espacio="center" titulo="Registrar trabajador" />
 				<Notificacion />
 			</Navigate>
-			
+			<Spacer y={4} />
 			<div  className="container-crear">
-			<form style={{ margin: '0 auto', width: '100%' }} onSubmit={handleSubmit(onSubmit)}>
+			<form className="formularioCrear"  onSubmit={handleSubmit(onSubmit)}>
+				<div className="imagen">
 				<SubirImagen onImageChange={setSelectedImage} />
-				<Card className='card' style={{ width: '90%' }}>
+				<Spacer y={4} />
+				<Card className="card2">
+				<h4>Datos perosnales</h4>
+				<Spacer y={4} />
+                 
+              <InputText ref={(el) => { refs.current.workerName = el; }}
+	{...register("workerName", { required: { value: true, message: 'El nombre del trabajador es requerido' } })}
+	key="workerName"
+	type="text"
+	label={<span className="custom-label">Nombre</span>}
+	labelPlacement="outside"
+	placeholder={"Escriba el nombre del trabajador"}
+	size="md"
+       />
+               {errors.workerName && <span>{errors.workerName.message}</span>}
+ 
+				</Card>
+				</div>
+				<Spacer y={4} />
+
+				<Card className='card' >
 					<Spacer y={4} />
 
 					<InputText ref={(el) => { refs.current.workerName = el; }}
@@ -206,6 +228,8 @@ function CrearTrabajador() {
 				</Card>
 			</form>
 		</div>
+		<Spacer y={4} />
+
 		
 			<Footer />
 
