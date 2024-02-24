@@ -1,7 +1,5 @@
 import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { añadirInformacionAPI } from "../../api/productos";
-import Swal from 'sweetalert2'
 
 import { Card, Spacer } from "@nextui-org/react";
 import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
@@ -10,8 +8,9 @@ import InputText from "../../components/UI/formulario/Inputs/inputText";
 import ListBoxSimple from "../../components/UI/formulario/Combox/listBoxSimple";
 import BotonEnviar from "../../components/UI/botones/botonEnviar";
 import Footer from "../../components/UI/Footer/Footer";
-import ComboBox from "../../components/Formularios/Controles/comboBox";
-import App from "../../components/UI/formulario/Combox/pruebacombobox";
+
+import { añadirInformacionAPI } from "../../api/productos";
+import Swal from 'sweetalert2'
 
 function CrearProducto() {
 
@@ -28,28 +27,26 @@ function CrearProducto() {
 
 		const producto = {
 			...data,
-			idCategory: data.idCategory.replace(/\D/g, ''),
 			image: selectedImage,
 		};
-		console.log(producto)
-		
-		// try {
-		// 	await añadirInformacionAPI(producto, 'producto')
-		// 	Swal.fire({
-		// 		icon: "success",
-		// 		title: "Se ha añadido un producto!",
-		// 		showConfirmButton: false,
-		// 		timer: 1500
-		// 	});
-		// } catch (error) {
-		// 	console.error('Error al crear un producto', error)
-		// 	Swal.fire({
-		// 		icon: "error",
-		// 		title: "No Se puede crear el producto",
-		// 		showConfirmButton: false,
-		// 		timer: 1500
-		// 	});
-		// }
+
+		try {
+			await añadirInformacionAPI(producto, 'producto')
+			Swal.fire({
+				icon: "success",
+				title: "Se ha añadido un producto!",
+				showConfirmButton: false,
+				timer: 1500
+			});
+		} catch (error) {
+			console.error('Error al crear un producto', error)
+			Swal.fire({
+				icon: "error",
+				title: "No Se puede crear el producto",
+				showConfirmButton: false,
+				timer: 1500
+			});
+		}
 	};
 
 	return (
@@ -59,15 +56,13 @@ function CrearProducto() {
 				<Titulo espacio="center" titulo="Añadir producto" />
 				<Notificacion />
 			</Navigate>
-
+			<Spacer y={4} />
 			<form style={{ display: 'block', justifyContent: 'center', padding: '10px' }} onSubmit={handleSubmit(onSubmit)}>
 				<SubirImagen onImageChange={setSelectedImage} />
-						<Spacer y={4} />
+				<Spacer y={4} />
 				<div className='content1'>
 					<Card className='card' style={{ width: '90%' }}>
-
 						<Spacer y={4} />
-
 						<InputText ref={(el) => { refs.current.nameProduct = el; }}
 							{...register("nameProduct", { required: { value: true, message: 'El nombre del producto es requerido' } })}
 							key="nameProduct"
@@ -78,9 +73,7 @@ function CrearProducto() {
 							size="md"
 						/>
 						{errors.nameProduct && <span>{errors.nameProduct.message}</span>}
-
 						<Spacer y={4} />
-
 						<InputText ref={(el) => { refs.current.price = el; }}
 							{...register("price", { required: { value: true, message: 'El precio del producto es requerido' } })}
 							key="price"
@@ -96,9 +89,7 @@ function CrearProducto() {
 							}
 						/>
 						{errors.price && <span>{errors.price.message}</span>}
-
 						<Spacer y={4} />
-
 						<InputText
 							ref={(el) => { refs.current.laborPrice = el; }}
 							{...register("laborPrice", { required: { value: true, message: 'El precio de mano de obra es requerido' } })}
@@ -115,10 +106,8 @@ function CrearProducto() {
 							}
 						/>
 						{errors.laborPrice && <span>{errors.laborPrice.message}</span>}
-
 						<Spacer y={4} />
-
-						{/* <ListBoxSimple
+						<ListBoxSimple
 							ref={(el) => { refs.current.idCategory = el; }}
 							{...register("idCategory", { required: { value: true, message: 'La categoria es requerido' } })}
 							key="idCategory"
@@ -131,37 +120,28 @@ function CrearProducto() {
 							idOpcion="idCategory"
 							texto="categorys"
 						/>
-						{errors.idCategory && <span>{errors.idCategory.message}</span>} */}
-
-							{/* <ComboBox 
-								
-								titulo="Categoria"
-								apiEndpoint="categoria"
-								idOpcion={"idCategory"}
-								texto="categorys"
-							/>
-							{errors.idCategory && <span>{errors.idCategory.message}</span>} */}
-
-							<App 
+						{errors.idCategory && <span>{errors.idCategory.message}</span>}
+						<ListBoxSimple
 							ref={(el) => { refs.current.idCategory = el; }}
 							{...register("idCategory", { required: { value: true, message: 'La categoria es requerido' } })}
-	
-							/>
-{errors.idCategory && <span>{errors.idCategory.message}</span>}
-
-
-
-						<Spacer y={4} />
-
-						<BotonEnviar
-							text="Añadir producto"
-							type="submit"
+							key="idCategory"
+							type="text"
+							label={<span className="custom-label">Categoria</span>}
+							labelPlacement="outside"
+							placeholder="Seleccione una categoria"
+							size="md"
+							apiEndpoint="categoria"
+							idOpcion="idCategory"
+							texto="categorys"
 						/>
-
+						{errors.idCategory && <span>{errors.idCategory.message}</span>}
+						<Spacer y={4} />
+						<BotonEnviar text="Añadir producto" type="submit" />
 						<Spacer y={4} />
 					</Card>
 				</div>
 			</form>
+			<Spacer y={4} />
 			<Footer />
 		</div>
 	);
