@@ -6,7 +6,7 @@ import '../perfil/cardInfo.css'
 export default function CardPerfil({children,alignItems, justifyContent,  display, gap }) {
 
   return (
-    <Card className="card">
+    <Card className="cardprincipal">
       <CardHeader>
       <div className="cardGap" style={{ display:display|| "flex", alignItems:alignItems || "start", justifyContent:justifyContent, gap:gap||"13px"}}>
         {children}

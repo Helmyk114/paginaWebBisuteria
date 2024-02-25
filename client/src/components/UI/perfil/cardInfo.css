@@ -1,4 +1,4 @@
-.card{
+.cardprincipal{
     margin: 0 auto;
 
 }
@@ -8,10 +8,9 @@
 }
 
 @media screen and (max-width: 767px) {
-    .card{
+    .cardprincipal{
         width: 90%;
         font-size: 12px;
-        
     }
     .cardGap{
         gap: 13px;
@@ -24,20 +23,22 @@
     }
     
 }
+@media screen and (min-width: 768px) and (max-width:1023) {
+    .cardprincipal{
+        width: 90%;   
+    }
+}
 
 @media screen and (min-width: 1024px) {
-    .card{
-        width: 70%;
-        
+    .cardprincipal{
+        width: 60%;   
     }
     .cardGap{
-        gap: 190px;
-        width: 100%;
-        
+        gap: 180px;
+        width: 100%;   
     }
     .iconoCard{
         width: 45px;
-        height: 45px;
-        
+        height: 45px;   
     }
 }

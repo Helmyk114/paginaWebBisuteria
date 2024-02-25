@@ -3,39 +3,31 @@
     width: '100%';
 }
 
-.card2{
-    width: 90%;
-    margin: 0 auto;
-    padding: 10px;
-}
 
 @media screen and (max-width: 767px) {
-    .formularioCrear{
-       display: block;
-       
-    }
+   
     .card{
         width: 90%;
     }
-    
+    .botonEnviar{
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 1024px){
     .formularioCrear{
-        display: flex;
+        display: block;
         align-items: start;
 
     }
     .card{
-        width: 80%;
-        height: 100%;
+        width: 74%;
+        margin: 0 auto;
         
     }
-    .imagen{
-        display: block;
-        width: 90%;
-    }
-    .card2{
-        
+
+   
+    .botonEnviar{
+        width: 60%;
     }
 }

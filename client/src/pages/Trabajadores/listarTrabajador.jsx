@@ -93,17 +93,15 @@ function ListarTrabajador() {
         <div>
           {informacion && informacion.length > 0 ? (
             informacion.map((datos) => (
-              <CustomCard
+              <>
+              <CardPerfil
                 key={datos.idCardWorker}
-                img={`${urlImage}/${datos.photo}`}>
-                
-                  <CardPerfil
-                  justifyContent={"space-between"}
-                   className="cardPerfil"
-                   alignItems={"center"}
-                   
-                   >
-                    <Avatares
+                img={`${urlImage}/${datos.photo}`}
+                justifyContent={"space-between"}
+                className="cardPerfil"
+                alignItems={"center"}>
+    
+                  <Avatares
                     src={`${urlImage}/${datos.photo}`}
                     radio={"full"}/>
                     <div style={{ display: "block" }}>
@@ -127,15 +125,18 @@ function ListarTrabajador() {
                     </span>
                   </Tooltip>
                 </div>  
-                      
-                  </CardPerfil>
+              
+               </CardPerfil>
+             <Spacer y={3}/> 
+             
+             </>
 
-               
-              </CustomCard>
             ))
           ) : (
             <p>No hay trabajadores disponibles.</p>
           )}
+            
+
         </div>
       )}
       <Footer />
