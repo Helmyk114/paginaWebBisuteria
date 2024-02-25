@@ -106,7 +106,7 @@ function ListarProducto() {
 							alignItems={"center"}
 							key={datos.idProduct}>
 								<Avatares
-									imagen={`${urlImage}/${datos.image}`}
+									src={`${urlImage}/${datos.image}`}
 									radio={"full"}/>
                               <div style={{ display: "flex", gap:"13px" }}>
 								<Texto1Card
