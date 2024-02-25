@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Flotante from '../../components/Botones/BotonFlotante/Flotante';
 import CustomCard from '../../components//Card/card';
-import { CardContent } from '../../components/Card/card';
+
 import { eliminarInformacionApi, listarInformacionApi } from "../../api/productos";
+import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
+import Avatares from "../../components/UI/avatar/Avatares";
 import Swal from 'sweetalert2'
 
 import { Spacer, Tooltip } from "@nextui-org/react";
@@ -91,12 +93,27 @@ function ListarTrabajador() {
         <div>
           {informacion && informacion.length > 0 ? (
             informacion.map((datos) => (
-              <CustomCard
+              <>
+              <CardPerfil
                 key={datos.idCardWorker}
-                img={`${urlImage}/${datos.photo}`}>
-                <CardContent />
-
-                <div className="relative flex items-center gap-4">
+                img={`${urlImage}/${datos.photo}`}
+                justifyContent={"space-between"}
+                className="cardPerfil"
+                alignItems={"center"}>
+    
+                  <Avatares
+                    src={`${urlImage}/${datos.photo}`}
+                    radio={"full"}/>
+                    <div style={{ display: "block" }}>
+                      <Texto1Card
+                        texto={"Numero de cuenta"} />
+                      <Texto2Card
+                        texto2={"hla"} />
+                        <Texto2Card
+                        texto2={"hola"} />
+                    </div>
+                   
+                  <div className="relative flex items-center gap-1">
                   <Tooltip content="Editar trabajador">
                     <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
                       <EditIcon ruta={`/editar/trabajador/${datos.idCardWorker}`} />
@@ -107,12 +124,19 @@ function ListarTrabajador() {
                       <DeleteIcon eliminar={() => eliminarTrabajador(datos.idCardWorker)} />
                     </span>
                   </Tooltip>
-                </div>
-              </CustomCard>
+                </div>  
+              
+               </CardPerfil>
+             <Spacer y={3}/> 
+             
+             </>
+
             ))
           ) : (
             <p>No hay trabajadores disponibles.</p>
           )}
+            
+
         </div>
       )}
       <Footer />

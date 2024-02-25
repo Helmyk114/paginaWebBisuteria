@@ -1,0 +1,33 @@
+.formularioCrear{
+    margin: 0 auto;
+    width: '100%';
+}
+
+
+@media screen and (max-width: 767px) {
+   
+    .card{
+        width: 90%;
+    }
+    .botonEnviar{
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .formularioCrear{
+        display: block;
+        align-items: start;
+
+    }
+    .card{
+        width: 74%;
+        margin: 0 auto;
+        
+    }
+
+   
+    .botonEnviar{
+        width: 60%;
+    }
+}

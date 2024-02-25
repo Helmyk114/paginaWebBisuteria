@@ -1,5 +1,8 @@
 import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
+import '../Trabajadores/trabajadores.css'
+
+import Swal from 'sweetalert2'
 
 import { Card, Spacer } from "@nextui-org/react";
 import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
@@ -11,7 +14,6 @@ import BotonEnviar from "../../components/UI/botones/botonEnviar";
 import Footer from "../../components/UI/Footer/Footer";
 
 import { añadirInformacionAPI } from "../../api/productos";
-import Swal from 'sweetalert2'
 
 function CrearTrabajador() {
 	const { register, handleSubmit, formState: { errors } } = useForm();
@@ -64,14 +66,18 @@ function CrearTrabajador() {
 				<Notificacion />
 			</Navigate>
 			<Spacer y={4} />
-			<div className="container-crear">
-				<form style={{ margin: '0 auto', width: '100%' }} onSubmit={handleSubmit(onSubmit)}>
-					<SubirImagen onImageChange={setSelectedImage} />
+			<div  className="container-crear">
+			<form className="formularioCrear"  onSubmit={handleSubmit(onSubmit)}>
+				<div className="imagen">
+				<SubirImagen onImageChange={setSelectedImage} style={{height:"300px"}}/>
+				
+				</div>
+
 					<Spacer y={4} />
-					<Card className='card' style={{ width: '90%' }}>
+					<Card className="card">
 						<Spacer y={4} />
 						<div className="gap-4" style={{ display: "grid", gridTemplateColumns: "2fr 2fr" }}>
-							<div className="flex flex-col">
+							<div className=" cardForm flex flex-col">
 								<InputText ref={(el) => { refs.current.workerName = el; }}
 									{...register("workerName", { required: { value: true, message: mensaje } })}
 									key="workerName"
@@ -207,9 +213,10 @@ function CrearTrabajador() {
 							</div>
 						</div>
 						<Spacer y={4} />
-						<BotonEnviar text="Registrar trabajador" type="submit" />
+						<BotonEnviar className ="botonEnviar" text="Registrar trabajador" type="submit" />
 						<Spacer y={4} />
 					</Card>
+					
 				</form>
 			</div>
 			<Spacer y={4} />
