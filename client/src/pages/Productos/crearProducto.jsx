@@ -121,20 +121,6 @@ function CrearProducto() {
 							texto="categorys"
 						/>
 						{errors.idCategory && <span>{errors.idCategory.message}</span>}
-						<ListBoxSimple
-							ref={(el) => { refs.current.idCategory = el; }}
-							{...register("idCategory", { required: { value: true, message: 'La categoria es requerido' } })}
-							key="idCategory"
-							type="text"
-							label={<span className="custom-label">Categoria</span>}
-							labelPlacement="outside"
-							placeholder="Seleccione una categoria"
-							size="md"
-							apiEndpoint="categoria"
-							idOpcion="idCategory"
-							texto="categorys"
-						/>
-						{errors.idCategory && <span>{errors.idCategory.message}</span>}
 						<Spacer y={4} />
 						<BotonEnviar text="Añadir producto" type="submit" />
 						<Spacer y={4} />
