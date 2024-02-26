@@ -9,22 +9,23 @@
     max-width: 1200px; /* Ancho máximo de la carta, ajusta según sea necesario */
     margin: 0 auto; /* Centrar la carta */
     padding: 20px; /* Espaciado interno */
-    margin-bottom: 5%;
+    align-items: flex-start; /* Alinea los elementos al principio de la carta */
 }
 
 .cardProduct > div {
     display: flex; /* Disposición horizontal para los elementos dentro de la carta */
-    align-items: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra verticalmente los elementos */
 }
 
 .img {
     width: 80px; /* Tamaño de la imagen */
     height: 80px; /* Ajusta según sea necesario */
     border-radius: 50%; /* 50% de border radius */
-    margin-right: 10px; /* Espacio a la derecha de la imagen */
+    margin-right: 20px; /* Aumenta el margen derecho para alejar la imagen del texto */
 }
 
 .p1,
 .p2 {
     margin: 0; /* Eliminar el margen predeterminado de los párrafos */
+    margin-left: 400px; /* Espacio a la izquierda de los textos */
 }
