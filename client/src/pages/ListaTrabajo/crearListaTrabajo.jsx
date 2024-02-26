@@ -1,15 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
 
 import { Spacer } from "@nextui-org/react";
 import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
-import Footer from "../../components/UI/Footer/Footer";
-import { Accordion, AccordionItem } from "@nextui-org/react";
+import Acordeon from "../../components/UI/Acordeon/Acordeon";
 import CheckboxInfo from "../../components/UI/formulario/CheckBox/CheckBox";
 import BotonEnviar from "../../components/UI/botones/botonEnviar";
-import { useForm } from "react-hook-form";
-import { listarInformacionApi } from "../../api/productos";
+import Footer from "../../components/UI/Footer/Footer";
 import Loader from "../../components/UI/cargando/loader";
 
+import { listarInformacionApi } from "../../api/productos";
 
 function CrearListaTrabajo() {
 
@@ -61,14 +61,12 @@ function CrearListaTrabajo() {
 				<Notificacion />
 			</Navigate>
 			<Spacer y={4} />
-
 			<form  onSubmit={handleSubmit(onSubmit)}>
-				<Accordion selectionMode="multiple" style={{ width: "90%", margin: "0 auto" }}>
-					<AccordionItem key="3" aria-label="Accordion 3" title="Artesano" style={{ fontFamily: "Roboto, sans-serif", fontSize: "20px", fontWeight: "bold" }}>
+				<Acordeon titulo={"Artesanos"}>
 						{cargando ? (
 							<Loader />
-						) : (
-							<div>
+							) : (
+								<div>
 								{informacion && informacion.length > 0 ? (
 									informacion.map((datos) => (
 										<CheckboxInfo
@@ -81,22 +79,24 @@ function CrearListaTrabajo() {
 											onChange={() => handleOptionChange(datos)}
 											value={datos.idCardWorker === selectedOption?.idCardWorker}						
 										/>
-										
 									))
-								
 								) : (
 									<p>No hay productos disponibles.</p>
 								)}
 								{errors.idCardWorker && <span>{errors.idCardWorker.message}</span>}
 							</div>
 						)}
-					</AccordionItem>
-				</Accordion>
+				</Acordeon>
+				<Spacer y={4} />
+	
 
+				<Acordeon titulo={"Lista productos"}>
+
+				</Acordeon>
+			
+				<Spacer y={4} />
 				<BotonEnviar text={"Enviar lista"} type={"submit"} />
 			</form>
-
-
 			<Spacer y={4} />
 			<Footer />
 		</div>
