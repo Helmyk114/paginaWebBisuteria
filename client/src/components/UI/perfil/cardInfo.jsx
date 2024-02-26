@@ -3,12 +3,12 @@ import { Icon } from '@iconify/react';
 import { Card, CardHeader} from "@nextui-org/react";
 import '../perfil/cardInfo.css'
 
-export default function CardPerfil({children,alignItems, justifyContent,  display, gap }) {
+export default function CardPerfil({children,alignItems, justifyContent,  display, gap, flexDirection }) {
 
   return (
     <Card className="cardprincipal">
       <CardHeader>
-      <div className="cardGap" style={{ display:display|| "flex", alignItems:alignItems || "start", justifyContent:justifyContent, gap:gap||"13px"}}>
+      <div className="cardGap" style={{ display:display|| "flex", alignItems:alignItems || "center", justifyContent:justifyContent, gap:gap||"13px", flexDirection:flexDirection || "row"}}>
         {children}
       </div> 
       </CardHeader>
