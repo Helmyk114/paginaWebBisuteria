@@ -1,0 +1,21 @@
+/* styles.css */
+
+.cardProduct {
+    background-color: #f0f0f0; /* Gris claro */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    max-width: 300px; /* Ancho máximo de la carta */
+    margin: 0 auto; /* Centrar la carta */
+    padding: 20px; /* Espaciado interno */
+  }
+  
+  .img {
+    width: 100%; /* La imagen ocupa todo el ancho */
+    border-radius: 60%; /* 50% de border radius */
+    margin-bottom: 10px; /* Espacio bajo la imagen */
+  }
+  
+  .p1 {
+    margin: 0; /* Eliminar el margen predeterminado de los párrafos */
+  }
+  

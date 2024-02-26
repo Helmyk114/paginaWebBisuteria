@@ -1,12 +1,12 @@
 import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
-
 import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import { Card, CardHeader, CardBody, Divider, Spacer } from "@nextui-org/react";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import BotonEnviar from "../../components/UI/botones/botonEnviar"
 import Footer from "../../components/UI/Footer/Footer";
 import { useLocation } from 'react-router-dom';
+import './crearPedido.css';
 
 
 function CrearPedido() {
@@ -93,15 +93,16 @@ function CrearPedido() {
     			<p style={{ fontFamily: "Roboto, sans-serif", fontSize: "20px", fontWeight: "bold" }}>Lista de productos</p>
   			</CardHeader>
   			<Divider />
-  			<CardBody>
+  			<CardBody className="cardProduct">
     			{state.selectedProducts.map((product, index) => (
       				<div key={index}>
-        				<p>{product.producto}</p>
-       				 	<p>{product.precio}</p>
-        				<img src={product.img} alt={product.producto} />
+						<img className="img" src={product.img} alt={product.producto} />
+        				<p className="p1">{product.producto}</p>
+       				 	<p className="p2">{product.precio}</p>
       				</div>
     			))}
   			</CardBody>
+			  <Spacer y={4} />
 			</Card>
 
 
