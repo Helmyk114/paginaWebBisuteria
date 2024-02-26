@@ -1,62 +1,106 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
 
-import { Card, CardBody, CardHeader, Divider, Spacer } from "@nextui-org/react";
+import { Spacer } from "@nextui-org/react";
 import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
+import Acordeon from "../../components/UI/Acordeon/Acordeon";
+import CheckboxInfo from "../../components/UI/formulario/CheckBox/CheckBox";
+import BotonEnviar from "../../components/UI/botones/botonEnviar";
 import Footer from "../../components/UI/Footer/Footer";
-import ListBoxCompound from "../../components/UI/formulario/Combox/ListBoxCompound";
+import Loader from "../../components/UI/cargando/loader";
+
+import { listarInformacionApi } from "../../api/productos";
 
 function CrearListaTrabajo() {
+
+	const { register, handleSubmit, formState: { errors } } = useForm();
+	const [informacion, setInformacion] = useState([]);
+	const [cargando, setCargando] = useState(true);
+	const urlImage = process.env.REACT_APP_API_URL;
+
+	const refs = useRef({
+		idCardWorker: [],
+	});
+
+	useEffect(() => {
+		const data = async () => {
+			try {
+				const informacionProducto = await listarInformacionApi('artesano');
+				setInformacion(informacionProducto.data);
+				setCargando(false);
+			} catch (error) {
+				console.error('Error al acceder a la informacion: ', error);
+				setCargando(false);
+			}
+		};
+		data();
+	}, []);
+
+	const [selectedOption, setSelectedOption] = useState(null);
+	const [selectedIdCardWorker, setSelectedIdCardWorker] = useState(null);
+	const handleOptionChange = (option) => {
+    setSelectedOption(option);
+		setSelectedIdCardWorker(option.idCardWorker);
+  };
+
+	const onSubmit = async (data) => {
+		console.log("Formulario enviado");
+		const listaTrabajo = {
+			...data,
+			idCardWorker: selectedIdCardWorker,
+		};
+		console.log(listaTrabajo)
+	
+}
+
 	return (
 		<div>
 			<Navigate>
 				<Retroceder />
-				<Titulo espacio="center" titulo="Añadir producto" />
+				<Titulo espacio="center" titulo="Crear lista" />
 				<Notificacion />
 			</Navigate>
 			<Spacer y={4} />
-			<Card className="" style={{ width: "90%", margin: "0 auto" }}>
-				<CardHeader className="flex gap-3">
-					<p style={{ fontFamily: "Roboto, sans-serif", fontSize: "20px", fontWeight: "bold" }}>Lista de pedidos</p>
-				</CardHeader>
-				<Divider />
-				<CardBody>
-				
-				</CardBody>
-			</Card>
-			<Spacer y={5} />
-			<Card className="" style={{ width: "90%", margin: "0 auto" }}>
-				<CardHeader className="flex gap-3">
-					<p style={{ fontFamily: "Roboto, sans-serif", fontSize: "20px", fontWeight: "bold" }}>Productos</p>
-				</CardHeader>
-				<Divider />
-				<CardBody>
+			<form  onSubmit={handleSubmit(onSubmit)}>
+				<Acordeon titulo={"Artesanos"}>
+						{cargando ? (
+							<Loader />
+							) : (
+								<div>
+								{informacion && informacion.length > 0 ? (
+									informacion.map((datos) => (
+										<CheckboxInfo
+											ref={(el) => { refs.current.idCardWorker = el; }}
+											{...register("idCardWorker", { required: { value: false, message: 'La categoria es requerido' } })}
+											key={datos.idCardWorker}
+											id={datos.idCardWorker}
+											name={`${datos.workerName} ${datos.workerLastName}`}
+											imagen={`${urlImage}/${datos.photo}`}
+											onChange={() => handleOptionChange(datos)}
+											value={datos.idCardWorker === selectedOption?.idCardWorker}						
+										/>
+									))
+								) : (
+									<p>No hay productos disponibles.</p>
+								)}
+								{errors.idCardWorker && <span>{errors.idCardWorker.message}</span>}
+							</div>
+						)}
+				</Acordeon>
+				<Spacer y={4} />
+	
 
+				<Acordeon titulo={"Lista productos"}>
 
-				</CardBody>
-			</Card>
-			<Spacer y={5} />
-			<Card className="" style={{ width: "90%", margin: "0 auto" }}>
-				<CardHeader className="flex gap-3">
-					<p style={{ fontFamily: "Roboto, sans-serif", fontSize: "20px", fontWeight: "bold" }}>Artesano</p>
-				</CardHeader>
-				<Divider />
-				<CardBody>
-
-				<ListBoxCompound
-				key="idCategory"
-				titulo="Categoria"
-				apiEndpoint="artesano"
-				imagen={"photo"}
-				idOpcion={"idCardWorker"}
-				nombre={"workerName"} />
-				</CardBody>
-			</Card>
-
-
+				</Acordeon>
+			
+				<Spacer y={4} />
+				<BotonEnviar text={"Enviar lista"} type={"submit"} />
+			</form>
 			<Spacer y={4} />
 			<Footer />
 		</div>
 	);
 };
 
-export default CrearListaTrabajo
+export default CrearListaTrabajo;

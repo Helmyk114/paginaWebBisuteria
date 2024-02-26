@@ -1,31 +1,27 @@
 import React, { useState, useEffect } from "react";
-import CustomCard from '../../components//Card/card';
-import { CardContent } from '../../components/Card/card';
 import Flotante from '../../components/Botones/BotonFlotante/Flotante';
 import { eliminarInformacionApi, listarInformacionApi } from "../../api/productos";
 import Swal from "sweetalert2";
 
-import { Spacer } from "@nextui-org/react";
+import { Spacer, Tooltip } from "@nextui-org/react";
 import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
+import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo"
 import Avatares from "../../components/UI/avatar/Avatares";
 import Loader from "../../components/UI/cargando/loader";
-import BotonEditar from "../../components/UI/botones/botonEditar";
-import BotonEliminar from "../../components/UI/botones/botonEliminar";
+import EditIcon from "../../components/UI/iconos/Editar";
+import DeleteIcon from "../../components/UI/iconos/Eliminar";
 import Footer from "../../components/UI/Footer/Footer";
-
-
 
 function ListarProducto() {
 
 	const [informacion, setInformacion] = useState([]);
 	const [cargando, setCargando] = useState(true);
-	const endPoint = 'productos';
 	const urlImage = process.env.REACT_APP_API_URL;
 
 	useEffect(() => {
 		const data = async () => {
 			try {
-				const informacionProducto = await listarInformacionApi(endPoint);
+				const informacionProducto = await listarInformacionApi('productos');
 				setInformacion(informacionProducto.data);
 				setCargando(false);
 			} catch (error) {
@@ -47,7 +43,7 @@ function ListarProducto() {
 				confirmButtonText: "Eliminar"
 			});
 			if (result.isConfirmed) {
-				await eliminarInformacionApi(endPoint, idProduct)
+				await eliminarInformacionApi('productos', idProduct)
 				const nuevaInformacion = informacion.filter((datos) => datos.idProduct !== idProduct);
 				setInformacion(nuevaInformacion)
 
@@ -87,7 +83,6 @@ function ListarProducto() {
 				<Titulo espacio="center" titulo="Productos" />
 				<Notificacion />
 			</Navigate>
-
 			<Spacer y={5} />
 
 			{cargando ? (
@@ -96,39 +91,49 @@ function ListarProducto() {
 				<div>
 					{informacion && informacion.length > 0 ? (
 						informacion.map((datos) => (
-							<CustomCard key={datos.idProduct}>
-								<Avatares
-									radio={"lg"}
-									imagen={`${urlImage}/${datos.image}`}
-									height="100px"
-									width="100px"
-								/>
-								<CardContent />
-
-								<div className="flex flex-col justify-center">
-									<p className="font-semibold text-md">{datos.nameProduct} </p>
-								</div>
-
-								<div className="flex flex-col justify-center">
-									<div className="relative flex gap-1">
-										<p className="font-semibold text-md">{"PC"} </p>
-										<p className="font-semibold text-md">{datos.price} </p>
-										<p className="font-semibold text-md">{"$"} </p>
+							<div key={datos.idProduct}>
+								<CardPerfil
+									justifyContent={"space-between"}
+									alignItems={"center"}
+									key={datos.idProduct}>
+									<Avatares
+										src={`${urlImage}/${datos.image}`}
+										radio={"full"} />
+									<div style={{ display: "flex", justifyContent:"start"}}>
+										<Texto1Card
+											texto={datos.nameProduct} />
 									</div>
-									<p className="font-semibold text-md">{`PO ${datos.laborPrice} $`}</p>
-								</div>
+									<div>
+										<Texto2Card
+											texto2={`PC ${datos.price} $`}
+										/>
+										<Texto2Card
+											texto2={`PO ${datos.laborPrice} $`} />
+									</div>
 
-								<div className="relative flex items-center gap-4">
-									<BotonEditar texto={"Editar producto"} ruta={`/editar/producto/${datos.idProduct}`} />
-									<BotonEliminar texto={"Eliminar producto"} funcEliminar={() => eliminarProducto(datos.idProduct)} />
-								</div>
-							</CustomCard>
+									<div className="relative flex items-center gap-1" style={{ justifyContent: "center" }}>
+										<Tooltip content="Editar producto">
+											<span className="text-lg text-default-400 cursor-pointer active:opacity-50">
+												<EditIcon ruta={`/editar/producto/${datos.idProduct}`} />
+											</span>
+										</Tooltip>
+										<Tooltip content="Eliminar producto">
+											<span className="text-lg text-danger cursor-pointer active:opacity-50">
+												<DeleteIcon eliminar={() => eliminarProducto(datos.idProduct)} />
+											</span>
+										</Tooltip>
+									</div>
+								</CardPerfil>
+								<Spacer y={3} />
+							</div>
 						))
 					) : (
 						<p>No hay productos disponibles.</p>
 					)}
 				</div>
 			)}
+
+
 			<Footer />
 		</div>
 	);

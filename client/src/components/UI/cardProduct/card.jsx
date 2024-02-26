@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
-import { Icon } from "@iconify/react";
+import { Icon } from "@iconify/react"
 import './card.css';
 
-export default function CardProduct({ producto, precio, img }) {
+export default function CardProduct({ producto, precio, img, onSelect }) {
+  const [isSelected, setIsSelected] = useState(false);
+
+  const handleCardClick = () => {
+    setIsSelected(!isSelected);
+    onSelect({ producto, precio, img, isSelected: !isSelected });
+  };
+
   return (
-    <div className="card1">
-      <Card shadow="sm" isPressable onPress={() => console.log("item pressed")} className="card2">
+    <div className={`card1 ${isSelected ? 'selected' : ''}`}>
+      <Card shadow="sm" isPressable onPress={handleCardClick} className="card2">
         <CardBody className="overflow-visible p-0" style={{ background: "#6977E4" }}>
           <Image
             shadow="sm"

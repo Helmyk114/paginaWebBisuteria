@@ -34,8 +34,11 @@
         width: 60%;   
     }
     .cardGap{
+        display: grid;
         gap: 180px;
         width: 100%;   
+        
+        
     }
     .iconoCard{
         width: 45px;
