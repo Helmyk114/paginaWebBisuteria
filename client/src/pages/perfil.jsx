@@ -10,6 +10,7 @@ import { detalleInformacionApi } from "../api/productos";
 import { decodificarToken, obtenerToken } from "../utils/token";
 
 import { Link } from "react-router-dom";
+import BotonCantidad from "../components/UI/botones/botonCantidad"; 
 
 export default function Perfilinfo() {
 
@@ -73,6 +74,7 @@ export default function Perfilinfo() {
                       <Texto2Card
                         texto2={`${datos.workerName}`} />
                     </div>
+                    
                   </CardPerfil>
                   <Spacer y={3} />
                   <CardPerfil
@@ -124,13 +126,8 @@ export default function Perfilinfo() {
                     <Avatares
                     src={`${urlImage}/${datos.photo}`}
                     radio={"full"}/>
-                    <div style={{ display: "block" }}>
-                      <Texto1Card
-                        texto={"Numero de cuenta"} />
-                      <Texto2Card
-                        texto2={"hla"} />
-                        <Texto2Card
-                        texto2={"hola"} />
+                    <div style={{width:"10px"}}>
+                    <BotonCantidad/>
                     </div>
                     <div
                     style={{display:"flex"}}>  

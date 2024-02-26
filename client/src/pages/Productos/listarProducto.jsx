@@ -94,13 +94,12 @@ function ListarProducto() {
 							<div key={datos.idProduct}>
 								<CardPerfil
 									justifyContent={"space-between"}
-									className="cardPerfil"
 									alignItems={"center"}
 									key={datos.idProduct}>
 									<Avatares
 										src={`${urlImage}/${datos.image}`}
 										radio={"full"} />
-									<div style={{ display: "flex", gap: "13px" }}>
+									<div style={{ display: "flex", justifyContent:"start"}}>
 										<Texto1Card
 											texto={datos.nameProduct} />
 									</div>
