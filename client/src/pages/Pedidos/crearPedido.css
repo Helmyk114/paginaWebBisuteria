@@ -28,5 +28,5 @@
 .p1,
 .p2 {
     margin: 0; /* Eliminar el margen predeterminado de los párrafos */
-    margin-left: 10px; /* Espacio a la izquierda de los textos */
+    margin-left: 400px; /* Espacio a la izquierda de los textos */
 }
