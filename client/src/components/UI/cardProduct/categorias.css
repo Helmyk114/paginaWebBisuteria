@@ -11,8 +11,8 @@
   .figure {
     position: relative;
     overflow: hidden;
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 150px;
+    max-height: 150px;
   }
   
   .figure__img {
