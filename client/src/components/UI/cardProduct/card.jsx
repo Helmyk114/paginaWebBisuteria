@@ -25,19 +25,21 @@ export default function CardProduct({ producto, precio, img, onSelect }) {
           />
         </CardBody>
         <CardFooter className="text-small justify-between" style={{ background: "#6977E4" }}>
-          <div className="display-flex flex-col-2">
-            <div className="relative flex gap-2">
+          <div className="flex flex-col items-start">
               <b style={{ color: "#fff" }}>{producto}</b>
-              <div>
-                <Icon icon={"gridicons:user-circle"} width="32" height="32" />
+              <div className="relative flex">
+                <div className="flex flex-col items-start"> 
+                  <p className="text-default-500 " style={{ color: "#fff", marginRight: '39px' }}>
+                  Precio:
+                  </p>
+                  <p className="text-default-500 " style={{ color: "#fff", marginRight: '39px' }}>
+                  {precio} $
+                  </p>
+                </div>
+                  <Icon icon={"gridicons:user-circle"} width="32" height="32" />
+                  
               </div>
             </div>
-            <div>
-              <p className="text-default-500 " style={{ color: "#fff", marginRight: '39px' }}>
-                Precio: {precio} $
-              </p>
-            </div>
-          </div>
         </CardFooter>
       </Card>
     </div>

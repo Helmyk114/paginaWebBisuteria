@@ -14,7 +14,6 @@ import { eliminarInformacionApi, listarInformacionApi } from "../../api/producto
 import Swal from 'sweetalert2'
 
 function ListarTrabajador() {
-
   const [informacion, setInformacion] = useState([]);
   const [cargando, setCargando] = useState(true);
   const urlImage = process.env.REACT_APP_API_URL;
@@ -26,7 +25,7 @@ function ListarTrabajador() {
         setInformacion(informacionTrabajador.data);
         setCargando(false);
       } catch (error) {
-        console.error('Error al acceder informacion: ', error);
+        console.error("Error al acceder informacion: ", error);
         setCargando(false);
       }
     };
@@ -41,7 +40,7 @@ function ListarTrabajador() {
         showCancelButton: true,
         confirmButtonColor: "#6977E4",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Eliminar"
+        confirmButtonText: "Eliminar",
       });
       if (result.isConfirmed) {
         await eliminarInformacionApi('trabajadores', idCardWorker)
@@ -50,11 +49,11 @@ function ListarTrabajador() {
 
         Swal.fire({
           title: "Trabajador elimindao",
-          icon: "success"
+          icon: "success",
         });
       }
     } catch (error) {
-      console.error('error al eliminar: ', error)
+      console.error("error al eliminar: ", error);
     }
   };
 
@@ -70,11 +69,10 @@ function ListarTrabajador() {
             className="bi bi-plus-circle"
             viewBox="0 0 16 16"
           >
-            <path
-              d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-            <path
-              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
-          </svg>}
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
+          </svg>
+        }
         ruta="/crear/trabajador"
       />
 
@@ -133,6 +131,6 @@ function ListarTrabajador() {
       <Footer />
     </>
   );
-};
+}
 
 export default ListarTrabajador;

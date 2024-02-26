@@ -48,7 +48,7 @@ export default function Perfilinfo() {
         <div>
           {informacion && informacion.length > 0 ? (
             informacion.map((datos) => (
-              <div className="perfil" key={datos.idCardWorker}>
+              <div className="perfil" key={datos.idCardWorker} style={{height: "100%"}}>
                 <div style={{ width: "100%", height: "35%", padding: "10px", display: "flex", alignItems: "center", gap: "30px", position: "absolute", backgroundColor: "#454F96"}}>
                   <Avatares
                   
@@ -175,9 +175,12 @@ export default function Perfilinfo() {
           )}
         </div>
       )}
+       
       <Spacer y={4} />
-      <Footer
-      />
+      <div style={{position: "absolute", bottom: "-45%", width: "100%"}}>
+        
+        <Footer/>
+        </div>
     </div>
   );
 };

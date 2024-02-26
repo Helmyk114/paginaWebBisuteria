@@ -58,7 +58,8 @@ export default function ListProduct() {
         <div className="grid">
           {informacion && informacion.length > 0 ? (
             informacion.map((datos) => (
-              <CardProduct
+              <CardProduct 
+                className="item"
                 key={datos.idProduct}
                 img={`${urlImage}/${datos.image}`}
                 producto={datos.nameProduct}
