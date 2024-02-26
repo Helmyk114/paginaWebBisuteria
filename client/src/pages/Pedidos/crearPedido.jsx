@@ -6,6 +6,7 @@ import { Card, CardHeader, CardBody, Divider, Spacer } from "@nextui-org/react";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import BotonEnviar from "../../components/UI/botones/botonEnviar"
 import Footer from "../../components/UI/Footer/Footer";
+import { useLocation } from 'react-router-dom';
 
 
 function CrearPedido() {
@@ -17,6 +18,10 @@ function CrearPedido() {
 		clientAddress: null,
 		clientPhone: null,
 	});
+
+	const location = useLocation();
+  	const { state } = location;
+	  console.log(state);
 
 	return (
 		<div>
@@ -84,15 +89,21 @@ function CrearPedido() {
 			</Card>
 			<Spacer y={5} />
 			<Card className="" style={{ width: "90%", margin: "0 auto" }}>
-				<CardHeader className="flex gap-3">
-					<p style={{ fontFamily: "Roboto, sans-serif", fontSize: "20px", fontWeight: "bold" }}>Lista de productos</p>
-				</CardHeader>
-				<Divider />
-				<CardBody>
-
-
-				</CardBody>
+  			<CardHeader className="flex gap-3">
+    			<p style={{ fontFamily: "Roboto, sans-serif", fontSize: "20px", fontWeight: "bold" }}>Lista de productos</p>
+  			</CardHeader>
+  			<Divider />
+  			<CardBody>
+    			{state.selectedProducts.map((product, index) => (
+      				<div key={index}>
+        				<p>{product.producto}</p>
+       				 	<p>{product.precio}</p>
+        				<img src={product.img} alt={product.producto} />
+      				</div>
+    			))}
+  			</CardBody>
 			</Card>
+
 
 			<div style={{ width: "100%", height: "100px", padding: "10px", display: "flex", alignItems: "center", gap: "30px", position: "absolute", backgroundColor: "#454F96", borderRadius: "30px" }}>
 
