@@ -7,9 +7,10 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
     width: 100%; /* La carta ocupa todo el ancho */
     max-width: 1200px; /* Ancho máximo de la carta, ajusta según sea necesario */
-    margin: 0 auto; /* Centrar la carta */
+    margin: 0 auto 20px; /* Centrar la carta y agregar margen inferior */
     padding: 20px; /* Espaciado interno */
     align-items: flex-start; /* Alinea los elementos al principio de la carta */
+    margin-top: 20px;
 }
 
 .cardProduct > div {
@@ -27,5 +28,5 @@
 .p1,
 .p2 {
     margin: 0; /* Eliminar el margen predeterminado de los párrafos */
-    margin-left: 400px; /* Espacio a la izquierda de los textos */
+    margin-left: 10px; /* Espacio a la izquierda de los textos */
 }
