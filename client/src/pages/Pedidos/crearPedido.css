@@ -1,21 +1,30 @@
 /* styles.css */
 
 .cardProduct {
+    display: flex; /* Disposición horizontal */
     background-color: #f0f0f0; /* Gris claro */
     border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
-    max-width: 300px; /* Ancho máximo de la carta */
+    width: 100%; /* La carta ocupa todo el ancho */
+    max-width: 1200px; /* Ancho máximo de la carta, ajusta según sea necesario */
     margin: 0 auto; /* Centrar la carta */
     padding: 20px; /* Espaciado interno */
-  }
-  
-  .img {
-    width: 100%; /* La imagen ocupa todo el ancho */
-    border-radius: 60%; /* 50% de border radius */
-    margin-bottom: 10px; /* Espacio bajo la imagen */
-  }
-  
-  .p1 {
+    margin-bottom: 5%;
+}
+
+.cardProduct > div {
+    display: flex; /* Disposición horizontal para los elementos dentro de la carta */
+    align-items: center; /* Centra los elementos horizontalmente */
+}
+
+.img {
+    width: 80px; /* Tamaño de la imagen */
+    height: 80px; /* Ajusta según sea necesario */
+    border-radius: 50%; /* 50% de border radius */
+    margin-right: 10px; /* Espacio a la derecha de la imagen */
+}
+
+.p1,
+.p2 {
     margin: 0; /* Eliminar el margen predeterminado de los párrafos */
-  }
-  
+}
