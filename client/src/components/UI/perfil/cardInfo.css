@@ -1,5 +1,6 @@
 .cardprincipal{
     margin: 0 auto;
+    
 
 }
 .iconoCard{
@@ -57,7 +58,6 @@
     
         gap: 180px;
         width: 100%;   
-        
         
     }
     .iconoCard{
