@@ -126,19 +126,20 @@ export default function Perfilinfo() {
                     <Avatares
                     src={`${urlImage}/${datos.photo}`}
                     radio={"full"}/>
-                    <div style={{width:"10px"}}>
+                    <Texto1Card
+                        texto={"Aretas flores navideñas"} />
+                    <div style={{display:"flex", justifyContent:"center"}}>
                     <BotonCantidad/>
                     </div>
+                    <Texto2Card
+                        texto2={"$precio"} />
                     <div
                     style={{display:"flex"}}>  
                       <IconoCard
                     icon={"bxs:trash"}
                     width={"25"}
                     height={"25"} />
-                    <IconoCard
-                    icon={"bxs:trash"}
-                    width={"25"}
-                    height={"25"} />
+                    
                       </div>  
                       
                   </CardPerfil>
