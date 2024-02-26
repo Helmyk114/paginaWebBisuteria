@@ -73,7 +73,7 @@ export default function ListProduct() {
       )}
 
       {/* Botón para ir a la vista /crear/pedidos */}
-      <Button onClick={handleCrearPedidosClick}>Ir a Crear Pedidos</Button>
+      <Button onClick={handleCrearPedidosClick}>Crear Pedidos</Button>
 
       <Footer />
     </div>
