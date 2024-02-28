@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import BotonEnviar from "../../components/UI/botones/botonEnviar";
+import BotonEnviar from "../../botones/botonComprar";
 
 function Comprar({total}) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -35,7 +35,7 @@ function Comprar({total}) {
       <div>
         <BotonEnviar text={"Comprar"} type={"submit"} />
       </div>
-      <div style={{marginBottom: windowWidth <= 768 ? "40px" : "100px", marginRight: windowWidth <= 768 ? "30px" : "60px", fontSize: windowWidth <= 768 ? "20px" : "30px", fontFamily: "Roboto, sans-serif", color:"#fff"}}>Total: {total}$</div>
+      <div style={{marginBottom: windowWidth <= 768 ? "40px" : "100px", marginRight: windowWidth <= 768 ? "30px" : "300px", fontSize: windowWidth <= 768 ? "20px" : "30px", fontFamily: "Roboto, sans-serif", color:"#fff"}}>Total: {total}$</div>
     </div>
   );
 }

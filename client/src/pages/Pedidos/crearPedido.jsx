@@ -15,7 +15,7 @@ import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/
 import Avatares from "../../components/UI/avatar/Avatares";
 import BotonCantidad from "../../components/UI/botones/botonCantidad";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
-import Comprar from "./comprar";
+import Comprar from "../../components/UI/formulario/Comprar/comprar";
 
 function CrearPedido() {
 
@@ -170,13 +170,15 @@ function CrearPedido() {
 				
 				</Acordeon>
 				<Spacer y={5} />
-
-				<Comprar
+			<div>
+			<Comprar
 				total="300.000"
 				/>
+			</div>
+				
 			</form>
 			<Spacer y={4} />
-			<div style={{marginTop:"40px"}}><Footer /></div>
+			<div style={{position: "flex", bottom: "0%", width: "100%", marginTop: "190px"}}><Footer /></div>
 			
 		</div>
 	);
