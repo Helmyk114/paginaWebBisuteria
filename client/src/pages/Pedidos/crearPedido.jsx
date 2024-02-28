@@ -15,6 +15,7 @@ import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/
 import Avatares from "../../components/UI/avatar/Avatares";
 import BotonCantidad from "../../components/UI/botones/botonCantidad";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
+import Comprar from "../../components/UI/formulario/Comprar/comprar";
 
 function CrearPedido() {
 
@@ -60,7 +61,6 @@ function CrearPedido() {
 			<Navigate>
 				<Retroceder />
 				<Titulo espacio="center" titulo="Crear pedido" />
-				<Notificacion />
 			</Navigate>
 
 			<Spacer y={4} />
@@ -170,13 +170,16 @@ function CrearPedido() {
 				
 				</Acordeon>
 				<Spacer y={5} />
-
-				<div style={{ width: "100%", height: "100px", padding: "10px", display: "flex", alignItems: "center", gap: "30px", position: "absolute", backgroundColor: "#454F96", borderRadius: "30px" }}>
-					<BotonEnviar text={"Comprar"} type={"submit"} />
-				</div>
+			<div>
+			<Comprar
+				total="300.000"
+				/>
+			</div>
+				
 			</form>
 			<Spacer y={4} />
-			<Footer />
+			<div style={{position: "flex", bottom: "0%", width: "100%", marginTop: "190px"}}><Footer /></div>
+			
 		</div>
 	);
 };

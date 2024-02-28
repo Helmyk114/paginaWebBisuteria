@@ -55,7 +55,7 @@ function BienvenidaAdmi() {
                   nombre={`${datos.workerName} ${datos.workerLastName}`}
                   rol={"Administrador"}
                 />
-                <Notificacion />
+                {/* <Notificacion /> */}
               </Navigate>
             ))
           ) : (

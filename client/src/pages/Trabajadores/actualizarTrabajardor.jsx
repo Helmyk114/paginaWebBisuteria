@@ -86,7 +86,6 @@ function ActualizarTrabajador() {
 			<Navigate>
 				<Retroceder />
 				<Titulo espacio="center" titulo="Actualizar información" />
-				<Notificacion />
 			</Navigate>
 			<Spacer y={4} />
 			<form style={{ margin: '0 auto', width: '100%' }} onSubmit={handleSubmit(onSubmit)}>

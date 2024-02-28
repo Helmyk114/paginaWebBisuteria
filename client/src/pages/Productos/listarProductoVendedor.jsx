@@ -14,14 +14,13 @@ export default function ListProduct() {
   const [informacion, setInformacion] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [selectedProducts, setSelectedProducts] = useState([]);
-  const endPoint = 'productos';
   const urlImage = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
 
   useEffect(() => {
     const data = async () => {
       try {
-        const informacionProducto = await listarInformacionApi(endPoint);
+        const informacionProducto = await listarInformacionApi('productos');
         setInformacion(informacionProducto.data);
         setCargando(false);
       } catch (error) {
@@ -47,7 +46,6 @@ export default function ListProduct() {
       <Navigate>
         <Retroceder />
         <Titulo espacio="center" titulo="Bienvenido" />
-        <Notificacion />
       </Navigate>
       <Spacer y={5} />
       <Categorias />

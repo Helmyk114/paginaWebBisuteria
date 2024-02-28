@@ -9,7 +9,6 @@ function ListarPedidoVendedor() {
 			<Navigate>
 				<Retroceder />
 				<Titulo espacio="center" titulo="Pedidos" />
-				<Notificacion />
 			</Navigate>
 
 			<Footer />
