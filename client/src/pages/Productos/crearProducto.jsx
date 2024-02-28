@@ -54,7 +54,6 @@ function CrearProducto() {
 			<Navigate>
 				<Retroceder />
 				<Titulo espacio="center" titulo="Añadir producto" />
-				<Notificacion />
 			</Navigate>
 			<Spacer y={4} />
 			<form style={{ display: 'block', justifyContent: 'center', padding: '10px' }} onSubmit={handleSubmit(onSubmit)}>

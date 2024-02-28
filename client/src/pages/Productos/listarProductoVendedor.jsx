@@ -47,7 +47,6 @@ export default function ListProduct() {
       <Navigate>
         <Retroceder />
         <Titulo espacio="center" titulo="Bienvenido" />
-        <Notificacion />
       </Navigate>
       <Spacer y={5} />
       <Categorias />

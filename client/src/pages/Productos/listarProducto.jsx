@@ -81,7 +81,6 @@ function ListarProducto() {
 			<Navigate>
 				<Retroceder />
 				<Titulo espacio="center" titulo="Productos" />
-				<Notificacion />
 			</Navigate>
 			<Spacer y={5} />
 

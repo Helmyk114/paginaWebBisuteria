@@ -28,7 +28,6 @@ function ListarListaTrabajoVendedor() {
 				<Navigate>
 					<Retroceder />
 					<Titulo espacio="center" titulo="Lista de trabajo" />
-					<Notificacion />
 				</Navigate>
 
 				<Footer />

@@ -60,7 +60,6 @@ function CrearPedido() {
 			<Navigate>
 				<Retroceder />
 				<Titulo espacio="center" titulo="Crear pedido" />
-				<Notificacion />
 			</Navigate>
 
 			<Spacer y={4} />
