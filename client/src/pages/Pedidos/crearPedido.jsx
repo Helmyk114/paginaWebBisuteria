@@ -11,6 +11,7 @@ import BotonEnviar from "../../components/UI/botones/botonEnviar"
 import Footer from "../../components/UI/Footer/Footer";
 import { añadirInformacionAPI } from "../../api/productos";
 import Swal from "sweetalert2";
+import Comprar from "./comprar";
 
 function CrearPedido() {
 
@@ -137,12 +138,13 @@ function CrearPedido() {
 				</Acordeon>
 				<Spacer y={5} />
 
-				<div style={{ width: "100%", height: "100px", padding: "10px", display: "flex", alignItems: "center", gap: "30px", position: "absolute", backgroundColor: "#454F96", borderRadius: "30px" }}>
-					<BotonEnviar text={"Comprar"} type={"submit"} />
-				</div>
+				<Comprar
+				total="300.000"
+				/>
 			</form>
 			<Spacer y={4} />
-			<Footer />
+			<div style={{marginTop:"40px"}}><Footer /></div>
+			
 		</div>
 	);
 };
