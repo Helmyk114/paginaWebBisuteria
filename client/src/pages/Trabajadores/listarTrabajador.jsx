@@ -79,7 +79,6 @@ function ListarTrabajador() {
       <Navigate>
         <Retroceder />
         <Titulo espacio="center" titulo="Trabajadores" />
-        <Notificacion />
       </Navigate>
       <Spacer y={5} />
       {cargando ? (
