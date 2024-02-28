@@ -18,7 +18,7 @@ export default function BotonEnviar({ fontSize, text, ...props }) {
           color: "#fff",
           fontWeight: "bold",
           fontFamily: "Roboto, sans-serif",
-          fontSize: fontSize || "16px",
+          fontSize: fontSize || "21px",
           borderRadius:"10px",
         }}
       >

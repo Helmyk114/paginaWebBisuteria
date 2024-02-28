@@ -30,6 +30,7 @@ function Comprar({total}) {
         backgroundColor: "#454F96",
         borderRadius: "100px",
         zIndex: "-1000",
+        marginTop: windowWidth <= 768 ? "150px" : "120px",
       }}
     >
       <div>
