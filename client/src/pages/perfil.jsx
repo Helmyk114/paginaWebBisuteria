@@ -118,102 +118,7 @@ export default function Perfilinfo() {
                         texto2={`${datos.numberBank} ${datos.banks}`} />
                     </div>
                   </CardPerfil>
-                  <Spacer y={3} />
-
-                  <CardPerfil
-                  justifyContent={"space-between"}
-                   gap={"2px"}
-                  >
-                    <div className="cardPerfil">
-                    <div className="contenedor1">
-                    <Avatares
-                    src={`${urlImage}/${datos.photo}`}
-                    radio={"full"}/>
-                     <Spacer x={3} />
-                    <Texto1Card
-                        texto={"Aretas flores navideñas"} />
-                     <div style={{display:"flex", justifyContent:"center"}}>
-                    <BotonCantidad/>
-                    </div>
-                    </div>
-                    <div className="contenedor2">
-                    <Texto2Card
-                        texto2={"$precio"} />
-                    <div
-                    style={{display:"flex"}}>  
-                      <IconoCard
-                    icon={"bxs:trash"}
-                    width={"25"}
-                    height={"25"} />
-                    
-                    </div>  
-                      </div>
-                    </div>
-                  </CardPerfil>
-                  <Spacer y={3} />
-
-                  <CardPerfil
-                  justifyContent={"space-between"}
-                   gap={"2px"}
-                  >
-                    <div className="cardPerfil">
-                    <div className="contenedor1">
-                    <Avatares
-                    src={`${urlImage}/${datos.photo}`}
-                    radio={"full"}/>
-                     <Spacer x={3} />
-                    <Texto1Card
-                        texto={"Aretas flores navideñas"} />
-                     <div style={{display:"flex", justifyContent:"center"}}>
-                    <BotonCantidad/>
-                    </div>
-                    </div>
-                    <div className="contenedor2">
-                    <Texto2Card
-                        texto2={"$precio"} />
-                    <div
-                    style={{display:"flex"}}>  
-                      <IconoCard
-                    icon={"bxs:trash"}
-                    width={"25"}
-                    height={"25"} />
-                    
-                    </div>  
-                      </div>
-                    </div>
-                  </CardPerfil>
-                  <Spacer y={3} />
-
-                  <CardPerfil
-                  justifyContent={"space-between"}
-                   gap={"2px"}
-                  >
-                    <div className="cardPerfil">
-                    <div className="contenedor1">
-                    <Avatares
-                    src={`${urlImage}/${datos.photo}`}
-                    radio={"full"}/>
-                     <Spacer x={3} />
-                    <Texto1Card
-                        texto={"Aretas flores navideñas"} />
-                     <div style={{display:"flex", justifyContent:"center"}}>
-                    <BotonCantidad/>
-                    </div>
-                    </div>
-                    <div className="contenedor2">
-                    <Texto2Card
-                        texto2={"$precio"} />
-                    <div
-                    style={{display:"flex"}}>  
-                      <IconoCard
-                    icon={"bxs:trash"}
-                    width={"25"}
-                    height={"25"} />
-                    
-                    </div>  
-                      </div>
-                    </div>
-                  </CardPerfil>
+                  
                   <Spacer y={3} />
                   <Link to={`/editar/trabajador/${datos.idCardWorker}`}>
                     <CardPerfil  alignItems={"center"}
@@ -231,6 +136,7 @@ export default function Perfilinfo() {
                       </div>
                     </CardPerfil>
                   </Link>
+                  <Spacer y={3} />
                 </div>
               </div>
             ))

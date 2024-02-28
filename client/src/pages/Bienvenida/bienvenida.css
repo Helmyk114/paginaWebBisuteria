@@ -1,0 +1,16 @@
+.carta{
+    border-radius: 12px;
+background: #f7f7f7;
+box-shadow:  5px 5px 14px #adadad,
+             -7px -7px 14px #ffffff;
+padding: 14px;
+min-width: 130px;
+min-height: 150px;
+}
+.icono{
+    box-shadow:  5px 5px 14px #292929,
+    -7px -7px 14px #ffffff; 
+}
+.carta:hover{
+  
+}
