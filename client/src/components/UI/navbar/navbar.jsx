@@ -1,24 +1,55 @@
 import React from "react";
-import './navbar.css'
+import "./navbar.css";
 
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@nextui-org/react";
+import {
+  Link,
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarMenuToggle,
+} from "@nextui-org/react";
+
 import Avatares from "../avatar/Avatares";
 import Campana from "../iconos/Notificacion";
 import BotonRetroceder from "../iconos/Retroceder";
+import AgregarTrabajador from "../iconos/agregar/Trabajador";
+import AgregarProducto from "../iconos/agregar/Producto";
+import AgregarPedido from "../iconos/agregar/Pedido";
+import AgregarListaTrabajo from "../iconos/agregar/ListaTrabajo";
 
 export default function Navigate({ children, height }) {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   return (
-    <Navbar style={{ backgroundColor: "#6977E4" }} height={height || "90px"}>
+    <Navbar 
+      style={{ backgroundColor: "#6977E4" }}
+      height={height || "90px"}
+      onMenuOpenChange={setIsMenuOpen}
+    >
       {children}
+      <NavbarContent justify="end" style={{ color: "white" }}  >
+        <NavbarMenuToggle  
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden" 
+        />
+        <DesplegableADM />
+      </NavbarContent>
     </Navbar>
   );
-};
+}
 
-const Icono = ({ radio, imagen, height, width, className } ) => {
-
+const Icono = ({ radio, imagen, height, width, className }) => {
   return (
-    <NavbarBrand className="justify-center" style={{ marginTop: "5px" }}  >
-      <Avatares radio={radio} src={imagen} height={height} width={width} className={className} />
+    <NavbarBrand className="justify-center" style={{ marginTop: "5px" }}>
+      <Avatares
+        radio={radio}
+        src={imagen}
+        height={height}
+        width={width}
+        className={className}
+      />
     </NavbarBrand>
   );
 };
@@ -50,7 +81,7 @@ const Texto = ({ titulo, nombre, rol }) => {
           className="titulo"
           style={{
             marginTop: "35px",
-            marginBottom:  "5px",
+            marginBottom: "5px",
             fontFamily: "Bebas Neue, sans-serif",
             fontSize: "40px",
             color: "#fff",
@@ -90,13 +121,17 @@ const Texto = ({ titulo, nombre, rol }) => {
 
 const Notificacion = () => {
   return (
-    <NavbarContent style={{ marginTop: "0px" }} justify="end">
+    <NavbarContent style={{ marginTop: "0px", color:"#6977E4" }}>
       <NavbarItem>
-        <Campana />
+        <div>
+          <Campana />
+        </div>
       </NavbarItem>
     </NavbarContent>
   );
 };
+
+
 
 const Retroceder = () => {
   return (
@@ -108,10 +143,79 @@ const Retroceder = () => {
   );
 };
 
-export { 
-  Titulo, 
-  Notificacion, 
-  Retroceder, 
-  Icono, 
-  Texto 
+const AgregamosTrabajador = () => {
+  return (
+    <NavbarContent style={{ marginTop: "0px", color:"#6977E4" }} >
+      <NavbarItem>
+        <div>
+          <AgregarTrabajador />
+        </div>
+      </NavbarItem>
+    </NavbarContent>
+  );
 };
+
+
+const AgregamosProducto = () => {
+  return (
+    <NavbarContent style={{ marginTop: "0px", color:"#6977E4" }} >
+      <NavbarItem>
+        <div>
+          <AgregarProducto />
+        </div>
+      </NavbarItem>
+    </NavbarContent>
+  );
+};
+
+
+const AgregamosPedido = () => {
+  return (
+    <NavbarContent style={{ marginTop: "0px", color:"#6977E4" }} >
+      <NavbarItem>
+        <div>
+          <AgregarPedido />
+        </div>
+      </NavbarItem>
+    </NavbarContent>
+  );
+};
+
+const AgregamosListaTrabajo = () => {
+  return (
+    <NavbarContent style={{ marginTop: "0px", color:"#6977E4" }} >
+      <NavbarItem>
+        <div>
+          <AgregarListaTrabajo />
+        </div>
+      </NavbarItem>
+    </NavbarContent>
+  );
+};
+
+const DesplegableADM = ({}) => {
+  const menuItems = [
+    <Notificacion/>,
+    <AgregamosTrabajador/>,
+    <AgregamosProducto/>,
+    <AgregamosPedido/>,
+    <AgregamosListaTrabajo/>
+  ];
+
+  return (
+    <NavbarMenu>
+    {menuItems.map((item, index) => (
+      <NavbarMenuItem key={`${item}-${index}`} >
+        <Link  
+          className="w-full"
+          size="lg"
+        >
+          {item}
+        </Link>
+      </NavbarMenuItem>
+    ))}
+  </NavbarMenu>
+  );
+};
+
+export { Titulo, Notificacion, Retroceder, Icono, Texto, AgregamosTrabajador, AgregamosProducto, AgregamosPedido, AgregamosListaTrabajo, DesplegableADM};
