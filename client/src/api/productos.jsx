@@ -19,6 +19,19 @@ async function añadirInformacionAPI(producto, endPoint) {
   }
 };
 
+async function añadirInformacionSinImagenAPI(producto, endPoint) {
+
+  const url = `${raizUrl}/${endPoint}`
+
+  try {
+    const response = await axios.post(url, producto);
+    return response.data
+  } catch (error) {
+    console.log("Error en la API crearSinImgen: ", error);
+    throw error
+  }
+};
+
 async function listarInformacionApi(endPoint) {
 
   const url = `${raizUrl}/${endPoint}`
@@ -76,6 +89,7 @@ async function actualizarInformacionApi(endPoint, id, informacion){
 
 export {
   añadirInformacionAPI,
+  añadirInformacionSinImagenAPI,
   listarInformacionApi,
   eliminarInformacionApi,
   detalleInformacionApi,
