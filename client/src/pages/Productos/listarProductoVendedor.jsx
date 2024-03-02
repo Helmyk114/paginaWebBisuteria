@@ -32,15 +32,19 @@ export default function ListProduct() {
   }, []);
 
   const handleSelectProduct = (selectedProduct) => {
-    const updatedSelection = selectedProducts.filter((p) => p.producto !== selectedProduct.producto);
-    setSelectedProducts([...updatedSelection, selectedProduct]);
+    const isProductSelected = selectedProducts.some((p) => p.producto === selectedProduct.producto);
+
+    if (isProductSelected) {
+      const updatedSelection = selectedProducts.filter((p) => p.producto !== selectedProduct.producto);
+      setSelectedProducts(updatedSelection);
+    } else {
+      setSelectedProducts([...selectedProducts, selectedProduct]);
+    }
   };
 
   const handleCrearPedidosClick = () => {
-    // Puedes navegar a la nueva vista y pasar la información de los productos seleccionados
     navigate('/crear/pedidos', { state: { selectedProducts } });
   };
-
   return (
     <div>
       <Navigate>

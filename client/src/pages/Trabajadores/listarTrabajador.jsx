@@ -127,7 +127,10 @@ function ListarTrabajador() {
         </div>
       )}
       <Spacer y={5} />
-      <Footer />
+      <div style={{position: "flex", bottom: "0", width: "100%", marginTop: "290px"}}>
+        
+        <Footer/>
+        </div>
     </>
   );
 }
