@@ -91,24 +91,46 @@ function ListarProducto() {
 					{informacion && informacion.length > 0 ? (
 						informacion.map((datos) => (
 							<div key={datos.idProduct}>
+								
 								<CardPerfil
 									justifyContent={"space-between"}
 									alignItems={"center"}
 									key={datos.idProduct}>
+								   <div style={{display:"flex", gap:"16px"}}>
 									<Avatares
 										src={`${urlImage}/${datos.image}`}
 										radio={"full"} />
-									<div style={{ display: "flex", justifyContent:"start"}}>
+									<div style={{ display: "flex", justifyContent:"left", textAlign:"left"}}>
 										<Texto1Card
+										textAlign={"start"}
 											texto={datos.nameProduct} />
 									</div>
-									<div>
+									</div>
+									<div className="flex flex-col items-center">
+									<div style={{textAlign:"left", justifyContent:"left"}}>
+										<div className="relative flex" style={{gap:"5px"}} >
 										<Texto2Card
-											texto2={`PC ${datos.price} $`}
+											texto2={"PC: "}
 										/>
 										<Texto2Card
-											texto2={`PO ${datos.laborPrice} $`} />
+											texto2={`${datos.price}`}/>
+										</div>
+										
+                                       <div style={{display:"flex", textAlign:"left", gap:"5px"}}>
+										<div>
+										<Texto2Card
+											texto2={"PO: "} />
+										</div>
+										<div>
+										<Texto2Card
+											texto2={`${datos.laborPrice}`} />
+										</div>
+									    
+									   </div>
+										
 									</div>
+									</div>
+									
 
 									<div className="relative flex items-center gap-1" style={{ justifyContent: "center" }}>
 										<Tooltip content="Editar producto">
@@ -118,7 +140,7 @@ function ListarProducto() {
 										</Tooltip>
 										<Tooltip content="Eliminar producto">
 											<span className="text-lg text-danger cursor-pointer active:opacity-50">
-												<DeleteIcon eliminar={() => eliminarProducto(datos.idProduct)} />
+												<DeleteIcon className="iconoEliminar" eliminar={() => eliminarProducto(datos.idProduct)} />
 											</span>
 										</Tooltip>
 									</div>

@@ -22,10 +22,10 @@ export function IconoCard ({icon, width, height, color}){
      </div>
  )
 }
-export function Texto1Card ({texto, fontSize,  fontWeight}){
+export function Texto1Card ({texto, fontSize,  fontWeight, textAlign}){
   return(
     
-    <h4 className="text-base  leading-none text-default-600" style={{fontSize:fontSize, fontWeight:fontWeight || "600"}}>{texto} </h4>
+    <h4 className="text-base  leading-none text-default-600" style={{fontSize:fontSize, fontWeight:fontWeight || "600", textAlign:textAlign}}>{texto} </h4>
   )
 }
 

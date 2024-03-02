@@ -26,22 +26,8 @@
     .cardPerfil{
         flex-direction: column;
     }
-    .contenedor2{
-        flex-direction: row;
-        display: flex;
-        justify-content: flex-end;
-        width: 100%;
-        align-items: end;
-        gap: 10px;
-        
-    }
-    .contenedor1{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap:"13px";
-        justify-content: space-between;
-    }
+   
+    
     
 }
 @media screen and (min-width: 768px) and (max-width:1023) {
@@ -69,22 +55,7 @@
         flex-direction: row;
         width: 100%;
     }
-    .contenedor2{
-        
-        display: flex;
-        justify-content: end;
-        width: 30%;
-        align-items: center;
-        gap:13px;
-        align-items: center;
-    }
-    .contenedor1{
-        width: 70%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap:"13px";
-        justify-content: space-between;
-    }
+   
+    
     
 }
