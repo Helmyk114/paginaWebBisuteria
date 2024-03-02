@@ -1,17 +1,17 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLocation } from 'react-router-dom';
 import './crearPedido.css';
 
 import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import Acordeon from "../../components/UI/Acordeon/Acordeon";
-import { Card, CardBody, Spacer, Tooltip } from "@nextui-org/react";
+import { Spacer, Tooltip } from "@nextui-org/react";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import BotonEnviar from "../../components/UI/botones/botonEnviar"
 import Footer from "../../components/UI/Footer/Footer";
 import { añadirInformacionAPI } from "../../api/productos";
 import Swal from "sweetalert2";
-import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
+import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 import Avatares from "../../components/UI/avatar/Avatares";
 import BotonCantidad from "../../components/UI/botones/botonCantidad";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
@@ -20,20 +20,25 @@ function CrearPedido() {
 
 	const { register, handleSubmit, formState: { errors } } = useForm();
 	const mensaje = 'Este campo es requerido'
-
+	
 	const refs = useRef({
 		idCardClient: null,
 		nameclient: null,
 		clientAddress: null,
 		clientPhone: null,
 	});
-
+	
 	const location = useLocation();
 	const { state } = location;
-
+	const [totalPrice, setTotalPrice] = useState(state.selectedProducts.length > 0 ? state.selectedProducts[0].precio : 0);
+	
+	const handlePriceUpdate = (newPrice) => {
+		setTotalPrice(newPrice);
+  };
+	
 	const onSubmit = async (data) => {
 		const cliente = {
-			...data,
+			...data,	
 		};
 		console.log(cliente)
 		try {
@@ -125,49 +130,52 @@ function CrearPedido() {
 
 				<Spacer y={4} />
 				<Acordeon titulo={'Lista de productos'}>
-				
-					 <Spacer y={3} />
-				 {state.selectedProducts.map((product, index) => (
-				<>
-                  <CardPerfil
-                  justifyContent={"space-between"}
-                   gap={"2px"}
-				   key={index}
-				   width={"90%"}
-                  >
-				
-                    <div className="cardPerfil"  >
-                    <div className="contenedor1">
-                    <Avatares
-                    src={product.img} alt={product.producto}
-                    radio={"full"}/>
-                     <Spacer x={3} />
-                    <Texto1Card
-                        texto={product.producto} />
-                     <div style={{display:"flex", justifyContent:"center"}}>
-                    <BotonCantidad/>
-                    </div>
-                    </div>
-                    <div className="contenedor2">
-                    <Texto2Card
-                        texto2={product.precio} />
-                    <div
-                    style={{display:"flex"}}>  
-                       <Tooltip content="Eliminar producto">
-                      <span className="text-lg text-danger cursor-pointer active:opacity-50">
-                        <DeleteIcon />
-                      </span>
-                    </Tooltip>
-                    
-                    </div>  
-                      </div>
-                    </div>
-					
-                  </CardPerfil>
-				    <Spacer y={3}/>
-					</>
-				  ))}
-				
+
+					<Spacer y={3} />
+					{state.selectedProducts.map((product, index) => (
+						<div key={index}>
+							<CardPerfil
+								justifyContent={"space-between"}
+								gap={"2px"}
+								key={index}
+								width={"90%"}
+							>
+
+								<div className="cardPerfil"  >
+									<div className="contenedor1">
+										<Avatares
+											src={product.img} alt={product.producto}
+											radio={"full"} />
+										<Spacer x={3} />
+										<Texto1Card
+											texto={product.producto} />
+										<div style={{ display: "flex", justifyContent: "center" }}>
+											<BotonCantidad
+											  initialPrice={product.precio}
+												updatePrice={handlePriceUpdate}
+											/>
+										</div>
+									</div>
+									<div className="contenedor2">
+										<Texto2Card
+											texto2={totalPrice} />
+										<div
+											style={{ display: "flex" }}>
+											<Tooltip content="Eliminar producto">
+												<span className="text-lg text-danger cursor-pointer active:opacity-50">
+													<DeleteIcon />
+												</span>
+											</Tooltip>
+
+										</div>
+									</div>
+								</div>
+
+							</CardPerfil>
+							<Spacer y={3} />
+						</div>
+					))}
+
 				</Acordeon>
 				<Spacer y={5} />
 
