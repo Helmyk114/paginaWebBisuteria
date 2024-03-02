@@ -1,61 +1,69 @@
-.cardprincipal{
+.cardprincipal {
     margin: 0 auto;
-    
+
 
 }
-.iconoCard{
-    color:#6977e4;
+
+.iconoCard {
+    color: #6977e4;
 
 }
 
 @media screen and (max-width: 767px) {
-    .cardprincipal{
+    .cardprincipal {
         width: 90%;
         font-size: 12px;
     }
-    .cardGap{
+
+    .cardGap {
         gap: 13px;
         width: 100%;
-       
+
     }
-    .iconoCard{
+
+    .iconoCard {
         width: 32px;
         height: 32px;
-        
+
     }
-    .cardPerfil{
+
+    .cardPerfil {
         flex-direction: column;
     }
-   
-    
-    
+
+
+
 }
+
 @media screen and (min-width: 768px) and (max-width:1023) {
-    .cardprincipal{
-        width: 90%;   
+    .cardprincipal {
+        width: 90%;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .cardprincipal{
-        width: 60%;   
+    .cardprincipal {
+        width: 60%;
     }
-    .cardGap{
-    
+
+    .cardGap {
+
         gap: 180px;
-        width: 100%;   
-        
+        width: 100%;
+
     }
-    .iconoCard{
+
+    .iconoCard {
         width: 45px;
-        height: 45px;   
+        height: 45px;
     }
-    .cardPerfil{
+
+    .cardPerfil {
         display: flex;
         flex-direction: row;
         width: 100%;
     }
-   
-    
-    
+
+
+
 }

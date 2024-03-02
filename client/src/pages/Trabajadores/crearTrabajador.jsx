@@ -86,7 +86,6 @@ function CrearTrabajador() {
               style={{ height: "300px" }}
             />
           </div>
-
           <Spacer y={4} />
           <Card className="card">
             <Spacer y={4} />
@@ -308,6 +307,7 @@ function CrearTrabajador() {
       </div>
       <Spacer y={4} />
       <div style={{ position: "absolute", bottom: "-45%", width: "100%" }}>
+      <Spacer y={4} />
         <Footer />
       </div>
     </div>

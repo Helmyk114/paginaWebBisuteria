@@ -130,7 +130,7 @@ function CrearPedido() {
 				</Acordeon>
 
 				<Spacer y={4} />
-				{/* <Acordeon titulo={'Lista de productos'}>
+				<Acordeon titulo={'Lista de productos'}>
 				
 					 <Spacer y={3} />
 				 {state.selectedProducts.map((product, index) => (
@@ -174,7 +174,7 @@ function CrearPedido() {
 					</>
 				  ))}
 				
-				</Acordeon> */}
+				</Acordeon>
 				<Spacer y={5} />
 		<BotonEnviar 
 		text={"Comprar"}
