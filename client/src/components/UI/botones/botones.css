@@ -1,7 +1,6 @@
 /* boton de cantidad  */
 .btnCan{
     width: fit-content;
-    
 }
 
 .btnmm, .numero, .btnm{
@@ -10,14 +9,13 @@
     font-size: 14px;
     max-height: 25px;
 }
+
 @media screen and (max-width: 767px) {
     .btnmm, .numero, .btnm{
-    
         max-width: 7px;
         padding: 0, 3px;
         font-size: 10px;
         max-height: 15px;
         width: auto;
     }
-    
 }

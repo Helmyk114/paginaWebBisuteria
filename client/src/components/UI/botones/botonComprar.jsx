@@ -1,13 +1,14 @@
 import React from "react";
 import { Button } from "@nextui-org/react";
 
-export default function BotonEnviar({ fontSize, text, ...props }) {
+export default function BotonEnviar({ fontSize, text, type, ...props }) {
   const isSmallScreen = window.innerWidth <= 768;
 
   return (
     <div className="flex flex-col gap-2 items-center">
       <Button
         radius="full"
+        type={type}
         {...props}
         style={{
           width: isSmallScreen ? "130px" : "350px",
