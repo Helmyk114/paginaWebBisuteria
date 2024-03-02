@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 
 import { Card, Spacer } from "@nextui-org/react";
 import Navigate, {
+  Desplegable,
   Notificacion,
   Retroceder,
   Titulo,
@@ -18,6 +19,7 @@ import BotonEnviar from "../../components/UI/botones/botonEnviar";
 import Footer from "../../components/UI/Footer/Footer";
 
 import { añadirInformacionAPI } from "../../api/productos";
+import AgregarTrabajador from "../../components/UI/iconos/agregar/Trabajador";
 
 function CrearTrabajador() {
   const {
@@ -67,12 +69,14 @@ function CrearTrabajador() {
   };
 
   return (
+
+    
     <div>
       <Navigate>
         <Retroceder />
         <Titulo espacio="center" titulo="Registrar trabajador" />
-        <Notificacion />
       </Navigate>
+      
       <Spacer y={4} />
       <div className="container-crear">
         <form className="formularioCrear" onSubmit={handleSubmit(onSubmit)}>
@@ -303,7 +307,7 @@ function CrearTrabajador() {
         </form>
       </div>
       <Spacer y={4} />
-      <div style={{position: "absolute", bottom: "-45%", width: "100%"}}>
+      <div style={{ position: "absolute", bottom: "-45%", width: "100%" }}>
         <Footer />
       </div>
     </div>

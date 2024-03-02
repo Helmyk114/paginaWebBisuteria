@@ -83,7 +83,6 @@ function ActualizarProducto() {
 			<Navigate>
 				<Retroceder />
 				<Titulo espacio="center" titulo="Editar producto" />
-				<Notificacion />
 			</Navigate>
 			<Spacer y={4} />
 			<form style={{ display: 'block', justifyContent: 'center', padding: '10px' }} onSubmit={handleSubmit(onSubmit)}>

@@ -9,7 +9,6 @@ function ActualizarPedido() {
 			<Navigate>
 				<Retroceder />
 				<Titulo espacio="center" titulo="Editar pedido" />
-				<Notificacion />
 			</Navigate>
 
 			<Footer />

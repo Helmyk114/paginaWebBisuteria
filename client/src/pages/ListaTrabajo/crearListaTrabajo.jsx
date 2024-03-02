@@ -58,7 +58,6 @@ function CrearListaTrabajo() {
 			<Navigate>
 				<Retroceder />
 				<Titulo espacio="center" titulo="Crear lista" />
-				<Notificacion />
 			</Navigate>
 			<Spacer y={4} />
 			<form  onSubmit={handleSubmit(onSubmit)}>
