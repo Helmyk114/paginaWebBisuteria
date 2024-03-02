@@ -24,18 +24,18 @@ export function IconoCard({ icon, width, height, color }) {
   );
 };
 
-export function Texto1Card({ texto, fontSize, fontWeight, color, textAlign }) {
+export function Texto1Card({ className, texto, fontSize, fontWeight, color, textAlign }) {
   return (
 
-    <h4 style={{ fontFamily: "Roboto, sans-serif", fontSize: fontSize || "16px", fontWeight: fontWeight || "600", color: color || "#000", textAlign: textAlign }}>
+    <h4 className={className} style={{ fontFamily: "Roboto, sans-serif", fontSize: fontSize || "16px", fontWeight: fontWeight || "600", color: color || "#000", textAlign: textAlign }}>
       {texto} 
     </h4>
   );
 };
 
-export function Texto2Card({ texto2, fontSize, fontWeight, color }) {
+export function Texto2Card({ className, texto2, fontSize, fontWeight, color }) {
   return (
-    <h5 style={{ fontFamily: "Roboto, sans-serif", fontSize: fontSize || "14px", fontWeight: fontWeight || "100", color: color || "#000"}}>
+    <h5 className={className} style={{ fontFamily: "Roboto, sans-serif", fontSize: fontSize || "14px", fontWeight: fontWeight || "100", color: color || "#000"}}>
       {texto2}
     </h5>
   );

@@ -56,15 +56,15 @@ export default function Perfilinfo() {
                     src={`${urlImage}/${datos.photo}`}
                   />
                   <div>
-                    <Texto1Card 
+                    <Texto1Card
                       texto={`${datos.workerName} ${datos.workerLastName}`}
                       color={"#fff"}
                       fontSize={"30px"}
                     />
                     <Texto2Card
-                        texto2={`${datos.roles}`} 
-                        color={"#fff"}
-                      />
+                      texto2={`${datos.roles}`}
+                      color={"#fff"}
+                    />
                   </div>
                 </div>
                 <Spacer y={4} />
@@ -79,7 +79,6 @@ export default function Perfilinfo() {
                       <Texto2Card
                         texto2={`${datos.workerName}`} />
                     </div>
-
                   </CardPerfil>
                   <Spacer y={3} />
                   <CardPerfil
@@ -89,7 +88,7 @@ export default function Perfilinfo() {
                       <Texto1Card
                         texto={"Cedula"} />
                       <Texto2Card
-                        texto2={datos.idCardWorker} 
+                        texto2={datos.idCardWorker}
                       />
                     </div>
                   </CardPerfil>
@@ -122,102 +121,6 @@ export default function Perfilinfo() {
                         texto={"Numero de cuenta"} />
                       <Texto2Card
                         texto2={`${datos.numberBank} ${datos.banks}`} />
-                    </div>
-                  </CardPerfil>
-                  <Spacer y={3} />
-
-                  <CardPerfil
-                    justifyContent={"space-between"}
-                    gap={"2px"}
-                  >
-                    <div className="cardPerfil">
-                      <div className="contenedor1">
-                        <Avatares
-                          src={`${urlImage}/${datos.photo}`}
-                          radio={"full"} />
-                        <Spacer x={3} />
-                        <Texto1Card
-                          texto={"Aretas flores navideñas"} />
-                        <div style={{ display: "flex", justifyContent: "center" }}>
-                          <BotonCantidad />
-                        </div>
-                      </div>
-                      <div className="contenedor2">
-                        <Texto2Card
-                          texto2={"$precio"} />
-                        <div
-                          style={{ display: "flex" }}>
-                          <IconoCard
-                            icon={"bxs:trash"}
-                            width={"25"}
-                            height={"25"} />
-
-                        </div>
-                      </div>
-                    </div>
-                  </CardPerfil>
-                  <Spacer y={3} />
-
-                  <CardPerfil
-                    justifyContent={"space-between"}
-                    gap={"2px"}
-                  >
-                    <div className="cardPerfil">
-                      <div className="contenedor1">
-                        <Avatares
-                          src={`${urlImage}/${datos.photo}`}
-                          radio={"full"} />
-                        <Spacer x={3} />
-                        <Texto1Card
-                          texto={"Aretas flores navideñas"} />
-                        <div style={{ display: "flex", justifyContent: "center" }}>
-                          <BotonCantidad />
-                        </div>
-                      </div>
-                      <div className="contenedor2">
-                        <Texto2Card
-                          texto2={"$precio"} />
-                        <div
-                          style={{ display: "flex" }}>
-                          <IconoCard
-                            icon={"bxs:trash"}
-                            width={"25"}
-                            height={"25"} />
-
-                        </div>
-                      </div>
-                    </div>
-                  </CardPerfil>
-                  <Spacer y={3} />
-
-                  <CardPerfil
-                    justifyContent={"space-between"}
-                    gap={"2px"}
-                  >
-                    <div className="cardPerfil">
-                      <div className="contenedor1">
-                        <Avatares
-                          src={`${urlImage}/${datos.photo}`}
-                          radio={"full"} />
-                        <Spacer x={3} />
-                        <Texto1Card
-                          texto={"Aretas flores navideñas"} />
-                        <div style={{ display: "flex", justifyContent: "center" }}>
-                          <BotonCantidad />
-                        </div>
-                      </div>
-                      <div className="contenedor2">
-                        <Texto2Card
-                          texto2={"$precio"} />
-                        <div
-                          style={{ display: "flex" }}>
-                          <IconoCard
-                            icon={"bxs:trash"}
-                            width={"25"}
-                            height={"25"} />
-
-                        </div>
-                      </div>
                     </div>
                   </CardPerfil>
                   <Spacer y={3} />

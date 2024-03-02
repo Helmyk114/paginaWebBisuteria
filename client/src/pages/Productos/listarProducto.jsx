@@ -4,7 +4,7 @@ import { eliminarInformacionApi, listarInformacionApi } from "../../api/producto
 import Swal from "sweetalert2";
 
 import { Spacer, Tooltip } from "@nextui-org/react";
-import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
+import Navigate, { Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo"
 import Avatares from "../../components/UI/avatar/Avatares";
 import Loader from "../../components/UI/cargando/loader";
@@ -56,8 +56,7 @@ function ListarProducto() {
 			console.error('error al eliminar: ', error)
 		}
 	};
-
-
+	
 	return (
 		<div>
 			< Flotante
@@ -83,7 +82,6 @@ function ListarProducto() {
 				<Titulo espacio="center" titulo="Productos" />
 			</Navigate>
 			<Spacer y={5} />
-
 			{cargando ? (
 				<Loader />
 			) : (
@@ -91,47 +89,42 @@ function ListarProducto() {
 					{informacion && informacion.length > 0 ? (
 						informacion.map((datos) => (
 							<div key={datos.idProduct}>
-								
+
 								<CardPerfil
 									justifyContent={"space-between"}
 									alignItems={"center"}
 									key={datos.idProduct}>
-								   <div style={{display:"flex", gap:"16px"}}>
-									<Avatares
-										src={`${urlImage}/${datos.image}`}
-										radio={"full"} />
-									<div style={{ display: "flex", justifyContent:"left", textAlign:"left"}}>
-										<Texto1Card
-										textAlign={"start"}
-											texto={datos.nameProduct} />
-									</div>
+									<div style={{ display: "flex", gap: "16px" }}>
+										<Avatares
+											src={`${urlImage}/${datos.image}`}
+											radio={"full"} />
+										<div style={{ display: "flex", justifyContent: "left", textAlign: "left" }}>
+											<Texto1Card
+												textAlign={"start"}
+												texto={datos.nameProduct} />
+										</div>
 									</div>
 									<div className="flex flex-col items-center">
-									<div style={{textAlign:"left", justifyContent:"left"}}>
-										<div className="relative flex" style={{gap:"5px"}} >
-										<Texto2Card
-											texto2={"PC: "}
-										/>
-										<Texto2Card
-											texto2={`${datos.price}`}/>
+										<div style={{ textAlign: "left", justifyContent: "left" }}>
+											<div className="relative flex" style={{ gap: "5px" }} >
+												<Texto2Card
+													texto2={"PC: "}
+												/>
+												<Texto2Card
+													texto2={`${datos.price}`} />
+											</div>
+											<div style={{ display: "flex", textAlign: "left", gap: "5px" }}>
+												<div>
+													<Texto2Card
+														texto2={"PO: "} />
+												</div>
+												<div>
+													<Texto2Card
+														texto2={`${datos.laborPrice}`} />
+												</div>
+											</div>
 										</div>
-										
-                                       <div style={{display:"flex", textAlign:"left", gap:"5px"}}>
-										<div>
-										<Texto2Card
-											texto2={"PO: "} />
-										</div>
-										<div>
-										<Texto2Card
-											texto2={`${datos.laborPrice}`} />
-										</div>
-									    
-									   </div>
-										
 									</div>
-									</div>
-									
-
 									<div className="relative flex items-center gap-1" style={{ justifyContent: "center" }}>
 										<Tooltip content="Editar producto">
 											<span className="text-lg text-default-400 cursor-pointer active:opacity-50">
@@ -153,8 +146,6 @@ function ListarProducto() {
 					)}
 				</div>
 			)}
-
-
 			<Footer />
 		</div>
 	);

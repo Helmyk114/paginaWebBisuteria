@@ -29,6 +29,7 @@ function CrearProducto() {
 			...data,
 			image: selectedImage,
 		};
+		console.log(producto)
 
 		try {
 			await añadirInformacionAPI(producto, 'producto')
