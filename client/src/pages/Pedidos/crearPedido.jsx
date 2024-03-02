@@ -1,17 +1,17 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLocation } from 'react-router-dom';
 import './crearPedido.css';
 
 import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import Acordeon from "../../components/UI/Acordeon/Acordeon";
-import { Card, CardBody, Spacer, Tooltip } from "@nextui-org/react";
+import { Spacer, Tooltip } from "@nextui-org/react";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import BotonEnviar from "../../components/UI/botones/botonEnviar"
 import Footer from "../../components/UI/Footer/Footer";
-import { añadirInformacionAPI } from "../../api/productos";
+import { añadirInformacionSinImagenAPI } from "../../api/productos";
 import Swal from "sweetalert2";
-import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
+import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 import Avatares from "../../components/UI/avatar/Avatares";
 import BotonCantidad from "../../components/UI/botones/botonCantidad";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
@@ -21,24 +21,30 @@ function CrearPedido() {
 
 	const { register, handleSubmit, formState: { errors } } = useForm();
 	const mensaje = 'Este campo es requerido'
-
+	
 	const refs = useRef({
 		idCardClient: null,
-		nameclient: null,
+		clientname: null,
 		clientAddress: null,
 		clientPhone: null,
 	});
-
+	
 	const location = useLocation();
 	const { state } = location;
-
+	const [totalPrice, setTotalPrice] = useState(state.selectedProducts.length > 0 ? state.selectedProducts[0].precio : 0);
+	
+	const handlePriceUpdate = (newPrice) => {
+		setTotalPrice(newPrice);
+  };
+	
 	const onSubmit = async (data) => {
+		console.log(data)
 		const cliente = {
-			...data,
+			...data,	
 		};
 		console.log(cliente)
 		try {
-			await añadirInformacionAPI(cliente, 'cliente');
+			await añadirInformacionSinImagenAPI(cliente, 'cliente');
 			Swal.fire({
 				icon: "success",
 				title: "Se ha creado un trabajador!",
@@ -81,8 +87,8 @@ function CrearPedido() {
 							{errors.idCardClient && <span>{errors.idCardClient.message}</span>}
 						</div>
 						<div className="flex flex-col">
-							<InputText ref={(el) => { refs.current.nameclient = el; }}
-								{...register("nameclient", { required: { value: true, message: mensaje } })}
+							<InputText ref={(el) => { refs.current.clientname = el; }}
+								{...register("clientname", { required: { value: true, message: mensaje } })}
 								key="nameclient"
 								type="text"
 								label={<span className="custom-label">Nombre</span>}
@@ -124,7 +130,7 @@ function CrearPedido() {
 				</Acordeon>
 
 				<Spacer y={4} />
-				<Acordeon titulo={'Lista de productos'}>
+				{/* <Acordeon titulo={'Lista de productos'}>
 				
 					 <Spacer y={3} />
 				 {state.selectedProducts.map((product, index) => (
@@ -168,14 +174,12 @@ function CrearPedido() {
 					</>
 				  ))}
 				
-				</Acordeon>
+				</Acordeon> */}
 				<Spacer y={5} />
-			<div>
-			<Comprar
-				total="300.000"
-				/>
-			</div>
-				
+		<BotonEnviar 
+		text={"Comprar"}
+		type={"Submit"}
+		/>
 			</form>
 			<Spacer y={4} />
 			<div style={{position: "flex", bottom: "0%", width: "100%", marginTop: "190px"}}><Footer /></div>

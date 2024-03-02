@@ -1,9 +1,11 @@
 import React from "react";
+import '../iconos/iconos.css'
 
 const DeleteIcon = ({ eliminar, props }) => {
   return (
-    <div className='icon' onClick={eliminar}>
+    <div  onClick={eliminar}>
       <svg
+      className="iconEliminar"
         aria-hidden="true"
         fill="none"
         focusable="false"
