@@ -3,12 +3,12 @@ import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 import { Icon } from "@iconify/react"
 import './card.css';
 
-export default function CardProduct({ producto, precio, img, onSelect }) {
+export default function CardProduct({ idProduct, producto, precio, img, onSelect }) {
   const [isSelected, setIsSelected] = useState(false);
 
   const handleCardClick = () => {
     setIsSelected(!isSelected);
-    onSelect({ producto, precio, img, isSelected: !isSelected });
+    onSelect({ idProduct, producto, precio, img, isSelected: !isSelected });
   };
 
   return (

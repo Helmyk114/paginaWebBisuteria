@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { listarInformacionApi } from "../../api/productos";
+import { useNavigate } from "react-router-dom";
+import './listarProductoVendedor.css'; 
+
 import { Spacer, Button } from "@nextui-org/react";
-import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
+import Navigate, { Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import CardProduct from "../../components/UI/cardProduct/card";
 import Categorias from "../../components/UI/cardProduct/categorias";
 import Loader from "../../components/UI/cargando/loader";
 import Footer from "../../components/UI/Footer/Footer";
-import img from "../../img/pulsera.jpg";
-import './listarProductoVendedor.css'; 
-import { useNavigate } from "react-router-dom";
+
+import { listarInformacionApi } from "../../api/productos";
 
 export default function ListProduct() {
   const [informacion, setInformacion] = useState([]);
-  const [cargando, setCargando] = useState(true);
   const [selectedProducts, setSelectedProducts] = useState([]);
+  const [cargando, setCargando] = useState(true);
   const urlImage = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
 
@@ -49,7 +50,7 @@ export default function ListProduct() {
     <div>
       <Navigate>
         <Retroceder />
-        <Titulo espacio="center" titulo="Bienvenido" />
+        <Titulo espacio="center" titulo="Productos" />
       </Navigate>
       <Spacer y={5} />
       <Categorias />
@@ -63,6 +64,7 @@ export default function ListProduct() {
               <CardProduct 
                 className="item"
                 key={datos.idProduct}
+                idProduct={datos.idProduct}
                 img={`${urlImage}/${datos.image}`}
                 producto={datos.nameProduct}
                 precio={datos.price}
