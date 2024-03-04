@@ -4,8 +4,9 @@ import Flotante from '../../components/Botones/BotonFlotante/Flotante';
 
 import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import Footer from "../../components/UI/Footer/Footer";
-import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
+import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 import { Spacer } from "@nextui-org/react";
+import '../ListaTrabajo/ListaTrabajo.css'
 
 function ListarListaTrabajoAdministrador() {
 	return (
@@ -34,14 +35,14 @@ function ListarListaTrabajoAdministrador() {
 				 <div style={{marginBottom:"30px"}}>
 
 			</div>
-			  <CardPerfil
-			   width={"220px"}
-			   height={"150px"}
-			   style={{position:"absolute"}}>
-				<div style={{display:"flex", flexDirection: "column", justifyContent: "space-between" }}>
+			<div className="cont1ListaT">
+			<CardPerfil
+			className="card1ListaT"
+			   width={"250px"}
+			   height={"150px"}>
+			   <div className="cont2ListaT">
 
-				
-				<div style={{marginBottom:"55px"}}>
+				<div className="contTexto1">
 				<Texto1Card
 				texto={"Nombre de la lista"}
 				/>
@@ -49,15 +50,29 @@ function ListarListaTrabajoAdministrador() {
 				</div>
 				
 				<div
-				style={{width:"200px", height:"50px", position:"relative", backgroundColor:"#EEEE", borderRadius:"8px"}}>
-					
+				className="card2ListaT">
+				<div className="contTexto2">
 				<Texto2Card
+				
 				texto2={"Nombre trabajador"}
 				/>
-
+				</div>	
+				<div className="contIcono">
+				<IconoCard
+				icon={"bi:check-circle-fill"}
+				width={"25px"}
+				height={"25px"}/>
 				</div>
+				
+				
+				</div>
+
+
                 </div>
 			 </CardPerfil>
+		
+			</div>
+			  
 				
 
 				<Footer />
