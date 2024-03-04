@@ -26,8 +26,18 @@ position: absolute;
 
 }
 
-.contTexto2, .contIcono{
+.contTexto2{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: start;
     margin: 10px;
+    font-size: 10px;
+    
+
+}
+.contIcono{
+    display: flex;
+    justify-content: space-between;
+    margin: 8px;
+    align-items: center;
 }
