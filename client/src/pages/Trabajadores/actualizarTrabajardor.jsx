@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 
 import { Card, Spacer } from "@nextui-org/react";
-import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import SubirImagen from "../../components/UI/formulario/Imagen/imagen";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import InputPassword from "../../components/UI/formulario/Inputs/password/inputPassword";
@@ -14,6 +13,7 @@ import Footer from "../../components/UI/Footer/Footer";
 import { actualizarInformacionApi, detalleInformacionApi } from "../../api/productos";
 import procesarImagen from "../../utils/procesadorImagenes";
 import Swal from "sweetalert2";
+import NavigateADM, { Retroceder, Titulo }  from "../../components/UI/navbar/navbarAdmin";
 
 function ActualizarTrabajador() {
 
@@ -83,10 +83,11 @@ function ActualizarTrabajador() {
 
 	return (
 		<div>
-			<Navigate>
+			<NavigateADM>
 				<Retroceder />
 				<Titulo espacio="center" titulo="Actualizar información" />
-			</Navigate>
+			</NavigateADM>
+
 			<Spacer y={4} />
 			<form style={{ margin: '0 auto', width: '100%' }} onSubmit={handleSubmit(onSubmit)}>
 				<SubirImagen onImageChange={setSelectedImage} defaultImageSrc={informacionTrabajador || ""} />

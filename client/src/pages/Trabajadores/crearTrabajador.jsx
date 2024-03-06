@@ -5,12 +5,7 @@ import "../Trabajadores/trabajadores.css";
 import Swal from "sweetalert2";
 
 import { Card, Spacer } from "@nextui-org/react";
-import Navigate, {
-  Desplegable,
-  Notificacion,
-  Retroceder,
-  Titulo,
-} from "../../components/UI/navbar/navbar";
+
 import SubirImagen from "../../components/UI/formulario/Imagen/imagen";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import InputPassword from "../../components/UI/formulario/Inputs/password/inputPassword";
@@ -19,7 +14,8 @@ import BotonEnviar from "../../components/UI/botones/botonEnviar";
 import Footer from "../../components/UI/Footer/Footer";
 
 import { añadirInformacionAPI } from "../../api/productos";
-import AgregarTrabajador from "../../components/UI/iconos/agregar/Trabajador";
+import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
+
 
 function CrearTrabajador() {
   const {
@@ -72,10 +68,10 @@ function CrearTrabajador() {
 
     
     <div>
-      <Navigate>
+      <NavigateADM>
         <Retroceder />
         <Titulo espacio="center" titulo="Registrar trabajador" />
-      </Navigate>
+      </NavigateADM>
       
       <Spacer y={4} />
       <div className="container-crear">

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import Navigate, { Icono, Notificacion, Texto } from "../../components/UI/navbar/navbar";
+
 import PerfilIcono from "../../components/UI/iconos/Perfil";
 import ListaTrabajoIcono from "../../components/UI/iconos/ListaTrabajo";
 import CerrarSesionIcono from "../../components/UI/iconos/CerrarSesion";
@@ -8,6 +8,8 @@ import Footer from "../../components/UI/Footer/Footer";
 
 import { decodificarToken, obtenerToken } from "../../utils/token";
 import { detalleInformacionApi } from "../../api/productos";
+import NavigateTRJ, {Icono, Texto} from "../../components/UI/navbar/navbarTrabajador";
+
 
 function BienvenidaTrabajador() {
   const [informacion, setInformacion] = useState([]);
@@ -38,7 +40,7 @@ function BienvenidaTrabajador() {
         <div>
           {informacion && informacion.length > 0 ? (
             informacion.map((datos) => (
-              <Navigate key={id}>
+              <NavigateTRJ key={id}>
                 <Icono
                   className="justify-end"
                   radio={""}
@@ -52,9 +54,7 @@ function BienvenidaTrabajador() {
                   nombre={`${datos.workerName} ${datos.workerLastName}`}
                   rol={"Artesano"}
                 />
-
-                <Notificacion />
-              </Navigate>
+              </NavigateTRJ>
             ))
           ) : (
             <p>No hay informacion disponible</p>

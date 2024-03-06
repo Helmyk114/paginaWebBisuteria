@@ -4,13 +4,13 @@ import { eliminarInformacionApi, listarInformacionApi } from "../../api/producto
 import Swal from "sweetalert2";
 
 import { Spacer, Tooltip } from "@nextui-org/react";
-import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo"
 import Avatares from "../../components/UI/avatar/Avatares";
 import Loader from "../../components/UI/cargando/loader";
 import EditIcon from "../../components/UI/iconos/Editar";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
 import Footer from "../../components/UI/Footer/Footer";
+import NavigateADM,  { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 
 function ListarProducto() {
 
@@ -78,10 +78,10 @@ function ListarProducto() {
 				ruta="/crear/producto"
 			/>
 
-			<Navigate>
-				<Retroceder />
+			<NavigateADM>
+				<Retroceder/>
 				<Titulo espacio="center" titulo="Productos" />
-			</Navigate>
+			</NavigateADM>
 			<Spacer y={5} />
 
 			{cargando ? (

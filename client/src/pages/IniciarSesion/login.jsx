@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import "./login.css";
 
-import Logo from '../../img/1-removebg-preview - copia.png'
+import Logo from "../../img/1-removebg-preview - copia.png";
 
 import { Spacer } from "@nextui-org/react";
 import BotonEnviar from "../../components/UI/botones/botonEnviar";
@@ -12,7 +12,7 @@ import InputPassword from "../../components/UI/formulario/Inputs/password/inputP
 import inicioSesion from "../../api/IniciarSesion";
 import { guardarToken, decodificarToken } from "../../utils/token";
 import { useNavigate } from "react-router-dom";
-import Navigate, { Icono } from "../../components/UI/navbar/navbar";
+import Footer from "../../components/UI/Footer/Footer";
 
 function Login() {
   const {
@@ -61,15 +61,8 @@ function Login() {
 
   return (
     <div className="body-login">
-
-      <Navigate style>
-        <Icono espacio={"center"}
-          radio={''}
-          imagen={Logo}
-          height={'80px'}
-          width={'80px'}
-        />
-      </Navigate>
+     <Footer />
+      
 
       <div className="form-container">
         <div className="titulo1">TEJIENDO UN MUNDO</div>

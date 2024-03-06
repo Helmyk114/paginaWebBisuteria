@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import Navigate, { Icono, Notificacion, Texto } from "../../components/UI/navbar/navbar";
+
 import PerfilIcono from "../../components/UI/iconos/Perfil";
 import PedidoIcono from "../../components/UI/iconos/Pedido";
 import ProductoIcono from "../../components/UI/iconos/Producto";
@@ -9,6 +9,7 @@ import Footer from "../../components/UI/Footer/Footer";
 
 import { decodificarToken, obtenerToken } from "../../utils/token";
 import { detalleInformacionApi } from "../../api/productos";
+import NavigateVEN, {Icono, Texto} from "../../components/UI/navbar/navbarVendedor";
 
 function BienvenidaVendedor() {
   const [informacion, setInformacion] = useState([]);
@@ -39,7 +40,7 @@ function BienvenidaVendedor() {
         <div>
           {informacion && informacion.length > 0 ? (
             informacion.map((datos) => (
-              <Navigate  key={id}>
+              <NavigateVEN key={id}>
                              
                 <Icono className="justify-end"
                   radio={""}
@@ -54,8 +55,7 @@ function BienvenidaVendedor() {
                   rol={"Vendedor"}
                 />
 
-                <Notificacion />
-              </Navigate>
+              </NavigateVEN>
               
             ))
           ) : (

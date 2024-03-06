@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '../../../img/1-removebg-preview - copia.png'
-import './Footer.css'
+// import './Footer.css'
 
 function Footer() {
   return (

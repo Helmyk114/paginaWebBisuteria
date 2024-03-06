@@ -2,8 +2,9 @@ import React from "react";
 
 import Flotante from '../../components/Botones/BotonFlotante/Flotante';
 
-import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import Footer from "../../components/UI/Footer/Footer";
+import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
+ 
 
 function ListarListaTrabajoAdministrador() {
 	return (
@@ -25,10 +26,10 @@ function ListarListaTrabajoAdministrador() {
 					}
 				/>
 
-				<Navigate>
+				<NavigateADM>
 					<Retroceder />
 					<Titulo espacio="center" titulo="Lista de trabajo" />
-				</Navigate>
+				</NavigateADM>
 
 				<Footer />
 			</div>

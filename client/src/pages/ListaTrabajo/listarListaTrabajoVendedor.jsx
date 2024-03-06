@@ -2,8 +2,8 @@ import React from "react";
 
 import Flotante from '../../components/Botones/BotonFlotante/Flotante';
 
-import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import Footer from "../../components/UI/Footer/Footer";
+import NavigateTRJ, { Retroceder, Titulo } from "../../components/UI/navbar/navbarTrabajador";
 
 function ListarListaTrabajoVendedor() {
 	return (
@@ -25,10 +25,10 @@ function ListarListaTrabajoVendedor() {
 					}
 				/>
 
-				<Navigate>
+				<NavigateTRJ>
 					<Retroceder />
 					<Titulo espacio="center" titulo="Lista de trabajo" />
-				</Navigate>
+				</NavigateTRJ>
 
 				<Footer />
 			</div>

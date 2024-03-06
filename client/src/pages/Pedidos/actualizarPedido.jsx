@@ -1,15 +1,15 @@
 import React from "react";
 
-import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import Footer from "../../components/UI/Footer/Footer";
+import NavigateVEN from "../../components/UI/navbar/navbarVendedor";
 
 function ActualizarPedido() {
 	return (
 		<div>
-			<Navigate>
+			<NavigateVEN>
 				<Retroceder />
 				<Titulo espacio="center" titulo="Editar pedido" />
-			</Navigate>
+			</NavigateVEN>
 
 			<Footer />
 		</div>
