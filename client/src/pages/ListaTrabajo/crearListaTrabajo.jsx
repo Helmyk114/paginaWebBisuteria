@@ -9,7 +9,7 @@ import Footer from "../../components/UI/Footer/Footer";
 import Loader from "../../components/UI/cargando/loader";
 
 import { listarInformacionApi } from "../../api/productos";
-import NavigateADM from "../../components/UI/navbar/navbarAdmin";
+import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 
 function CrearListaTrabajo() {
 

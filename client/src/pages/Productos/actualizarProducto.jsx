@@ -13,7 +13,7 @@ import ListBoxSimple from "../../components/UI/formulario/Combox/listBoxSimple";
 import { actualizarInformacionApi, detalleInformacionApi } from "../../api/productos";
 import procesarImagen from "../../utils/procesadorImagenes";
 import Swal from "sweetalert2";
-import NavigateADM from "../../components/UI/navbar/navbarAdmin";
+import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 
 function ActualizarProducto() {
 	const { register, handleSubmit, formState: { errors } } = useForm();

@@ -1,7 +1,7 @@
 import React from "react";
 
 import Footer from "../../components/UI/Footer/Footer";
-import NavigateVEN from "../../components/UI/navbar/navbarVendedor";
+import NavigateVEN, { Retroceder, Titulo } from "../../components/UI/navbar/navbarVendedor";
 
 function ActualizarPedido() {
 	return (
