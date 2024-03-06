@@ -1,7 +1,8 @@
-import React from "react";
+import React from "react"
 
 import NavigateTRJ, { Retroceder, Titulo } from "../../components/UI/navbar/navbarTrabajador";
 import Footer from "../../components/UI/Footer/Footer";
+import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 
 function ListarListaTrabajoVendedor() {
 	return (

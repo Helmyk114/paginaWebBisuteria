@@ -63,21 +63,21 @@ function BienvenidaAdmi() {
         </div>
       )}
       <Spacer y={5} />
-      <div className="flex flex-col items-center">
-        <div className="relative flex gap-4">
-          <div className=" flex flex-col items-center">
+      <div className=" cartas flex flex-col items-center">
+        <div className=" cartaEspacio relative flex gap-4">
+          <div className="carta flex flex-col items-center">
             <PerfilIcono className="icono" ruta="/perfil" />
-            <h1>Perfil</h1>
+            <h1 className="textoPrincipal">Perfil</h1>
           </div>
           <Spacer x={2} />
-          <div className=" flex flex-col items-center">
+          <div className=" carta flex flex-col items-center">
             <ListaTrabajoIcono ruta="/listaTrabajo/administracion" />
-            <h1>Lista de trabajo</h1>
+            <h1 className="textoPrincipal">Lista de trabajo</h1>
           </div>
           <Spacer x={2} />
-          <div className=" flex flex-col items-center">
+          <div className=" carta flex flex-col items-center">
             <ProductoIcono ruta="/productos" />
-            <h1>Productos</h1>
+            <h1 className="textoPrincipal">Productos</h1>
           </div>
         </div>
       </div>
@@ -85,20 +85,20 @@ function BienvenidaAdmi() {
       <Spacer y={5} />
 
       <div className="flex flex-col items-center">
-        <div className="relative flex gap-4">
-          <div className= " flex flex-col items-center" >
+        <div className=" cartaEspacio relative flex gap-4">
+          <div className= " carta flex flex-col items-center" >
             <TrabajadorIcono ruta="/trabajadores" />
-            <h1>Trabajadores</h1>
+            <h1 className="textoPrincipal">Trabajadores</h1>
           </div>
           <Spacer x={2} />
-          <div className=" flex flex-col items-center">
+          <div className=" carta flex flex-col items-center">
             <PedidoIcono ruta="/pedidos/administracion" />
-            <h1>Pedidos</h1>
+            <h1 className="textoPrincipal">Pedidos</h1>
           </div>
           <Spacer x={2} />
-          <div className=" flex flex-col items-center">
+          <div className=" carta flex flex-col items-center">
             <CerrarSesionIcono ruta="/" />
-            <h1>Cerrar sesión</h1>
+            <h1 className="textoPrincipal">Cerrar sesión</h1>
           </div>
         </div>
       </div>

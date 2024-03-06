@@ -1,16 +1,60 @@
 .carta{
-    border-radius: 12px;
-background: #f7f7f7;
-box-shadow:  5px 5px 14px #adadad,
-             -7px -7px 14px #ffffff;
-padding: 14px;
-min-width: 130px;
-min-height: 150px;
+    border-radius: 20px;
+    background: #f8f7f7;
+    box-shadow: -5px 5px 13px #cfcece,
+    5px -5px 13px #ffffff;
+    width: 100%;
+    padding: 30px;
+        display: flex;
+        justify-content: center;
+                 
+
+  
 }
+.textoPrincipal{
+    text-align: center;
+    margin: 8px;
+    font-family: "Roboto", sans-serif;;
+}
+
 .icono{
     box-shadow:  5px 5px 14px #292929,
     -7px -7px 14px #ffffff; 
 }
 .carta:hover{
   
+}
+
+@media screen and (max-width: 767px) {
+    .cartaEspacio{
+        display: flex;
+        flex-direction: row;
+        gap:5px;
+        margin: 7px;
+    }
+    .carta{
+    padding:10px ;
+    width: 100%;
+    }
+
+}
+@media screen and (min-width: 768px) and (max-width:1023) {
+    .carta{
+        width: 100%;
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+    }
+
+
+}
+@media screen and (min-width: 1024px){
+    .carta{
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+
 }
