@@ -16,7 +16,7 @@ export default function ListProduct() {
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [cargando, setCargando] = useState(true);
   const urlImage = process.env.REACT_APP_API_URL;
-  const NavigateVEN = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const data = async () => {
@@ -45,7 +45,7 @@ export default function ListProduct() {
 
   const handleCrearPedidosClick = () => {
     // Puedes navegar a la nueva vista y pasar la información de los productos seleccionados
-    NavigateVEN('/crear/pedidos', { state: { selectedProducts } });
+    navigate('/crear/pedidos', { state: { selectedProducts } });
   };
   return (
     <div>
