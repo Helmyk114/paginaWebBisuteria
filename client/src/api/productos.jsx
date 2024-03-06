@@ -86,6 +86,20 @@ async function actualizarInformacionApi(endPoint, id, informacion){
     console.error(`Error en la Api actualizar: ${error.message}`);
   }
 };
+async function actualizarInformacionSinImagenApi(endPoint, id, informacion){
+  const url = `${raizUrl}/${endPoint}`
+
+  try {
+    const response = await axios.put(`${url}/${id}`,informacion);
+    if(response.status === 200){
+      console.log('Se actualizo la informacion api');
+    } else {
+      console.error(response.data.error);
+    }
+  } catch (error) {
+    console.error(`Error en la Api actualizar: ${error.message}`);
+  }
+};
 
 export {
   añadirInformacionAPI,
@@ -93,5 +107,6 @@ export {
   listarInformacionApi,
   eliminarInformacionApi,
   detalleInformacionApi,
-  actualizarInformacionApi
+  actualizarInformacionApi,
+  actualizarInformacionSinImagenApi
 };

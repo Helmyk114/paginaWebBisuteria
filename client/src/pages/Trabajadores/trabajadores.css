@@ -1,33 +1,42 @@
-.formularioCrear{
+.formularioCrear {
     margin: 0 auto;
     width: '100%';
 }
 
+.telefono {
+    margin-top: 5px;
+}
+
+.rol {
+    margin-top: -5px;
+}
 
 @media screen and (max-width: 767px) {
-   
-    .card{
+
+    .card {
         width: 90%;
     }
-    .botonEnviar{
+
+    .botonEnviar {
         width: 100%;
     }
 }
 
-@media screen and (min-width: 1024px){
-    .formularioCrear{
+@media screen and (min-width: 1024px) {
+    .formularioCrear {
         display: block;
         align-items: start;
 
     }
-    .card{
+
+    .card {
         width: 74%;
         margin: 0 auto;
-        
+
     }
 
-   
-    .botonEnviar{
+
+    .botonEnviar {
         width: 60%;
     }
 }

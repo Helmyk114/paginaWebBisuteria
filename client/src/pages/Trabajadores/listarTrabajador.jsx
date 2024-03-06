@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../Trabajadores/trabajadores.css";
 import Flotante from '../../components/Botones/BotonFlotante/Flotante';
 
 import { Spacer, Tooltip } from "@nextui-org/react";
@@ -102,9 +103,13 @@ function ListarTrabajador() {
                     <Texto1Card
                       texto={`${datos.workerName} ${datos.workerLastName}`} />
                     <Texto2Card
-                      texto2={`Celular: ${datos.workerPhone}`} />
+                      className={"telefono"}
+                      texto2={`Celular: ${datos.workerPhone}`} 
+                      fontSize={"11px"} />
                     <Texto2Card
-                      texto2={`Rol: ${datos.roles}`} />
+                      className={"rol"}
+                      texto2={`Rol: ${datos.roles}`}
+                      fontSize={"11px"} />
                   </div>
                   <div className="relative flex items-center gap-1">
                     <Tooltip content="Editar trabajador">
@@ -128,9 +133,12 @@ function ListarTrabajador() {
         </div>
       )}
       <Spacer y={5} />
-      <Footer />
+      <div style={{ position: "flex", bottom: "0", width: "100%", marginTop: "290px" }}>
+
+        <Footer />
+      </div>
     </>
   );
-}
+};
 
 export default ListarTrabajador;

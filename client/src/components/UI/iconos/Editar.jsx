@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import '../iconos/iconos.css'
 
 const EditIcon = ({ ruta, props }) => {
   return (
     <Link to={ruta}>
-      <div className='icon'>
+      <div >
         <svg
+         className='iconoEditar'
           aria-hidden="true"
           fill="none"
           focusable="false"

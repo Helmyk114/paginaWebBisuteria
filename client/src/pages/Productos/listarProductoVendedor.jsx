@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { listarInformacionApi } from "../../api/productos";
+import { useNavigate } from "react-router-dom";
+import './listarProductoVendedor.css'; 
+
 import { Spacer, Button } from "@nextui-org/react";
 import NavigateVEN, { Retroceder, Titulo }from "../../components/UI/navbar/navbarVendedor";
 import CardProduct from "../../components/UI/cardProduct/card";
 import Categorias from "../../components/UI/cardProduct/categorias";
 import Loader from "../../components/UI/cargando/loader";
 import Footer from "../../components/UI/Footer/Footer";
-// import img from "../../img/pulsera.jpg";
-import './listarProductoVendedor.css'; 
-import { useNavigate } from "react-router-dom";
 
+import { listarInformacionApi } from "../../api/productos";
 
 export default function ListProduct() {
   const [informacion, setInformacion] = useState([]);
-  const [cargando, setCargando] = useState(true);
   const [selectedProducts, setSelectedProducts] = useState([]);
+  const [cargando, setCargando] = useState(true);
   const urlImage = process.env.REACT_APP_API_URL;
   const NavigateVEN = useNavigate();
 
@@ -33,15 +33,20 @@ export default function ListProduct() {
   }, []);
 
   const handleSelectProduct = (selectedProduct) => {
-    const updatedSelection = selectedProducts.filter((p) => p.producto !== selectedProduct.producto);
-    setSelectedProducts([...updatedSelection, selectedProduct]);
+    const isProductSelected = selectedProducts.some((p) => p.producto === selectedProduct.producto);
+
+    if (isProductSelected) {
+      const updatedSelection = selectedProducts.filter((p) => p.producto !== selectedProduct.producto);
+      setSelectedProducts(updatedSelection);
+    } else {
+      setSelectedProducts([...selectedProducts, selectedProduct]);
+    }
   };
 
   const handleCrearPedidosClick = () => {
     // Puedes navegar a la nueva vista y pasar la información de los productos seleccionados
     NavigateVEN('/crear/pedidos', { state: { selectedProducts } });
   };
-
   return (
     <div>
       <NavigateVEN>
@@ -61,6 +66,7 @@ export default function ListProduct() {
               <CardProduct 
                 className="item"
                 key={datos.idProduct}
+                idProduct={datos.idProduct}
                 img={`${urlImage}/${datos.image}`}
                 producto={datos.nameProduct}
                 precio={datos.price}

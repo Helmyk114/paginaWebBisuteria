@@ -10,7 +10,7 @@ import { detalleInformacionApi } from "../api/productos";
 import { decodificarToken, obtenerToken } from "../utils/token";
 
 import { Link } from "react-router-dom";
-import BotonCantidad from "../components/UI/botones/botonCantidad"; 
+import BotonCantidad from "../components/UI/botones/botonCantidad";
 
 export default function Perfilinfo() {
 
@@ -48,25 +48,31 @@ export default function Perfilinfo() {
         <div>
           {informacion && informacion.length > 0 ? (
             informacion.map((datos) => (
-              <div className="perfil" key={datos.idCardWorker} style={{height: "100%"}}>
-                <div style={{ width: "100%", height: "35%", padding: "10px", display: "flex", alignItems: "center", gap: "30px", position: "absolute", backgroundColor: "#454F96"}}>
+              <div className="perfil" key={datos.idCardWorker} style={{ height: "100%" }}>
+                <div style={{ width: "100%", height: "35%", padding: "10px", display: "flex", alignItems: "center", gap: "30px", position: "absolute", backgroundColor: "#454F96" }}>
                   <Avatares
-                  
                     className={'w-15 h-15'}
                     maxWidth={"90px"}
                     radio={"full"}
                     src={`${urlImage}/${datos.photo}`}
                   />
                   <div>
-                    <p className="text-xl font-semibold leading-none text-white">{`${datos.workerName} ${datos.workerLastName}`}</p>
-                    <h2 className="text-small tracking-tight text-white ">{`${datos.roles}`}</h2>
+                    <Texto1Card
+                      texto={`${datos.workerName} ${datos.workerLastName}`}
+                      color={"#fff"}
+                      fontSize={"30px"}
+                    />
+                    <Texto2Card
+                      texto2={`${datos.roles}`}
+                      color={"#fff"}
+                    />
                   </div>
                 </div>
                 <Spacer y={4} />
                 <div style={{ backgroundColor: "#EEEEEE", width: "90%", padding: "1px", borderRadius: "13px", margin: "0 auto", marginBottom: "30px", position: "relative", top: "185px", zIndex: "1" }}>
                   <Spacer y={4} />
                   <CardPerfil
-                  gap={"13px"}>
+                    gap={"13px"}>
                     <IconoCard icon={"gridicons:user-circle"} />
                     <div style={{ display: "block" }}>
                       <Texto1Card
@@ -74,22 +80,22 @@ export default function Perfilinfo() {
                       <Texto2Card
                         texto2={`${datos.workerName}`} />
                     </div>
-                    
                   </CardPerfil>
                   <Spacer y={3} />
                   <CardPerfil
-                  gap={"13px"}>
+                    gap={"13px"}>
                     <IconoCard icon={"mdi:user-card-details"} />
                     <div style={{ display: "block" }}>
                       <Texto1Card
                         texto={"Cedula"} />
                       <Texto2Card
-                        texto2={datos.idCardWorker} />
+                        texto2={datos.idCardWorker}
+                      />
                     </div>
                   </CardPerfil>
                   <Spacer y={3} />
                   <CardPerfil
-                  gap={"13px"}>
+                    gap={"13px"}>
                     <IconoCard icon={"mdi:email"} />
                     <div style={{ display: "block" }}>
                       <Texto1Card
@@ -118,25 +124,24 @@ export default function Perfilinfo() {
                         texto2={`${datos.numberBank} ${datos.banks}`} />
                     </div>
                   </CardPerfil>
-                  
                   <Spacer y={3} />
                   <Link to={`/editar/trabajador/${datos.idCardWorker}`}>
-                    <CardPerfil  alignItems={"center"}
-                    justifyContent={"space-between"}>
+                    <CardPerfil alignItems={"center"}
+                      justifyContent={"space-between"}>
                       <IconoCard icon={"akar-icons:edit"} />
                       <div>
-                      <Texto1Card
-                        texto={"Editar"}
-                        fontSize={"20px"} />
+                        <Texto1Card
+                          texto={"Editar"}
+                          fontSize={"20px"} />
                       </div>
                       <div>
-                      <IconoCard icon={"akar-icons:arrow-right"}
-                        width={"35"}
-                        height={"35"} />
+                        <IconoCard icon={"akar-icons:arrow-right"}
+                          width={"35"}
+                          height={"35"} />
                       </div>
                     </CardPerfil>
+                    <Spacer y={4} />
                   </Link>
-                  <Spacer y={3} />
                 </div>
               </div>
             ))
@@ -145,12 +150,10 @@ export default function Perfilinfo() {
           )}
         </div>
       )}
-       
       <Spacer y={4} />
-      <div style={{position: "absolute", bottom: "-33%", width: "100%"}}>
-        
-        <Footer/>
-        </div>
+      <div style={{ position: "flex", bottom: "0", width: "100%", marginTop: "165px" }}>
+        <Footer />
+      </div>
     </div>
   );
 };

@@ -28,11 +28,13 @@ function CrearProducto() {
     idCategory: null,
   });
 
-  const onSubmit = async (data) => {
-    const producto = {
-      ...data,
-      image: selectedImage,
-    };
+	const onSubmit = async (data) => {
+
+		const producto = {
+			...data,
+			image: selectedImage,
+		};
+		console.log(producto)
 
     try {
       await añadirInformacionAPI(producto, "producto");
