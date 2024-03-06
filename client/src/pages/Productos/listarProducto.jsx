@@ -4,7 +4,6 @@ import { eliminarInformacionApi, listarInformacionApi } from "../../api/producto
 import Swal from "sweetalert2";
 
 import { Spacer, Tooltip } from "@nextui-org/react";
-import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo"
 import Avatares from "../../components/UI/avatar/Avatares";
 import Loader from "../../components/UI/cargando/loader";

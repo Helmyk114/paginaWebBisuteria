@@ -4,13 +4,11 @@ import { useLocation } from "react-router-dom";
 import "./crearPedido.css";
 
 import { Spacer, Tooltip } from "@nextui-org/react";
-import Navigate, { Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import Acordeon from "../../components/UI/Acordeon/Acordeon";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import BotonEnviar from "../../components/UI/botones/botonEnviar";
 import Footer from "../../components/UI/Footer/Footer";
 import CardPerfil, {
- 
   Texto1Card,
   Texto2Card,
 } from "../../components/UI/perfil/cardInfo";
