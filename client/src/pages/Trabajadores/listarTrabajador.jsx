@@ -3,7 +3,6 @@ import "../Trabajadores/trabajadores.css";
 import Flotante from '../../components/Botones/BotonFlotante/Flotante';
 
 import { Spacer, Tooltip } from "@nextui-org/react";
-import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 import Loader from "../../components/UI/cargando/loader";
 import Avatares from "../../components/UI/avatar/Avatares";
@@ -13,6 +12,7 @@ import Footer from "../../components/UI/Footer/Footer";
 
 import { eliminarInformacionApi, listarInformacionApi } from "../../api/productos";
 import Swal from 'sweetalert2'
+import NavigateTRJ, { Retroceder, Titulo } from "../../components/UI/navbar/navbarTrabajador";
 
 function ListarTrabajador() {
   const [informacion, setInformacion] = useState([]);
@@ -77,10 +77,11 @@ function ListarTrabajador() {
         ruta="/crear/trabajador"
       />
 
-      <Navigate>
+      <NavigateTRJ>
         <Retroceder />
         <Titulo espacio="center" titulo="Trabajadores" />
-      </Navigate>
+      </NavigateTRJ>
+
       <Spacer y={5} />
       {cargando ? (
         <Loader />

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import './listarProductoVendedor.css'; 
 
 import { Spacer, Button } from "@nextui-org/react";
-import Navigate, { Retroceder, Titulo } from "../../components/UI/navbar/navbar";
+import NavigateVEN, { Retroceder, Titulo }from "../../components/UI/navbar/navbarVendedor";
 import CardProduct from "../../components/UI/cardProduct/card";
 import Categorias from "../../components/UI/cardProduct/categorias";
 import Loader from "../../components/UI/cargando/loader";
@@ -44,14 +44,16 @@ export default function ListProduct() {
   };
 
   const handleCrearPedidosClick = () => {
+    // Puedes navegar a la nueva vista y pasar la información de los productos seleccionados
     navigate('/crear/pedidos', { state: { selectedProducts } });
   };
   return (
     <div>
-      <Navigate>
+      <NavigateVEN>
         <Retroceder />
-        <Titulo espacio="center" titulo="Productos" />
-      </Navigate>
+        <Titulo espacio="center" titulo="Bienvenido" />
+      </NavigateVEN>
+      
       <Spacer y={5} />
       <Categorias />
 

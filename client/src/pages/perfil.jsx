@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Spacer } from "@nextui-org/react";
-import Navigate, { Notificacion, Retroceder, Titulo } from "../components/UI/navbar/navbar";
+// import Navigate, { Notificacion, Retroceder, Titulo } from "../components/UI/navbar/navbar";
 import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../components/UI/perfil/cardInfo";
 import Avatares from "../components/UI/avatar/Avatares";
 import Loader from "../components/UI/cargando/loader";
@@ -36,11 +36,12 @@ export default function Perfilinfo() {
 
   return (
     <div>
-      <Navigate>
+      {/* <Navigate>
         <Retroceder />
         <Titulo espacio="center" titulo="Perfil" />
         <Notificacion />
-      </Navigate>
+      </Navigate> */}
+
       {cargando ? (
         <Loader />
       ) : (

@@ -5,7 +5,7 @@ import { detalleInformacionApi } from "../../api/productos";
 import '../Bienvenida/bienvenida.css'
 
 import { Spacer } from "@nextui-org/react";
-import Navigate, {Icono, Notificacion, Texto} from "../../components/UI/navbar/navbar";
+import NavigateADM, {Icono, Texto} from "../../components/UI/navbar/navbarAdmin";
 import PerfilIcono from "../../components/UI/iconos/Perfil";
 import ListaTrabajoIcono from "../../components/UI/iconos/ListaTrabajo";
 import ProductoIcono from "../../components/UI/iconos/Producto";
@@ -42,7 +42,7 @@ function BienvenidaAdmi() {
         <div>
           {informacion && informacion.length > 0 ? (
             informacion.map((datos) => (
-              <Navigate key={id}>
+              <NavigateADM key={id}>
                 <Icono
                   className="justify-end"
                   radio={""}
@@ -55,8 +55,7 @@ function BienvenidaAdmi() {
                   nombre={`${datos.workerName} ${datos.workerLastName}`}
                   rol={"Administrador"}
                 />
-                {/* <Notificacion /> */}
-              </Navigate>
+              </NavigateADM>
             ))
           ) : (
             <p>No hay informacion disponible</p>

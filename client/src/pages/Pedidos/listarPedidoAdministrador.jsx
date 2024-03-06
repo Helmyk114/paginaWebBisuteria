@@ -1,18 +1,16 @@
 import React from "react";
 
-import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import Footer from "../../components/UI/Footer/Footer";
 import CardPerfil, { Texto1Card } from "../../components/UI/perfil/cardInfo";
+import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 
 function ListarPedidoAdministrador() {
 	return (
 		<div>
-			<Navigate>
+			<NavigateADM>
 				<Retroceder />
 				<Titulo espacio="center" titulo="Pedidos" />
-			</Navigate>
-
-			
+			</NavigateADM>
 
 			<Footer />
 		</div>

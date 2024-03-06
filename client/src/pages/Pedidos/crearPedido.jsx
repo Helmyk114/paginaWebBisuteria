@@ -1,15 +1,17 @@
 import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useLocation } from 'react-router-dom';
-import './crearPedido.css';
+import { useLocation } from "react-router-dom";
+import "./crearPedido.css";
 
 import { Spacer, Tooltip } from "@nextui-org/react";
-import Navigate, { Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import Acordeon from "../../components/UI/Acordeon/Acordeon";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
-import BotonEnviar from "../../components/UI/botones/botonEnviar"
+import BotonEnviar from "../../components/UI/botones/botonEnviar";
 import Footer from "../../components/UI/Footer/Footer";
-import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
+import CardPerfil, {
+  Texto1Card,
+  Texto2Card,
+} from "../../components/UI/perfil/cardInfo";
 import Avatares from "../../components/UI/avatar/Avatares";
 import BotonCantidad from "../../components/UI/botones/botonCantidad";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
@@ -17,6 +19,7 @@ import DeleteIcon from "../../components/UI/iconos/Eliminar";
 import Swal from "sweetalert2";
 import { actualizarInformacionSinImagenApi, añadirInformacionSinImagenAPI, detalleInformacionApi } from "../../api/productos";
 import { decodificarToken, obtenerToken } from "../../utils/token";
+import NavigateVEN, { Retroceder, Titulo } from "../../components/UI/navbar/navbarVendedor";
 
 function CrearPedido() {
 
@@ -89,14 +92,14 @@ function CrearPedido() {
 		}
 	};
 
-	return (
-		<div>
-			<Navigate>
+  return (
+    <div>
+      <NavigateVEN>
 				<Retroceder />
 				<Titulo espacio="center" titulo="Crear pedido" />
-			</Navigate>
+			</NavigateVEN>
 
-			<Spacer y={4} />
+      <Spacer y={4} />
 
 			<form onSubmit={handleSubmit(onSubmit)}>
 				{/* <Acordeon titulo={'Datos del cliente'}>

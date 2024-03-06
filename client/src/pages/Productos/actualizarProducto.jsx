@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 
 import { Card, Spacer } from "@nextui-org/react";
-import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import SubirImagen from "../../components/UI/formulario/Imagen/imagen";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import BotonEnviar from "../../components/UI/botones/botonEnviar";
@@ -14,6 +13,7 @@ import ListBoxSimple from "../../components/UI/formulario/Combox/listBoxSimple";
 import { actualizarInformacionApi, detalleInformacionApi } from "../../api/productos";
 import procesarImagen from "../../utils/procesadorImagenes";
 import Swal from "sweetalert2";
+import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 
 function ActualizarProducto() {
 	const { register, handleSubmit, formState: { errors } } = useForm();
@@ -80,10 +80,10 @@ function ActualizarProducto() {
 
 	return (
 		<div>
-			<Navigate>
+			<NavigateADM>
 				<Retroceder />
 				<Titulo espacio="center" titulo="Editar producto" />
-			</Navigate>
+			</NavigateADM>
 			<Spacer y={4} />
 			<form style={{ display: 'block', justifyContent: 'center', padding: '10px' }} onSubmit={handleSubmit(onSubmit)}>
 				<SubirImagen onImageChange={setSelectedImage} defaultImageSrc={informacionProducto || ""} />

@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { Spacer } from "@nextui-org/react";
-import Navigate, { Notificacion, Retroceder, Titulo } from "../../components/UI/navbar/navbar";
 import Acordeon from "../../components/UI/Acordeon/Acordeon";
 import CheckboxInfo from "../../components/UI/formulario/CheckBox/CheckBox";
 import BotonEnviar from "../../components/UI/botones/botonEnviar";
@@ -10,6 +9,7 @@ import Footer from "../../components/UI/Footer/Footer";
 import Loader from "../../components/UI/cargando/loader";
 
 import { listarInformacionApi } from "../../api/productos";
+import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 
 function CrearListaTrabajo() {
 
@@ -55,10 +55,10 @@ function CrearListaTrabajo() {
 
 	return (
 		<div>
-			<Navigate>
+			<NavigateADM>
 				<Retroceder />
 				<Titulo espacio="center" titulo="Crear lista" />
-			</Navigate>
+			</NavigateADM>
 			<Spacer y={4} />
 			<form  onSubmit={handleSubmit(onSubmit)}>
 				<Acordeon titulo={"Artesanos"}>

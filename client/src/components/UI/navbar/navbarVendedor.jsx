@@ -15,12 +15,12 @@ import {
 import Avatares from "../avatar/Avatares";
 import Campana from "../iconos/Notificacion";
 import BotonRetroceder from "../iconos/Retroceder";
-import AgregarTrabajador from "../iconos/agregar/Trabajador";
-import AgregarProducto from "../iconos/agregar/Producto";
 import AgregarPedido from "../iconos/agregar/Pedido";
-import AgregarListaTrabajo from "../iconos/agregar/ListaTrabajo";
+import PerfilNav from "../iconos/PerfilNavbar";
+import CerrarSesionNav from "../iconos/CerrarSesionNavbars";
+import Inicio from "../iconos/Inicio";
 
-export default function Navigate({ children, height }) {
+export default function NavigateVEN({ children, height }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   return (
     <Navbar 
@@ -34,7 +34,7 @@ export default function Navigate({ children, height }) {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden" 
         />
-        <DesplegableADM />
+        <DesplegableVEN />
       </NavbarContent>
     </Navbar>
   );
@@ -143,35 +143,21 @@ const Retroceder = () => {
   );
 };
 
-const AgregamosTrabajador = () => {
+const CerrarSesion = () => {
   return (
     <NavbarContent style={{ marginTop: "0px", color:"#6977E4" }} >
       <NavbarItem>
         <div>
-          <AgregarTrabajador />
+          <CerrarSesionNav/>
         </div>
       </NavbarItem>
     </NavbarContent>
   );
 };
-
-
-const AgregamosProducto = () => {
-  return (
-    <NavbarContent style={{ marginTop: "0px", color:"#6977E4" }} >
-      <NavbarItem>
-        <div>
-          <AgregarProducto />
-        </div>
-      </NavbarItem>
-    </NavbarContent>
-  );
-};
-
 
 const AgregamosPedido = () => {
   return (
-    <NavbarContent style={{ marginTop: "0px", color:"#6977E4" }} >
+    <NavbarContent style={{ marginTop: "0px", color: "#6977E4" }}>
       <NavbarItem>
         <div>
           <AgregarPedido />
@@ -181,25 +167,25 @@ const AgregamosPedido = () => {
   );
 };
 
-const AgregamosListaTrabajo = () => {
+const Inicios = () => {
   return (
-    <NavbarContent style={{ marginTop: "0px", color:"#6977E4" }} >
+    <NavbarContent style={{ marginTop: "0px", color: "#6977E4" }}>
       <NavbarItem>
         <div>
-          <AgregarListaTrabajo />
+          <Inicio ruta="/Vendedor" />
         </div>
       </NavbarItem>
     </NavbarContent>
   );
 };
 
-const DesplegableADM = ({}) => {
+const DesplegableVEN = () => {
   const menuItems = [
+    <Inicios/>,
     <Notificacion/>,
-    <AgregamosTrabajador/>,
-    <AgregamosProducto/>,
+    <PerfilNav/>,
     <AgregamosPedido/>,
-    <AgregamosListaTrabajo/>
+    <CerrarSesion/>
   ];
 
   return (
@@ -218,4 +204,4 @@ const DesplegableADM = ({}) => {
   );
 };
 
-export { Titulo, Notificacion, Retroceder, Icono, Texto, AgregamosTrabajador, AgregamosProducto, AgregamosPedido, AgregamosListaTrabajo, DesplegableADM};
+export { Titulo, Notificacion, Retroceder, Icono, Texto, AgregamosPedido, DesplegableVEN, Inicios};
