@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
-import Flotante from '../../components/Botones/BotonFlotante/Flotante';
+
 import { eliminarInformacionApi, listarInformacionApi } from "../../api/productos";
 import Swal from "sweetalert2";
 
 import { Spacer, Tooltip } from "@nextui-org/react";
+import NavigateADM,  { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo"
 import Avatares from "../../components/UI/avatar/Avatares";
 import Loader from "../../components/UI/cargando/loader";
 import EditIcon from "../../components/UI/iconos/Editar";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
 import Footer from "../../components/UI/Footer/Footer";
-import NavigateADM,  { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 
 function ListarProducto() {
 
@@ -59,24 +59,6 @@ function ListarProducto() {
 	
 	return (
 		<div>
-			< Flotante
-				addIcon={
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="47"
-						height="47"
-						fill="#fff"
-						className="bi bi-bag-plus-fill"
-						viewBox="0 0 16 16"
-					>
-						<path
-							fillRule="evenodd"
-							d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0M8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5z" />
-					</svg>
-				}
-				ruta="/crear/producto"
-			/>
-
 			<NavigateADM>
 				<Retroceder/>
 				<Titulo espacio="center" titulo="Productos" />
@@ -108,8 +90,7 @@ function ListarProducto() {
 										<div style={{ textAlign: "left", justifyContent: "left" }}>
 											<div className="relative flex" style={{ gap: "5px" }} >
 												<Texto2Card
-													texto2={"PC: "}
-												/>
+													texto2={"PC: "} />
 												<Texto2Card
 													texto2={`${datos.price}`} />
 											</div>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+import '../Bienvenida/bienvenida.css'
 
 import { decodificarToken, obtenerToken } from "../../utils/token";
 import { detalleInformacionApi } from "../../api/productos";
-import '../Bienvenida/bienvenida.css'
 
 import { Spacer } from "@nextui-org/react";
 import NavigateADM, {Icono, Texto} from "../../components/UI/navbar/navbarAdmin";
