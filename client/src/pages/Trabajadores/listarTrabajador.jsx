@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../Trabajadores/trabajadores.css";
 
 import { Spacer, Tooltip } from "@nextui-org/react";
-import NavigateTRJ, { Retroceder, Titulo } from "../../components/UI/navbar/navbarTrabajador";
+import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 import Loader from "../../components/UI/cargando/loader";
 import Avatares from "../../components/UI/avatar/Avatares";
@@ -12,17 +12,21 @@ import Footer from "../../components/UI/Footer/Footer";
 
 import { eliminarInformacionApi, listarInformacionApi } from "../../api/productos";
 import Swal from 'sweetalert2'
+import Acordeon from "../../components/UI/Acordeon/Acordeon";
 
 function ListarTrabajador() {
-  const [informacion, setInformacion] = useState([]);
+  const [informacionA, setInformacionA] = useState([]);
+  const [informacionI, setInformacionI] = useState([]);
   const [cargando, setCargando] = useState(true);
   const urlImage = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const data = async () => {
       try {
-        const informacionTrabajador = await listarInformacionApi('listarTrabajadores');
-        setInformacion(informacionTrabajador.data);
+        const informacionTrabajadorA = await listarInformacionApi('trabajadoresActivos');
+        const informacionTrabajadorI = await listarInformacionApi('trabajadoresInactivos');
+        setInformacionA(informacionTrabajadorA.data);
+        setInformacionI(informacionTrabajadorI.data)
         setCargando(false);
       } catch (error) {
         console.error("Error al acceder informacion: ", error);
@@ -44,8 +48,10 @@ function ListarTrabajador() {
       });
       if (result.isConfirmed) {
         await eliminarInformacionApi('trabajadores', idCardWorker)
-        const nuevaInformacion = informacion.filter((datos) => datos.idCardWorker !== idCardWorker);
-        setInformacion(nuevaInformacion)
+        const nuevaInformacionA = informacionA.filter((datos) => datos.idCardWorker !== idCardWorker);
+        const nuevaInformacionI = informacionI.filter((datos) => datos.idCardWorker !== idCardWorker);
+        setInformacionA(nuevaInformacionA)
+        setInformacionI(nuevaInformacionI)
 
         Swal.fire({
           title: "Trabajador elimindao",
@@ -59,18 +65,18 @@ function ListarTrabajador() {
 
   return (
     <>
-      <NavigateTRJ>
+      <NavigateADM>
         <Retroceder />
         <Titulo espacio="center" titulo="Trabajadores" />
-      </NavigateTRJ>
+      </NavigateADM>
 
       <Spacer y={5} />
       {cargando ? (
         <Loader />
       ) : (
         <div>
-          {informacion && informacion.length > 0 ? (
-            informacion.map((datos) => (
+          {informacionA && informacionA.length > 0 ? (
+            informacionA.map((datos) => (
               <div key={datos.idCardWorker}>
                 <CardPerfil
                   key={datos.idCardWorker}
@@ -114,6 +120,47 @@ function ListarTrabajador() {
           )}
         </div>
       )}
+      <Spacer y={5} />
+
+      <Acordeon titulo={"Trabajadores inactivos"}>
+      {cargando ? (
+        <Loader />
+      ) : (
+        <div>
+          {informacionI && informacionI.length > 0 ? (
+            informacionI.map((datos) => (
+              <div key={datos.idCardWorker}>
+                <CardPerfil
+                  key={datos.idCardWorker}
+                  img={`${urlImage}/${datos.photo}`}
+                  justifyContent={"space-between"}
+                  className="cardPerfil"
+                  alignItems={"center"}>
+                  <Avatares
+                    src={`${urlImage}/${datos.photo}`}
+                    radio={"full"} />
+                  <div style={{ display: "block" }}>
+                    <Texto1Card
+                      texto={`${datos.workerName} ${datos.workerLastName}`} />
+                  </div>
+                  <div className="relative flex items-center gap-1">
+                    <Tooltip content="Eliminar trabajador">
+                      <span className="text-lg text-danger cursor-pointer active:opacity-50">
+                        <DeleteIcon eliminar={() => eliminarTrabajador(datos.idCardWorker)} />
+                      </span>
+                    </Tooltip>
+                  </div>
+                </CardPerfil>
+                <Spacer y={3} />
+              </div>
+            ))
+          ) : (
+            <p>No hay trabajadores disponibles.</p>
+          )}
+        </div>
+      )}
+      </Acordeon>
+
       <Spacer y={5} />
       <div style={{ position: "flex", bottom: "0", width: "100%", marginTop: "290px" }}>
 
