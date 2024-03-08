@@ -49,7 +49,7 @@ async function eliminarInformacionApi(endPoint, id) {
   const url = `${raizUrl}/${endPoint}`
 
   try {
-    const response = await axios.delete(`${url}/${id}`)
+    const response = await axios.put(`${url}/${id}`)
     return response.data;
   } catch (error) {
     throw error;

@@ -47,10 +47,35 @@ function ListarProducto() {
 				confirmButtonText: "Eliminar"
 			});
 			if (result.isConfirmed) {
-				await eliminarInformacionApi('productos', idProduct)
+				await eliminarInformacionApi('productoInactivo', idProduct)
 				const nuevaInformacionA = informacionA.filter((datos) => datos.idProduct !== idProduct);
 				const nuevaInformacionI = informacionI.filter((datos) => datos.idProduct !== idProduct);
 				setInformacionA(nuevaInformacionA)
+				setInformacionI(nuevaInformacionI)
+
+				Swal.fire({
+					title: "Producto elimindao",
+					icon: "success"
+				});
+			}
+		} catch (error) {
+			console.error('error al eliminar: ', error)
+		}
+	};
+
+	const activarProducto = async (idProduct) => {
+		try {
+			const result = await Swal.fire({
+				title: "¿Quieres activar este producto?",
+				icon: "warning",
+				showCancelButton: true,
+				confirmButtonColor: "#6977E4",
+				cancelButtonColor: "#d33",
+				confirmButtonText: "Activar"
+			});
+			if (result.isConfirmed) {
+				await eliminarInformacionApi('productoActivo', idProduct)
+				const nuevaInformacionI = informacionI.filter((datos) => datos.idProduct !== idProduct);
 				setInformacionI(nuevaInformacionI)
 
 				Swal.fire({
@@ -77,7 +102,6 @@ function ListarProducto() {
 					{informacionA && informacionA.length > 0 ? (
 						informacionA.map((datos) => (
 							<div key={datos.idProduct}>
-
 								<CardPerfil
 									justifyContent={"space-between"}
 									alignItems={"center"}
@@ -165,7 +189,7 @@ function ListarProducto() {
 										</Tooltip>
 										<Tooltip content="Eliminar producto">
 											<span className="text-lg text-danger cursor-pointer active:opacity-50">
-												<DeleteIcon className="iconoEliminar" eliminar={() => eliminarProducto(datos.idProduct)} />
+												<DeleteIcon className="iconoEliminar" eliminar={() => activarProducto(datos.idProduct)} />
 											</span>
 										</Tooltip>
 									</div>
@@ -174,7 +198,7 @@ function ListarProducto() {
 							</div>
 						))
 					) : (
-						<p>No hay productos disponibles.</p>
+						<p>No hay productos inactivos.</p>
 					)}
 				</div>
 			)}

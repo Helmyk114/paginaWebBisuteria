@@ -47,7 +47,7 @@ function ListarTrabajador() {
         confirmButtonText: "Eliminar",
       });
       if (result.isConfirmed) {
-        await eliminarInformacionApi('trabajadores', idCardWorker)
+        await eliminarInformacionApi('trabajadorInactivo', idCardWorker)
         const nuevaInformacionA = informacionA.filter((datos) => datos.idCardWorker !== idCardWorker);
         const nuevaInformacionI = informacionI.filter((datos) => datos.idCardWorker !== idCardWorker);
         setInformacionA(nuevaInformacionA)
@@ -55,6 +55,31 @@ function ListarTrabajador() {
 
         Swal.fire({
           title: "Trabajador elimindao",
+          icon: "success",
+        });
+      }
+    } catch (error) {
+      console.error("error al eliminar: ", error);
+    }
+  };
+
+  const activarTrabajador = async (idCardWorker) => {
+    try {
+      const result = await Swal.fire({
+        title: "¿Quieres activar este trabajador?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#6977E4",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Activar",
+      });
+      if (result.isConfirmed) {
+        await eliminarInformacionApi('trabajadorActivo', idCardWorker)
+        const nuevaInformacionI = informacionI.filter((datos) => datos.idCardWorker !== idCardWorker);
+        setInformacionI(nuevaInformacionI)
+
+        Swal.fire({
+          title: "Trabajador activado",
           icon: "success",
         });
       }
@@ -116,7 +141,7 @@ function ListarTrabajador() {
               </div>
             ))
           ) : (
-            <p>No hay trabajadores disponibles.</p>
+            <p>No hay trabajadores activos.</p>
           )}
         </div>
       )}
@@ -146,7 +171,7 @@ function ListarTrabajador() {
                   <div className="relative flex items-center gap-1">
                     <Tooltip content="Eliminar trabajador">
                       <span className="text-lg text-danger cursor-pointer active:opacity-50">
-                        <DeleteIcon eliminar={() => eliminarTrabajador(datos.idCardWorker)} />
+                        <DeleteIcon eliminar={() => activarTrabajador(datos.idCardWorker)} />
                       </span>
                     </Tooltip>
                   </div>
@@ -155,7 +180,7 @@ function ListarTrabajador() {
               </div>
             ))
           ) : (
-            <p>No hay trabajadores disponibles.</p>
+            <p>No hay trabajadores inactivos.</p>
           )}
         </div>
       )}
