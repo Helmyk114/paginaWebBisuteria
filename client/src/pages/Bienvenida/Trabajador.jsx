@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import '../Bienvenida/bienvenida.css'
 
 import PerfilIcono from "../../components/UI/iconos/Perfil";
 import ListaTrabajoIcono from "../../components/UI/iconos/ListaTrabajo";
@@ -9,6 +9,7 @@ import Footer from "../../components/UI/Footer/Footer";
 import { decodificarToken, obtenerToken } from "../../utils/token";
 import { detalleInformacionApi } from "../../api/productos";
 import NavigateTRJ, {Icono, Texto} from "../../components/UI/navbar/navbarTrabajador";
+import { Spacer } from "@nextui-org/react";
 
 
 function BienvenidaTrabajador() {
@@ -62,10 +63,28 @@ function BienvenidaTrabajador() {
         </div>
       )}
 
-      <PerfilIcono ruta="/perfil" />
-      <ListaTrabajoIcono ruta="/listaTrabajo/vendedor" />
-      <CerrarSesionIcono ruta="/" />
-
+<Spacer y={5} />
+      <div className=" cartas flex flex-col items-center" >
+        <div className=" cartaEspacio relative flex gap-4">
+          <div className="carta flex flex-col items-center">
+            <PerfilIcono className={"perfilPrincipal"} ruta="/perfil" />
+            <h1 className="textoPrincipal">Perfil</h1>
+          </div>
+          <Spacer x={2} />
+          <div className=" carta flex flex-col items-center">
+            <ListaTrabajoIcono ruta="/listaTrabajo/administracion" 
+            className={"listaTrabajo"}/>
+            <h1 className="textoPrincipal">Lista de trabajo</h1>
+          </div>
+          <Spacer x={2} />
+          <div className=" carta flex flex-col items-center">
+            <CerrarSesionIcono ruta="/" 
+            className={"producto"}/>
+            <h1 className="textoPrincipal">Cerrar sesión</h1>
+          </div>
+        </div>
+      </div>
+      <Spacer x={4} />
       <div className="footerBienvenido">
         <Footer />
       </div>

@@ -35,6 +35,14 @@
     .carta{
     padding:10px ;
     width: 100%;
+
+    }
+    .cerrarSesion, .trabajador, .pedidos, .perfilPrincipal, .listaTrabajo, .producto{
+        width: 50px;
+        
+    }
+    .textoPrincipal{
+        font-size: 13px;
     }
 
 }
@@ -45,6 +53,10 @@
         display: flex;
         justify-content: center;
     }
+    .cerrarSesion,.trabajador, .pedidos, .perfilPrincipal, .listaTrabajo, .producto{
+        width: 60px;
+        
+    }
 
 
 }
@@ -54,6 +66,10 @@
     padding: 30px;
     display: flex;
     justify-content: center;
+}
+.cerrarSesion,.trabajador, .pedidos, .perfilPrincipal, .listaTrabajo, .producto {
+    width: 60px;
+    
 }
 
 

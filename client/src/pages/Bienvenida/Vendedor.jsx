@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import '../Bienvenida/bienvenida.css'
 
 import PerfilIcono from "../../components/UI/iconos/Perfil";
 import PedidoIcono from "../../components/UI/iconos/Pedido";
@@ -10,6 +10,7 @@ import Footer from "../../components/UI/Footer/Footer";
 import { decodificarToken, obtenerToken } from "../../utils/token";
 import { detalleInformacionApi } from "../../api/productos";
 import NavigateVEN, {Icono, Texto} from "../../components/UI/navbar/navbarVendedor";
+import { Spacer } from "@nextui-org/react";
 
 function BienvenidaVendedor() {
   const [informacion, setInformacion] = useState([]);
@@ -64,11 +65,35 @@ function BienvenidaVendedor() {
           
         </div>
       )}
+      <Spacer y={5} />
+      <div className=" cartas flex flex-col items-center" >
+        <div className=" cartaEspacio relative flex gap-4">
+          <div className="carta flex flex-col items-center">
+            <PerfilIcono className={"perfilPrincipal"} ruta="/perfil" />
+            <h1 className="textoPrincipal">Perfil</h1>
+          </div>
+          <Spacer x={2} />
+          <div className=" carta flex flex-col items-center">
+            <ProductoIcono ruta="/productos/vendedor"
+            className={"producto"}/>
+            <h1 className="textoPrincipal">Productos</h1>
+          </div>
+        
+          <Spacer x={2} />
+          <div className=" carta flex flex-col items-center">
+            <PedidoIcono ruta="/pedidos/vendedor"
+            className={"pedidos"}/>
+            <h1 className="textoPrincipal">Crear pedidos</h1>
+          </div>
+          <div className=" carta flex flex-col items-center">
+            <CerrarSesionIcono ruta="/" 
+            className={"producto"}/>
+            <h1 className="textoPrincipal">Cerrar sesión</h1>
+          </div>
+        </div>
+      </div>
+      <Spacer x={4} />
 
-      <PerfilIcono ruta="/perfil" />
-      <ProductoIcono ruta="/productos/vendedor" />
-      <PedidoIcono ruta="/pedidos/vendedor" />
-      <CerrarSesionIcono ruta="/" />
 
       <div className="footerBienvenido">
         <Footer />
@@ -78,3 +103,4 @@ function BienvenidaVendedor() {
 }
 
 export default BienvenidaVendedor;
+

@@ -2,8 +2,6 @@ import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import "./login.css";
 
-import Logo from "../../img/1-removebg-preview - copia.png";
-
 import { Spacer } from "@nextui-org/react";
 import BotonEnviar from "../../components/UI/botones/botonEnviar";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
@@ -85,6 +83,7 @@ function Login() {
             labelPlacement="outside"
             placeholder={"Escriba su usuario"}
             size="md"
+            fontSize={"14px"}
           />
           {errors.userName && <span>{errors.userName.message}</span>}
 
@@ -102,6 +101,7 @@ function Login() {
             labelPlacement={"outside"}
             placeholder={"Escriba su constraseña"}
             size="md"
+            fontSize={"14px"}
           />
           {errors.password && <span>{errors.password.message}</span>}
 
@@ -111,6 +111,7 @@ function Login() {
 
           <Spacer y={4} />
         </form>
+     
       </div>
     </div>
   );
