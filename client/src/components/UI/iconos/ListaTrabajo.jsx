@@ -1,16 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const listaTrabajoIcono = ({ ruta }) => {
+const listaTrabajoIcono = ({ ruta, className }) => {
   return (
     <Link to={ruta}>
       <div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="76"
-          height="76"
+          
           fill="currentColor"
-          className="bi bi-file-earmark-text-fill"
+          className={className}
           viewBox="0 0 16 16"
           color="#6977E4"
         >

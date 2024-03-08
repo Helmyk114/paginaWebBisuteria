@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const TrabajadorIcono = ({ ruta }) => {
+const TrabajadorIcono = ({ ruta, className }) => {
   return (
     <Link to={ruta}>
       <div>
@@ -10,7 +10,7 @@ const TrabajadorIcono = ({ ruta }) => {
           width="76"
           height="76"
           fill="currentColor"
-          className="bi bi-people-fill"
+          className={className}
           viewBox="0 0 16 16"
           color="#6977E4"
         >

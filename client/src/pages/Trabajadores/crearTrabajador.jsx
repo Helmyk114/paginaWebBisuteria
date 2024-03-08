@@ -304,7 +304,7 @@ function CrearTrabajador() {
       <Spacer y={4} />
       <div style={{ position: "absolute", bottom: "-45%", width: "100%" }}>
       <Spacer y={4} />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   );

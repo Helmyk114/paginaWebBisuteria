@@ -3,7 +3,8 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    margin: 0;
+    margin: 0; 
+    
 }
 
 .form-login {
@@ -63,11 +64,14 @@ span {
 /* Estilos para celulares */
 @media (max-width: 767px) {
     .form-container {
-        margin-top: -25px;
         width: 80%;
-        height: 42%;
+        height: 52%;
         position: relative;
-        top: 18%;
+        top: 10%
+    
+    }
+    .body-login{
+        max-height: 750px;
     }
 
     .titulo1 {
@@ -91,10 +95,13 @@ span {
 /* Estilos para tabletas */
 @media (min-width: 767px) and (max-width: 1023px) {
     .form-container {
-        margin-top: 150px;
+        
         width: 80%;
         position: relative;
-        height: 500px;
+        height: 450px;
+    }
+    .body-login{
+        max-height: 700px;
     }
 
     .titulo1 {
@@ -118,10 +125,13 @@ span {
 /* Estilos para computadores */
 @media (min-width: 1024px) {
     .form-container {
-        margin-top: 150px;
         width: 50%;
         position: relative;
-        height: 50%;
+        height: 500px;
+        padding: 50px;
+    }
+    .body-login{
+        max-height: 700px;
     }
 
     .titulo1 {

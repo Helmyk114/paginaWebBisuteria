@@ -66,17 +66,19 @@ function BienvenidaAdmi() {
       <div className=" cartas flex flex-col items-center">
         <div className=" cartaEspacio relative flex gap-4">
           <div className="carta flex flex-col items-center">
-            <PerfilIcono className="icono" ruta="/perfil" />
+            <PerfilIcono className={"perfilPrincipal"} ruta="/perfil" />
             <h1 className="textoPrincipal">Perfil</h1>
           </div>
           <Spacer x={2} />
           <div className=" carta flex flex-col items-center">
-            <ListaTrabajoIcono ruta="/listaTrabajo/administracion" />
+            <ListaTrabajoIcono ruta="/listaTrabajo/administracion" 
+            className={"listaTrabajo"}/>
             <h1 className="textoPrincipal">Lista de trabajo</h1>
           </div>
           <Spacer x={2} />
           <div className=" carta flex flex-col items-center">
-            <ProductoIcono ruta="/productos" />
+            <ProductoIcono ruta="/productos" 
+            className={"producto"}/>
             <h1 className="textoPrincipal">Productos</h1>
           </div>
         </div>
@@ -87,17 +89,20 @@ function BienvenidaAdmi() {
       <div className="flex flex-col items-center">
         <div className=" cartaEspacio relative flex gap-4">
           <div className= " carta flex flex-col items-center" >
-            <TrabajadorIcono ruta="/trabajadores" />
+            <TrabajadorIcono ruta="/trabajadores" 
+            className={"trabajador"}/>
             <h1 className="textoPrincipal">Trabajadores</h1>
           </div>
           <Spacer x={2} />
           <div className=" carta flex flex-col items-center">
-            <PedidoIcono ruta="/pedidos/administracion" />
+            <PedidoIcono ruta="/pedidos/administracion"
+            className={"pedidos"} />
             <h1 className="textoPrincipal">Pedidos</h1>
           </div>
           <Spacer x={2} />
           <div className=" carta flex flex-col items-center">
-            <CerrarSesionIcono ruta="/" />
+            <CerrarSesionIcono ruta="/" 
+            className={"cerrarSesion"}/>
             <h1 className="textoPrincipal">Cerrar sesión</h1>
           </div>
         </div>
