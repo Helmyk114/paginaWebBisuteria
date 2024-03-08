@@ -1,17 +1,7 @@
 import React from "react";
 import "./navbar.css";
 
-import {
-  Link,
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenu,
-  NavbarMenuItem,
-  NavbarMenuToggle,
-} from "@nextui-org/react";
-
+import { Link, Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from "@nextui-org/react";
 import Avatares from "../avatar/Avatares";
 import Campana from "../iconos/Notificacion";
 import BotonRetroceder from "../iconos/Retroceder";
@@ -103,13 +93,11 @@ const Texto = ({ titulo, nombre, rol }) => {
         >
           {nombre}
         </h2>
-
         <h3
           className="rol"
           style={{
             marginTop: "-9px",
             marginBottom: "15px",
-            //PONER EL ITALIC
             fontFamily: "Roboto, sans-serif",
             fontSize: "12px",
             color: "#fff",
@@ -227,8 +215,6 @@ const Inicios = () => {
     </NavbarContent>
   );
 };
-
-
 
 const DesplegableADM = () => {
   const menuItems = [
