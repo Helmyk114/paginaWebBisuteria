@@ -51,8 +51,8 @@ function CrearPedido() {
 			clientPhone: data.clientPhone
 		};
 		const orden = {
-			idCardClient: data.idCardClient,
 			idCardWorker: `${id}`,
+			//total: "",
 			idState: "1"
 		};
 		let idsProductos = [];
@@ -60,12 +60,13 @@ function CrearPedido() {
 		state.selectedProducts.forEach(producto => {
 			idsProductos.push(producto.idProduct);
 		});
-		const productos = {
+		const detallepProductos = {
 			idProduct: idsProductos,
 			quantity: "10",
-			total: "20"
+			subtotal: "20",
+			//idOrder: ""
 		};
-		console.log(productos)
+
 
 		try {
 			// const infoClient = await detalleInformacionApi('cliente', data.idCardClient)
@@ -77,7 +78,7 @@ function CrearPedido() {
 			// await añadirInformacionSinImagenAPI(orden, 'orden');
 			Swal.fire({
 				icon: "success",
-				title: "Se ha creado un trabajador!",
+				title: "Se ha enviado su pedido!",
 				showConfirmButton: false,
 				timer: 1500
 			});
@@ -85,7 +86,7 @@ function CrearPedido() {
 			console.error('Error al crear un cliente', error)
 			Swal.fire({
 				icon: "error",
-				title: "No Se puede crear un trabajador!",
+				title: "No Se puede enviar su pedido!",
 				showConfirmButton: false,
 				timer: 1500
 			});
@@ -98,9 +99,7 @@ function CrearPedido() {
 				<Retroceder />
 				<Titulo espacio="center" titulo="Crear pedido" />
 			</NavigateVEN>
-
       <Spacer y={4} />
-
 			<form onSubmit={handleSubmit(onSubmit)}>
 				{/* <Acordeon titulo={'Datos del cliente'}>
 					<div className="gap-4" style={{ display: "grid", gridTemplateColumns: "2fr 2fr" }}>

@@ -7,12 +7,12 @@ import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/c
 import Loader from "../../components/UI/cargando/loader";
 import Avatares from "../../components/UI/avatar/Avatares";
 import EditIcon from "../../components/UI/iconos/Editar";
+import Acordeon from "../../components/UI/Acordeon/Acordeon";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
 import Footer from "../../components/UI/Footer/Footer";
 
-import { eliminarInformacionApi, listarInformacionApi } from "../../api/productos";
 import Swal from 'sweetalert2'
-import Acordeon from "../../components/UI/Acordeon/Acordeon";
+import { cambiarEstadoInformacionApi, listarInformacionConParametroApi } from "../../api/productos";
 
 function ListarTrabajador() {
   const [informacionA, setInformacionA] = useState([]);
@@ -23,8 +23,8 @@ function ListarTrabajador() {
   useEffect(() => {
     const data = async () => {
       try {
-        const informacionTrabajadorA = await listarInformacionApi('trabajadoresActivos');
-        const informacionTrabajadorI = await listarInformacionApi('trabajadoresInactivos');
+        const informacionTrabajadorA = await listarInformacionConParametroApi('trabajador/Activo-Inactivo', "4");
+        const informacionTrabajadorI = await listarInformacionConParametroApi('trabajador/Activo-Inactivo', "5");
         setInformacionA(informacionTrabajadorA.data);
         setInformacionI(informacionTrabajadorI.data)
         setCargando(false);
@@ -47,7 +47,7 @@ function ListarTrabajador() {
         confirmButtonText: "Eliminar",
       });
       if (result.isConfirmed) {
-        await eliminarInformacionApi('trabajadorInactivo', idCardWorker)
+        await cambiarEstadoInformacionApi('trabajador/Activo-Inactivo', idCardWorker, "5")
         const nuevaInformacionA = informacionA.filter((datos) => datos.idCardWorker !== idCardWorker);
         const nuevaInformacionI = informacionI.filter((datos) => datos.idCardWorker !== idCardWorker);
         setInformacionA(nuevaInformacionA)
@@ -74,7 +74,7 @@ function ListarTrabajador() {
         confirmButtonText: "Activar",
       });
       if (result.isConfirmed) {
-        await eliminarInformacionApi('trabajadorActivo', idCardWorker)
+        await cambiarEstadoInformacionApi('trabajador/Activo-Inactivo', idCardWorker, "4")
         const nuevaInformacionI = informacionI.filter((datos) => datos.idCardWorker !== idCardWorker);
         setInformacionI(nuevaInformacionI)
 

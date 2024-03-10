@@ -3,7 +3,6 @@ import axios from "axios";
 const raizUrl = process.env.REACT_APP_API_URL;
 
 async function añadirInformacionAPI(producto, endPoint) {
-
   const url = `${raizUrl}/${endPoint}`
 
   try {
@@ -20,7 +19,6 @@ async function añadirInformacionAPI(producto, endPoint) {
 };
 
 async function añadirInformacionSinImagenAPI(producto, endPoint) {
-
   const url = `${raizUrl}/${endPoint}`
 
   try {
@@ -33,7 +31,6 @@ async function añadirInformacionSinImagenAPI(producto, endPoint) {
 };
 
 async function listarInformacionApi(endPoint) {
-
   const url = `${raizUrl}/${endPoint}`
 
   try {
@@ -45,11 +42,23 @@ async function listarInformacionApi(endPoint) {
   }
 };
 
-async function eliminarInformacionApi(endPoint, id) {
+async function listarInformacionConParametroApi(endPoint, parametro) {
   const url = `${raizUrl}/${endPoint}`
 
   try {
-    const response = await axios.put(`${url}/${id}`)
+    const response = await axios.get(`${url}/${parametro}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error en al API listar con parametro:", error);
+    return [];
+  }
+};
+
+async function cambiarEstadoInformacionApi(endPoint, id, estado) {
+  const url = `${raizUrl}/${endPoint}`
+
+  try {
+    const response = await axios.put(`${url}/${id}/${estado}`)
     return response.data;
   } catch (error) {
     throw error;
@@ -105,7 +114,8 @@ export {
   añadirInformacionAPI,
   añadirInformacionSinImagenAPI,
   listarInformacionApi,
-  eliminarInformacionApi,
+  listarInformacionConParametroApi,
+  cambiarEstadoInformacionApi,
   detalleInformacionApi,
   actualizarInformacionApi,
   actualizarInformacionSinImagenApi

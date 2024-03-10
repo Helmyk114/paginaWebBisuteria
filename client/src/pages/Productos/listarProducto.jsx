@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { eliminarInformacionApi, listarInformacionApi } from "../../api/productos";
+import { cambiarEstadoInformacionApi, listarInformacionConParametroApi } from "../../api/productos";
 import Swal from "sweetalert2";
 
 import { Spacer, Tooltip } from "@nextui-org/react";
@@ -23,8 +23,8 @@ function ListarProducto() {
 	useEffect(() => {
 		const data = async () => {
 			try {
-				const informacionProductoA = await listarInformacionApi('productosActivos');
-				const informacionProductoI = await listarInformacionApi('productosInactivos');
+				const informacionProductoA = await listarInformacionConParametroApi('productos/Activo-Inactivo', "4");
+				const informacionProductoI = await listarInformacionConParametroApi('productos/Activo-Inactivo', "5");
 				setInformacionA(informacionProductoA.data);
 				setInformacionI(informacionProductoI.data);
 				setCargando(false);
@@ -47,7 +47,7 @@ function ListarProducto() {
 				confirmButtonText: "Eliminar"
 			});
 			if (result.isConfirmed) {
-				await eliminarInformacionApi('productoInactivo', idProduct)
+				await cambiarEstadoInformacionApi('producto/Activo-Inactivo', idProduct, "5")
 				const nuevaInformacionA = informacionA.filter((datos) => datos.idProduct !== idProduct);
 				const nuevaInformacionI = informacionI.filter((datos) => datos.idProduct !== idProduct);
 				setInformacionA(nuevaInformacionA)
@@ -74,17 +74,17 @@ function ListarProducto() {
 				confirmButtonText: "Activar"
 			});
 			if (result.isConfirmed) {
-				await eliminarInformacionApi('productoActivo', idProduct)
+				await cambiarEstadoInformacionApi('producto/Activo-Inactivo', idProduct, "4")
 				const nuevaInformacionI = informacionI.filter((datos) => datos.idProduct !== idProduct);
 				setInformacionI(nuevaInformacionI)
 
 				Swal.fire({
-					title: "Producto elimindao",
+					title: "Producto activado",
 					icon: "success"
 				});
 			}
 		} catch (error) {
-			console.error('error al eliminar: ', error)
+			console.error('error al activar producto: ', error)
 		}
 	};
 
