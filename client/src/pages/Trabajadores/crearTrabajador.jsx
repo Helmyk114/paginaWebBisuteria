@@ -60,8 +60,6 @@ function CrearTrabajador() {
   };
 
   return (
-
-
     <div>
       <NavigateADM>
         <Retroceder />
