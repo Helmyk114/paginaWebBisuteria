@@ -33,6 +33,10 @@ function CrearPedido() {
 	const id = decodificarToken(token).userId;
 	const mensaje = 'Este campo es requerido'
 
+	const handleComprarClick = (precioJSON) => {
+		console.log("Información del precio en formato JSON:", precioJSON);
+	  };
+
 	const refs = useRef({
 		idCardClient: null,
 		clientname: null,
@@ -203,7 +207,7 @@ function CrearPedido() {
 					))}
 				</Acordeon>
 				<Spacer y={5} />
-				<BotonComprar2 text={"Comprar"} precio={"30.000"} />
+				<BotonComprar2 text={"Comprar"} precio={"30.000"} onClick={handleComprarClick}/>
 			</form>
 				<Footer />
 
