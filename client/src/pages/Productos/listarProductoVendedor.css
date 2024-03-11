@@ -8,7 +8,15 @@
     flex-basis: 200;
 }
 
-.item2{
-    flex-grow: 1;
-    flex-basis: 200;
-}
+@media (max-width: 768px) {
+    .grid{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .item{
+        flex-grow: 1;
+        flex-basis: 200;
+    }
+    
+  }

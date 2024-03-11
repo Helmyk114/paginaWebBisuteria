@@ -41,3 +41,49 @@
 }
 
 
+/* estilos de la tarjeta  */
+.cont1ListaP{
+    
+    margin-bottom: 30px;
+}
+
+.card1ListaP{
+position: absolute;
+
+}
+.cont2ListaP{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.contTexto1P{
+    margin-bottom: 55px;
+}
+.card2ListaP{
+    display: flex;
+    justify-content: space-between;
+    width: 254px;
+    height: 95px;
+    position: relative;
+    background-color: #eeee;
+    border-radius: 8px;
+
+}
+
+
+.contTexto2P{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin: 10px;
+    font-size: 10px;
+    
+
+}
+.contIconoP{
+    display: flex;
+    justify-content: space-between;
+    margin: 8px;
+    align-items: flex-start;
+}

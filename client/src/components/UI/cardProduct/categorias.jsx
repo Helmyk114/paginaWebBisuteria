@@ -22,11 +22,9 @@ const Categorias = () => {
         <Card key={index} className="card3" style={{ backgroundColor: "#454F96" }}>
           <Image
             alt={category.name}
-            className="object-cover"
-            height="200px"
+            className="img"
             objectFit="cover"
             src={category.img}
-            width="100px"
           />
           <Button className="card-footer boton-personalizado">
             <div className="category-name">{category.name}</div>
