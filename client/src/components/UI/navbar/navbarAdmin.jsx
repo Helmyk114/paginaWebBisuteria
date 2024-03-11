@@ -171,7 +171,7 @@ const CerrarSesion = () => {
   );
 };
 
-const PerfilTra = () => {
+const Perfil = () => {
   return (
     <NavbarContent style={{ marginTop: "0px", color: "#6977E4" }}>
       <NavbarItem>
