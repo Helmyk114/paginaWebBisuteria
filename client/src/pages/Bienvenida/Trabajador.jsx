@@ -67,7 +67,7 @@ function BienvenidaTrabajador() {
       <div className=" cartas flex flex-col items-center" >
         <div className=" cartaEspacio relative flex gap-4">
           <div className="carta flex flex-col items-center">
-            <PerfilIcono className={"perfilPrincipal"} ruta="/perfil" />
+            <PerfilIcono className={"perfilPrincipal"} ruta="/perfil/Trabajador" />
             <h1 className="textoPrincipal">Perfil</h1>
           </div>
           <Spacer x={2} />

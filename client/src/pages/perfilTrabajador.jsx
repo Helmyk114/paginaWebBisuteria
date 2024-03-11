@@ -11,9 +11,10 @@ import { decodificarToken, obtenerToken } from "../utils/token";
 
 import { Link } from "react-router-dom";
 import BotonCantidad from "../components/UI/botones/botonCantidad";
-import NavigateADM, { Retroceder, Titulo } from "../components/UI/navbar/navbarAdmin";
+import NavigateVEN, { Retroceder, Titulo } from "../components/UI/navbar/navbarVendedor";
+import BotonRetroceder from "../components/UI/iconos/Retroceder";
 
-export default function Perfilinfo() {
+export default function PerfilinfoTrabajador() {
 
   const [informacion, setInformacion] = useState([]);
   const [cargando, setCargando] = useState(true);
@@ -37,10 +38,10 @@ export default function Perfilinfo() {
 
   return (
     <div>
-      <NavigateADM>
-        <Retroceder />
+      <NavigateVEN>
+        <BotonRetroceder />
         <Titulo espacio="center" titulo="Perfil" />
-      </NavigateADM>
+      </NavigateVEN>
 
       {cargando ? (
         <Loader />
