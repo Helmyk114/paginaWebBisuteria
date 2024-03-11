@@ -1,17 +1,13 @@
 .grid-container {
   display: flex;
-
-  gap: 10px;
-  margin-left: 180px;
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
+  gap: 50px;
+  margin-left: 400px;
 }
 
 .card3 {
   width: 100px;
   height: 130px;
-  position: relative;
+  position: flex;
   overflow: hidden;
   border-radius: 20px;
   margin-bottom: 25px;
@@ -59,9 +55,19 @@
   width: 100%;
 }
 
+.img{
+  width: 100px;
+  height: 100px;
+}
 @media (max-width: 768px) {
-  .card {
-    width: 50px;
+  .card3 {
+    width: 70px;
+    height: 70px;
+  }
+
+  .img {
+    width: 70px;
+    height: 70px;
   }
 }
 
