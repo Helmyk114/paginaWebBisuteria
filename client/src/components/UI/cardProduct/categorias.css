@@ -1,6 +1,6 @@
 .grid-container {
   display: flex;
-  
+
   gap: 10px;
   margin-left: 180px;
   @media (max-width: 768px) {
@@ -8,7 +8,7 @@
   }
 }
 
-.card {
+.card3 {
   width: 100px;
   height: 130px;
   position: relative;

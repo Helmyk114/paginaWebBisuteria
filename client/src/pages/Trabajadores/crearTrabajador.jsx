@@ -249,7 +249,7 @@ function CrearTrabajador() {
         </form>
       </div>
       <Spacer y={4} />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

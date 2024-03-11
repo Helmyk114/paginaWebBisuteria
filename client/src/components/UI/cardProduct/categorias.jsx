@@ -19,7 +19,7 @@ const Categorias = () => {
   return (
     <div className="grid-container">
       {categories.map((category, index) => (
-        <Card key={index} className="card" style={{ backgroundColor: "#454F96" }}>
+        <Card key={index} className="card3" style={{ backgroundColor: "#454F96" }}>
           <Image
             alt={category.name}
             className="object-cover"
