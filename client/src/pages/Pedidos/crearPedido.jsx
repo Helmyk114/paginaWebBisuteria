@@ -20,6 +20,8 @@ import Swal from "sweetalert2";
 import { actualizarInformacionSinImagenApi, añadirInformacionSinImagenAPI, detalleInformacionApi } from "../../api/productos";
 import { decodificarToken, obtenerToken } from "../../utils/token";
 import NavigateVEN, { Retroceder, Titulo } from "../../components/UI/navbar/navbarVendedor";
+import BotonEnviar2 from "../../components/UI/botones/BotonComprarProductos";
+import BotonComprar2 from "../../components/UI/botones/botonCompraPedido";
 
 function CrearPedido() {
 
@@ -30,6 +32,10 @@ function CrearPedido() {
 	const token = obtenerToken();
 	const id = decodificarToken(token).userId;
 	const mensaje = 'Este campo es requerido'
+
+	const handleComprarClick = (precioJSON) => {
+		console.log("Información del precio en formato JSON:", precioJSON);
+	  };
 
 	const refs = useRef({
 		idCardClient: null,
@@ -201,12 +207,9 @@ function CrearPedido() {
 					))}
 				</Acordeon>
 				<Spacer y={5} />
-				<BotonEnviar text={"Comprar"} type={"Submit"} />
+				<BotonComprar2 text={"Comprar"} precio={"30.000"} onClick={handleComprarClick}/>
 			</form>
-			<Spacer y={4} />
-			<div style={{ position: "flex", bottom: "0%", width: "100%", marginTop: "190px" }}>
 				<Footer />
-			</div>
 
 		</div>
 	);

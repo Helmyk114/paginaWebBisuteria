@@ -1,0 +1,60 @@
+/* BotonComprar.css */
+
+.container {
+  width: 100%;
+  height: 90px;
+  background-color: #454F96;
+  border-top-left-radius: 55px;
+  border-top-right-radius: 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  width: 500px;
+  height: 50px;
+  background-color: #6977E4;
+  color: #fff;
+  font-weight: bold;
+  font-family: Roboto, sans-serif;
+  font-size: 30px;
+  border-radius: 10px;
+}
+
+/* Media query para pantallas de hasta 768px (tablet) */
+@media only screen and (max-width: 768px) {
+  .container {
+      height: 80px;
+      border-top-left-radius: 45px;
+      border-top-right-radius: 45px;
+  }
+
+  .button {
+      width: 250px;
+      height: 35px;
+      margin-bottom: 0px;
+      font-size: 18px;
+  }
+
+}
+
+/* Media query para pantallas de hasta 480px (móvil) */
+@media only screen and (max-width: 480px) {
+  .container {
+      height: 60px;
+      border-top-left-radius: 35px;
+      border-top-right-radius: 35px;
+  }
+
+  .button {
+      width: 200px;
+      height: 30px;
+      margin-bottom: 0px;
+      font-size: 16px;
+  }
+
+}
+
+  
