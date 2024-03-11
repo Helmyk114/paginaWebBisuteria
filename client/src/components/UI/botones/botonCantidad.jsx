@@ -1,44 +1,43 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import { ButtonGroup, Button } from '@nextui-org/react';
-import '../../../components/UI/botones/botones.css'
+import '../../../components/UI/botones/botones.css';
 
 function BotonCantidad({ onPriceChange, precio }) {
   const [number, setNumber] = useState(1);
-  const [price, setPrice] = useState(precio);
-console.log(precio)
+  const [newPrice, setNewPrice] = useState(precio);
 
-  const calculatePrice = () => {
-    const newPrice = number * precio; // Calculate the new price based on the count and product price
-    setPrice(newPrice); // Update the price state
-    onPriceChange(newPrice); // Pass the new price to the parent component
-  };
+  useEffect(() => {
+    const updatedPrice = number * precio;
+    setNewPrice(updatedPrice);
+    onPriceChange(updatedPrice);
+  }, [number, precio, onPriceChange]);
 
   const increaseNumber = () => {
-    setNumber(number + 1);
-    calculatePrice();
+    setNumber(prevNumber => prevNumber + 1);
   };
 
   const decreaseNumber = () => {
     if (number > 1) {
-      setNumber(number - 1);
-      calculatePrice();
+      setNumber(prevNumber => prevNumber - 1);
     }
   };
 
   return (
-    <div className='btnCan' >
-      <ButtonGroup >
-        <Button variant="ghost" className='btnmm' onClick={decreaseNumber}>-</Button>
-        <Button isDisabled className='numero'
-          value={number}
-          onChange={(e) => setNumber(parseInt(e.target.value) || 1)}
-        >
+    <div className='btnCan'>
+      <div>Nuevo precio: ${newPrice}</div>
+      <ButtonGroup>
+        <Button variant="ghost" className='btnmm' onClick={decreaseNumber}>
+          -
+        </Button>
+        <Button isDisabled className='numero'>
           {number}
         </Button>
-        <Button className='btnm' variant="ghost" onClick={increaseNumber}>+</Button>
+        <Button className='btnm' variant="ghost" onClick={increaseNumber}>
+          +
+        </Button>
       </ButtonGroup>
     </div>
   );
-};
+}
 
 export default BotonCantidad;
