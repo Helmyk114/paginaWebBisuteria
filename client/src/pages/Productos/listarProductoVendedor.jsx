@@ -10,6 +10,7 @@ import Loader from "../../components/UI/cargando/loader";
 import Footer from "../../components/UI/Footer/Footer";
 
 import { listarInformacionApi } from "../../api/productos";
+import BotonComprar from "../../components/UI/botones/BotonComprarProductos";
 
 export default function ListProduct() {
   const [informacion, setInformacion] = useState([]);
@@ -78,11 +79,9 @@ export default function ListProduct() {
           )}
         </div>
       )}
-
-      {/* Botón para ir a la vista /crear/pedidos */}
-      <Button onClick={handleCrearPedidosClick}>Crear Pedidos</Button>
-
+      <BotonComprar onClick={handleCrearPedidosClick} text={"Comprar"} type={"Submit"}/>
       <Footer />
+        
     </div>
   );
 }
