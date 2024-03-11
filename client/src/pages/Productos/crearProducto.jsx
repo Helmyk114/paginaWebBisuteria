@@ -155,7 +155,7 @@ function CrearProducto() {
               labelPlacement="outside"
               placeholder="Seleccione una categoria"
               size="md"
-              apiEndpoint="categoria"
+              apiEndpoint="categorias"
               idOpcion="idCategory"
               texto="categorys"
             />

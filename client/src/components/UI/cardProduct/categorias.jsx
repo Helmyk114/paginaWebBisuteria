@@ -1,56 +1,38 @@
 import React from "react";
-import { Spacer } from "@nextui-org/react";
-import './categorias.css';
-import imgC from "../../../img/pulsera.jpg";
-import imgC2 from "../../../img/are.jpg";
-import imgC3 from "../../../img/anillo.jpg";
-import imgC4 from "../../../img/cho.jpg";
-import imgC5 from "../../../img/del.jpg";
+import { Card, Image, Button } from "@nextui-org/react";
+import "./categorias.css";
+import img1 from "../../../../src/img2/anillo.png";
+import img2 from "../../../../src/img2/collar.png";
+import img3 from "../../../../src/img2/joyeria.png";
+import img4 from "../../../../src/img2/perla (1).png";
+import img5 from "../../../../src/img2/pulsera (2).png";
 
-export default function Categorias() {
+const Categorias = () => {
+  const categories = [
+    { name: "Cadenas", img: img3 },
+    { name: "Anillos", img: img1 },
+    { name: "Collares", img: img2 },
+    { name: "Pulseras", img: img5 },
+    { name: "Aretes", img: img4 },
+  ];
+
   return (
-    <div className="flex gap-4 items-center justify-center" style={{marginBottom:'30px'}}>
-      <a href="todas-las-categorias">
-        <figure className="figure relative w-full h-40 sm:w-32 md:w-24">
-          <img src={imgC5} alt="Imagen" className="figure__img" />
-          <figcaption className="figure__caption texto">
-            Todo
-          </figcaption>
-        </figure>
-      </a>
-      <a href="pulseras">
-        <figure className="figure relative w-full h-40 sm:w-32 md:w-24">
-          <img src={imgC} alt="Imagen" className="figure__img" />
-          <figcaption className="figure__caption texto">
-            Pulseras
-          </figcaption>
-        </figure>
-      </a>
-      <a href="aretes">
-        <figure className="figure relative w-full h-40 sm:w-32 md:w-24">
-          <img src={imgC2} alt="Imagen" className="figure__img" />
-          <figcaption className="figure__caption texto">
-            Aretes
-          </figcaption>
-        </figure>
-      </a>
-      <a href="chockers">
-        <figure className="figure relative w-full h-40 sm:w-32 md:w-24">
-          <img src={imgC4} alt="Imagen" className="figure__img" />
-          <figcaption className="figure__caption texto">
-            Chockers
-          </figcaption>
-        </figure>
-      </a>
-      <a href="anillos">
-        <figure className="figure relative w-full h-40 sm:w-32 md:w-24">
-          <img src={imgC3} alt="Imagen" className="figure__img" />
-          <figcaption className="figure__caption texto">
-            Anillos
-          </figcaption>
-        </figure>
-      </a>
-      <Spacer y={8} />
+    <div className="grid-container">
+      {categories.map((category, index) => (
+        <Card key={index} className="card3" style={{ backgroundColor: "#454F96" }}>
+          <Image
+            alt={category.name}
+            className="img"
+            objectFit="cover"
+            src={category.img}
+          />
+          <Button className="card-footer boton-personalizado">
+            <div className="category-name">{category.name}</div>
+          </Button>
+        </Card>
+      ))}
     </div>
   );
-}
+};
+
+export default Categorias;

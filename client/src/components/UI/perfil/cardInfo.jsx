@@ -35,7 +35,7 @@ export function Texto1Card({ className, texto, fontSize, fontWeight, color, text
 
 export function Texto2Card({ className, texto2, fontSize, fontWeight, color }) {
   return (
-    <h5 className={className} style={{ fontFamily: "Roboto, sans-serif", fontSize: fontSize || "14px", fontWeight: fontWeight || "100", color: color || "#000"}}>
+    <h5 className={className} style={{ fontFamily: "Roboto, sans-serif", fontSize: fontSize || "15px", fontWeight: fontWeight || "400", color: color || "#000"}}>
       {texto2}
     </h5>
   );
