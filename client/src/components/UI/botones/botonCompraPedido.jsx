@@ -3,12 +3,13 @@ import React from "react";
 import { Button } from "@nextui-org/react";
 import "./contenedor2.css"; // Ajusta la ruta según la ubicación real del archivo CSS
 
-export default function BotonComprar2({ fontSize, text, type, precio = "0", ...props }) {
+export default function BotonComprar2({ fontSize, text, type, precio = "0", key, ...props }) {
  
 
   return (
     <div className="container">
       <Button
+      
         radius="full"
         type="submit"
  
@@ -19,7 +20,7 @@ export default function BotonComprar2({ fontSize, text, type, precio = "0", ...p
       </Button>
       
 
-      <label className="label">{precio}</label>
+      <label className="label" key={key}>{precio}</label>
       
     </div>
   );

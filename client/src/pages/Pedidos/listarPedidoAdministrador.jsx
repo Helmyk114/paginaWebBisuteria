@@ -48,14 +48,8 @@ function ListarPedidoAdministrador() {
 									height={"35px"} />
 							</div>
 							 </div>
-							
-							
-
 						  </div>
 						 
-			
-					
-						
 				</CardPerfil>
 			<BotonComprar text={"Comprar"} type={"Submit"}/>
 			<Footer />
