@@ -9,7 +9,7 @@ import Categorias from "../../components/UI/cardProduct/categorias";
 import Loader from "../../components/UI/cargando/loader";
 import Footer from "../../components/UI/Footer/Footer";
 
-import { listarInformacionApi } from "../../api/productos";
+import { listarInformacionConParametroApi } from "../../api/productos";
 
 export default function ListProduct() {
   const [informacion, setInformacion] = useState([]);
@@ -21,7 +21,7 @@ export default function ListProduct() {
   useEffect(() => {
     const data = async () => {
       try {
-        const informacionProducto = await listarInformacionApi('productos');
+        const informacionProducto = await listarInformacionConParametroApi('productos/Activo-Inactivo',"4");
         setInformacion(informacionProducto.data);
         setCargando(false);
       } catch (error) {
