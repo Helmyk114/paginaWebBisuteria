@@ -53,11 +53,7 @@ const Titulo = ({ titulo, espacio }) => {
       <NavbarItem>
         <h1
           className="titulo"
-          style={{
-            fontFamily: "Bebas Neue, sans-serif",
-            fontSize: "30px",
-            color: "#fff",
-          }}
+          style={{ fontFamily: "Bebas Neue, sans-serif", fontSize: "30px", color: "#fff" }}
         >
           {titulo}
         </h1>
@@ -72,36 +68,19 @@ const Texto = ({ titulo, nombre, rol }) => {
       <NavbarItem>
         <h1
           className="titulo"
-          style={{
-            marginTop: "35px",
-            marginBottom: "5px",
-            fontFamily: "Bebas Neue, sans-serif",
-            fontSize: "40px",
-            color: "#fff",
-          }}
+          style={{ marginTop: "35px", marginBottom: "5px", fontFamily: "Bebas Neue, sans-serif", fontSize: "40px", color: "#fff" }}
         >
           {titulo}
         </h1>
         <h2
           className="nombre"
-          style={{
-            marginTop: "5px",
-            fontFamily: "Roboto, sans-serif",
-            fontSize: "16px",
-            color: "#fff",
-          }}
+          style={{ marginTop: "5px", fontFamily: "Roboto, sans-serif", fontSize: "16px", color: "#fff" }}
         >
           {nombre}
         </h2>
         <h3
           className="rol"
-          style={{
-            marginTop: "-9px",
-            marginBottom: "15px",
-            fontFamily: "Roboto, sans-serif",
-            fontSize: "12px",
-            color: "#fff",
-          }}
+          style={{ marginTop: "-9px", marginBottom: "15px", fontFamily: "Roboto, sans-serif", fontSize: "12px", color: "#fff" }}
         >
           {rol}
         </h3>
@@ -192,7 +171,7 @@ const CerrarSesion = () => {
   );
 };
 
-const Perfil = () => {
+const PerfilTra = () => {
   return (
     <NavbarContent style={{ marginTop: "0px", color: "#6977E4" }}>
       <NavbarItem>

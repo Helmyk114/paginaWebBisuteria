@@ -5,7 +5,7 @@ import "../Trabajadores/trabajadores.css";
 import Swal from "sweetalert2";
 
 import { Card, Spacer } from "@nextui-org/react";
-
+import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 import SubirImagen from "../../components/UI/formulario/Imagen/imagen";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import InputPassword from "../../components/UI/formulario/Inputs/password/inputPassword";
@@ -14,15 +14,10 @@ import BotonEnviar from "../../components/UI/botones/botonEnviar";
 import Footer from "../../components/UI/Footer/Footer";
 
 import { añadirInformacionAPI } from "../../api/productos";
-import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 
 
 function CrearTrabajador() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const [selectedImage, setSelectedImage] = useState();
   const refs = useRef({
     workerName: null,
@@ -65,14 +60,12 @@ function CrearTrabajador() {
   };
 
   return (
-
-    
     <div>
       <NavigateADM>
         <Retroceder />
         <Titulo espacio="center" titulo="Registrar trabajador" />
       </NavigateADM>
-      
+
       <Spacer y={4} />
       <div className="container-crear">
         <form className="formularioCrear" onSubmit={handleSubmit(onSubmit)}>
@@ -91,12 +84,8 @@ function CrearTrabajador() {
             >
               <div className=" cardForm flex flex-col">
                 <InputText
-                  ref={(el) => {
-                    refs.current.workerName = el;
-                  }}
-                  {...register("workerName", {
-                    required: { value: true, message: mensaje },
-                  })}
+                  ref={(el) => { refs.current.workerName = el; }}
+                  {...register("workerName", { required: { value: true, message: mensaje }, })}
                   key="workerName"
                   type="text"
                   label={<span className="custom-label">Nombre</span>}
@@ -108,12 +97,8 @@ function CrearTrabajador() {
               </div>
               <div className="flex flex-col">
                 <InputText
-                  ref={(el) => {
-                    refs.current.workerLastName = el;
-                  }}
-                  {...register("workerLastName", {
-                    required: { value: true, message: mensaje },
-                  })}
+                  ref={(el) => { refs.current.workerLastName = el; }}
+                  {...register("workerLastName", { required: { value: true, message: mensaje }, })}
                   key="workerLastName"
                   type="text"
                   label={<span className="custom-label">Apellido</span>}
@@ -128,15 +113,8 @@ function CrearTrabajador() {
             </div>
             <Spacer y={4} />
             <InputText
-              ref={(el) => {
-                refs.current.workerEmail = el;
-              }}
-              {...register("workerEmail", {
-                required: {
-                  value: true,
-                  message: "El correo del trabajador es requerido",
-                },
-              })}
+              ref={(el) => { refs.current.workerEmail = el; }}
+              {...register("workerEmail", { required: { value: true, message: mensaje }, })}
               key="workerEmail"
               type="text"
               label={<span className="custom-label">Correo electronico</span>}
@@ -152,12 +130,8 @@ function CrearTrabajador() {
             >
               <div className="flex flex-col">
                 <InputText
-                  ref={(el) => {
-                    refs.current.workerPhone = el;
-                  }}
-                  {...register("workerPhone", {
-                    required: { value: true, message: mensaje },
-                  })}
+                  ref={(el) => { refs.current.workerPhone = el; }}
+                  {...register("workerPhone", { required: { value: true, message: mensaje }, })}
                   key="workerPhone"
                   type="text"
                   label={<span className="custom-label">Celular</span>}
@@ -171,12 +145,8 @@ function CrearTrabajador() {
               </div>
               <div className="flex flex-col">
                 <InputText
-                  ref={(el) => {
-                    refs.current.idCardWorker = el;
-                  }}
-                  {...register("idCardWorker", {
-                    required: { value: true, message: mensaje },
-                  })}
+                  ref={(el) => { refs.current.idCardWorker = el; }}
+                  {...register("idCardWorker", { required: { value: true, message: mensaje }, })}
                   key="idCardWorker"
                   type="text"
                   label={<span className="custom-label">Cédula</span>}
@@ -196,12 +166,8 @@ function CrearTrabajador() {
             >
               <div className="flex flex-col">
                 <InputText
-                  ref={(el) => {
-                    refs.current.userName = el;
-                  }}
-                  {...register("userName", {
-                    required: { value: true, message: mensaje },
-                  })}
+                  ref={(el) => { refs.current.userName = el; }}
+                  {...register("userName", { required: { value: true, message: mensaje }, })}
                   key="userName"
                   type="text"
                   label={<span className="custom-label">Usuario</span>}
@@ -213,12 +179,8 @@ function CrearTrabajador() {
               </div>
               <div className="flex flex-col">
                 <InputPassword
-                  ref={(el) => {
-                    refs.current.password = el;
-                  }}
-                  {...register("password", {
-                    required: { value: true, message: mensaje },
-                  })}
+                  ref={(el) => { refs.current.password = el; }}
+                  {...register("password", { required: { value: true, message: mensaje }, })}
                   key="password"
                   label={<span className="custom-label">Contraseña</span>}
                   labelPlacement={"outside"}
@@ -230,18 +192,14 @@ function CrearTrabajador() {
             </div>
             <Spacer y={4} />
             <ListBoxSimple
-              ref={(el) => {
-                refs.current.idRole = el;
-              }}
-              {...register("idRole", {
-                required: { value: true, message: "La categoria es requerido" },
-              })}
+              ref={(el) => { refs.current.idRole = el; }}
+              {...register("idRole", { required: { value: true, message: mensaje }, })}
               key="idRole"
               label={<span className="custom-label">Rol</span>}
               labelPlacement="outside"
               placeholder="Seleccione un rol"
               size="md"
-              apiEndpoint="rol"
+              apiEndpoint="artesano-vendedor"
               idOpcion="idRole"
               texto="roles"
             />
@@ -253,12 +211,8 @@ function CrearTrabajador() {
             >
               <div className="flex flex-col">
                 <InputText
-                  ref={(el) => {
-                    refs.current.numberBank = el;
-                  }}
-                  {...register("numberBank", {
-                    required: { value: true, message: mensaje },
-                  })}
+                  ref={(el) => { refs.current.numberBank = el; }}
+                  {...register("numberBank", { required: { value: true, message: mensaje }, })}
                   key="numberBank"
                   type="text"
                   label={<span className="custom-label">Número de cuenta</span>}
@@ -270,21 +224,14 @@ function CrearTrabajador() {
               </div>
               <div className="flex flex-col">
                 <ListBoxSimple
-                  ref={(el) => {
-                    refs.current.idBank = el;
-                  }}
-                  {...register("idBank", {
-                    required: {
-                      value: true,
-                      message: "La categoria es requerido",
-                    },
-                  })}
+                  ref={(el) => { refs.current.idBank = el; }}
+                  {...register("idBank", { required: { value: true, message: mensaje }, })}
                   key="idBank"
                   label={<span className="custom-label">Banco</span>}
                   labelPlacement="outside"
                   placeholder="Seleccione una banco"
                   size="md"
-                  apiEndpoint="banco"
+                  apiEndpoint="bancos"
                   idOpcion="idBank"
                   texto="banks"
                 />
@@ -302,10 +249,7 @@ function CrearTrabajador() {
         </form>
       </div>
       <Spacer y={4} />
-      <div style={{ position: "absolute", bottom: "-45%", width: "100%" }}>
-      <Spacer y={4} />
-        {/* <Footer /> */}
-      </div>
+      <Footer />
     </div>
   );
 }

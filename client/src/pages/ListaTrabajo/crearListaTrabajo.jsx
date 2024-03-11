@@ -25,7 +25,7 @@ function CrearListaTrabajo() {
 	useEffect(() => {
 		const data = async () => {
 			try {
-				const informacionProducto = await listarInformacionApi('artesano');
+				const informacionProducto = await listarInformacionApi('artesano-Activo');
 				setInformacion(informacionProducto.data);
 				setCargando(false);
 			} catch (error) {
@@ -50,8 +50,7 @@ function CrearListaTrabajo() {
 			idCardWorker: selectedIdCardWorker,
 		};
 		console.log(listaTrabajo)
-	
-}
+};
 
 	return (
 		<div>

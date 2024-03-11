@@ -29,6 +29,8 @@ import ActualizarTrabajador from "../pages/Trabajadores/actualizarTrabajardor";
 import Unauthorized from "./PrivateRoute/Unauthorized";
 import ProtectedRoute from "./PrivateRoute/protectedRoute";
 import Perfilinfo from "../pages/perfil";
+import PerfilinfoTrabajador from "../pages/perfilTrabajador";
+import PerfilinfoVendedor from "../pages/perfilVendedor";
 
 const AppRouter = () => {
   return (
@@ -38,6 +40,8 @@ const AppRouter = () => {
 
         {/* Pantallas de Perfiles */}
         <Route path="/perfil" element={<Perfilinfo />} />
+        <Route path="/perfil/Trabajador" element={<PerfilinfoTrabajador />} />
+        <Route path="/perfil/Vendedor" element={<PerfilinfoVendedor />} />
 
         {/* Pantallas de Bienvenida */}
         <Route path="/Administracion" element={<ProtectedRoute element={<BienvenidaAdmi />} role={1} />}/>
