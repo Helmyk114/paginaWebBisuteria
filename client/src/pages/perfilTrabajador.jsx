@@ -12,7 +12,6 @@ import { decodificarToken, obtenerToken } from "../utils/token";
 import { Link } from "react-router-dom";
 import BotonCantidad from "../components/UI/botones/botonCantidad";
 import NavigateVEN, { Retroceder, Titulo } from "../components/UI/navbar/navbarVendedor";
-import BotonRetroceder from "../components/UI/iconos/Retroceder";
 
 export default function PerfilinfoTrabajador() {
 
@@ -39,7 +38,7 @@ export default function PerfilinfoTrabajador() {
   return (
     <div>
       <NavigateVEN>
-        <BotonRetroceder />
+        <Retroceder />
         <Titulo espacio="center" titulo="Perfil" />
       </NavigateVEN>
 

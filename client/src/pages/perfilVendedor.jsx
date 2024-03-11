@@ -40,7 +40,6 @@ export default function PerfilinfoVendedor() {
       <NavigateVEN>
         <Retroceder />
         <Titulo espacio="center" titulo="Perfil" />
-        <Notificacion />
       </NavigateVEN>
 
       {cargando ? (
