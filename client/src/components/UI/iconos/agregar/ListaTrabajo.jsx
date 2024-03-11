@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const AgregarListaTrabajo = ({ props }) => {
   return (
-    <Link to={"/crear/listaTrabajo"}>
+    <Link to={"/pedidos/administracion"}>
       <div className="relative flex gap-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
