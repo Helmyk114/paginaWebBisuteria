@@ -36,8 +36,6 @@ export default function CardProduct({ idProduct, producto, precio, img, onSelect
                   {precio} $
                   </p>
                 </div>
-                  <Icon icon={"gridicons:user-circle"} width="32" height="32" />
-                  
               </div>
             </div>
         </CardFooter>
