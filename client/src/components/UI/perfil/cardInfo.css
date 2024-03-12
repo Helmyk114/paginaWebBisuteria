@@ -14,8 +14,12 @@
    
 
     .cardGap {
-        gap: 13px;
         width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+
 
     }
 
@@ -33,11 +37,23 @@
 
 }
 
-@media screen and (min-width: 768px) and (max-width:1023) {
+@media screen and (min-width: 768px), (max-width:1023) {
     .cardprincipal {
         width: 90%;
     }
-   
+    .cardGap {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+
+    }
+    .cardPerfil {
+        display: flex;
+        flex-direction: row;
+        
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -46,9 +62,11 @@
     }
 
     .cardGap {
-
-       
         width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
 
     }
 
@@ -66,3 +84,4 @@
 
 
 }
+
