@@ -59,15 +59,27 @@
   width: 100px;
   height: 100px;
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .card3 {
-    width: 70px;
-    height: 70px;
+    width: 67px;
+    height: 67px;
   }
 
   .img {
-    width: 70px;
-    height: 70px;
+    width: 67px;
+    height: 67px;
+  }
+
+  .grid-container {
+    gap: 10px;
+  }
+
+  .card-footer {
+    height: 10px;
+  }
+  
+  .category-name {
+    font-size: 0.7rem;
   }
 }
 
