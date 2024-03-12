@@ -20,7 +20,7 @@ export default function BotonComprar2({ fontSize, text, type, precio = "0", key,
       </Button>
       
 
-      <label className="label" key={key}>{precio}</label>
+      <label className="label" key={key}>Total: {precio}$</label>
       
     </div>
   );
