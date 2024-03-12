@@ -179,7 +179,7 @@ function CrearPedido() {
 					<Spacer y={4} />
 				</Acordeon>
 
-				{/* <Spacer y={4} />
+				<Spacer y={4} />
 				<Acordeon titulo={'Lista de productos'}>
 
 					<Spacer y={3} />
@@ -230,7 +230,7 @@ function CrearPedido() {
 							<Spacer y={3} />
 						</div>
 					))}
-				</Acordeon> */}
+				</Acordeon>
 				<Spacer y={5} />
 				<BotonComprar2 text={"Comprar"} precio={`${totalPrice}`} />
 			</form>
