@@ -35,7 +35,7 @@
   
 
   @media only screen and (max-width: 1197px) {
-    .container {
+    .container2 {
         height: 80px;
         border-top-left-radius: 45px;
         border-top-right-radius: 45px;
@@ -45,7 +45,6 @@
         width: 300px;
         height: 45px;
         margin-bottom: 0px;
-        margin-right: 450px; /* Ajusta este valor según tus necesidades */
         font-size: 22px;
     }
     
@@ -53,7 +52,7 @@
   
   /* Media query para pantallas de hasta 768px (tablet) */
   @media only screen and (max-width: 767px) {
-    .container {
+    .container2 {
         height: 80px;
         border-top-left-radius: 45px;
         border-top-right-radius: 45px;
@@ -63,19 +62,17 @@
         width: 200px;
         height: 35px;
         margin-bottom: 0px;
-        margin-right: 450px; /* Ajusta este valor según tus necesidades */
         font-size: 18px;
     }
 
     .label{
       font-size: 18px;
-      margin-left: 200px;
     }
   }
   
   /* Media query para pantallas de hasta 480px (móvil) */
   @media only screen and (max-width: 480px) {
-    .container {
+    .container2 {
         height: 60px;
         border-top-left-radius: 35px;
         border-top-right-radius: 35px;
@@ -85,8 +82,11 @@
         width: 170px;
         height: 30px;
         margin-bottom: 0px;
-        margin-left: 300px; /* Ajusta este valor según tus necesidades */
         font-size: 16px;
+    }
+
+    .label{
+      font-size: 18px;
     }
     
   }
