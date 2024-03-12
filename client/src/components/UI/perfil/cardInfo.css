@@ -54,6 +54,11 @@
         flex-direction: row;
         
     }
+    .iconoCard {
+        width: 32px;
+        height: 32px;
+
+    }
 }
 
 @media screen and (min-width: 1024px) {

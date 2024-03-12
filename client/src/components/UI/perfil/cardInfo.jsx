@@ -8,7 +8,7 @@ export default function CardPerfil({ gap, children, alignItems, justifyContent, 
   return (
     <Card className={className} >
       <CardHeader>
-        <div className="cardGap" >
+        <div className="cardGap" style={{gap:gap, alignItems:alignItems, justifyContent, display, flexDirection}}>
           {children}
         </div>
       </CardHeader>
