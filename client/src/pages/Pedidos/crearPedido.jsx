@@ -9,8 +9,8 @@ import InputText from "../../components/UI/formulario/Inputs/inputText";
 import BotonEnviar from "../../components/UI/botones/botonEnviar";
 import Footer from "../../components/UI/Footer/Footer";
 import CardPerfil, {
-  Texto1Card,
-  Texto2Card,
+	Texto1Card,
+	Texto2Card,
 } from "../../components/UI/perfil/cardInfo";
 import Avatares from "../../components/UI/avatar/Avatares";
 import BotonCantidad from "../../components/UI/botones/botonCantidad";
@@ -31,9 +31,9 @@ function CrearPedido() {
 	const [productPrices, setProductPrices] = useState(() => {
 		// Inicializar el array de precios con los precios iniciales de los productos
 		return state.selectedProducts.map(product => product.precio);
-	  });
+	});
 
-	  const [totalPrice, setTotalPrice] = useState(calculateTotalPrice());
+	const [totalPrice, setTotalPrice] = useState(calculateTotalPrice());
 
 	  function calculateTotalPrice() {
 		return productPrices.reduce((total, price) => total + price, 0);
@@ -50,7 +50,7 @@ function CrearPedido() {
 
 	const handleComprarClick = (precioJSON) => {
 		console.log("Información del precio en formato JSON:", precioJSON);
-	  };
+	};
 
 	const refs = useRef({
 		idCardClient: null,
@@ -90,12 +90,12 @@ function CrearPedido() {
 
 
 		try {
-			// const infoClient = await detalleInformacionApi('cliente', data.idCardClient)
-			// if (infoClient) {
-			// 	await actualizarInformacionSinImagenApi('cliente', data.idCardClient, oldCliente)
-			// } else {
-			// 	await añadirInformacionSinImagenAPI(newCliente, 'cliente');
-			// }
+			const infoClient = await detalleInformacionApi('cliente', data.idCardClient)
+			if (infoClient) {
+				await actualizarInformacionSinImagenApi('cliente', data.idCardClient, oldCliente)
+			} else {
+				await añadirInformacionSinImagenAPI(newCliente, 'cliente');
+			}
 			// await añadirInformacionSinImagenAPI(orden, 'orden');
 			Swal.fire({
 				icon: "success",
@@ -114,15 +114,15 @@ function CrearPedido() {
 		}
 	};
 
-  return (
-    <div>
-      <NavigateVEN>
+	return (
+		<div>
+			<NavigateVEN>
 				<Retroceder />
 				<Titulo espacio="center" titulo="Crear pedido" />
 			</NavigateVEN>
-      <Spacer y={4} />
+			<Spacer y={4} />
 			<form onSubmit={handleSubmit(onSubmit)}>
-				{/* <Acordeon titulo={'Datos del cliente'}>
+				<Acordeon titulo={'Datos del cliente'}>
 					<div className="gap-4" style={{ display: "grid", gridTemplateColumns: "2fr 2fr" }}>
 						<div className="flex flex-col">
 							<InputText ref={(el) => { refs.current.idCardClient = el; }}
@@ -177,9 +177,9 @@ function CrearPedido() {
 						</div>
 					</div>
 					<Spacer y={4} />
-				</Acordeon> */}
+				</Acordeon>
 
-				<Spacer y={4} />
+				{/* <Spacer y={4} />
 				<Acordeon titulo={'Lista de productos'}>
 
 					<Spacer y={3} />
@@ -230,11 +230,11 @@ function CrearPedido() {
 							<Spacer y={3} />
 						</div>
 					))}
-				</Acordeon>
+				</Acordeon> */}
 				<Spacer y={5} />
-				<BotonComprar2 text={"Comprar"} precio={`${totalPrice}`}/>
+				<BotonComprar2 text={"Comprar"} precio={`${totalPrice}`} />
 			</form>
-				<Footer />
+			<Footer />
 
 		</div>
 	);
