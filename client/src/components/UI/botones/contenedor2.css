@@ -1,13 +1,16 @@
 /* BotonComprar.css */
 
-.container {
+.container2 {
     width: 100%;
     height: 90px;
     background-color: #454F96;
     border-top-left-radius: 55px;
     border-top-right-radius: 55px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
   }
   
   .button2 {
@@ -19,7 +22,7 @@
     font-family: Roboto, sans-serif;
     font-size: 30px;
     border-radius: 7px;
-    margin-right: 900px;
+
   }
 
   .label{
@@ -27,7 +30,6 @@
     font-weight: bold;
     font-family: Roboto, sans-serif;
     font-size: 30px;
-    margin-left: 400px;
 
   }
   
