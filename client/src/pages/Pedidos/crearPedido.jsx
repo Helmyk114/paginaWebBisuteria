@@ -196,16 +196,16 @@ function CrearPedido() {
 											texto={product.producto} />
 										<div style={{ display: "flex", justifyContent: "center" }}>
 										<BotonCantidad
-                      onPriceChange={(price) => {
-                        const updatedPrices = [...productPrices];
-                        updatedPrices[index] = price;
-                        setProductPrices(updatedPrices);
+                      						onPriceChange={(price) => {
+                        					const updatedPrices = [...productPrices];
+                       						updatedPrices[index] = price;
+                        					setProductPrices(updatedPrices);
 
-                        // Actualizar el estado totalPrice con la suma calculada
-                        setTotalPrice(calculateTotalPrice());
-                      }}
-                      precio={product.precio}
-                    />
+                        					// Actualizar el estado totalPrice con la suma calculada
+                        					setTotalPrice(calculateTotalPrice());
+                      						}}
+                      						precio={product.precio}
+                    						/>
                   					</div>
                 				</div>
                 				<div className="contenedor2">
