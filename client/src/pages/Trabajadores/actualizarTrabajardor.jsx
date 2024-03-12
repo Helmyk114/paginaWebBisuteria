@@ -223,7 +223,7 @@ function ActualizarTrabajador() {
 									labelPlacement="outside"
 									placeholder="Seleccione una banco"
 									size="md"
-									apiEndpoint="banco"
+									apiEndpoint="bancos"
 									defaultInputValue={`${informacionTrabajador[0].idBank}`}
 									idOpcion="idBank"
 									texto="banks"

@@ -69,7 +69,6 @@ function CrearPedido() {
 		const orden = {
 			idCardWorker: `${id}`,
 			//total: "",
-			idState: "1"
 		};
 		let idsProductos = [];
 
