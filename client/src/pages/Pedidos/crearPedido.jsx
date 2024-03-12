@@ -28,7 +28,10 @@ function CrearPedido() {
 	const { register, handleSubmit, formState: { errors } } = useForm();
 	const location = useLocation();
 	const { state } = location;
-	const [productPrice, setProductPrice] = useState(state.selectedProducts.precio);
+	const [productPrices, setProductPrices] = useState(() => {
+		// Inicializar el array de precios con los precios iniciales de los productos
+		return state.selectedProducts.map(product => product.precio);
+	  });
 	const token = obtenerToken();
 	const id = decodificarToken(token).userId;
 	const mensaje = 'Este campo es requerido'
@@ -185,13 +188,20 @@ function CrearPedido() {
 										<Texto1Card
 											texto={product.producto} />
 										<div style={{ display: "flex", justifyContent: "center" }}>
-											<BotonCantidad onPriceChange={(price) => setProductPrice(price)} precio={product.precio}/>
-										</div>
-									</div>
-									<div className="contenedor2">
-										<Texto2Card
-											texto2={productPrice} />
-										<div
+										<BotonCantidad
+                      						onPriceChange={(price) => {
+                        					const updatedPrices = [...productPrices];
+                        					updatedPrices[index] = price;
+                        					setProductPrices(updatedPrices);
+                      						}}
+                      					precio={product.precio}
+                    					/>
+                  					</div>
+                				</div>
+                				<div className="contenedor2">
+                  					<Texto2Card
+                    					texto2={productPrices[index]} />
+                  						<div
 											style={{ display: "flex" }}>
 											<Tooltip content="Eliminar producto">
 												<span className="text-lg text-danger cursor-pointer active:opacity-50">

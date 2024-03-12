@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ButtonGroup, Button } from '@nextui-org/react';
 import '../../../components/UI/botones/botones.css';
+import { Texto2Card } from '../perfil/cardInfo';
 
 function BotonCantidad({ onPriceChange, precio }) {
   const [number, setNumber] = useState(1);
@@ -24,7 +25,6 @@ function BotonCantidad({ onPriceChange, precio }) {
 
   return (
     <div className='btnCan'>
-      <div>Nuevo precio: ${newPrice}</div>
       <ButtonGroup>
         <Button variant="ghost" className='btnmm' onClick={decreaseNumber}>
           -
@@ -40,4 +40,4 @@ function BotonCantidad({ onPriceChange, precio }) {
   );
 }
 
-export default BotonCantidad;
+export default BotonCantidad; 
