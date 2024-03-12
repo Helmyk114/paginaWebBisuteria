@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom";
 import "./crearPedido.css";
@@ -35,10 +35,15 @@ function CrearPedido() {
 
 	const [totalPrice, setTotalPrice] = useState(calculateTotalPrice());
 
-	function calculateTotalPrice() {
-		// Calcular la suma de los precios
+	  function calculateTotalPrice() {
 		return productPrices.reduce((total, price) => total + price, 0);
-	}
+	  }
+	
+	  useEffect(() => {
+		// Actualizar el estado totalPrice con la suma calculada
+		setTotalPrice(calculateTotalPrice());
+	  }, [productPrices]);
+
 	const token = obtenerToken();
 	const id = decodificarToken(token).userId;
 	const mensaje = 'Este campo es requerido'
@@ -173,7 +178,7 @@ function CrearPedido() {
 					<Spacer y={4} />
 				</Acordeon>
 
-				{/* <Spacer y={4} />
+				<Spacer y={4} />
 				<Acordeon titulo={'Lista de productos'}>
 
 					<Spacer y={3} />
@@ -194,22 +199,23 @@ function CrearPedido() {
 										<Texto1Card
 											texto={product.producto} />
 										<div style={{ display: "flex", justifyContent: "center" }}>
-											<BotonCantidad
-												onPriceChange={(price) => {
-													const updatedPrices = [...productPrices];
-													updatedPrices[index] = price;
-													setProductPrices(updatedPrices);
-													// Actualizar el estado totalPrice con la suma calculada
-													setTotalPrice(calculateTotalPrice());
-												}}
-												precio={product.precio}
-											/>
-										</div>
-									</div>
-									<div className="contenedor2">
-										<Texto2Card
-											texto2={productPrices[index]} />
-										<div
+										<BotonCantidad
+  										 onPriceChange={(price) => {
+    										const updatedPrices = [...productPrices];
+    										if (updatedPrices[index] !== price) {
+      										updatedPrices[index] = price;
+     										setProductPrices(updatedPrices);
+      										setTotalPrice(calculateTotalPrice());
+    										}
+  											}}
+  											precio={product.precio}
+										/>
+                  					</div>
+                				</div>
+                				<div className="contenedor2">
+                  					<Texto2Card
+                    					texto2={productPrices[index]} />
+                  						<div
 											style={{ display: "flex" }}>
 											<Tooltip content="Eliminar producto">
 												<span className="text-lg text-danger cursor-pointer active:opacity-50">
@@ -223,7 +229,7 @@ function CrearPedido() {
 							<Spacer y={3} />
 						</div>
 					))}
-				</Acordeon> */}
+				</Acordeon>
 				<Spacer y={5} />
 				<BotonComprar2 text={"Comprar"} precio={`${totalPrice}`} />
 			</form>

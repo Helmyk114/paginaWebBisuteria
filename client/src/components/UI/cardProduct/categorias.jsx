@@ -9,11 +9,11 @@ import img5 from "../../../../src/img2/pulsera (2).png";
 
 const Categorias = () => {
   const categories = [
-    { name: "Cadenas", img: img3 },
+    { name: "Todo", img: img3 },
     { name: "Anillos", img: img1 },
-    { name: "Collares", img: img2 },
-    { name: "Pulseras", img: img5 },
-    { name: "Aretes", img: img4 },
+    { name: "Chockers", img: img2 },
+    { name: "Pulceras", img: img5 },
+    { name: "Aretas", img: img4 },
   ];
 
   return (

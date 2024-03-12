@@ -49,7 +49,7 @@ export default function PerfilinfoVendedor() {
           {informacion && informacion.length > 0 ? (
             informacion.map((datos) => (
               <div className="perfil" key={datos.idCardWorker} style={{ height: "100%" }}>
-                <div style={{ width: "100%", height: "35%", padding: "10px", display: "flex", alignItems: "center", gap: "30px", position: "absolute", backgroundColor: "#454F96" }}>
+                <div style={{ width:"100%", height: "35%", padding: "10px", display: "flex", alignItems: "center", gap: "30px", position: "absolute", backgroundColor: "#454F96", marginTop:"-61px" }}>
                   <Avatares
                     className={'w-15 h-15'}
                     maxWidth={"90px"}
@@ -69,10 +69,13 @@ export default function PerfilinfoVendedor() {
                   </div>
                 </div>
                 <Spacer y={4} />
-                <div style={{ backgroundColor: "#EEEEEE", width: "90%", padding: "1px", borderRadius: "13px", margin: "0 auto", marginBottom: "30px", position: "relative", top: "185px", zIndex: "1" }}>
+                <div style={{ backgroundColor: "#EEEEEE", width: "90%", padding: "1px", borderRadius: "13px", margin: "0 auto", marginBottom: "30px", position: "relative", top: "140px", zIndex: "1" }}>
                   <Spacer y={4} />
                   <CardPerfil
-                    gap={"13px"}>
+                  className={"cardPerfil"}
+                    gap={"13px"}
+                    display={"flex"}
+                    justifyContent={"start"}>
                     <IconoCard icon={"gridicons:user-circle"} />
                     <div style={{ display: "block" }}>
                       <Texto1Card
@@ -83,6 +86,9 @@ export default function PerfilinfoVendedor() {
                   </CardPerfil>
                   <Spacer y={3} />
                   <CardPerfil
+                  className={"cardPerfil"}
+                  display={"flex"}
+                  justifyContent={"start"}
                     gap={"13px"}>
                     <IconoCard icon={"mdi:user-card-details"} />
                     <div style={{ display: "block" }}>
@@ -95,6 +101,9 @@ export default function PerfilinfoVendedor() {
                   </CardPerfil>
                   <Spacer y={3} />
                   <CardPerfil
+                  className={"cardPerfil"}
+                  display={"flex"}
+                  justifyContent={"start"}
                     gap={"13px"}>
                     <IconoCard icon={"mdi:email"} />
                     <div style={{ display: "block" }}>
@@ -105,7 +114,11 @@ export default function PerfilinfoVendedor() {
                     </div>
                   </CardPerfil>
                   <Spacer y={3} />
-                  <CardPerfil>
+                  <CardPerfil
+                  className={"cardPerfil"}
+                  display={"flex"}
+                  justifyContent={"start"}
+                  gap={"13px"}>
                     <IconoCard icon={"mdi:telephone"} />
                     <div style={{ display: "block" }}>
                       <Texto1Card
@@ -115,7 +128,11 @@ export default function PerfilinfoVendedor() {
                     </div>
                   </CardPerfil>
                   <Spacer y={3} />
-                  <CardPerfil>
+                  <CardPerfil
+                  className={"cardPerfil"}
+                  display={"flex"}
+                  justifyContent={"start"}
+                  gap={"13px"}>
                     <IconoCard icon={"mdi:cash-multiple"} />
                     <div style={{ display: "block" }}>
                       <Texto1Card
@@ -126,7 +143,8 @@ export default function PerfilinfoVendedor() {
                   </CardPerfil>
                   <Spacer y={3} />
                   <Link to={`/editar/trabajador/${datos.idCardWorker}`}>
-                    <CardPerfil alignItems={"center"}
+                    <CardPerfil
+                    className={"cardPerfil"} alignItems={"center"}
                       justifyContent={"space-between"}>
                       <IconoCard icon={"akar-icons:edit"} />
                       <div>

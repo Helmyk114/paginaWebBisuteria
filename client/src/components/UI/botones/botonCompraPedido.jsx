@@ -7,7 +7,7 @@ export default function BotonComprar2({ fontSize, text, type, precio = "0", key,
  
 
   return (
-    <div className="container">
+    <div className="container2">
       <Button
       
         radius="full"
