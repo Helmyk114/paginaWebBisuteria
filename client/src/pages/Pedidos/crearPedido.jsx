@@ -32,6 +32,13 @@ function CrearPedido() {
 		// Inicializar el array de precios con los precios iniciales de los productos
 		return state.selectedProducts.map(product => product.precio);
 	  });
+
+	  const [totalPrice, setTotalPrice] = useState(calculateTotalPrice());
+
+	  function calculateTotalPrice() {
+		// Calcular la suma de los precios
+		return productPrices.reduce((total, price) => total + price, 0);
+	  }
 	const token = obtenerToken();
 	const id = decodificarToken(token).userId;
 	const mensaje = 'Este campo es requerido'
@@ -189,13 +196,16 @@ function CrearPedido() {
 											texto={product.producto} />
 										<div style={{ display: "flex", justifyContent: "center" }}>
 										<BotonCantidad
-                      						onPriceChange={(price) => {
-                        					const updatedPrices = [...productPrices];
-                        					updatedPrices[index] = price;
-                        					setProductPrices(updatedPrices);
-                      						}}
-                      					precio={product.precio}
-                    					/>
+                      onPriceChange={(price) => {
+                        const updatedPrices = [...productPrices];
+                        updatedPrices[index] = price;
+                        setProductPrices(updatedPrices);
+
+                        // Actualizar el estado totalPrice con la suma calculada
+                        setTotalPrice(calculateTotalPrice());
+                      }}
+                      precio={product.precio}
+                    />
                   					</div>
                 				</div>
                 				<div className="contenedor2">
@@ -217,7 +227,7 @@ function CrearPedido() {
 					))}
 				</Acordeon>
 				<Spacer y={5} />
-				<BotonComprar2 text={"Comprar"} precio={"30.000"} onClick={handleComprarClick}/>
+				<BotonComprar2 text={"Comprar"} precio={`${totalPrice}`}/>
 			</form>
 				<Footer />
 
