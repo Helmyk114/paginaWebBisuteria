@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom";
 import "./crearPedido.css";
@@ -36,9 +36,14 @@ function CrearPedido() {
 	  const [totalPrice, setTotalPrice] = useState(calculateTotalPrice());
 
 	  function calculateTotalPrice() {
-		// Calcular la suma de los precios
 		return productPrices.reduce((total, price) => total + price, 0);
 	  }
+	
+	  useEffect(() => {
+		// Actualizar el estado totalPrice con la suma calculada
+		setTotalPrice(calculateTotalPrice());
+	  }, [productPrices]);
+
 	const token = obtenerToken();
 	const id = decodificarToken(token).userId;
 	const mensaje = 'Este campo es requerido'
@@ -196,16 +201,16 @@ function CrearPedido() {
 											texto={product.producto} />
 										<div style={{ display: "flex", justifyContent: "center" }}>
 										<BotonCantidad
-                      						onPriceChange={(price) => {
-                        					const updatedPrices = [...productPrices];
-                       						updatedPrices[index] = price;
-                        					setProductPrices(updatedPrices);
-
-                        					// Actualizar el estado totalPrice con la suma calculada
-                        					setTotalPrice(calculateTotalPrice());
-                      						}}
-                      						precio={product.precio}
-                    						/>
+  										 onPriceChange={(price) => {
+    										const updatedPrices = [...productPrices];
+    										if (updatedPrices[index] !== price) {
+      										updatedPrices[index] = price;
+     										setProductPrices(updatedPrices);
+      										setTotalPrice(calculateTotalPrice());
+    										}
+  											}}
+  											precio={product.precio}
+										/>
                   					</div>
                 				</div>
                 				<div className="contenedor2">
