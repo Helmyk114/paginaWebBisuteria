@@ -147,11 +147,13 @@ function ListarTrabajador() {
       )}
       <Spacer y={5} />
 
-      <Acordeon titulo={"Trabajadores inactivos"}>
+      <Acordeon titulo={"Trabajadores inactivos"}
+  
+      className={'inactivos'}>
       {cargando ? (
         <Loader />
       ) : (
-        <div>
+        <div >
           {informacionI && informacionI.length > 0 ? (
             informacionI.map((datos) => (
               <div key={datos.idCardWorker}>
@@ -168,7 +170,7 @@ function ListarTrabajador() {
                     <Texto1Card
                       texto={`${datos.workerName} ${datos.workerLastName}`} />
                   </div>
-                  <div className="relative flex items-center gap-1">
+                  <div className=" relative flex items-center gap-1">
                     <Tooltip content="Eliminar trabajador">
                       <span className="text-lg text-danger cursor-pointer active:opacity-50">
                         <DeleteIcon eliminar={() => activarTrabajador(datos.idCardWorker)} />
@@ -185,6 +187,7 @@ function ListarTrabajador() {
         </div>
       )}
       </Acordeon>
+    
 
       <Spacer y={5} />
       <div style={{ position: "flex", bottom: "0", width: "100%", marginTop: "290px" }}>

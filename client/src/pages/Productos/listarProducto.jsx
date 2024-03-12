@@ -102,7 +102,7 @@ function ListarProducto() {
 					{informacionA && informacionA.length > 0 ? (
 						informacionA.map((datos) => (
 							<div key={datos.idProduct}>
-								<CardPerfil
+								<CardPerfil className={"cardPerfil"}
 									justifyContent={"space-between"}
 									alignItems={"center"}
 									key={datos.idProduct}>
@@ -159,7 +159,8 @@ function ListarProducto() {
 			)}
 			<Spacer y={5} />
 
-			<Acordeon titulo={"Productos inactivos"}>
+			<Acordeon titulo={"Productos inactivos"}
+			className={"inactivos"}>
 			{cargando ? (
 				<Loader />
 			) : (

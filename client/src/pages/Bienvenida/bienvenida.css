@@ -54,7 +54,7 @@
         justify-content: center;
     }
     .cerrarSesion,.trabajador, .pedidos, .perfilPrincipal, .listaTrabajo, .producto{
-        width: 60px;
+        width: 100px;
         
     }
 
