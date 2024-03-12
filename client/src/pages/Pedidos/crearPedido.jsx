@@ -73,8 +73,7 @@ function CrearPedido() {
 		};
 		const orden = {
 			idCardWorker: `${id}`,
-			//total: "",
-			idState: "1"
+			total: '200000',
 		};
 		let idsProductos = [];
 
@@ -88,15 +87,16 @@ function CrearPedido() {
 			//idOrder: ""
 		};
 
-
+console.log(`${id}`)
+console.log(orden)
 		try {
-			const infoClient = await detalleInformacionApi('cliente', data.idCardClient)
-			if (infoClient) {
-				await actualizarInformacionSinImagenApi('cliente', data.idCardClient, oldCliente)
-			} else {
-				await añadirInformacionSinImagenAPI(newCliente, 'cliente');
-			}
-			// await añadirInformacionSinImagenAPI(orden, 'orden');
+			// const infoClient = await detalleInformacionApi('cliente', data.idCardClient)
+			// if (infoClient) {
+			// 	await actualizarInformacionSinImagenApi('cliente', data.idCardClient, oldCliente)
+			// } else {
+			// 	await añadirInformacionSinImagenAPI(newCliente, 'cliente');
+			// }
+			await añadirInformacionSinImagenAPI(orden, 'orden');
 			Swal.fire({
 				icon: "success",
 				title: "Se ha enviado su pedido!",
@@ -122,7 +122,7 @@ function CrearPedido() {
 			</NavigateVEN>
 			<Spacer y={4} />
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<Acordeon titulo={'Datos del cliente'}>
+				{/* <Acordeon titulo={'Datos del cliente'}>
 					<div className="gap-4" style={{ display: "grid", gridTemplateColumns: "2fr 2fr" }}>
 						<div className="flex flex-col">
 							<InputText ref={(el) => { refs.current.idCardClient = el; }}
@@ -177,7 +177,7 @@ function CrearPedido() {
 						</div>
 					</div>
 					<Spacer y={4} />
-				</Acordeon>
+				</Acordeon> */}
 
 				<Spacer y={4} />
 				<Acordeon titulo={'Lista de productos'}>
