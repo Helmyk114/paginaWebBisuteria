@@ -23,7 +23,7 @@ const Categorias = () => {
           <Image
             alt={category.name}
             className="img"
-            objectFit="cover"
+            objectfit="cover"
             src={category.img}
           />
           <Button className="card-footer boton-personalizado">
