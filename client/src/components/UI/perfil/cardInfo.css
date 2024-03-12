@@ -1,6 +1,6 @@
 .cardprincipal {
     margin: 0 auto;
-
+    width: 60%;
 
 }
 
@@ -9,11 +9,9 @@
 
 }
 
+
 @media screen and (max-width: 767px) {
-    .cardprincipal {
-        width: 90%;
-        font-size: 12px;
-    }
+   
 
     .cardGap {
         gap: 13px;
@@ -39,6 +37,7 @@
     .cardprincipal {
         width: 90%;
     }
+   
 }
 
 @media screen and (min-width: 1024px) {
@@ -48,7 +47,7 @@
 
     .cardGap {
 
-        gap: 180px;
+       
         width: 100%;
 
     }
@@ -61,7 +60,7 @@
     .cardPerfil {
         display: flex;
         flex-direction: row;
-        width: 100%;
+        
     }
 
 

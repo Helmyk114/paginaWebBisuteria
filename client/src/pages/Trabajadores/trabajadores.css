@@ -1,3 +1,5 @@
+/* formulario trabajadores */
+
 .formularioCrear {
     margin: 0 auto;
     width: '100%';
@@ -11,8 +13,9 @@
     margin-top: -5px;
 }
 
-@media screen and (max-width: 767px) {
 
+@media screen and (max-width: 767px) {
+/* formulario trabajadores */
     .card {
         width: 90%;
     }
@@ -20,9 +23,35 @@
     .botonEnviar {
         width: 100%;
     }
+
+    .cardPerfil{
+        width: 92%;
+        margin: 0 auto;
+        
+    }
+
+
+}
+@media (min-width: 767px) and (max-width: 1023px){
+    /* formulario trabajadores */
+    .card {
+        width: 84%;
+        margin: 0 auto;
+
+    }
+    /* lista trabajadores */
+    .cardPerfil{
+        width: 62%;
+        margin: 0 auto;
+        gap: 154px;
+    }
+    .inactivos{
+        width: 64%;
+    }
 }
 
 @media screen and (min-width: 1024px) {
+    /* formulario trabajadores */
     .formularioCrear {
         display: block;
         align-items: start;
@@ -35,8 +64,15 @@
 
     }
 
-
     .botonEnviar {
         width: 60%;
+    }
+    .inactivos{
+        width: 62%;
+    }
+    .cardPerfil{
+        width: 62%;
+        margin: 0 auto;
+        
     }
 }
