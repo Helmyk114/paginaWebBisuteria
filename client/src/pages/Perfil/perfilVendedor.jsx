@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Spacer } from "@nextui-org/react";
-// import Navigate, { Notificacion, Retroceder, Titulo } from "../components/UI/navbar/navbar";
-import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../components/UI/perfil/cardInfo";
-import Avatares from "../components/UI/avatar/Avatares";
-import Loader from "../components/UI/cargando/loader";
-import Footer from "../components/UI/Footer/Footer";
-
-import { detalleInformacionApi } from "../api/productos";
-import { decodificarToken, obtenerToken } from "../utils/token";
-
 import { Link } from "react-router-dom";
-import BotonCantidad from "../components/UI/botones/botonCantidad";
-import NavigateVEN, { Retroceder, Titulo } from "../components/UI/navbar/navbarVendedor";
 
-export default function PerfilinfoTrabajador() {
+import { Spacer } from "@nextui-org/react";
+import NavigateVEN, { Retroceder, Titulo } from "../../components/UI/navbar/navbarVendedor";
+import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
+import Avatares from "../../components/UI/avatar/Avatares";
+import Loader from "../../components/UI/cargando/loader";
+import Footer from "../../components/UI/Footer/Footer";
+
+import { detalleInformacionApi } from "../../api/productos";
+import { decodificarToken, obtenerToken } from "../../utils/token";
+
+export default function PerfilinfoVendedor() {
 
   const [informacion, setInformacion] = useState([]);
   const [cargando, setCargando] = useState(true);
@@ -41,7 +39,6 @@ export default function PerfilinfoTrabajador() {
         <Retroceder />
         <Titulo espacio="center" titulo="Perfil" />
       </NavigateVEN>
-
       {cargando ? (
         <Loader />
       ) : (
@@ -49,7 +46,7 @@ export default function PerfilinfoTrabajador() {
           {informacion && informacion.length > 0 ? (
             informacion.map((datos) => (
               <div className="perfil" key={datos.idCardWorker} style={{ height: "100%" }}>
-                <div style={{ marginTop:"-61px", width: "100%", height: "38%", padding: "10px", display: "flex", alignItems: "center", gap: "30px", position: "absolute", backgroundColor: "#454F96" }}>
+                <div style={{ width:"100%", height: "35%", padding: "10px", display: "flex", alignItems: "center", gap: "30px", position: "absolute", backgroundColor: "#454F96", marginTop:"-61px" }}>
                   <Avatares
                     className={'w-15 h-15'}
                     maxWidth={"90px"}
@@ -69,10 +66,10 @@ export default function PerfilinfoTrabajador() {
                   </div>
                 </div>
                 <Spacer y={4} />
-                <div style={{ backgroundColor: "#EEEEEE", width: "90%", padding: "1px", borderRadius: "13px", margin: "0 auto", marginBottom: "30px", position: "relative", top: "147px", zIndex: "1" }}>
+                <div style={{ backgroundColor: "#EEEEEE", width: "90%", padding: "1px", borderRadius: "13px", margin: "0 auto", marginBottom: "30px", position: "relative", top: "140px", zIndex: "1" }}>
                   <Spacer y={4} />
                   <CardPerfil
-                    className={"cardPerfil"}
+                  className={"cardPerfil"}
                     gap={"13px"}
                     display={"flex"}
                     justifyContent={"start"}>
@@ -86,10 +83,10 @@ export default function PerfilinfoTrabajador() {
                   </CardPerfil>
                   <Spacer y={3} />
                   <CardPerfil
-                    className={"cardPerfil"}
-                    gap={"13px"}
-                    display={"flex"}
-                    justifyContent={"start"}>
+                  className={"cardPerfil"}
+                  display={"flex"}
+                  justifyContent={"start"}
+                    gap={"13px"}>
                     <IconoCard icon={"mdi:user-card-details"} />
                     <div style={{ display: "block" }}>
                       <Texto1Card
@@ -101,10 +98,10 @@ export default function PerfilinfoTrabajador() {
                   </CardPerfil>
                   <Spacer y={3} />
                   <CardPerfil
-                    className={"cardPerfil"}
-                    gap={"13px"}
-                    display={"flex"}
-                    justifyContent={"start"}>
+                  className={"cardPerfil"}
+                  display={"flex"}
+                  justifyContent={"start"}
+                    gap={"13px"}>
                     <IconoCard icon={"mdi:email"} />
                     <div style={{ display: "block" }}>
                       <Texto1Card
@@ -116,9 +113,9 @@ export default function PerfilinfoTrabajador() {
                   <Spacer y={3} />
                   <CardPerfil
                   className={"cardPerfil"}
-                  gap={"13px"}
                   display={"flex"}
-                  justifyContent={"start"}>
+                  justifyContent={"start"}
+                  gap={"13px"}>
                     <IconoCard icon={"mdi:telephone"} />
                     <div style={{ display: "block" }}>
                       <Texto1Card
@@ -130,9 +127,9 @@ export default function PerfilinfoTrabajador() {
                   <Spacer y={3} />
                   <CardPerfil
                   className={"cardPerfil"}
-                  gap={"13px"}
                   display={"flex"}
-                  justifyContent={"start"}>
+                  justifyContent={"start"}
+                  gap={"13px"}>
                     <IconoCard icon={"mdi:cash-multiple"} />
                     <div style={{ display: "block" }}>
                       <Texto1Card

@@ -10,8 +10,8 @@ import BotonEnviar from "../../components/UI/botones/botonEnviar";
 import Footer from "../../components/UI/Footer/Footer";
 
 import { añadirInformacionAPI } from "../../api/productos";
-import Swal from "sweetalert2";
 import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
+import{ notificacionConfirmar, notificacionError }from "../../utils/notificacionCliente"
 
 
 function CrearProducto() {
@@ -38,20 +38,10 @@ function CrearProducto() {
 
     try {
       await añadirInformacionAPI(producto, "producto");
-      Swal.fire({
-        icon: "success",
-        title: "Se ha añadido un producto!",
-        showConfirmButton: false,
-        timer: 1500,
-      });
+      notificacionConfirmar({icono: "success", titulo: "Se ha añadido un producto!"})
     } catch (error) {
       console.error("Error al crear un producto", error);
-      Swal.fire({
-        icon: "error",
-        title: "No Se puede crear el producto",
-        showConfirmButton: false,
-        timer: 1500,
-      });
+      notificacionError({ icono: "error", titulo: "No Se puede crear el producto!"})
     }
   };
 
