@@ -28,9 +28,9 @@ import ActualizarTrabajador from "../pages/Trabajadores/actualizarTrabajardor";
 
 import Unauthorized from "./PrivateRoute/Unauthorized";
 import ProtectedRoute from "./PrivateRoute/protectedRoute";
-import Perfilinfo from "../pages/perfil";
-import PerfilinfoTrabajador from "../pages/perfilTrabajador";
-import PerfilinfoVendedor from "../pages/perfilVendedor";
+import Perfilinfo from "../pages/Perfil/perfil";
+import PerfilinfoTrabajador from "../pages/Perfil/perfilTrabajador";
+import PerfilinfoVendedor from "../pages/Perfil/perfilVendedor";
 
 const AppRouter = () => {
   return (
