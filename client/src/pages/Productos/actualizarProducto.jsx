@@ -150,7 +150,7 @@ function ActualizarProducto() {
 						placeholder="Seleccione una categoria"
 						size="md"
 						defaultInputValue={`${informacionProducto[0].idCategory}`}
-						apiEndpoint="categoria"
+						apiEndpoint="categorias"
 						idOpcion="idCategory"
 						texto="categorys"
 					/>
