@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 
 import { Card, Spacer } from "@nextui-org/react";
+import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 import SubirImagen from "../../components/UI/formulario/Imagen/imagen";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import BotonEnviar from "../../components/UI/botones/botonEnviar";
@@ -10,10 +11,9 @@ import Loader from "../../components/UI/cargando/loader";
 import Footer from "../../components/UI/Footer/Footer";
 import ListBoxSimple from "../../components/UI/formulario/Combox/listBoxSimple";
 
-import { actualizarInformacionApi, detalleInformacionApi } from "../../api/productos";
 import procesarImagen from "../../utils/procesadorImagenes";
-import Swal from "sweetalert2";
-import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
+import { notificacionConfirmar, notificacionError } from "../../utils/notificacionCliente";
+import { actualizarInformacionApi, detalleInformacionApi } from "../../api/productos";
 
 function ActualizarProducto() {
 	const { register, handleSubmit, formState: { errors } } = useForm();
@@ -29,7 +29,6 @@ function ActualizarProducto() {
 		idCategory: null,
 	});
 
-
 	useEffect(() => {
 		const obtenerDatos = async () => {
 			try {
@@ -40,7 +39,7 @@ function ActualizarProducto() {
 					setSelectedImage(`${raizUrl}/${imagen}`);
 				}
 			} catch (error) {
-				console.error('Error al obtener la informacion de losproductos: ', error)
+				console.error('Error al obtener la informacion de los productos: ', error)
 			}
 		};
 		obtenerDatos();
@@ -55,20 +54,10 @@ function ActualizarProducto() {
 
 		try {
 			await actualizarInformacionApi('productos', idProduct, producto);
-			Swal.fire({
-				icon: "success",
-				title: "Se ha actualizado un producto!",
-				showConfirmButton: false,
-				timer: 1500
-			});
+			notificacionConfirmar({ titulo: "Se ha actualizado un producto!" });
 		} catch (error) {
-			console.error('Error al crear un producto', error)
-			Swal.fire({
-				icon: "error",
-				title: "No Se puede crear el producto",
-				showConfirmButton: false,
-				timer: 1500
-			});
+			console.error('Error al crear un producto', error);
+			notificacionError({ titulo: "No Se puede crear el producto" });
 		}
 	};
 

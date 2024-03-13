@@ -13,6 +13,7 @@ import Footer from "../../components/UI/Footer/Footer";
 
 import Swal from 'sweetalert2'
 import { cambiarEstadoInformacionApi, listarInformacionConParametroApi } from "../../api/productos";
+import { notificacionActivarInactivar, notificacionInformativa } from "../../utils/notificacionCliente";
 
 function ListarTrabajador() {
   const [informacionA, setInformacionA] = useState([]);
@@ -26,7 +27,7 @@ function ListarTrabajador() {
         const informacionTrabajadorA = await listarInformacionConParametroApi('trabajador/Activo-Inactivo', "4");
         const informacionTrabajadorI = await listarInformacionConParametroApi('trabajador/Activo-Inactivo', "5");
         setInformacionA(informacionTrabajadorA.data);
-        setInformacionI(informacionTrabajadorI.data)
+        setInformacionI(informacionTrabajadorI.data);
         setCargando(false);
       } catch (error) {
         console.error("Error al acceder informacion: ", error);
@@ -38,53 +39,34 @@ function ListarTrabajador() {
 
   const eliminarTrabajador = async (idCardWorker) => {
     try {
-      const result = await Swal.fire({
-        title: "¿Quieres eliminar este trabajador?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#6977E4",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Eliminar",
-      });
+      const result = await notificacionActivarInactivar({ titulo: "¿Quieres eliminar este trabajador?", boton: "Eliminar" });
       if (result.isConfirmed) {
-        await cambiarEstadoInformacionApi('trabajador/Activo-Inactivo', idCardWorker, "5")
+        await cambiarEstadoInformacionApi('trabajador/Activo-Inactivo', idCardWorker, "5");
         const nuevaInformacionA = informacionA.filter((datos) => datos.idCardWorker !== idCardWorker);
         const nuevaInformacionI = informacionI.filter((datos) => datos.idCardWorker !== idCardWorker);
-        setInformacionA(nuevaInformacionA)
-        setInformacionI(nuevaInformacionI)
+        setInformacionA(nuevaInformacionA);
+        setInformacionI(nuevaInformacionI);
 
-        Swal.fire({
-          title: "Trabajador elimindao",
-          icon: "success",
-        });
+        notificacionInformativa({ icono: "success", titulo: "Trabajador elimindao" });
       }
     } catch (error) {
       console.error("error al eliminar: ", error);
+      notificacionInformativa({ icono: "error", titulo: "No es posible eliminar el trabajador" });
     }
   };
 
   const activarTrabajador = async (idCardWorker) => {
     try {
-      const result = await Swal.fire({
-        title: "¿Quieres activar este trabajador?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#6977E4",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Activar",
-      });
+      const result = await notificacionActivarInactivar({ titulo: "¿Quieres activar este trabajador?", boton: "Activar" });
       if (result.isConfirmed) {
-        await cambiarEstadoInformacionApi('trabajador/Activo-Inactivo', idCardWorker, "4")
+        await cambiarEstadoInformacionApi('trabajador/Activo-Inactivo', idCardWorker, "4");
         const nuevaInformacionI = informacionI.filter((datos) => datos.idCardWorker !== idCardWorker);
-        setInformacionI(nuevaInformacionI)
-
-        Swal.fire({
-          title: "Trabajador activado",
-          icon: "success",
-        });
+        setInformacionI(nuevaInformacionI);
+        notificacionInformativa({ icono: "success", titulo: "Trabajador activado" });
       }
     } catch (error) {
       console.error("error al eliminar: ", error);
+      notificacionInformativa({ icono: "error", titulo: "Erro al activar el trabajador" });
     }
   };
 
@@ -148,7 +130,6 @@ function ListarTrabajador() {
       <Spacer y={5} />
 
       <Acordeon titulo={"Trabajadores inactivos"}
-  
       className={'inactivos'}>
       {cargando ? (
         <Loader />
@@ -188,7 +169,6 @@ function ListarTrabajador() {
       )}
       </Acordeon>
     
-
       <Spacer y={5} />
       <div style={{ position: "flex", bottom: "0", width: "100%", marginTop: "290px" }}>
 

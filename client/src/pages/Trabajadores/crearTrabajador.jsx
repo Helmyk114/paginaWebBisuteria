@@ -2,8 +2,6 @@ import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import "../Trabajadores/trabajadores.css";
 
-import Swal from "sweetalert2";
-
 import { Card, Spacer } from "@nextui-org/react";
 import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 import SubirImagen from "../../components/UI/formulario/Imagen/imagen";
@@ -14,11 +12,13 @@ import BotonEnviar from "../../components/UI/botones/botonEnviar";
 import Footer from "../../components/UI/Footer/Footer";
 
 import { añadirInformacionAPI } from "../../api/productos";
+import { notificacionConfirmar, notificacionError } from "../../utils/notificacionCliente";
 
 
 function CrearTrabajador() {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [selectedImage, setSelectedImage] = useState();
+  const mensaje = "Este campo es requerido";
   const refs = useRef({
     workerName: null,
     workerLastName: null,
@@ -32,8 +32,6 @@ function CrearTrabajador() {
     idBank: null,
   });
 
-  const mensaje = "Este campo es requerido";
-
   const onSubmit = async (data) => {
     const trabajador = {
       ...data,
@@ -42,20 +40,10 @@ function CrearTrabajador() {
     console.log("objeto creado: ", trabajador);
     try {
       await añadirInformacionAPI(trabajador, "trabajador");
-      Swal.fire({
-        icon: "success",
-        title: "Se ha creado un trabajador!",
-        showConfirmButton: false,
-        timer: 1500,
-      });
+      notificacionConfirmar({ titulo: "Se ha creado un trabajador!" });
     } catch (error) {
       console.error("Error al crear un trabajador", error);
-      Swal.fire({
-        icon: "error",
-        title: "No Se puede crear un trabajador!",
-        showConfirmButton: false,
-        timer: 1500,
-      });
+      notificacionError({ titulo: "No Se puede crear un trabajador!" });
     }
   };
 
@@ -239,17 +227,13 @@ function CrearTrabajador() {
               </div>
             </div>
             <Spacer y={4} />
-            <BotonEnviar
-              className="botonEnviar"
-              text="Registrar trabajador"
-              type="submit"
-            />
+            <BotonEnviar className="botonEnviar" text="Registrar trabajador" type="submit" />
             <Spacer y={4} />
           </Card>
         </form>
       </div>
       <Spacer y={4} />
-      {/* <Footer /> */}
+     <Footer />
     </div>
   );
 }
