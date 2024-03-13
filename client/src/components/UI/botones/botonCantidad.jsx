@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ButtonGroup, Button } from '@nextui-org/react';
 import '../../../components/UI/botones/botones.css';
-import { Texto2Card } from '../perfil/cardInfo';
 
 function BotonCantidad({ onPriceChange, precio }) {
   const [number, setNumber] = useState(1);
