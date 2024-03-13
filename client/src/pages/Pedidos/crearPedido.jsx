@@ -8,21 +8,18 @@ import Acordeon from "../../components/UI/Acordeon/Acordeon";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import BotonEnviar from "../../components/UI/botones/botonEnviar";
 import Footer from "../../components/UI/Footer/Footer";
-import CardPerfil, {
-	Texto1Card,
-	Texto2Card,
-} from "../../components/UI/perfil/cardInfo";
+import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 import Avatares from "../../components/UI/avatar/Avatares";
 import BotonCantidad from "../../components/UI/botones/botonCantidad";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
 
-import Swal from "sweetalert2";
 import { actualizarInformacionSinImagenApi, añadirInformacionSinImagenAPI, detalleInformacionApi } from "../../api/productos";
 import { decodificarToken, obtenerToken } from "../../utils/token";
 import NavigateVEN, { Retroceder, Titulo } from "../../components/UI/navbar/navbarVendedor";
 import BotonEnviar2 from "../../components/UI/botones/BotonComprarProductos";
 import BotonComprar2 from "../../components/UI/botones/botonCompraPedido";
 import Texto3 from "../../components/UI/botones/total";
+import { notificacionConfirmar, notificacionError } from "../../utils/notificacionCliente";
 
 const CrearPedido = () => {
 
@@ -37,15 +34,14 @@ const CrearPedido = () => {
 
 	console.log(state.selectedProducts)
 
-
-	  function calculateTotalPrice() {
+	function calculateTotalPrice() {
 		return productPrices.reduce((total, price) => total + price, 0);
-	  }
-	
-	  useEffect(() => {
+	}
+
+	useEffect(() => {
 		// Actualizar el estado totalPrice con la suma calculada
 		setTotalPrice(calculateTotalPrice());
-	  }, [productPrices]);
+	}, [productPrices]);
 
 	const token = obtenerToken();
 	const id = decodificarToken(token).userId;
@@ -99,8 +95,8 @@ const CrearPedido = () => {
 			//idOrder: ""
 		};
 
-console.log(data)
-console.log(orden)
+		console.log(data)
+		console.log(orden)
 		try {
 			// const infoClient = await detalleInformacionApi('cliente', data.idCardClient)
 			// if (infoClient) {
@@ -109,20 +105,10 @@ console.log(orden)
 			// 	await añadirInformacionSinImagenAPI(newCliente, 'cliente');
 			// }
 			// await añadirInformacionSinImagenAPI(orden, 'orden');
-			Swal.fire({
-				icon: "success",
-				title: "Se ha enviado su pedido!",
-				showConfirmButton: false,
-				timer: 1500
-			});
+			notificacionConfirmar({ titulo: "Se ha enviado su pedido!" });
 		} catch (error) {
-			console.error('Error al crear un cliente', error)
-			Swal.fire({
-				icon: "error",
-				title: "No Se puede enviar su pedido!",
-				showConfirmButton: false,
-				timer: 1500
-			});
+			console.error('Error al crear un cliente', error);
+			notificacionError({ titulo: "No Se puede enviar su pedido!" });
 		}
 	};
 
@@ -212,25 +198,25 @@ console.log(orden)
 										<Texto1Card
 											texto={product.producto} />
 										<div style={{ display: "flex", justifyContent: "center" }}>
-										<BotonCantidad
-  										 onPriceChange={(price) => {
-    										const updatedPrices = [...productPrices];
-    										if (updatedPrices[index] !== price) {
-      										updatedPrices[index] = price;
-     										setProductPrices(updatedPrices);
-      										setTotalPrice(calculateTotalPrice());
-    										}
-  											}}
-  											precio={product.precio}
+											<BotonCantidad
+												onPriceChange={(price) => {
+													const updatedPrices = [...productPrices];
+													if (updatedPrices[index] !== price) {
+														updatedPrices[index] = price;
+														setProductPrices(updatedPrices);
+														setTotalPrice(calculateTotalPrice());
+													}
+												}}
+												precio={product.precio}
+											/>
+										</div>
+									</div>
+									<div className="contenedor2">
+										<Texto2Card
+											{...register("subtotal", { value: productPrices[index] })}
+											texto2={productPrices[index]}
 										/>
-                  					</div>
-                				</div>
-                				<div className="contenedor2">
-                  					<Texto2Card
-										{...register("subtotal" , { value: productPrices[index] })}
-                    					texto2={productPrices[index]} 
-										/>
-                  						<div
+										<div
 											style={{ display: "flex" }}>
 											<Tooltip content="Eliminar producto">
 												<span className="text-lg text-danger cursor-pointer active:opacity-50" onClick={() => EliminarProducto(index)}>
@@ -247,11 +233,11 @@ console.log(orden)
 				</Acordeon>
 				<Spacer y={5} />
 				<BotonComprar2 text={"Comprar"}>
-  			 <Texto3 
-      			{...register("total", { value: totalPrice })} // Pasar el valor total al campo "total"
-      			precio={`${totalPrice}`}
-   />
-</BotonComprar2>
+					<Texto3
+						{...register("total", { value: totalPrice })} // Pasar el valor total al campo "total"
+						precio={`${totalPrice}`}
+					/>
+				</BotonComprar2>
 
 			</form>
 			<Footer />

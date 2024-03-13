@@ -14,6 +14,7 @@ import { actualizarInformacionApi, detalleInformacionApi } from "../../api/produ
 import procesarImagen from "../../utils/procesadorImagenes";
 import Swal from "sweetalert2";
 import NavigateADM, { Retroceder, Titulo }  from "../../components/UI/navbar/navbarAdmin";
+import { notificacionConfirmar, notificacionError } from "../../utils/notificacionCliente";
 
 function ActualizarTrabajador() {
 
@@ -60,20 +61,10 @@ function ActualizarTrabajador() {
 
 		try {
 			await actualizarInformacionApi('trabajadores', idCardWorker, trabajador);
-			Swal.fire({
-				icon: "success",
-				title: "Se ha actualizado un trabajador!",
-				showConfirmButton: false,
-				timer: 1500
-			});
+			notificacionConfirmar({ titulo: "Se ha actualizado un trabajador!" });
 		} catch (error) {
-			console.error('Error al crear un producto', error)
-			Swal.fire({
-				icon: "error",
-				title: "No Se puede crear el producto",
-				showConfirmButton: false,
-				timer: 1500
-			});
+			console.error('Error al crear un producto', error);
+			notificacionError({ titulo: "No Se puede crear el producto" });
 		}
 	};
 
