@@ -2,7 +2,6 @@ import React from "react";
 import "./navbar.css";
 
 import {
-  Link,
   Navbar,
   NavbarBrand,
   NavbarContent,
@@ -106,7 +105,6 @@ const Texto = ({ titulo, nombre, rol }) => {
           style={{
             marginTop: "-9px",
             marginBottom: "15px",
-            //PONER EL ITALIC
             fontFamily: "Roboto, sans-serif",
             fontSize: "12px",
             color: "#fff",
@@ -130,7 +128,6 @@ const Notificacion = () => {
     </NavbarContent>
   );
 };
-
 
 
 const Retroceder = () => {
@@ -167,6 +164,18 @@ const AgregamosPedido = () => {
   );
 };
 
+const Perfil = () => {
+  return (
+    <NavbarContent style={{ marginTop: "0px", color: "#6977E4" }}>
+      <NavbarItem>
+        <div>
+          <PerfilNav />
+        </div>
+      </NavbarItem>
+    </NavbarContent>
+  );
+};
+
 const Inicios = () => {
   return (
     <NavbarContent style={{ marginTop: "0px", color: "#6977E4" }}>
@@ -183,25 +192,20 @@ const DesplegableVEN = () => {
   const menuItems = [
     <Inicios/>,
     <Notificacion/>,
-    <PerfilNav/>,
+    <Perfil/>,
     <AgregamosPedido/>,
-    <CerrarSesion/>
+    <CerrarSesion/> 
   ];
 
   return (
     <NavbarMenu>
-    {menuItems.map((item, index) => (
-      <NavbarMenuItem key={`${item}-${index}`} >
-        <Link  
-          className="w-full"
-          size="lg"
-        >
+      {menuItems.map((item, index) => (
+        <NavbarMenuItem key={index} >
           {item}
-        </Link>
-      </NavbarMenuItem>
-    ))}
-  </NavbarMenu>
+        </NavbarMenuItem>
+      ))}
+    </NavbarMenu>
   );
 };
 
-export { Titulo, Notificacion, Retroceder, Icono, Texto, AgregamosPedido, DesplegableVEN, Inicios};
+export { Titulo, Notificacion, Retroceder, Icono, Texto, AgregamosPedido, DesplegableVEN, Inicios, Perfil};
