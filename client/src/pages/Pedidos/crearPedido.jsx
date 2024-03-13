@@ -22,18 +22,21 @@ import { decodificarToken, obtenerToken } from "../../utils/token";
 import NavigateVEN, { Retroceder, Titulo } from "../../components/UI/navbar/navbarVendedor";
 import BotonEnviar2 from "../../components/UI/botones/BotonComprarProductos";
 import BotonComprar2 from "../../components/UI/botones/botonCompraPedido";
+import Texto3 from "../../components/UI/botones/total";
 
-function CrearPedido() {
+const CrearPedido = () => {
 
 	const { register, handleSubmit, formState: { errors } } = useForm();
 	const location = useLocation();
 	const { state } = location;
+	const [totalPrice, setTotalPrice] = useState(calculateTotalPrice());
 	const [productPrices, setProductPrices] = useState(() => {
 		// Inicializar el array de precios con los precios iniciales de los productos
 		return state.selectedProducts.map(product => product.precio);
 	});
 
-	const [totalPrice, setTotalPrice] = useState(calculateTotalPrice());
+	console.log(state.selectedProducts)
+
 
 	  function calculateTotalPrice() {
 		return productPrices.reduce((total, price) => total + price, 0);
@@ -48,15 +51,23 @@ function CrearPedido() {
 	const id = decodificarToken(token).userId;
 	const mensaje = 'Este campo es requerido'
 
-	const handleComprarClick = (precioJSON) => {
-		console.log("Información del precio en formato JSON:", precioJSON);
-	};
+	const EliminarProducto = (index) => {
+		const updatedProducts = [...state.selectedProducts];
+		const updatedPrices = [...productPrices];
+
+		updatedProducts.splice(index, 1);
+		updatedPrices.splice(index, 1);
+
+		// setProductPrices(updatedPrices);
+		// props.setSelectedProducts(updatedProducts);
+	}
 
 	const refs = useRef({
 		idCardClient: null,
 		clientname: null,
 		clientAddress: null,
 		clientPhone: null,
+
 	});
 
 	const onSubmit = async (data) => {
@@ -73,7 +84,8 @@ function CrearPedido() {
 		};
 		const orden = {
 			idCardWorker: `${id}`,
-			total: '200000',
+			total: data.total,
+			cantidadProductos: "4"
 		};
 		let idsProductos = [];
 
@@ -87,7 +99,7 @@ function CrearPedido() {
 			//idOrder: ""
 		};
 
-console.log(`${id}`)
+console.log(data)
 console.log(orden)
 		try {
 			// const infoClient = await detalleInformacionApi('cliente', data.idCardClient)
@@ -96,7 +108,7 @@ console.log(orden)
 			// } else {
 			// 	await añadirInformacionSinImagenAPI(newCliente, 'cliente');
 			// }
-			await añadirInformacionSinImagenAPI(orden, 'orden');
+			// await añadirInformacionSinImagenAPI(orden, 'orden');
 			Swal.fire({
 				icon: "success",
 				title: "Se ha enviado su pedido!",
@@ -215,11 +227,13 @@ console.log(orden)
                 				</div>
                 				<div className="contenedor2">
                   					<Texto2Card
-                    					texto2={productPrices[index]} />
+										{...register("subtotal" , { value: productPrices[index] })}
+                    					texto2={productPrices[index]} 
+										/>
                   						<div
 											style={{ display: "flex" }}>
 											<Tooltip content="Eliminar producto">
-												<span className="text-lg text-danger cursor-pointer active:opacity-50">
+												<span className="text-lg text-danger cursor-pointer active:opacity-50" onClick={() => EliminarProducto(index)}>
 													<DeleteIcon />
 												</span>
 											</Tooltip>
@@ -232,7 +246,13 @@ console.log(orden)
 					))}
 				</Acordeon>
 				<Spacer y={5} />
-				<BotonComprar2 text={"Comprar"} precio={`${totalPrice}`} />
+				<BotonComprar2 text={"Comprar"}>
+  			 <Texto3 
+      			{...register("total", { value: totalPrice })} // Pasar el valor total al campo "total"
+      			precio={`${totalPrice}`}
+   />
+</BotonComprar2>
+
 			</form>
 			<Footer />
 

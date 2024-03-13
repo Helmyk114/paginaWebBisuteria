@@ -46,7 +46,7 @@ export default function ListProduct() {
 
   const handleCrearPedidosClick = () => {
     // Puedes navegar a la nueva vista y pasar la información de los productos seleccionados
-    navigate('/crear/pedidos', { state: { selectedProducts } });
+    navigate('/crear/pedidos', { state: { selectedProducts} });
   };
   return (
     <div>
