@@ -1,7 +1,7 @@
 import React from "react";
 import "./navbar.css";
 
-import { Link, Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from "@nextui-org/react";
 import Avatares from "../avatar/Avatares";
 import Campana from "../iconos/Notificacion";
 import BotonRetroceder from "../iconos/Retroceder";
@@ -80,7 +80,8 @@ const Texto = ({ titulo, nombre, rol }) => {
         </h2>
         <h3
           className="rol"
-          style={{ marginTop: "-9px", marginBottom: "15px", fontFamily: "Roboto, sans-serif", fontSize: "12px", color: "#fff" }}
+          style={{ marginTop: "-9px", marginBottom: "15px",  fontFamily: "Roboto, sans-serif",
+          fontStyle: "italic", fontSize: "12px", color: "#fff" }}
         >
           {rol}
         </h3>
@@ -198,22 +199,20 @@ const Inicios = () => {
 const DesplegableADM = () => {
   const menuItems = [
     <Inicios/>,
-    <Notificacion />,
-    <Perfil />,
-    <AgregamosTrabajador />,
-    <AgregamosProducto />,
-    <AgregamosPedido />,
-    <AgregamosListaTrabajo />,
-    <CerrarSesion />,
+    <Notificacion/>,
+    <Perfil/>,
+    <AgregamosTrabajador/>,
+    <AgregamosProducto/>,
+    <AgregamosPedido/>,
+    <AgregamosListaTrabajo/>,
+    <CerrarSesion/>
   ];
 
   return (
     <NavbarMenu>
       {menuItems.map((item, index) => (
-        <NavbarMenuItem key={`${item}-${index}`}>
-          <Link className="w-full" size="lg">
-            {item}
-          </Link>
+        <NavbarMenuItem key={index} >
+          {item}
         </NavbarMenuItem>
       ))}
     </NavbarMenu>

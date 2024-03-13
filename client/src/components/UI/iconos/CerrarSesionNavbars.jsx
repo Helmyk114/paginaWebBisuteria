@@ -15,10 +15,7 @@
           >
             <path d="M20.592 12.5H9.154v-1h11.438l-2.088-2.088l.708-.72L22.519 12l-3.307 3.308l-.708-.72zm-5.188-3.77V5H5v14h10.404v-3.73h1V20H4V4h12.404v4.73z" />
           </svg>
-
-          <div>
-            <h1>CERRAR SESION</h1>
-          </div>
+            <h1 style={{fontFamily: "roboto"}}>CERRAR SESION</h1>
         </div>
       </Link>
     );

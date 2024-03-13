@@ -23,10 +23,7 @@ const Inicio = ({ ruta }) => {
           />
           <path fill="none" d="M0 0h36v36H0z" />
         </svg>
-
-        <div>
-          <h1>INICIO</h1>
-        </div>
+          <h1  style={{fontFamily: "roboto"}}>INICIO</h1>
       </div>
     </Link>
   );

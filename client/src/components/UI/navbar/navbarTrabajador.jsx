@@ -2,7 +2,6 @@ import React from "react";
 import "./navbar.css";
 
 import {
-  Link,
   Navbar,
   NavbarBrand,
   NavbarContent,
@@ -105,7 +104,6 @@ const Texto = ({ titulo, nombre, rol }) => {
           style={{
             marginTop: "-9px",
             marginBottom: "15px",
-            //PONER EL ITALIC
             fontFamily: "Roboto, sans-serif",
             fontSize: "12px",
             color: "#fff",
@@ -144,7 +142,7 @@ const CerrarSesion = () => {
 
 const Perfil = () => {
   return (
-    <NavbarContent style={{ marginTop: "0px", color: "$6977E4" }}>
+    <NavbarContent style={{ marginTop: "0px", color: "#6977E4" }}>
       <NavbarItem>
         <div>
           <PerfilNav />
@@ -180,19 +178,17 @@ const Retroceder = () => {
 
 const DesplegableTRJ = () => {
   const menuItems = [
-    <Notificacion />, 
-    <Perfil />,
-    <CerrarSesion/>,
-    <Inicios/>,
+    <Notificacion/>,
+    <Perfil/>,
+    <CerrarSesion/>, 
+    <Inicios/> 
   ];
 
   return (
     <NavbarMenu>
       {menuItems.map((item, index) => (
-        <NavbarMenuItem key={`${item}-${index}`}>
-          <Link className="w-full" size="lg">
-            {item}
-          </Link>
+        <NavbarMenuItem key={index} >
+          {item}
         </NavbarMenuItem>
       ))}
     </NavbarMenu>
