@@ -12,6 +12,7 @@ import EditIcon from "../../components/UI/iconos/Editar";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
 import Acordeon from "../../components/UI/Acordeon/Acordeon";
 import Footer from "../../components/UI/Footer/Footer";
+import { notificacionActivarInactivar, notificacionInformativa } from "../../utils/notificacionCliente";
 
 function ListarProducto() {
 
@@ -38,25 +39,15 @@ function ListarProducto() {
 
 	const eliminarProducto = async (idProduct) => {
 		try {
-			const result = await Swal.fire({
-				title: "¿Quieres eliminar este producto?",
-				icon: "warning",
-				showCancelButton: true,
-				confirmButtonColor: "#6977E4",
-				cancelButtonColor: "#d33",
-				confirmButtonText: "Eliminar"
-			});
+			const result = await notificacionActivarInactivar({ titulo: "¿Quieres eliminar este producto?", boton: "Eliminar" });
 			if (result.isConfirmed) {
 				await cambiarEstadoInformacionApi('producto/Activo-Inactivo', idProduct, "5")
 				const nuevaInformacionA = informacionA.filter((datos) => datos.idProduct !== idProduct);
 				const nuevaInformacionI = informacionI.filter((datos) => datos.idProduct !== idProduct);
 				setInformacionA(nuevaInformacionA)
 				setInformacionI(nuevaInformacionI)
-
-				Swal.fire({
-					title: "Producto elimindao",
-					icon: "success"
-				});
+				
+				notificacionInformativa({ icono: "success", titulo: "Producto eliminado" })
 			}
 		} catch (error) {
 			console.error('error al eliminar: ', error)
@@ -65,23 +56,13 @@ function ListarProducto() {
 
 	const activarProducto = async (idProduct) => {
 		try {
-			const result = await Swal.fire({
-				title: "¿Quieres activar este producto?",
-				icon: "warning",
-				showCancelButton: true,
-				confirmButtonColor: "#6977E4",
-				cancelButtonColor: "#d33",
-				confirmButtonText: "Activar"
-			});
+			const result = await notificacionActivarInactivar({ titulo: "¿Quieres activar este producto?", boton: "Activar"});
 			if (result.isConfirmed) {
 				await cambiarEstadoInformacionApi('producto/Activo-Inactivo', idProduct, "4")
 				const nuevaInformacionI = informacionI.filter((datos) => datos.idProduct !== idProduct);
 				setInformacionI(nuevaInformacionI)
 
-				Swal.fire({
-					title: "Producto activado",
-					icon: "success"
-				});
+				notificacionInformativa({ icono: "success", titulo: "Producto activado" })
 			}
 		} catch (error) {
 			console.error('error al activar producto: ', error)
