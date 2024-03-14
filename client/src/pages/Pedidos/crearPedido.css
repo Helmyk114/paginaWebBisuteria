@@ -1,66 +1,151 @@
 /* styles.css */
 
 @media screen and (max-width: 767px) {
-    .contenedor1{
+    .cont1CrP {
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap:"13px";
+        gap: "13px";
         justify-content: space-between;
 
     }
-    .contenedor2{
-        flex-direction: row;
+
+    .cont2CrP {
+        flex-direction: column;
         display: flex;
         justify-content: flex-end;
         width: 100%;
         align-items: end;
         gap: 10px;
-        
+
     }
+
+    .cardCrearPedido {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cardCrearPedidoGap {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
    
 }
+
 @media screen and (min-width: 1024px) {
-    .contenedor1{
+    .cont1CrP {
         width: 70%;
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap:"13px";
+        gap: "13px";
         justify-content: space-between;
     }
-    .contenedor2{
-        
+
+    .cont2CrP {
+
         display: flex;
         justify-content: end;
         width: 30%;
         align-items: center;
-        gap:13px;
+        gap: 13px;
         align-items: center;
+    }
+
+    .cardCrearPedido {
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .cardCrearPedidoGap {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: "";
+        flex-direction: row;
+    }
+
+    .cardCrearPedidoDiv {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+}
+
+@media screen and (min-width: 768px),
+(max-width:1023) {
+    .cont1CrP {
+        width: 70%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: "13px";
+        justify-content: space-between;
+    }
+
+    .cont2CrP {
+
+        display: flex;
+        justify-content: end;
+        width: 30%;
+        align-items: center;
+        gap: 13px;
+        align-items: center;
+    }
+
+    .cardCrearPedido {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .cardCrearPedidoGap {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: "";
+        flex-direction: row;
+    }
+
+    .cardCrearPedidoDiv {
+        display: flex;
+        flex-direction: row;
+
     }
 }
 
 
 /* estilos de la tarjeta  */
-.cont1ListaP{
-    
+.cont1ListaP {
+
     margin-bottom: 30px;
 }
 
-.card1ListaP{
-position: absolute;
+.card1ListaP {
+    position: absolute;
 
 }
-.cont2ListaP{
+
+.cont2ListaP {
     display: flex;
     flex-direction: column;
 
 }
 
-.contTexto1P{
+.contTexto1P {
     margin-bottom: 55px;
 }
-.card2ListaP{
+
+.card2ListaP {
     display: flex;
     justify-content: space-between;
     width: 254px;
@@ -72,16 +157,17 @@ position: absolute;
 }
 
 
-.contTexto2P{
+.contTexto2P {
     display: flex;
     justify-content: space-between;
     align-items: start;
     margin: 10px;
     font-size: 10px;
-    
+
 
 }
-.contIconoP{
+
+.contIconoP {
     display: flex;
     justify-content: space-between;
     margin: 8px;

@@ -29,9 +29,7 @@
 
     }
 
-    .cardPerfil {
-        flex-direction: column;
-    }
+   
 
 
 
@@ -49,11 +47,7 @@
         flex-direction: row;
 
     }
-    .cardPerfil {
-        display: flex;
-        flex-direction: row;
-        
-    }
+    
     .iconoCard {
         width: 32px;
         height: 32px;
@@ -80,11 +74,7 @@
         height: 45px;
     }
 
-    .cardPerfil {
-        display: flex;
-        flex-direction: row;
-        
-    }
+    
 
 
 

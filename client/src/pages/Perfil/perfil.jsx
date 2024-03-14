@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import "../Perfil/perfiles.css"
 import { Spacer } from "@nextui-org/react";
 import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
@@ -70,12 +70,15 @@ export default function Perfilinfo() {
                 <div style={{ backgroundColor: "#EEEEEE", width: "90%", padding: "1px", borderRadius: "13px", margin: "0 auto", marginBottom: "30px", position: "relative", top: "131px", zIndex: "1" }}>
                   <Spacer y={4} />
                   <CardPerfil
-                  className={"cardPerfil"}
-                    gap={"13px"}
-                    display={"flex"}
-                    justifyContent={"start"}>
-                    <IconoCard icon={"gridicons:user-circle"} />
-                    <div style={{ display: "block" }}>
+                    className1={"cardPerfil"}
+                    className2={"cardPerfilGap"}
+                    gap={"15px"}>
+                      <div>
+                      <IconoCard icon={"gridicons:user-circle"} />
+
+                      </div>
+                    
+                    <div >
                       <Texto1Card
                         texto={"Usuario"} />
                       <Texto2Card
@@ -84,10 +87,9 @@ export default function Perfilinfo() {
                   </CardPerfil>
                   <Spacer y={3} />
                   <CardPerfil
-                    className={"cardPerfil"}
-                    gap={"13px"}
-                    display={"flex"}
-                    justifyContent={"start"}>
+                    className1={"cardPerfil"}
+                    className2={"cardPerfilGap"}
+                    gap={"15px"}>
                     <IconoCard icon={"mdi:user-card-details"} />
                     <div style={{ display: "block" }}>
                       <Texto1Card
@@ -99,10 +101,9 @@ export default function Perfilinfo() {
                   </CardPerfil>
                   <Spacer y={3} />
                   <CardPerfil
-                    className={"cardPerfil"}
-                    gap={"13px"}
-                    display={"flex"}
-                    justifyContent={"start"}>
+                    className1={"cardPerfil"}
+                    className2={"cardPerfilGap"}
+                    gap={"15px"}>
                     <IconoCard icon={"mdi:email"} />
                     <div style={{ display: "block" }}>
                       <Texto1Card
@@ -113,10 +114,9 @@ export default function Perfilinfo() {
                   </CardPerfil>
                   <Spacer y={3} />
                   <CardPerfil
-                  className={"cardPerfil"}
-                  gap={"13px"}
-                  display={"flex"}
-                  justifyContent={"start"}>
+                  className1={"cardPerfil"}
+                  className2={"cardPerfilGap"}
+                  gap={"15px"}>
                     <IconoCard icon={"mdi:telephone"} />
                     <div style={{ display: "block" }}>
                       <Texto1Card
@@ -127,10 +127,10 @@ export default function Perfilinfo() {
                   </CardPerfil>
                   <Spacer y={3} />
                   <CardPerfil
-                  className={"cardPerfil"}
-                  gap={"13px"}
-                  display={"flex"}
-                  justifyContent={"start"}>
+                  className1={"cardPerfil"}
+                  className2={"cardPerfilGap"}
+                  gap={"15px"}>
+                    
                     <IconoCard icon={"mdi:cash-multiple"} />
                     <div style={{ display: "block" }}>
                       <Texto1Card
@@ -142,19 +142,23 @@ export default function Perfilinfo() {
                   <Spacer y={3} />
                   <Link to={`/editar/trabajador/${datos.idCardWorker}`}>
                     <CardPerfil
-                    className={"cardPerfil"} alignItems={"center"}
-                      justifyContent={"space-between"}>
-                      <IconoCard icon={"akar-icons:edit"} />
-                      <div>
+                    className1={"cardPerfil"}
+                    className2={"cardBotonPerfil"}>
+                      
+                        <IconoCard icon={"akar-icons:edit"} />
+                      
                         <Texto1Card
                           texto={"Editar"}
                           fontSize={"20px"} />
-                      </div>
-                      <div>
+                      
+                     
                         <IconoCard icon={"akar-icons:arrow-right"}
                           width={"35"}
                           height={"35"} />
-                      </div>
+                      
+
+                    
+                      
                     </CardPerfil>
                     <Spacer y={4} />
                   </Link>

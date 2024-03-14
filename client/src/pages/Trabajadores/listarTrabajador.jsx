@@ -104,6 +104,8 @@ function ListarTrabajador() {
             informacionA.map((datos) => (
               <div key={datos.idCardWorker}>
                 <CardPerfil
+                className1={"cardListaTra"}
+                className2={"cardListaTraGap"}
                   key={datos.idCardWorker}
                   img={`${urlImage}/${datos.photo}`}
                   justifyContent={"space-between"}
@@ -158,11 +160,13 @@ function ListarTrabajador() {
             informacionI.map((datos) => (
               <div key={datos.idCardWorker}>
                 <CardPerfil
+                className1={"cardListaTra"}
+                className2={"cardListaTraGap"}
+                alignItems={"center"}
                   key={datos.idCardWorker}
                   img={`${urlImage}/${datos.photo}`}
-                  justifyContent={"space-between"}
-                  className="cardPerfil"
-                  alignItems={"center"}>
+                  
+                 >
                   <Avatares
                     src={`${urlImage}/${datos.photo}`}
                     radio={"full"} />

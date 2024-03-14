@@ -1,0 +1,71 @@
+
+@media screen and (max-width: 767px){
+    .cardPerfil{
+            width: 90%;
+            margin: 0 auto;
+    }
+    .cardPerfilGap{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap:"";
+        flex-direction: row;
+       
+    }
+    .cardBotonPerfil{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+@media screen and (min-width: 768px), (max-width:1023){
+    .cardPerfil{
+        width: 90%;
+        margin: 0 auto;
+}
+.cardPerfilGap{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:"";
+    flex-direction: row;
+   
+}
+.cardBotonPerfil{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+}
+
+@media screen and (min-width: 1024px){
+    .cardPerfil{
+        width: 90%;
+        margin: 0 auto;
+        
+}
+.cardPerfilGap{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap:"103px";
+    flex-direction: row;
+   
+}
+.cardBotonPerfil{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+}

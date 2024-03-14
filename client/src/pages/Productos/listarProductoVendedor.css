@@ -18,5 +18,97 @@
         flex-grow: 1;
         flex-basis: 200;
     }
+    /* Css para ListaProductos */
+    .cardListaProGap{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+    .cardListaPro{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .cont1CardLitaPro{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    .iconosCardListapro{
+        display: flex;
+        flex-direction: column;
+    }
+    .inactivoCardListaPro{
+        display: flex;
+        gap: 12px;
+        align-items: center;
+    }
+   
     
+  }
+
+  @media screen and (min-width: 1024px){
+    /* Css para ListaProductos */
+    .cont1CardListaPro{
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+    .cont2CardListaPro{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .cardListaPro{
+        width: 60%;
+        margin: 0 auto;
+    }
+   
+    .cardListaProGap{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+    .texto1CardListaPro{
+        text-align: center;
+        align-items: center;
+    }
+    .inactivoCardListaPro{
+        display: flex;
+        gap: 12px;
+        align-items: center;
+    }
+  }
+  @media (min-width: 767px) and (max-width: 1023px){
+    /* Css para ListaProductos */
+    .cardListaProGap{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+    .cardListaPro{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .cont1CardLitaPro{
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+    .cont2CardLitaPro{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .inactivoCardListaPro{
+        display: flex;
+        gap: 12px;
+        align-items: center;
+    }
   }

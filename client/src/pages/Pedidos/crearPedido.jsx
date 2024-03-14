@@ -186,13 +186,11 @@ console.log(orden)
 					{state.selectedProducts.map((product, index) => (
 						<div key={index}>
 							<CardPerfil
-								justifyContent={"space-between"}
-								gap={"2px"}
-								key={index}
-								width={"90%"}
+								className1={"cardCrearPedido"}
+								className2={"cardCrearPedidoGap"}
 							>
-								<div className="cardPerfil"  >
-									<div className="contenedor1">
+								
+									<div className="cont1CrP">
 										<Avatares
 											src={product.img} alt={product.producto}
 											radio={"full"} />
@@ -213,7 +211,7 @@ console.log(orden)
 										/>
                   					</div>
                 				</div>
-                				<div className="contenedor2">
+                				<div className="cont2CrP">
                   					<Texto2Card
                     					texto2={productPrices[index]} />
                   						<div
@@ -225,7 +223,7 @@ console.log(orden)
 											</Tooltip>
 										</div>
 									</div>
-								</div>
+								
 							</CardPerfil>
 							<Spacer y={3} />
 						</div>

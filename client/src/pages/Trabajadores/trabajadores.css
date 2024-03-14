@@ -24,11 +24,19 @@
         width: 100%;
     }
 
-    .cardPerfil{
-        width: 92%;
+    .cardListaTra{
+        width: 90%;
         margin: 0 auto;
-        
-    }
+       }
+    .cardListaTraGap{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row;
+       }
+
+   
 
 
 }
@@ -48,6 +56,18 @@
     .inactivos{
         width: 64%;
     }
+
+    .cardListaTra{
+        width: 60%;
+        margin: 0 auto;
+       }
+    .cardListaTraGap{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row;
+       }
 }
 
 @media screen and (min-width: 1024px) {
@@ -57,6 +77,18 @@
         align-items: start;
 
     }
+   .cardListaTra{
+    width: 60%;
+    margin: 0 auto;
+   }
+   .cardListaTraGap{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+   }
+    
 
     .card {
         width: 74%;
