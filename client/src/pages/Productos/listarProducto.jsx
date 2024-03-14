@@ -34,7 +34,7 @@ function ListarProducto() {
 			}
 		};
 		data();
-	}, []);
+	}, [informacionA, informacionI]);
 
 	const eliminarProducto = async (idProduct) => {
 		try {
