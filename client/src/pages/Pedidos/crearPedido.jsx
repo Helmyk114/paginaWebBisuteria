@@ -1,32 +1,29 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom";
 import "./crearPedido.css";
 
 import { Spacer, Tooltip } from "@nextui-org/react";
+import NavigateVEN, { Retroceder, Titulo } from "../../components/UI/navbar/navbarVendedor";
 import Acordeon from "../../components/UI/Acordeon/Acordeon";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import Footer from "../../components/UI/Footer/Footer";
 import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 import Avatares from "../../components/UI/avatar/Avatares";
 import BotonCantidad from "../../components/UI/botones/botonCantidad";
+import BotonComprar2 from "../../components/UI/botones/botonCompraPedido";
+import Texto3 from "../../components/UI/botones/total";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
 
 import { actualizarInformacionSinImagenApi, añadirInformacionSinImagenAPI, detalleInformacionApi } from "../../api/productos";
 import { decodificarToken, obtenerToken } from "../../utils/token";
-import NavigateVEN, { Retroceder, Titulo } from "../../components/UI/navbar/navbarVendedor";
-import BotonComprar2 from "../../components/UI/botones/botonCompraPedido";
-import Texto3 from "../../components/UI/botones/total";
 import { notificacionConfirmar, notificacionError } from "../../utils/notificacionCliente";
-import { useCallback } from "react";
 
 const CrearPedido = () => {
-
 	const { register, handleSubmit, formState: { errors } } = useForm();
 	const location = useLocation();
 	const { state } = location;
 
-	
 	const [productPrices, setProductPrices] = useState(() => {
 		// Inicializar el array de precios con los precios iniciales de los productos
 		return state.selectedProducts.map(product => product.precio);
@@ -35,7 +32,7 @@ const CrearPedido = () => {
 	const calculateTotalPrice = useCallback(() => {
 		return productPrices.reduce((total, price) => total + price, 0);
 	}, [productPrices]);
-	
+
 	const [totalPrice, setTotalPrice] = useState(calculateTotalPrice());
 	
 	useEffect(() => {
@@ -63,7 +60,6 @@ const CrearPedido = () => {
 		clientname: null,
 		clientAddress: null,
 		clientPhone: null,
-
 	});
 
 	const onSubmit = async (data) => {
@@ -81,8 +77,11 @@ const CrearPedido = () => {
 		const orden = {
 			idCardWorker: `${id}`,
 			total: data.total,
-			cantidadProductos: "4"
+			cantidadProductos: "4",
+			idCardClient: data.idCardClient
 		};
+console.log(orden)
+
 		let idsProductos = [];
 
 		state.selectedProducts.forEach(producto => {
