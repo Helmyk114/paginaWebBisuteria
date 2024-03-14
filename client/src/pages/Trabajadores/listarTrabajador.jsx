@@ -11,7 +11,6 @@ import Acordeon from "../../components/UI/Acordeon/Acordeon";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
 import Footer from "../../components/UI/Footer/Footer";
 
-import Swal from 'sweetalert2'
 import { cambiarEstadoInformacionApi, listarInformacionConParametroApi } from "../../api/productos";
 import { notificacionActivarInactivar, notificacionInformativa } from "../../utils/notificacionCliente";
 

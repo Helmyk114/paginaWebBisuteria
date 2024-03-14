@@ -6,7 +6,6 @@ import "./crearPedido.css";
 import { Spacer, Tooltip } from "@nextui-org/react";
 import Acordeon from "../../components/UI/Acordeon/Acordeon";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
-import BotonEnviar from "../../components/UI/botones/botonEnviar";
 import Footer from "../../components/UI/Footer/Footer";
 import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 import Avatares from "../../components/UI/avatar/Avatares";
@@ -16,7 +15,6 @@ import DeleteIcon from "../../components/UI/iconos/Eliminar";
 import { actualizarInformacionSinImagenApi, añadirInformacionSinImagenAPI, detalleInformacionApi } from "../../api/productos";
 import { decodificarToken, obtenerToken } from "../../utils/token";
 import NavigateVEN, { Retroceder, Titulo } from "../../components/UI/navbar/navbarVendedor";
-import BotonEnviar2 from "../../components/UI/botones/BotonComprarProductos";
 import BotonComprar2 from "../../components/UI/botones/botonCompraPedido";
 import Texto3 from "../../components/UI/botones/total";
 import { notificacionConfirmar, notificacionError } from "../../utils/notificacionCliente";
@@ -26,37 +24,34 @@ const CrearPedido = () => {
 	const { register, handleSubmit, formState: { errors } } = useForm();
 	const location = useLocation();
 	const { state } = location;
-	const [totalPrice, setTotalPrice] = useState(calculateTotalPrice());
 	const [productPrices, setProductPrices] = useState(() => {
 		// Inicializar el array de precios con los precios iniciales de los productos
 		return state.selectedProducts.map(product => product.precio);
 	});
-
-	console.log(state.selectedProducts)
-
-	function calculateTotalPrice() {
-		return productPrices.reduce((total, price) => total + price, 0);
-	}
-
+	const [totalPrice, setTotalPrice] = useState(calculateTotalPrice());
+	
 	useEffect(() => {
 		// Actualizar el estado totalPrice con la suma calculada
 		setTotalPrice(calculateTotalPrice());
 	}, [productPrices]);
-
+	
+	function calculateTotalPrice() {
+		return productPrices.reduce((total, price) => total + price, 0);
+	}
 	const token = obtenerToken();
 	const id = decodificarToken(token).userId;
 	const mensaje = 'Este campo es requerido'
 
-	const EliminarProducto = (index) => {
-		const updatedProducts = [...state.selectedProducts];
-		const updatedPrices = [...productPrices];
+	// const EliminarProducto = (index) => {
+	// 	const updatedProducts = [...state.selectedProducts];
+	// 	const updatedPrices = [...productPrices];
 
-		updatedProducts.splice(index, 1);
-		updatedPrices.splice(index, 1);
+	// 	updatedProducts.splice(index, 1);
+	// 	updatedPrices.splice(index, 1);
 
-		// setProductPrices(updatedPrices);
-		// props.setSelectedProducts(updatedProducts);
-	}
+	// 	// setProductPrices(updatedPrices);
+	// 	// props.setSelectedProducts(updatedProducts);
+	// }
 
 	const refs = useRef({
 		idCardClient: null,
@@ -95,16 +90,14 @@ const CrearPedido = () => {
 			//idOrder: ""
 		};
 
-		console.log(data)
-		console.log(orden)
 		try {
-			// const infoClient = await detalleInformacionApi('cliente', data.idCardClient)
-			// if (infoClient) {
-			// 	await actualizarInformacionSinImagenApi('cliente', data.idCardClient, oldCliente)
-			// } else {
-			// 	await añadirInformacionSinImagenAPI(newCliente, 'cliente');
-			// }
-			// await añadirInformacionSinImagenAPI(orden, 'orden');
+			const infoClient = await detalleInformacionApi('cliente', data.idCardClient)
+			if (infoClient) {
+				await actualizarInformacionSinImagenApi('cliente', data.idCardClient, oldCliente)
+			} else {
+				await añadirInformacionSinImagenAPI(newCliente, 'cliente');
+			}
+			await añadirInformacionSinImagenAPI(orden, 'orden');
 			notificacionConfirmar({ titulo: "Se ha enviado su pedido!" });
 		} catch (error) {
 			console.error('Error al crear un cliente', error);
@@ -120,7 +113,7 @@ const CrearPedido = () => {
 			</NavigateVEN>
 			<Spacer y={4} />
 			<form onSubmit={handleSubmit(onSubmit)}>
-				{/* <Acordeon titulo={'Datos del cliente'}>
+				<Acordeon titulo={'Datos del cliente'}>
 					<div className="gap-4" style={{ display: "grid", gridTemplateColumns: "2fr 2fr" }}>
 						<div className="flex flex-col">
 							<InputText ref={(el) => { refs.current.idCardClient = el; }}
@@ -175,7 +168,7 @@ const CrearPedido = () => {
 						</div>
 					</div>
 					<Spacer y={4} />
-				</Acordeon> */}
+				</Acordeon>
 
 				<Spacer y={4} />
 				<Acordeon titulo={'Lista de productos'}>
@@ -213,13 +206,13 @@ const CrearPedido = () => {
 									</div>
 									<div className="contenedor2">
 										<Texto2Card
-											{...register("subtotal", { value: productPrices[index] })}
+						
 											texto2={productPrices[index]}
 										/>
 										<div
 											style={{ display: "flex" }}>
 											<Tooltip content="Eliminar producto">
-												<span className="text-lg text-danger cursor-pointer active:opacity-50" onClick={() => EliminarProducto(index)}>
+												<span className="text-lg text-danger cursor-pointer active:opacity-50">
 													<DeleteIcon />
 												</span>
 											</Tooltip>

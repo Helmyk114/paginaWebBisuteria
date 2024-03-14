@@ -4,7 +4,6 @@ import Footer from "../../components/UI/Footer/Footer";
 import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 import '../Pedidos/crearPedido.css'
-import BotonComprar2 from "../../components/UI/botones/botonCompraPedido";
 import BotonComprar from "../../components/UI/botones/BotonComprarProductos";
 
 function ListarPedidoAdministrador() {
