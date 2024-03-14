@@ -34,6 +34,8 @@ const CrearPedido = () => {
 	}, [productPrices]);
 
 	const [totalPrice, setTotalPrice] = useState(calculateTotalPrice());
+	const [cantidadProductos, setCantidadProductos] = useState(0); // Estado para la cantidad de productos
+	const [selectedProducts, setSelectedProducts] = useState(state.selectedProducts); // Nuevo estado para los productos seleccionados
 	
 	useEffect(() => {
 		// Actualizar el estado totalPrice con la suma calculada
@@ -62,6 +64,7 @@ const CrearPedido = () => {
 		clientPhone: null,
 	});
 
+	
 	const onSubmit = async (data) => {
 		const newCliente = {
 			idCardClient: data.idCardClient,
@@ -77,10 +80,11 @@ const CrearPedido = () => {
 		const orden = {
 			idCardWorker: `${id}`,
 			total: data.total,
-			cantidadProductos: "4",
+			cantidadProductos: cantidadProductos.toString(), // Convertir a string y añadir la cantidad de productos al objeto JSON
 			idCardClient: data.idCardClient
 		};
-console.log(orden)
+
+		console.log("Orden:", orden);
 
 		let idsProductos = [];
 
@@ -108,6 +112,24 @@ console.log(orden)
 			notificacionError({ titulo: "No Se puede enviar su pedido!" });
 		}
 	};
+
+	const handleQuantityChange = (quantity) => {
+		// Suma la cantidad de unidades de todos los productos
+		const totalQuantity = state.selectedProducts.reduce((total, product) => total + quantity, 0);
+		setCantidadProductos(totalQuantity);
+	  };
+
+	const eliminarProducto = (index) => {
+        const updatedProducts = [...selectedProducts];
+        updatedProducts.splice(index, 1);
+        const updatedPrices = [...productPrices];
+        updatedPrices.splice(index, 1);
+        setProductPrices(updatedPrices);
+        setSelectedProducts(updatedProducts); // Actualizar estado de productos seleccionados
+		console.log(updatedProducts); 
+    };
+
+	
 
 	return (
 		<div>
@@ -178,7 +200,7 @@ console.log(orden)
 				<Acordeon titulo={'Lista de productos'}>
 
 					<Spacer y={3} />
-					{state.selectedProducts.map((product, index) => (
+					{selectedProducts.map((product, index) => (
 						<div key={index}>
 							<CardPerfil
 								justifyContent={"space-between"}
@@ -195,17 +217,18 @@ console.log(orden)
 										<Texto1Card
 											texto={product.producto} />
 										<div style={{ display: "flex", justifyContent: "center" }}>
-											<BotonCantidad
-												onPriceChange={(price) => {
-													const updatedPrices = [...productPrices];
-													if (updatedPrices[index] !== price) {
-														updatedPrices[index] = price;
-														setProductPrices(updatedPrices);
-														setTotalPrice(calculateTotalPrice());
-													}
-												}}
-												precio={product.precio}
-											/>
+										<BotonCantidad
+          								onPriceChange={(price) => {
+            							const updatedPrices = [...productPrices];
+            							if (updatedPrices[index] !== price) {
+              							updatedPrices[index] = price;
+              							setProductPrices(updatedPrices);
+              							setTotalPrice(calculateTotalPrice());
+            								}
+         								 }}
+          								precio={product.precio}
+          								onQuantityChange={(quantity) => handleQuantityChange(quantity)} // Agrega esta prop
+        								/>
 										</div>
 									</div>
 									<div className="contenedor2">
@@ -216,7 +239,7 @@ console.log(orden)
 										<div
 											style={{ display: "flex" }}>
 											<Tooltip content="Eliminar producto">
-												<span className="text-lg text-danger cursor-pointer active:opacity-50">
+											<span className="text-lg text-danger cursor-pointer active:opacity-50" onClick={() => eliminarProducto(index)}>
 													<DeleteIcon />
 												</span>
 											</Tooltip>
@@ -229,12 +252,12 @@ console.log(orden)
 					))}
 				</Acordeon>
 				<Spacer y={5} />
-				<BotonComprar2 text={"Comprar"}>
-					<Texto3
-						{...register("total", { value: totalPrice })} // Pasar el valor total al campo "total"
-						precio={`${totalPrice}`}
-					/>
-				</BotonComprar2>
+				<BotonComprar2 text={"Comprar"} onClick={() => onSubmit({ total: totalPrice })}>
+                <Texto3
+                    {...register("total", { value: totalPrice })}
+                    precio={`${totalPrice}`}
+                />
+            </BotonComprar2>
 
 			</form>
 			<Footer />
