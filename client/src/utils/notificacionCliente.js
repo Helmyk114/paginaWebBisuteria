@@ -1,9 +1,9 @@
 import Swal from "sweetalert2";
 
 //Notificación que muestra que un evento se logro con exito
-export function notificacionConfirmar({ icono, titulo }) {
+export function notificacionConfirmar({ titulo }) {
   Swal.fire({
-    icon: icono,
+    icon: "success",
     title: titulo,
     showConfirmButton: false,
     timer: 1500,
@@ -11,9 +11,9 @@ export function notificacionConfirmar({ icono, titulo }) {
 };
 
 //Notificación que muestra que un evento no se logro con exito
-export function notificacionError({ icono, titulo}) {
+export function notificacionError({ titulo}) {
   Swal.fire({
-    icon: icono,
+    icon: "error",
     title: titulo,
     showConfirmButton: false,
     timer: 1500,

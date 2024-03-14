@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './listarProductoVendedor.css'; 
 
-import { Spacer, Button } from "@nextui-org/react";
+import { Spacer } from "@nextui-org/react";
 import NavigateVEN, { Retroceder, Titulo }from "../../components/UI/navbar/navbarVendedor";
 import CardProduct from "../../components/UI/cardProduct/card";
 import Categorias from "../../components/UI/cardProduct/categorias";
 import Loader from "../../components/UI/cargando/loader";
+import BotonComprar from "../../components/UI/botones/BotonComprarProductos";
 import Footer from "../../components/UI/Footer/Footer";
 
 import { listarInformacionConParametroApi } from "../../api/productos";
-import BotonComprar from "../../components/UI/botones/BotonComprarProductos";
 
 export default function ListProduct() {
   const [informacion, setInformacion] = useState([]);
@@ -46,7 +46,7 @@ export default function ListProduct() {
 
   const handleCrearPedidosClick = () => {
     // Puedes navegar a la nueva vista y pasar la información de los productos seleccionados
-    navigate('/crear/pedidos', { state: { selectedProducts } });
+    navigate('/crear/pedidos', { state: { selectedProducts} });
   };
   return (
     <div>
@@ -59,8 +59,7 @@ export default function ListProduct() {
       <div className="grid">
         <Categorias className="item2"/>
       </div>
-      
-
+    
       {cargando ? (
         <Loader />
       ) : (

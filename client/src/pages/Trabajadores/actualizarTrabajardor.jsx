@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 
 import { Card, Spacer } from "@nextui-org/react";
+import NavigateADM, { Retroceder, Titulo }  from "../../components/UI/navbar/navbarAdmin";
 import SubirImagen from "../../components/UI/formulario/Imagen/imagen";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import InputPassword from "../../components/UI/formulario/Inputs/password/inputPassword";
@@ -12,8 +13,7 @@ import Footer from "../../components/UI/Footer/Footer";
 
 import { actualizarInformacionApi, detalleInformacionApi } from "../../api/productos";
 import procesarImagen from "../../utils/procesadorImagenes";
-import Swal from "sweetalert2";
-import NavigateADM, { Retroceder, Titulo }  from "../../components/UI/navbar/navbarAdmin";
+import { notificacionConfirmar, notificacionError } from "../../utils/notificacionCliente";
 
 function ActualizarTrabajador() {
 
@@ -60,20 +60,10 @@ function ActualizarTrabajador() {
 
 		try {
 			await actualizarInformacionApi('trabajadores', idCardWorker, trabajador);
-			Swal.fire({
-				icon: "success",
-				title: "Se ha actualizado un trabajador!",
-				showConfirmButton: false,
-				timer: 1500
-			});
+			notificacionConfirmar({ titulo: "Se ha actualizado un trabajador!" });
 		} catch (error) {
-			console.error('Error al crear un producto', error)
-			Swal.fire({
-				icon: "error",
-				title: "No Se puede crear el producto",
-				showConfirmButton: false,
-				timer: 1500
-			});
+			console.error('Error al crear un producto', error);
+			notificacionError({ titulo: "No Se puede crear el producto" });
 		}
 	};
 

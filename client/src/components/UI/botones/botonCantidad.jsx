@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ButtonGroup, Button } from '@nextui-org/react';
 import '../../../components/UI/botones/botones.css';
-import { Texto2Card } from '../perfil/cardInfo';
 
-function BotonCantidad({ onPriceChange, precio }) {
+function BotonCantidad({ onPriceChange, onQuantityChange, precio }) {
   const [number, setNumber] = useState(1);
   const [newPrice, setNewPrice] = useState(precio);
 
@@ -12,6 +11,10 @@ function BotonCantidad({ onPriceChange, precio }) {
     setNewPrice(updatedPrice);
     onPriceChange(updatedPrice);
   }, [number, precio, onPriceChange]);
+
+  useEffect(() => {
+    onQuantityChange(number); // Llama a la función onQuantityChange al montar el componente
+  }, []); 
 
   const increaseNumber = () => {
     setNumber(prevNumber => prevNumber + 1);
@@ -40,4 +43,4 @@ function BotonCantidad({ onPriceChange, precio }) {
   );
 }
 
-export default BotonCantidad; 
+export default BotonCantidad;
