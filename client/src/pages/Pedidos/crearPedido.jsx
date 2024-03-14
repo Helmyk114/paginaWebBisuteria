@@ -46,17 +46,6 @@ const CrearPedido = () => {
 	const id = decodificarToken(token).userId;
 	const mensaje = 'Este campo es requerido'
 
-	// const EliminarProducto = (index) => {
-	// 	const updatedProducts = [...state.selectedProducts];
-	// 	const updatedPrices = [...productPrices];
-
-	// 	updatedProducts.splice(index, 1);
-	// 	updatedPrices.splice(index, 1);
-
-	// 	// setProductPrices(updatedPrices);
-	// 	// props.setSelectedProducts(updatedProducts);
-	// }
-
 	const refs = useRef({
 		idCardClient: null,
 		clientname: null,
