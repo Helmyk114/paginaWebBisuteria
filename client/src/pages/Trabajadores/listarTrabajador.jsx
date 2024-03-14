@@ -34,7 +34,7 @@ function ListarTrabajador() {
       }
     };
     data();
-  }, []);
+  }, [informacionA, informacionI]);
 
   const eliminarTrabajador = async (idCardWorker) => {
     try {

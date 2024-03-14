@@ -18,26 +18,31 @@ import NavigateVEN, { Retroceder, Titulo } from "../../components/UI/navbar/navb
 import BotonComprar2 from "../../components/UI/botones/botonCompraPedido";
 import Texto3 from "../../components/UI/botones/total";
 import { notificacionConfirmar, notificacionError } from "../../utils/notificacionCliente";
+import { useCallback } from "react";
 
 const CrearPedido = () => {
 
 	const { register, handleSubmit, formState: { errors } } = useForm();
 	const location = useLocation();
 	const { state } = location;
+
+	
 	const [productPrices, setProductPrices] = useState(() => {
 		// Inicializar el array de precios con los precios iniciales de los productos
 		return state.selectedProducts.map(product => product.precio);
 	});
+	
+	const calculateTotalPrice = useCallback(() => {
+		return productPrices.reduce((total, price) => total + price, 0);
+	}, [productPrices]);
+	
 	const [totalPrice, setTotalPrice] = useState(calculateTotalPrice());
 	
 	useEffect(() => {
 		// Actualizar el estado totalPrice con la suma calculada
 		setTotalPrice(calculateTotalPrice());
-	}, [productPrices]);
+	}, [productPrices, calculateTotalPrice]);
 	
-	function calculateTotalPrice() {
-		return productPrices.reduce((total, price) => total + price, 0);
-	}
 	const token = obtenerToken();
 	const id = decodificarToken(token).userId;
 	const mensaje = 'Este campo es requerido'
@@ -83,12 +88,12 @@ const CrearPedido = () => {
 		state.selectedProducts.forEach(producto => {
 			idsProductos.push(producto.idProduct);
 		});
-		const detallepProductos = {
-			idProduct: idsProductos,
-			quantity: "10",
-			subtotal: "20",
-			//idOrder: ""
-		};
+		// const detallepProductos = {
+		// 	idProduct: idsProductos,
+		// 	quantity: "10",
+		// 	subtotal: "20",
+		// 	//idOrder: ""
+		// };
 
 		try {
 			const infoClient = await detalleInformacionApi('cliente', data.idCardClient)
