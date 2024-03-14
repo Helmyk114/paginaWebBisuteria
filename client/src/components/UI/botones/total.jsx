@@ -5,7 +5,7 @@ const Texto3 = forwardRef(({ precio }, ref) => {
    return (
       <div ref={ref}>
          <label className="label">
-            Total: <p>{precio}$</p>
+            <p>Total: {precio}$</p>
          </label>
       </div>
    );
