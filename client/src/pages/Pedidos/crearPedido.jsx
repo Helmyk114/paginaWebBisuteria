@@ -196,7 +196,7 @@ const CrearPedido = () => {
 								className2={"cardCrearPedidoGap"}
 							>
 								
-									<div className="cont1CrP">
+									<div className="cont1CrP" style={{gap:"6px"}}>
 										<Avatares
 											src={product.img} alt={product.producto}
 											radio={"full"} />
