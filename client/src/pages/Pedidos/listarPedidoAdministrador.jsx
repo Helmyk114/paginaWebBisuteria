@@ -13,19 +13,19 @@ import { Spacer } from "@nextui-org/react";
 
 function ListarPedidoAdministrador() {
 	const [informacionC, setInformacionC] = useState([]);
-	// const [informacionE, setInformacionE] = useState([]);
-	// const [informacionT, setInformacionT] = useState([]);
+	const [informacionE, setInformacionE] = useState([]);
+	const [informacionT, setInformacionT] = useState([]);
 	const [cargando, setCargando] = useState(true);
 
 	useEffect(() => {
 		const data = async () => {
 			try {
 				const informacionListaPedidoC = await listarInformacionConParametroApi('orden', "1");
-				// const informacionListaPedidoE = await listarInformacionConParametroApi('orden', "2");
-				// const informacionListaPedidoT = await listarInformacionConParametroApi('orden', "3");
-				setInformacionC(informacionListaPedidoC);
-				// setInformacionE(informacionListaPedidoE);
-				// setInformacionT(informacionListaPedidoT);
+				const informacionListaPedidoE = await listarInformacionConParametroApi('orden', "2");
+				const informacionListaPedidoT = await listarInformacionConParametroApi('orden', "3");
+				setInformacionC(informacionListaPedidoC.data);
+				setInformacionE(informacionListaPedidoE.data);
+				setInformacionT(informacionListaPedidoT.data);
 				setCargando(false);
 			} catch (error) {
 				console.error('Error al acceder a la informacion listaTrabajo: ', error);
@@ -33,7 +33,7 @@ function ListarPedidoAdministrador() {
 			}
 		};
 		data();
-	}, [informacionC]);
+	}, [informacionC, informacionE, informacionT]);
 
 	return (
 		<>
@@ -42,13 +42,14 @@ function ListarPedidoAdministrador() {
 				<Titulo espacio="center" titulo="Pedidos" />
 			</NavigateADM>
 			<Spacer y={4} />
+
 			{cargando ? (
 				<Loader />
 			) : (
 				<div>
 				{informacionC && informacionC.length > 0 ? (
 					informacionC.map((datos) => (
-						<div key={datos.idOrder}>
+						<div key={datos.idProduct}>
 							<CardPerfil
 								className="card1ListaP"
 								width={"280px"}
@@ -57,7 +58,7 @@ function ListarPedidoAdministrador() {
 								<div className="cont1ListaP">
 									<div className="contTexto1P">
 										<Texto1Card
-											texto={"Nombre de cliente"} />
+											texto={`${datos.clientname}`} />
 									</div>
 								</div>
 								<div className="cont2ListaP">
@@ -65,7 +66,7 @@ function ListarPedidoAdministrador() {
 										<div className="contText">
 											<div className="contTexto2P">
 												<Texto2Card
-													texto2={`Fecha de creacion: ${datos.orderDate}`} />
+													texto2={`Fecha de creacion: ${datos.Date}`} />
 											</div>
 											<div className="contTexto2P">
 												<Texto2Card
