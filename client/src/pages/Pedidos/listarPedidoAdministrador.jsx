@@ -1,15 +1,14 @@
-import React from "react";
-
-import Footer from "../../components/UI/Footer/Footer";
-import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
-import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
+import React, { useState, useEffect } from "react";
 import '../Pedidos/crearPedido.css'
-import BotonComprar from "../../components/UI/botones/BotonComprarProductos";
-import { useState } from "react";
-import { useEffect } from "react";
-import { listarInformacionConParametroApi } from "../../api/productos";
-import Loader from "../../components/UI/cargando/loader";
+
 import { Spacer } from "@nextui-org/react";
+import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
+import Loader from "../../components/UI/cargando/loader";
+import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
+import BotonComprar from "../../components/UI/botones/BotonComprarProductos";
+import Footer from "../../components/UI/Footer/Footer";
+
+import { listarInformacionConParametroApi } from "../../api/productos";
 
 function ListarPedidoAdministrador() {
 	const [informacionC, setInformacionC] = useState([]);
@@ -49,7 +48,7 @@ function ListarPedidoAdministrador() {
 				<div>
 				{informacionC && informacionC.length > 0 ? (
 					informacionC.map((datos) => (
-						<div key={datos.idProduct}>
+						<div key={datos.idOrder}>
 							<CardPerfil
 								className="card1ListaP"
 								width={"280px"}
@@ -72,9 +71,7 @@ function ListarPedidoAdministrador() {
 												<Texto2Card
 													texto2={`Cantidad de producto: 60`} />
 											</div>
-
 										</div>
-
 										<div className="contIconoP">
 											<IconoCard
 												icon={"solar:add-circle-bold"}
@@ -83,7 +80,6 @@ function ListarPedidoAdministrador() {
 										</div>
 									</div>
 								</div>
-
 							</CardPerfil>
 							</div>
 						))
