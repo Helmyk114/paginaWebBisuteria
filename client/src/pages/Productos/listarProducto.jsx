@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Swal from "sweetalert2";
+
 import "../Productos/listarProductoVendedor.css"
 
 import { Spacer, Tooltip } from "@nextui-org/react";
@@ -156,6 +156,7 @@ function ListarProducto() {
 										<CardPerfil
 											className1={"cardListaPro"}
 											className2={"cardListaProGap"}
+											
 											key={datos.idProduct}>
 											<div className="inactivoCardListaPro">
 												<Avatares
