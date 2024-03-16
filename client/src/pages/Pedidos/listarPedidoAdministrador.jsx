@@ -69,7 +69,7 @@ function ListarPedidoAdministrador() {
 											</div>
 											<div className="contTexto2P">
 												<Texto2Card
-													texto2={`Cantidad de producto: 60`} />
+													texto2={`Cantidad de productos: ${datos.quantityProducts}`} />
 											</div>
 										</div>
 										<div className="contIconoP">
