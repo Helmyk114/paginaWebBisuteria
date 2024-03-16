@@ -2,10 +2,15 @@
 .cont1ListaT{
     display: flex;
     margin-bottom: 30px;
+    gap: 20px;
+    
 }
 
 .card1ListaT{
-position: absolute;
+position: relative;
+width:260px;
+height:170px;
+z-index: 0;
 }
 .cont2ListaT{
     display: flex;
@@ -19,7 +24,7 @@ position: absolute;
     display: flex;
     justify-content: space-between;
     width: 224px;
-    height: 50px;
+    height: 65px;
     position: relative;
     background-color: #eeee;
     border-radius: 8px;
@@ -41,3 +46,4 @@ position: absolute;
     margin: 8px;
     align-items: center;
 }
+

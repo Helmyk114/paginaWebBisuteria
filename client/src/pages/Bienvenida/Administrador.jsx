@@ -57,10 +57,9 @@ function BienvenidaAdmi() {
               <NavigateADM key={id}>
                 <Icono
                   className="justify-end"
-                  radio={""}
+                  radio={"full"}
                   imagen={`${urlImage}/${datos.photo}`}
-                  height={"80px"}
-                  width={"80px"}
+                  maxWidth={"100px"}
                 />
                 <Texto
                   titulo={"Bienvenido"}
@@ -119,7 +118,9 @@ function BienvenidaAdmi() {
       </div>
       <Spacer y={5} />
       <div className="footerBienvenido">
-        <Footer />
+        <Footer
+        classNameF={"footer"}
+        classNameF2={"footer2"} />
       </div>
     </div>
   );

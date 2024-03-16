@@ -45,10 +45,9 @@ function BienvenidaTrabajador() {
               <NavigateTRJ key={id}>
                 <Icono
                   className="justify-end"
-                  radio={""}
+                  radio={"full"}
                   imagen={`${urlImage}/${datos.photo}`}
-                  height={"80px"}
-                  width={"80px"}
+                  maxWidth={"90px"}
                 />
 
                 <Texto
