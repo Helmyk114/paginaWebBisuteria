@@ -178,10 +178,10 @@ const Retroceder = () => {
 
 const DesplegableTRJ = () => {
   const menuItems = [
+    <Inicios/>,
     <Notificacion/>,
     <Perfil/>,
-    <CerrarSesion/>, 
-    <Inicios/> 
+    <CerrarSesion/> 
   ];
 
   return (

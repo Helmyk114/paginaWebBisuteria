@@ -52,7 +52,7 @@ export default function ListProduct() {
     <div>
       <NavigateVEN>
         <Retroceder />
-        <Titulo espacio="center" titulo="Bienvenido" />
+        <Titulo espacio="center" titulo="PRODUCTOS" />
       </NavigateVEN>
       
       <Spacer y={5} />
