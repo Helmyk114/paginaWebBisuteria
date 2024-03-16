@@ -130,7 +130,8 @@ const CrearPedido = () => {
 			</NavigateVEN>
 			<Spacer y={4} />
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<Acordeon titulo={'Datos del cliente'}>
+				<Acordeon titulo={'Datos del cliente'}
+				className={"acordeonCrearP"}>
 					<div className="gap-4" style={{ display: "grid", gridTemplateColumns: "2fr 2fr" }}>
 						<div className="flex flex-col">
 							<InputText ref={(el) => { refs.current.idCardClient = el; }}
@@ -188,7 +189,8 @@ const CrearPedido = () => {
 				</Acordeon>
 
 				<Spacer y={4} />
-				<Acordeon titulo={'Lista de productos'}>
+				<Acordeon titulo={'Lista de productos'}
+				className={"acordeonCrearP"}>
 					<Spacer y={3} />
 						<div>
 							{selectedProducts && selectedProducts.length > 0 ? (
