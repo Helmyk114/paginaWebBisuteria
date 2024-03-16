@@ -1,7 +1,6 @@
 import React from "react";
 import '../ListaTrabajo/ListaTrabajo.css'
 
-import { Spacer } from "@nextui-org/react";
 import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 import Footer from "../../components/UI/Footer/Footer";

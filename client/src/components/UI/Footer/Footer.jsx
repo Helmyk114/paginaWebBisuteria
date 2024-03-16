@@ -7,7 +7,7 @@ function Footer(classNameF, classNameF2) {
     <footer className={classNameF} >
       
       <div className={classNameF2} style={{ backgroundColor: "rgb(105, 119, 228, 1)"}} >
-        <img src={Logo} width="100px" height="100%" style={{marginRight:"auto", marginLeft:"auto"}} />
+        <img src={Logo} alt="Logo" width="100px" height="100%" style={{marginRight:"auto", marginLeft:"auto"}} />
       </div>
     </footer>
   );

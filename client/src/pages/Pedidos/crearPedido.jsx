@@ -122,8 +122,6 @@ const CrearPedido = () => {
 		console.log(updatedProducts);
 	};
 
-
-
 	return (
 		<div>
 			<NavigateVEN>
@@ -191,57 +189,60 @@ const CrearPedido = () => {
 
 				<Spacer y={4} />
 				<Acordeon titulo={'Lista de productos'}>
-
 					<Spacer y={3} />
-					{selectedProducts.map((product, index) => (
-						<div key={index}>
-							<CardPerfil
-								className1={"cardCrearPedido"}
-								className2={"cardCrearPedidoGap"}
-							>
-
-								<div className="cont1CrP" style={{ gap: "6px" }}>
-									<Avatares
-										src={product.img} alt={product.producto}
-										radio={"full"} />
-									<Spacer x={3} />
-									<Texto1Card
-										texto={product.producto} />
-									<div style={{ display: "flex", justifyContent: "center" }}>
-										<BotonCantidad
-											onPriceChange={(price) => {
-												const updatedPrices = [...productPrices];
-												if (updatedPrices[index] !== price) {
-													updatedPrices[index] = price;
-													setProductPrices(updatedPrices);
-													setTotalPrice(calculateTotalPrice());
-												}
-											}}
-											precio={product.precio}
-											onQuantityChange={(quantity) => handleQuantityChange(quantity)} // Agrega esta prop
-										/>
-									</div>
+						<div>
+							{selectedProducts && selectedProducts.length > 0 ? (
+								selectedProducts.map((product, index) => (
+								<div key={index}>
+									<CardPerfil
+										className1={"cardCrearPedido"}
+										className2={"cardCrearPedidoGap"}
+									>
+										<div className="cont1CrP" style={{ gap: "6px" }}>
+											<Avatares
+												src={product.img} alt={product.producto}
+												radio={"full"} />
+											<Spacer x={3} />
+											<Texto1Card
+												texto={product.producto} />
+											<div style={{ display: "flex", justifyContent: "center" }}>
+												<BotonCantidad
+													onPriceChange={(price) => {
+														const updatedPrices = [...productPrices];
+														if (updatedPrices[index] !== price) {
+															updatedPrices[index] = price;
+															setProductPrices(updatedPrices);
+															setTotalPrice(calculateTotalPrice());
+														}
+													}}
+													precio={product.precio}
+													onQuantityChange={(quantity) => handleQuantityChange(quantity)} // Agrega esta prop
+												/>
+											</div>
+										</div>
+										<div className="cont2CrP">
+											<Texto2Card
+												texto2={productPrices[index]}
+											/>
+											<div
+												style={{ display: "flex" }}>
+												<Tooltip content="Eliminar producto">
+													<span className="text-lg text-danger cursor-pointer active:opacity-50" onClick={() => eliminarProducto(index)}>
+														<DeleteIcon />
+													</span>
+												</Tooltip>
+											</div>
+										</div>
+									</CardPerfil>
+									<Spacer y={3} />
 								</div>
-								<div className="cont2CrP">
-									<Texto2Card
-
-										texto2={productPrices[index]}
-									/>
-									<div
-										style={{ display: "flex" }}>
-										<Tooltip content="Eliminar producto">
-											<span className="text-lg text-danger cursor-pointer active:opacity-50" onClick={() => eliminarProducto(index)}>
-												<DeleteIcon />
-											</span>
-										</Tooltip>
-									</div>
-								</div>
-
-							</CardPerfil>
-							<Spacer y={3} />
+							))
+							):(
+								<p>No hay productos seleccionados.</p>
+							)}
 						</div>
-					))}
 				</Acordeon>
+				
 				<Spacer y={5} />
 				<BotonComprar2 text={"Comprar"} onClick={() => onSubmit({ total: totalPrice })}>
 					<Texto3
@@ -249,8 +250,8 @@ const CrearPedido = () => {
 						precio={`${totalPrice}`}
 					/>
 				</BotonComprar2>
-
 			</form>
+			
 			<Footer />
 
 		</div>

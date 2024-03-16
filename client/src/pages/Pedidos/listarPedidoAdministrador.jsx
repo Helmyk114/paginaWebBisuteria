@@ -88,7 +88,7 @@ function ListarPedidoAdministrador() {
 					)}
 				</div>
 			)}
-			<BotonComprar text={"Comprar"} type={"Submit"} />
+			<BotonComprar text={"Crear lista de trabajo"} type={"Submit"} />
 			<Footer />
 		</>
 	);
