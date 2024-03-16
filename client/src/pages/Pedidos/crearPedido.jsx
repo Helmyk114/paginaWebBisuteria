@@ -28,7 +28,7 @@ const CrearPedido = () => {
 		// Inicializar el array de precios con los precios iniciales de los productos
 		return state.selectedProducts.map(product => product.precio);
 	});
-	
+
 	const calculateTotalPrice = useCallback(() => {
 		return productPrices.reduce((total, price) => total + price, 0);
 	}, [productPrices]);
@@ -36,12 +36,12 @@ const CrearPedido = () => {
 	const [totalPrice, setTotalPrice] = useState(calculateTotalPrice());
 	const [cantidadProductos, setCantidadProductos] = useState(0); // Estado para la cantidad de productos
 	const [selectedProducts, setSelectedProducts] = useState(state.selectedProducts); // Nuevo estado para los productos seleccionados
-	
+
 	useEffect(() => {
 		// Actualizar el estado totalPrice con la suma calculada
 		setTotalPrice(calculateTotalPrice());
 	}, [productPrices, calculateTotalPrice]);
-	
+
 	const token = obtenerToken();
 	const id = decodificarToken(token).userId;
 	const mensaje = 'Este campo es requerido'
@@ -54,9 +54,9 @@ const CrearPedido = () => {
 	});
 
 	const onSubmit = async (data) => {
-  if (!data.idCardClient || !data.clientname || !data.clientAddress || !data.clientPhone) {
-        return;
-    }
+		if (!data.idCardClient || !data.clientname || !data.clientAddress || !data.clientPhone) {
+			return;
+		}
 		const newCliente = {
 			idCardClient: data.idCardClient,
 			clientname: data.clientname,
@@ -110,19 +110,19 @@ const CrearPedido = () => {
 		// Suma la cantidad de unidades de todos los productos
 		const totalQuantity = state.selectedProducts.reduce((total, product) => total + quantity, 0);
 		setCantidadProductos(totalQuantity);
-	  };
+	};
 
 	const eliminarProducto = (index) => {
-        const updatedProducts = [...selectedProducts];
-        updatedProducts.splice(index, 1);
-        const updatedPrices = [...productPrices];
-        updatedPrices.splice(index, 1);
-        setProductPrices(updatedPrices);
-        setSelectedProducts(updatedProducts); // Actualizar estado de productos seleccionados
-		console.log(updatedProducts); 
-    };
+		const updatedProducts = [...selectedProducts];
+		updatedProducts.splice(index, 1);
+		const updatedPrices = [...productPrices];
+		updatedPrices.splice(index, 1);
+		setProductPrices(updatedPrices);
+		setSelectedProducts(updatedProducts); // Actualizar estado de productos seleccionados
+		console.log(updatedProducts);
+	};
 
-	
+
 
 	return (
 		<div>
@@ -199,44 +199,44 @@ const CrearPedido = () => {
 								className1={"cardCrearPedido"}
 								className2={"cardCrearPedidoGap"}
 							>
-								
-									<div className="cont1CrP" style={{gap:"6px"}}>
-										<Avatares
-											src={product.img} alt={product.producto}
-											radio={"full"} />
-										<Spacer x={3} />
-										<Texto1Card
-											texto={product.producto} />
-										<div style={{ display: "flex", justifyContent: "center" }}>
+
+								<div className="cont1CrP" style={{ gap: "6px" }}>
+									<Avatares
+										src={product.img} alt={product.producto}
+										radio={"full"} />
+									<Spacer x={3} />
+									<Texto1Card
+										texto={product.producto} />
+									<div style={{ display: "flex", justifyContent: "center" }}>
 										<BotonCantidad
-          								onPriceChange={(price) => {
-            							const updatedPrices = [...productPrices];
-            							if (updatedPrices[index] !== price) {
-              							updatedPrices[index] = price;
-              							setProductPrices(updatedPrices);
-              							setTotalPrice(calculateTotalPrice());
-            								}
-         								 }}
-          								precio={product.precio}
-          								onQuantityChange={(quantity) => handleQuantityChange(quantity)} // Agrega esta prop
-        								/>
-										</div>
-									</div>
-									<div className="cont2CrP">
-										<Texto2Card
-						
-											texto2={productPrices[index]}
+											onPriceChange={(price) => {
+												const updatedPrices = [...productPrices];
+												if (updatedPrices[index] !== price) {
+													updatedPrices[index] = price;
+													setProductPrices(updatedPrices);
+													setTotalPrice(calculateTotalPrice());
+												}
+											}}
+											precio={product.precio}
+											onQuantityChange={(quantity) => handleQuantityChange(quantity)} // Agrega esta prop
 										/>
-										<div
-											style={{ display: "flex" }}>
-											<Tooltip content="Eliminar producto">
-											<span className="text-lg text-danger cursor-pointer active:opacity-50" onClick={() => eliminarProducto(index)}>
-													<DeleteIcon />
-												</span>
-											</Tooltip>
-										</div>
 									</div>
-								
+								</div>
+								<div className="cont2CrP">
+									<Texto2Card
+
+										texto2={productPrices[index]}
+									/>
+									<div
+										style={{ display: "flex" }}>
+										<Tooltip content="Eliminar producto">
+											<span className="text-lg text-danger cursor-pointer active:opacity-50" onClick={() => eliminarProducto(index)}>
+												<DeleteIcon />
+											</span>
+										</Tooltip>
+									</div>
+								</div>
+
 							</CardPerfil>
 							<Spacer y={3} />
 						</div>
@@ -244,11 +244,11 @@ const CrearPedido = () => {
 				</Acordeon>
 				<Spacer y={5} />
 				<BotonComprar2 text={"Comprar"} onClick={() => onSubmit({ total: totalPrice })}>
-                <Texto3
-                    {...register("total", { value: totalPrice })}
-                    precio={`${totalPrice}`}
-                />
-            </BotonComprar2>
+					<Texto3
+						{...register("total", { value: totalPrice })}
+						precio={`${totalPrice}`}
+					/>
+				</BotonComprar2>
 
 			</form>
 			<Footer />

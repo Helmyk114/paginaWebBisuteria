@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { listarInformacionConDosParametroApi } from "../../api/productos";
-import Loader from "../../components/UI/cargando/loader";
 
-import Footer from "../../components/UI/Footer/Footer";
+import { Tooltip } from "@nextui-org/react";
 import NavigateVEN, { Retroceder, Titulo } from "../../components/UI/navbar/navbarVendedor";
-import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
+import Loader from "../../components/UI/cargando/loader";
+import Footer from "../../components/UI/Footer/Footer";
+import DeleteIcon2 from "../../components/UI/iconos/Eliminar2";
+import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
+
+import { cambiarEstadoInformacionApi, listarInformacionConDosParametroApi } from "../../api/productos";
+import { notificacionActivarInactivar, notificacionInformativa } from "../../utils/notificacionCliente";
 import { decodificarToken, obtenerToken } from "../../utils/token";
 
 function ListarPedidoVendedor() {
@@ -27,6 +31,20 @@ function ListarPedidoVendedor() {
 		};
 		data();
 	}, [informacion, id]);
+
+	const cancelProducto = async (idOrder) => {
+		try {
+			const result = await notificacionActivarInactivar({ titulo: "¿Quieres eliminar este pedido?", boton: "Eliminar"  });
+			if (result.isConfirmed) {
+				await cambiarEstadoInformacionApi('producto/Activo-Inactivo', idOrder, "5")
+
+				notificacionInformativa({ icono: "success", titulo: "Pedido eliminado" })
+			}
+		} catch (error) {
+			notificacionInformativa({ icono: "error", titulo: "Error al eliminar el pedido" })
+			console.error('error al eliminar el pedido ', error)
+		}
+	};
 
 	return (
 		<div>
@@ -65,10 +83,11 @@ function ListarPedidoVendedor() {
 											</div>
 										</div>
 										<div className="contIconoP">
-											<IconoCard
-												icon={"solar:add-circle-bold"}
-												width={"35px"}
-												height={"35px"} />
+										<Tooltip content="Eliminar producto">
+													<span className="text-lg text-danger cursor-pointer active:opacity-50">
+														<DeleteIcon2 className="iconoEliminar" eliminar={() => cancelProducto(datos.idOrder)} />
+													</span>
+												</Tooltip>
 										</div>
 									</div>
 								</div>
