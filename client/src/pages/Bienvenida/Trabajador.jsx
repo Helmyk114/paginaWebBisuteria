@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import '../Bienvenida/bienvenida.css'
 
+import { Spacer } from "@nextui-org/react";
+import Loader from "../../components/UI/cargando/loader";
+import NavigateTRJ, {Icono, Texto} from "../../components/UI/navbar/navbarTrabajador";
 import PerfilIcono from "../../components/UI/iconos/Perfil";
 import ListaTrabajoIcono from "../../components/UI/iconos/ListaTrabajo";
 import CerrarSesionIcono from "../../components/UI/iconos/CerrarSesion";
@@ -8,8 +11,6 @@ import Footer from "../../components/UI/Footer/Footer";
 
 import { decodificarToken, obtenerToken } from "../../utils/token";
 import { detalleInformacionApi } from "../../api/productos";
-import NavigateTRJ, {Icono, Texto} from "../../components/UI/navbar/navbarTrabajador";
-import { Spacer } from "@nextui-org/react";
 
 
 function BienvenidaTrabajador() {
@@ -36,7 +37,7 @@ function BienvenidaTrabajador() {
   return (
     <div>
       {cargando ? (
-        <p>Cargando información</p>
+        <Loader />
       ) : (
         <div>
           {informacion && informacion.length > 0 ? (

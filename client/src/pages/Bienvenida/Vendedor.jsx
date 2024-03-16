@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import '../Bienvenida/bienvenida.css'
 
+import { Spacer } from "@nextui-org/react";
+import Loader from '../../components/UI/cargando/loader'
+import NavigateVEN, { Icono, Texto } from "../../components/UI/navbar/navbarVendedor";
 import PerfilIcono from "../../components/UI/iconos/Perfil";
 import PedidoIcono from "../../components/UI/iconos/Pedido";
 import ProductoIcono from "../../components/UI/iconos/Producto";
@@ -9,8 +12,6 @@ import Footer from "../../components/UI/Footer/Footer";
 
 import { decodificarToken, obtenerToken } from "../../utils/token";
 import { detalleInformacionApi } from "../../api/productos";
-import NavigateVEN, {Icono, Texto} from "../../components/UI/navbar/navbarVendedor";
-import { Spacer } from "@nextui-org/react";
 
 function BienvenidaVendedor() {
   const [informacion, setInformacion] = useState([]);
@@ -36,33 +37,28 @@ function BienvenidaVendedor() {
   return (
     <div>
       {cargando ? (
-        <p>Cargando información</p>
+        <Loader />
       ) : (
         <div>
           {informacion && informacion.length > 0 ? (
             informacion.map((datos) => (
               <NavigateVEN key={id}>
-                             
                 <Icono className="justify-end"
                   radio={""}
                   imagen={`${(urlImage)}/${datos.photo}`}
                   height={"80px"}
                   width={"80px"}
                 />
-
                 <Texto
                   titulo={"Bienvenido"}
                   nombre={`${(datos.workerName)} ${(datos.workerLastName)}`}
                   rol={"Vendedor"}
                 />
-
               </NavigateVEN>
-              
             ))
           ) : (
             <p>No hay informacion disponible</p>
           )}
-          
         </div>
       )}
       <Spacer y={5} />
@@ -75,26 +71,23 @@ function BienvenidaVendedor() {
           <Spacer x={2} />
           <div className=" carta flex flex-col items-center">
             <ProductoIcono ruta="/productos/vendedor"
-            className={"producto"}/>
+              className={"producto"} />
             <h1 className="textoPrincipal">Productos</h1>
           </div>
-        
           <Spacer x={2} />
           <div className=" carta flex flex-col items-center">
             <PedidoIcono ruta="/pedidos/vendedor"
-            className={"pedidos"}/>
-            <h1 className="textoPrincipal">Crear pedidos</h1>
+              className={"pedidos"} />
+            <h1 className="textoPrincipal">Pedidos</h1>
           </div>
           <div className=" carta flex flex-col items-center">
-            <CerrarSesionIcono ruta="/" 
-            className={"producto"}/>
+            <CerrarSesionIcono ruta="/"
+              className={"producto"} />
             <h1 className="textoPrincipal">Cerrar sesión</h1>
           </div>
         </div>
       </div>
       <Spacer x={4} />
-
-
       <div className="footerBienvenido">
         <Footer />
       </div>
@@ -103,4 +96,3 @@ function BienvenidaVendedor() {
 }
 
 export default BienvenidaVendedor;
-
