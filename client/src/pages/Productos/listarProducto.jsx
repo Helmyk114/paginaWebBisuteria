@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import { cambiarEstadoInformacionApi, listarInformacionConParametroApi } from "../../api/productos";
 import Swal from "sweetalert2";
 import "../Productos/listarProductoVendedor.css"
 

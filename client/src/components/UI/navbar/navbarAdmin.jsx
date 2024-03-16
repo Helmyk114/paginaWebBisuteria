@@ -203,7 +203,6 @@ const DesplegableADM = () => {
     <Perfil/>,
     <AgregamosTrabajador/>,
     <AgregamosProducto/>,
-    <AgregamosPedido/>,
     <AgregamosListaTrabajo/>,
     <CerrarSesion/>
   ];
