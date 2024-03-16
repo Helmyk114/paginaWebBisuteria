@@ -7,7 +7,7 @@ import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/c
 import Avatares from "../../components/UI/avatar/Avatares";
 import Loader from "../../components/UI/cargando/loader";
 import EditIcon from "../../components/UI/iconos/Editar";
-import DeleteIcon2 from "../../components/UI/iconos/Eliminar2";
+import DeleteIcon from "../../components/UI/iconos/Eliminar";
 import Acordeon from "../../components/UI/Acordeon/Acordeon";
 import Footer from "../../components/UI/Footer/Footer";
 
@@ -128,7 +128,7 @@ function ListarProducto() {
 										</Tooltip>
 										<Tooltip content="Eliminar producto">
 											<span className="text-lg text-danger cursor-pointer active:opacity-50">
-												<DeleteIcon2 className="iconoEliminar" eliminar={() => eliminarProducto(datos.idProduct)} />
+												<DeleteIcon className="iconoEliminar" eliminar={() => eliminarProducto(datos.idProduct)} />
 											</span>
 										</Tooltip>
 									</div>
@@ -175,7 +175,7 @@ function ListarProducto() {
 												</Tooltip>
 												<Tooltip content="Eliminar producto">
 													<span className="text-lg text-danger cursor-pointer active:opacity-50">
-														<DeleteIcon2 className="iconoEliminar" eliminar={() => activarProducto(datos.idProduct)} />
+														<DeleteIcon className="iconoEliminar" eliminar={() => activarProducto(datos.idProduct)} />
 													</span>
 												</Tooltip>
 											</div>

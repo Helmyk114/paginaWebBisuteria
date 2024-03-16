@@ -4,7 +4,7 @@ import { Tooltip } from "@nextui-org/react";
 import NavigateVEN, { Retroceder, Titulo } from "../../components/UI/navbar/navbarVendedor";
 import Loader from "../../components/UI/cargando/loader";
 import Footer from "../../components/UI/Footer/Footer";
-import DeleteIcon2 from "../../components/UI/iconos/Eliminar2";
+import DeleteIcon from "../../components/UI/iconos/Eliminar";
 import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 
 import { cambiarEstadoInformacionApi, listarInformacionConDosParametroApi } from "../../api/productos";
@@ -85,7 +85,7 @@ function ListarPedidoVendedor() {
 										<div className="contIconoP">
 										<Tooltip content="Eliminar producto">
 													<span className="text-lg text-danger cursor-pointer active:opacity-50">
-														<DeleteIcon2 className="iconoEliminar" eliminar={() => cancelProducto(datos.idOrder)} />
+														<DeleteIcon className="iconoEliminar" eliminar={() => cancelProducto(datos.idOrder)} />
 													</span>
 												</Tooltip>
 										</div>

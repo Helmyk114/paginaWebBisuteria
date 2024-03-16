@@ -1,23 +1,23 @@
 import React from "react";
-import '../iconos/iconos.css';
+import '../iconos/iconos.css'
 
-const DeleteIcon = (props) => {
-    return (
-        <div onClick={props.onClick}>
-            <svg
-                className="iconEliminar"
-                aria-hidden="true"
-                fill="none"
-                focusable="false"
-                height="1.7rem"
-                role="presentation"
-                viewBox="0 0 20 20"
-                color="#FF0000"
-                width="1.7rem"
-                cursor="pointer"
-                {...props}
-            >
-        <path
+const DeleteIcon = ({ eliminar, props }) => {
+  return (
+    <div  onClick={eliminar}>
+      <svg
+      className="iconEliminar"
+        aria-hidden="true"
+        fill="none"
+        focusable="false"
+        height="1.7rem"
+        role="presentation"
+        viewBox="0 0 20 20"
+        color="#FF0000"
+        width="1.7rem"
+        cursor="cursor-pointer"
+        {...props}
+      > 
+    <path
           d="M17.5 4.98332C14.725 4.70832 11.9333 4.56665 9.15 4.56665C7.5 4.56665 5.85 4.64998 4.2 4.81665L2.5 4.98332"
           stroke="currentColor"
           strokeLinecap="round"

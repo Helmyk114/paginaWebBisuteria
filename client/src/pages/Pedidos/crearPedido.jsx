@@ -227,8 +227,8 @@ const CrearPedido = () => {
 											<div
 												style={{ display: "flex" }}>
 												<Tooltip content="Eliminar producto">
-													<span className="text-lg text-danger cursor-pointer active:opacity-50" onClick={() => eliminarProducto(index)}>
-														<DeleteIcon />
+													<span className="text-lg text-danger cursor-pointer active:opacity-50" >
+														<DeleteIcon eliminar={() => eliminarProducto(index)} />
 													</span>
 												</Tooltip>
 											</div>

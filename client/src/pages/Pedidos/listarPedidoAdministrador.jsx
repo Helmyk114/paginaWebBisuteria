@@ -94,7 +94,7 @@ function ListarPedidoAdministrador() {
 					)}
 				</div>
 			)}
-			<BotonComprar onClick={handleCrearListraClick} text={"Crear lista de trabajo"} type={"Submit"} />
+			<BotonComprar onClick={handleCrearListraClick} text={"Crear lista"} type={"Submit"} />
 			<Footer />
 		</>
 	);
