@@ -5,6 +5,7 @@ import { decodificarToken, obtenerToken } from "../../utils/token";
 import { detalleInformacionApi } from "../../api/productos";
 
 import { Spacer } from "@nextui-org/react";
+import Loader from "../../components/UI/cargando/loader";
 import NavigateADM, {Icono, Texto} from "../../components/UI/navbar/navbarAdmin";
 import PerfilIcono from "../../components/UI/iconos/Perfil";
 import ListaTrabajoIcono from "../../components/UI/iconos/ListaTrabajo";
@@ -48,7 +49,7 @@ function BienvenidaAdmi() {
   return (
     <div>
       {cargando ? (
-        <p>Cargando información</p>
+        <Loader />
       ) : (
         <div>
           {informacion && informacion.length > 0 ? (
@@ -94,9 +95,7 @@ function BienvenidaAdmi() {
           </div>
         </div>
       </div>
-
       <Spacer y={5} />
-
       <div className="flex flex-col items-center">
         <div className=" cartaEspacio relative flex gap-4">
           <div className= " carta flex flex-col items-center" >
@@ -118,9 +117,7 @@ function BienvenidaAdmi() {
           </div>
         </div>
       </div>
-
       <Spacer y={5} />
-
       <div className="footerBienvenido">
         <Footer />
       </div>
