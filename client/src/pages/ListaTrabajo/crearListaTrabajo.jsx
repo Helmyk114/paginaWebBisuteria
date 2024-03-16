@@ -79,7 +79,7 @@ function CrearListaTrabajo() {
 										/>
 									))
 								) : (
-									<p>No hay productos disponibles.</p>
+									<p>No hay artesanos disponibles.</p>
 								)}
 								{errors.idCardWorker && <span>{errors.idCardWorker.message}</span>}
 							</div>
@@ -89,7 +89,7 @@ function CrearListaTrabajo() {
 	
 
 				<Acordeon titulo={"Lista productos"}>
-
+				<p>No hay pedidos seleccionados.</p>
 				</Acordeon>
 			
 				<Spacer y={4} />

@@ -9,12 +9,14 @@ import BotonComprar from "../../components/UI/botones/BotonComprarProductos";
 import Footer from "../../components/UI/Footer/Footer";
 
 import { listarInformacionConParametroApi } from "../../api/productos";
+import { useNavigate } from "react-router-dom";
 
 function ListarPedidoAdministrador() {
 	const [informacionC, setInformacionC] = useState([]);
 	const [informacionE, setInformacionE] = useState([]);
 	const [informacionT, setInformacionT] = useState([]);
 	const [cargando, setCargando] = useState(true);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		const data = async () => {
@@ -34,6 +36,10 @@ function ListarPedidoAdministrador() {
 		data();
 	}, [informacionC, informacionE, informacionT]);
 
+	const handleCrearListraClick = () => {
+		navigate('/crear/listaTrabajo');
+	};
+
 	return (
 		<>
 			<NavigateADM>
@@ -46,41 +52,41 @@ function ListarPedidoAdministrador() {
 				<Loader />
 			) : (
 				<div>
-				{informacionC && informacionC.length > 0 ? (
-					informacionC.map((datos) => (
-						<div key={datos.idOrder}>
-							<CardPerfil
-								className="card1ListaP"
-								width={"280px"}
-								height={"198px"}
-								display={"block"}>
-								<div className="cont1ListaP">
-									<div className="contTexto1P">
-										<Texto1Card
-											texto={`${datos.clientname}`} />
-									</div>
-								</div>
-								<div className="cont2ListaP">
-									<div className="card2ListaP">
-										<div className="contText">
-											<div className="contTexto2P">
-												<Texto2Card
-													texto2={`Fecha de creacion: ${datos.Date}`} />
-											</div>
-											<div className="contTexto2P">
-												<Texto2Card
-													texto2={`Cantidad de productos: ${datos.quantityProducts}`} />
-											</div>
-										</div>
-										<div className="contIconoP">
-											<IconoCard
-												icon={"solar:add-circle-bold"}
-												width={"35px"}
-												height={"35px"} />
+					{informacionC && informacionC.length > 0 ? (
+						informacionC.map((datos) => (
+							<div key={datos.idOrder}>
+								<CardPerfil
+									className="card1ListaP"
+									width={"280px"}
+									height={"198px"}
+									display={"block"}>
+									<div className="cont1ListaP">
+										<div className="contTexto1P">
+											<Texto1Card
+												texto={`${datos.clientname}`} />
 										</div>
 									</div>
-								</div>
-							</CardPerfil>
+									<div className="cont2ListaP">
+										<div className="card2ListaP">
+											<div className="contText">
+												<div className="contTexto2P">
+													<Texto2Card
+														texto2={`Fecha de creacion: ${datos.Date}`} />
+												</div>
+												<div className="contTexto2P">
+													<Texto2Card
+														texto2={`Cantidad de productos: ${datos.quantityProducts}`} />
+												</div>
+											</div>
+											<div className="contIconoP">
+												<IconoCard
+													icon={"solar:add-circle-bold"}
+													width={"35px"}
+													height={"35px"} />
+											</div>
+										</div>
+									</div>
+								</CardPerfil>
 							</div>
 						))
 					) : (
@@ -88,10 +94,11 @@ function ListarPedidoAdministrador() {
 					)}
 				</div>
 			)}
-			<BotonComprar text={"Crear lista de trabajo"} type={"Submit"} />
+			<BotonComprar onClick={handleCrearListraClick} text={"Crear lista de trabajo"} type={"Submit"} />
 			<Footer />
 		</>
 	);
 };
+
 
 export default ListarPedidoAdministrador;
