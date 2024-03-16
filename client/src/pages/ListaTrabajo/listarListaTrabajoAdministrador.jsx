@@ -18,9 +18,61 @@ function ListarListaTrabajoAdministrador() {
 			</div>
 			<div className="cont1ListaT">
 				<CardPerfil
-					className="card1ListaT"
-					width={"250px"}
-					height={"150px"}>
+					className1="card1ListaT">
+					<div className="cont2ListaT">
+
+						<div className="contTexto1">
+							<Texto1Card
+								texto={"Nombre de la lista"} />
+						</div>
+						<div
+							className="card2ListaT">
+							<div className="contTexto2">
+								<Texto2Card
+									texto2={"Nombre trabajador"} />
+							</div>
+							<div className="contIcono">
+								<IconoCard
+									icon={"akar-icons:edit"}
+									width={"28px"}
+									height={"28px"} />
+							</div>
+							<div className="contIcono">
+								<IconoCard
+									icon={"bi:check-circle-fill"}
+									width={"25px"}
+									height={"25px"} />
+							</div>
+						</div>
+					</div>
+				</CardPerfil>
+				<CardPerfil
+					className1="card1ListaT"
+					>
+					<div className="cont2ListaT">
+
+						<div className="contTexto1">
+							<Texto1Card
+								texto={"Nombre de la lista"} />
+						</div>
+						<div
+							className="card2ListaT">
+							<div className="contTexto2">
+								<Texto2Card
+									texto2={"Nombre trabajador"} />
+							</div>
+							<div className="contIcono">
+								<IconoCard
+									icon={"bi:check-circle-fill"}
+									width={"25px"}
+									height={"25px"} />
+							</div>
+						</div>
+					</div>
+				</CardPerfil>
+				<CardPerfil
+					className1="card1ListaT"
+					>
 					<div className="cont2ListaT">
 
 						<div className="contTexto1">
@@ -64,56 +116,7 @@ function ListarListaTrabajoAdministrador() {
 									width={"25px"}
 									height={"25px"} />
 							</div>
-						</div>
-					</div>
-				</CardPerfil>
-				<CardPerfil
-					className="card1ListaT"
-					width={"250px"}
-					height={"150px"}>
-					<div className="cont2ListaT">
-
-						<div className="contTexto1">
-							<Texto1Card
-								texto={"Nombre de la lista"} />
-						</div>
-						<div
-							className="card2ListaT">
-							<div className="contTexto2">
-								<Texto2Card
-									texto2={"Nombre trabajador"} />
-							</div>
-							<div className="contIcono">
-								<IconoCard
-									icon={"bi:check-circle-fill"}
-									width={"25px"}
-									height={"25px"} />
-							</div>
-						</div>
-					</div>
-				</CardPerfil>
-				<CardPerfil
-					className="card1ListaT"
-					width={"250px"}
-					height={"150px"}>
-					<div className="cont2ListaT">
-
-						<div className="contTexto1">
-							<Texto1Card
-								texto={"Nombre de la lista"} />
-						</div>
-						<div
-							className="card2ListaT">
-							<div className="contTexto2">
-								<Texto2Card
-									texto2={"Nombre trabajador"} />
-							</div>
-							<div className="contIcono">
-								<IconoCard
-									icon={"bi:check-circle-fill"}
-									width={"25px"}
-									height={"25px"} />
-							</div>
+							
 						</div>
 					</div>
 				</CardPerfil>

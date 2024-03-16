@@ -18,7 +18,7 @@ export default function NavigateADM({ children, height }) {
   return (
     <Navbar
       style={{ backgroundColor: "#6977E4" }}
-      height={height || "90px"}
+      height={height || "140px"}
       onMenuOpenChange={setIsMenuOpen}
     >
       {children}
@@ -33,14 +33,14 @@ export default function NavigateADM({ children, height }) {
   );
 }
 
-const Icono = ({ radio, imagen, height, width, className }) => {
+const Icono = ({ radio, imagen,  className, maxWidth }) => {
   return (
     <NavbarBrand className="justify-center" style={{ marginTop: "5px" }}>
       <Avatares
         radio={radio}
         src={imagen}
-        height={height}
-        width={width}
+        
+        maxWidth={maxWidth}
         className={className}
       />
     </NavbarBrand>

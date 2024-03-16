@@ -44,10 +44,10 @@ function BienvenidaVendedor() {
             informacion.map((datos) => (
               <NavigateVEN key={id}>
                 <Icono className="justify-end"
-                  radio={""}
+                  radio={"full"}
+                  maxWidth={"100px"}
                   imagen={`${(urlImage)}/${datos.photo}`}
-                  height={"80px"}
-                  width={"80px"}
+                  
                 />
                 <Texto
                   titulo={"Bienvenido"}

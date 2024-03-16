@@ -1,43 +1,49 @@
 /* estilos de la tarjeta  */
-.cont1ListaT {
-  display: flex;
-  margin-bottom: 30px;
+.cont1ListaT{
+    display: flex;
+    margin-bottom: 30px;
+    gap: 20px;
+    
 }
 
-.card1ListaT {
-  position: absolute;
+.card1ListaT{
+position: relative;
+width:260px;
+height:170px;
+z-index: 0;
+}
+.cont2ListaT{
+    display: flex;
+    flex-direction: column;
+
+}
+.contTexto1{
+    margin-bottom: 55px;
+}
+.card2ListaT{
+    display: flex;
+    justify-content: space-between;
+    width: 224px;
+    height: 65px;
+    position: relative;
+    background-color: #eeee;
+    border-radius: 8px;
+
 }
 
-.cont2ListaT {
-  display: flex;
-  flex-direction: column;
+.contTexto2{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin: 10px;
+    font-size: 10px;
+    
+
+}
+.contIcono{
+    display: flex;
+    justify-content: space-between;
+    margin: 8px;
+    align-items: center;
 }
 
-.contTexto1 {
-  margin-bottom: 55px;
-}
-
-.card2ListaT {
-  display: flex;
-  justify-content: space-between;
-  width: 224px;
-  height: 50px;
-  position: relative;
-  background-color: #eeee;
-  border-radius: 8px;
-}
-
-.contTexto2 {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin: 10px;
-  font-size: 10px;
-}
-
-.contIcono {
-  display: flex;
-  justify-content: space-between;
-  margin: 8px;
-  align-items: center;
-}
