@@ -54,6 +54,19 @@ async function listarInformacionConParametroApi(endPoint, parametro) {
   }
 };
 
+//Función para comunicar el front con el back usando dos parametros
+async function listarInformacionConDosParametroApi(endPoint, parametro1, parametro2) {
+  const url = `${raizUrl}/${endPoint}`
+
+  try {
+    const response = await axios.get(`${url}/${parametro1}/${parametro2}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error en al API listar con 2 parametro:", error);
+    return [];
+  }
+};
+
 async function cambiarEstadoInformacionApi(endPoint, id, estado) {
   const url = `${raizUrl}/${endPoint}`
 
@@ -115,6 +128,7 @@ export {
   añadirInformacionSinImagenAPI,
   listarInformacionApi,
   listarInformacionConParametroApi,
+  listarInformacionConDosParametroApi,
   cambiarEstadoInformacionApi,
   detalleInformacionApi,
   actualizarInformacionApi,

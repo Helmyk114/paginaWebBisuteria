@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { listarInformacionConParametroApi } from "../../api/productos";
+import { listarInformacionConDosParametroApi } from "../../api/productos";
 import Loader from "../../components/UI/cargando/loader";
 
 import Footer from "../../components/UI/Footer/Footer";
 import NavigateVEN, { Retroceder, Titulo } from "../../components/UI/navbar/navbarVendedor";
 import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
+import { decodificarToken, obtenerToken } from "../../utils/token";
 
 function ListarPedidoVendedor() {
 	const [informacion, setInformacion] = useState([]);
 	const [cargando, setCargando] = useState(true);
 
+	const token = obtenerToken();
+	const id = decodificarToken(token).userId;
+
 	useEffect(() => {
 		const data = async () => {
 			try {
-				const informacionListaPedido = await listarInformacionConParametroApi('orden', "1");
+				const informacionListaPedido = await listarInformacionConDosParametroApi('orden', "1", id);
 				setInformacion(informacionListaPedido.data);
 				setCargando(false);
 			} catch (error) {
@@ -22,7 +26,7 @@ function ListarPedidoVendedor() {
 			}
 		};
 		data();
-	}, [informacion]);
+	}, [informacion, id]);
 
 	return (
 		<div>
@@ -57,7 +61,7 @@ function ListarPedidoVendedor() {
 											</div>
 											<div className="contTexto2P">
 												<Texto2Card
-													texto2={`Cantidad de producto: 60`} />
+													texto2={`Cantidad de productos: ${datos.quantityProducts}`} />
 											</div>
 										</div>
 										<div className="contIconoP">

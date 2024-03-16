@@ -73,7 +73,7 @@ const CrearPedido = () => {
 		const orden = {
 			idCardWorker: `${id}`,
 			total: data.total,
-			cantidadProductos: cantidadProductos.toString(), // Convertir a string y añadir la cantidad de productos al objeto JSON
+			quantityProducts: "5", // Convertir a string y añadir la cantidad de productos al objeto JSON
 			idCardClient: data.idCardClient
 		};
 
