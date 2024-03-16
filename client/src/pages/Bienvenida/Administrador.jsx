@@ -14,14 +14,21 @@ import PedidoIcono from "../../components/UI/iconos/Pedido";
 import CerrarSesionIcono from "../../components/UI/iconos/CerrarSesion";
 import Footer from "../../components/UI/Footer/Footer";
 
+import io from 'socket.io-client';
+
 function BienvenidaAdmi() {
   const [informacion, setInformacion] = useState([]);
   const [cargando, setCargando] = useState(true);
   const token = obtenerToken();
   const id = decodificarToken(token).userId;
   const urlImage = process.env.REACT_APP_API_URL;
+  const socket = io('http://localhost:4141');
 
   useEffect(() => {
+    socket.on('nuevoPedido', (nuevoPedido) => {
+      console.log('Nuevo pedido recibido:', nuevoPedido);
+      // Aquí puedes manejar la notificación como desees (por ejemplo, mostrarla al administrador)
+    });
     const data = async () => {
       try {
         const infobd = await detalleInformacionApi("bienvenida", id);
@@ -32,6 +39,10 @@ function BienvenidaAdmi() {
       }
     };
     data();
+
+  return () => {
+      socket.off('nuevoPedido');
+  };
   }, [id]);
 
   return (

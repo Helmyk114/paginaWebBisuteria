@@ -157,6 +157,7 @@ function ListarProducto() {
 										<CardPerfil
 											className1={"cardListaPro"}
 											className2={"cardListaProGap"}
+											
 											key={datos.idProduct}>
 											<div className="inactivoCardListaPro">
 												<Avatares

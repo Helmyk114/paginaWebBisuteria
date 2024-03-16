@@ -53,19 +53,23 @@ const CrearPedido = () => {
 		clientPhone: null,
 	});
 
-	
 	const onSubmit = async (data) => {
+  if (!data.idCardClient || !data.clientname || !data.clientAddress || !data.clientPhone) {
+        return;
+    }
 		const newCliente = {
 			idCardClient: data.idCardClient,
 			clientname: data.clientname,
 			clientAddress: data.clientAddress,
 			clientPhone: data.clientPhone
 		};
+		console.log("newCliente:", newCliente);
 		const oldCliente = {
 			clientname: data.clientname,
 			clientAddress: data.clientAddress,
 			clientPhone: data.clientPhone
 		};
+		console.log("oldCliente:", oldCliente);
 		const orden = {
 			idCardWorker: `${id}`,
 			total: data.total,
@@ -75,11 +79,11 @@ const CrearPedido = () => {
 
 		console.log("Orden:", orden);
 
-		let idsProductos = [];
+		// let idsProductos = [];
 
-		state.selectedProducts.forEach(producto => {
-			idsProductos.push(producto.idProduct);
-		});
+		// state.selectedProducts.forEach(producto => {
+		// 	idsProductos.push(producto.idProduct);
+		// });
 		// const detallepProductos = {
 		// 	idProduct: idsProductos,
 		// 	quantity: "10",
@@ -196,7 +200,7 @@ const CrearPedido = () => {
 								className2={"cardCrearPedidoGap"}
 							>
 								
-									<div className="cont1CrP">
+									<div className="cont1CrP" style={{gap:"6px"}}>
 										<Avatares
 											src={product.img} alt={product.producto}
 											radio={"full"} />

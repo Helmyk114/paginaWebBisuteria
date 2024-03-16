@@ -8,7 +8,7 @@ import Loader from "../../components/UI/cargando/loader";
 import Avatares from "../../components/UI/avatar/Avatares";
 import EditIcon from "../../components/UI/iconos/Editar";
 import Acordeon from "../../components/UI/Acordeon/Acordeon";
-import DeleteIcon from "../../components/UI/iconos/Eliminar";
+import DeleteIcon2 from "../../components/UI/iconos/Eliminar2";
 import Footer from "../../components/UI/Footer/Footer";
 
 import { cambiarEstadoInformacionApi, listarInformacionConParametroApi } from "../../api/productos";
@@ -115,7 +115,7 @@ function ListarTrabajador() {
                     </Tooltip>
                     <Tooltip content="Eliminar trabajador">
                       <span className="text-lg text-danger cursor-pointer active:opacity-50">
-                        <DeleteIcon eliminar={() => eliminarTrabajador(datos.idCardWorker)} />
+                        <DeleteIcon2 eliminar={() => eliminarTrabajador(datos.idCardWorker)} />
                       </span>
                     </Tooltip>
                   </div>
@@ -157,7 +157,7 @@ function ListarTrabajador() {
                   <div className=" relative flex items-center gap-1">
                     <Tooltip content="Eliminar trabajador">
                       <span className="text-lg text-danger cursor-pointer active:opacity-50">
-                        <DeleteIcon eliminar={() => activarTrabajador(datos.idCardWorker)} />
+                        <DeleteIcon2 eliminar={() => activarTrabajador(datos.idCardWorker)} />
                       </span>
                     </Tooltip>
                   </div>

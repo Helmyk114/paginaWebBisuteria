@@ -1,31 +1,30 @@
-import React from "react";
-
-import Footer from "../../components/UI/Footer/Footer";
-import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
-import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
+import React, { useState, useEffect } from "react";
 import '../Pedidos/crearPedido.css'
-import BotonComprar from "../../components/UI/botones/BotonComprarProductos";
-import { useState } from "react";
-import { useEffect } from "react";
-import { listarInformacionConParametroApi } from "../../api/productos";
-import Loader from "../../components/UI/cargando/loader";
+
 import { Spacer } from "@nextui-org/react";
+import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
+import Loader from "../../components/UI/cargando/loader";
+import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
+import BotonComprar from "../../components/UI/botones/BotonComprarProductos";
+import Footer from "../../components/UI/Footer/Footer";
+
+import { listarInformacionConParametroApi } from "../../api/productos";
 
 function ListarPedidoAdministrador() {
 	const [informacionC, setInformacionC] = useState([]);
-	// const [informacionE, setInformacionE] = useState([]);
-	// const [informacionT, setInformacionT] = useState([]);
+	const [informacionE, setInformacionE] = useState([]);
+	const [informacionT, setInformacionT] = useState([]);
 	const [cargando, setCargando] = useState(true);
 
 	useEffect(() => {
 		const data = async () => {
 			try {
 				const informacionListaPedidoC = await listarInformacionConParametroApi('orden', "1");
-				// const informacionListaPedidoE = await listarInformacionConParametroApi('orden', "2");
-				// const informacionListaPedidoT = await listarInformacionConParametroApi('orden', "3");
-				setInformacionC(informacionListaPedidoC);
-				// setInformacionE(informacionListaPedidoE);
-				// setInformacionT(informacionListaPedidoT);
+				const informacionListaPedidoE = await listarInformacionConParametroApi('orden', "2");
+				const informacionListaPedidoT = await listarInformacionConParametroApi('orden', "3");
+				setInformacionC(informacionListaPedidoC.data);
+				setInformacionE(informacionListaPedidoE.data);
+				setInformacionT(informacionListaPedidoT.data);
 				setCargando(false);
 			} catch (error) {
 				console.error('Error al acceder a la informacion listaTrabajo: ', error);
@@ -33,7 +32,7 @@ function ListarPedidoAdministrador() {
 			}
 		};
 		data();
-	}, [informacionC]);
+	}, [informacionC, informacionE, informacionT]);
 
 	return (
 		<>
@@ -42,6 +41,7 @@ function ListarPedidoAdministrador() {
 				<Titulo espacio="center" titulo="Pedidos" />
 			</NavigateADM>
 			<Spacer y={4} />
+
 			{cargando ? (
 				<Loader />
 			) : (
@@ -57,7 +57,7 @@ function ListarPedidoAdministrador() {
 								<div className="cont1ListaP">
 									<div className="contTexto1P">
 										<Texto1Card
-											texto={"Nombre de cliente"} />
+											texto={`${datos.clientname}`} />
 									</div>
 								</div>
 								<div className="cont2ListaP">
@@ -65,15 +65,13 @@ function ListarPedidoAdministrador() {
 										<div className="contText">
 											<div className="contTexto2P">
 												<Texto2Card
-													texto2={`Fecha de creacion: ${datos.orderDate}`} />
+													texto2={`Fecha de creacion: ${datos.Date}`} />
 											</div>
 											<div className="contTexto2P">
 												<Texto2Card
 													texto2={`Cantidad de producto: 60`} />
 											</div>
-
 										</div>
-
 										<div className="contIconoP">
 											<IconoCard
 												icon={"solar:add-circle-bold"}
@@ -82,7 +80,6 @@ function ListarPedidoAdministrador() {
 										</div>
 									</div>
 								</div>
-
 							</CardPerfil>
 							</div>
 						))
