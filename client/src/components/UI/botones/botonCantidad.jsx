@@ -7,22 +7,23 @@ function BotonCantidad({ onPriceChange, onQuantityChange, precio }) {
   const [newPrice, setNewPrice] = useState(precio);
 
   useEffect(() => {
+    // Actualiza el precio cuando cambia el número
     const updatedPrice = number * precio;
     setNewPrice(updatedPrice);
     onPriceChange(updatedPrice);
   }, [number, precio, onPriceChange]);
 
-  useEffect(() => {
-    onQuantityChange(number); // Llama a la función onQuantityChange al montar el componente
-  }, []); 
-
   const increaseNumber = () => {
-    setNumber(prevNumber => prevNumber + 1);
+    const newNumber = number + 1;
+    setNumber(newNumber);
+    onQuantityChange(newNumber); // Llama a la función onQuantityChange con el valor actualizado de la cantidad
   };
 
   const decreaseNumber = () => {
     if (number > 1) {
-      setNumber(prevNumber => prevNumber - 1);
+      const newNumber = number - 1;
+      setNumber(newNumber);
+      onQuantityChange(newNumber); // Llama a la función onQuantityChange con el valor actualizado de la cantidad
     }
   };
 

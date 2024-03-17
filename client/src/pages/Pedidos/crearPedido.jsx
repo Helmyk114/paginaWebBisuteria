@@ -85,9 +85,9 @@ const CrearPedido = () => {
 			productIdPriceMap[productId] = productPrices[index];
 		});
 
-		const productosConPropiedades = state.selectedProducts.map(producto => {
+		const productosConPropiedades = selectedProducts.map(producto => {
 			const precioProducto = productIdPriceMap[producto.idProduct];
-			const subtotal = cantidadProductos;
+			const subtotal = producto.cantidad || 1; // Si la cantidad es falsa (0, undefined, null, etc.), utiliza 1 como valor predeterminado
 			return {
 				id: producto.idProduct,
 				cantidad: subtotal,
@@ -116,10 +116,18 @@ const CrearPedido = () => {
 		}
 	};
 
-	const handleQuantityChange = (quantity) => {
-		// Suma la cantidad de unidades de todos los productos
-		const totalQuantity = state.selectedProducts.reduce((total, product) => total + quantity, 0);
-		setCantidadProductos(totalQuantity);
+	const handleQuantityChange = (quantity, index) => {
+		// Actualizar la cantidad individual de cada producto
+		const updatedProducts = selectedProducts.map((product, i) => {
+			if (i === index) {
+				// Actualizar la cantidad del producto actual
+				const updatedProduct = { ...product, cantidad: quantity };
+				return updatedProduct;
+			}
+			return product;
+		});
+	
+		setSelectedProducts(updatedProducts); // Actualizar estado de productos seleccionados
 	};
 
 	const eliminarProducto = (index) => {
@@ -220,18 +228,19 @@ const CrearPedido = () => {
 											<Texto1Card
 												texto={product.producto} />
 											<div style={{ display: "flex", justifyContent: "center" }}>
-												<BotonCantidad
-													onPriceChange={(price) => {
-														const updatedPrices = [...productPrices];
-														if (updatedPrices[index] !== price) {
-															updatedPrices[index] = price;
-															setProductPrices(updatedPrices);
-															setTotalPrice(calculateTotalPrice());
-														}
-													}}
-													precio={product.precio}
-													onQuantityChange={(quantity) => handleQuantityChange(quantity)} // Agrega esta prop
-												/>
+											<BotonCantidad
+    onPriceChange={(price) => {
+        const updatedPrices = [...productPrices];
+        if (updatedPrices[index] !== price) {
+            updatedPrices[index] = price;
+            setProductPrices(updatedPrices);
+            setTotalPrice(calculateTotalPrice());
+        }
+    }}
+    precio={product.precio}
+    index={index} // Pasa el índice como una prop
+    onQuantityChange={(quantity) => handleQuantityChange(quantity, index)} // Pasar el índice
+/>
 											</div>
 										</div>
 										<div className="cont2CrP">
