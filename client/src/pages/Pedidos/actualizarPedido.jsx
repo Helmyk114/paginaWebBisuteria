@@ -10,6 +10,7 @@ function ActualizarPedido() {
 				<Retroceder />
 				<Titulo espacio="center" titulo="Editar pedido" />
 			</NavigateVEN>
+			
 
 			<Footer />
 		</div>

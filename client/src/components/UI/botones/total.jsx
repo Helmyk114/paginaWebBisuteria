@@ -1,14 +1,14 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import "./contenedor2.css"; // Ajusta la ruta según la ubicación real del archivo CSS
 
-const Texto3 = forwardRef(({ precio }, ref) => {
+const Texto3 = ({ precio }) => {
    return (
-      <div ref={ref}>
+      <div>
          <label className="label">
-            <p>Total: {precio}$</p>
+            <p>{precio} $</p>
          </label>
       </div>
    );
-});
+};
 
 export default Texto3;

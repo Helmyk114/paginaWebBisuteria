@@ -21,6 +21,9 @@ import { notificacionConfirmar, notificacionError } from "../../utils/notificaci
 
 const CrearPedido = () => {
 	const { register, handleSubmit, formState: { errors } } = useForm();
+	const token = obtenerToken();
+	const id = decodificarToken(token).userId;
+	const mensaje = 'Este campo es requerido'
 	const location = useLocation();
 	const { state } = location;
 
@@ -42,15 +45,12 @@ const CrearPedido = () => {
 		setTotalPrice(calculateTotalPrice());
 	}, [productPrices, calculateTotalPrice]);
 
-	const token = obtenerToken();
-	const id = decodificarToken(token).userId;
-	const mensaje = 'Este campo es requerido'
-
 	const refs = useRef({
 		idCardClient: null,
 		clientname: null,
 		clientAddress: null,
 		clientPhone: null,
+		total: null,
 	});
 
 	const onSubmit = async (data) => {
@@ -72,24 +72,38 @@ const CrearPedido = () => {
 		console.log("oldCliente:", oldCliente);
 		const orden = {
 			idCardWorker: `${id}`,
-			total: data.total,
-			quantityProducts: "5", // Convertir a string y añadir la cantidad de productos al objeto JSON
+			total: totalPrice,
+			quantityProducts: cantidadProductos, // Convertir a string y añadir la cantidad de productos al objeto JSON
 			idCardClient: data.idCardClient
 		};
-
 		console.log("Orden:", orden);
 
-		// let idsProductos = [];
+		let idsProductos = [];
+		const productIdPriceMap = {};
 
-		// state.selectedProducts.forEach(producto => {
-		// 	idsProductos.push(producto.idProduct);
-		// });
-		// const detallepProductos = {
-		// 	idProduct: idsProductos,
-		// 	quantity: "10",
-		// 	subtotal: "20",
-		// 	//idOrder: ""
-		// };
+		state.selectedProducts.forEach(producto => {
+			idsProductos.push(producto.idProduct);
+		});
+
+		idsProductos.forEach((productId, index) => {
+			productIdPriceMap[productId] = productPrices[index];
+		});
+
+		const productosConPropiedades = state.selectedProducts.map(producto => {
+			const precioProducto = productIdPriceMap[producto.idProduct];
+			const subtotal = cantidadProductos;
+			return {
+				id: producto.idProduct,
+				cantidad: subtotal,
+				subtotal: precioProducto
+			};
+		})
+
+		const detailsOrder = {
+			detalle: productosConPropiedades
+		};
+	
+	console.log("detailsOrden:", detailsOrder);
 
 		try {
 			const infoClient = await detalleInformacionApi('cliente', data.idCardClient)
@@ -200,7 +214,8 @@ const CrearPedido = () => {
 									>
 										<div className="cont1CrP" style={{ gap: "6px" }}>
 											<Avatares
-												src={product.img} alt={product.producto}
+												src={product.img} 
+												alt={product.producto}
 												radio={"full"} />
 											<Spacer x={3} />
 											<Texto1Card
@@ -221,9 +236,7 @@ const CrearPedido = () => {
 											</div>
 										</div>
 										<div className="cont2CrP">
-											<Texto2Card
-												texto2={productPrices[index]}
-											/>
+											<Texto2Card texto2={productPrices[index]} />
 											<div
 												style={{ display: "flex" }}>
 												<Tooltip content="Eliminar producto">
@@ -242,18 +255,12 @@ const CrearPedido = () => {
 							)}
 						</div>
 				</Acordeon>
-				
 				<Spacer y={5} />
-				<BotonComprar2 text={"Comprar"} onClick={() => onSubmit({ total: totalPrice })}>
-					<Texto3
-						{...register("total", { value: totalPrice })}
-						precio={`${totalPrice}`}
-					/>
+				<BotonComprar2 text={"Comprar"}>
+					<Texto3 precio={`${totalPrice}`} />
 				</BotonComprar2>
 			</form>
-			
 			<Footer />
-
 		</div>
 	);
 };
