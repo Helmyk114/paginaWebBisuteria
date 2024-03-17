@@ -122,6 +122,9 @@ const CrearPedido = () => {
 			return product;
 		});
 		setSelectedProducts(updatedProducts); // Actualizar estado de productos seleccionados
+		// Actualizar el estado de la cantidad total de productos
+		const totalQuantity = updatedProducts.reduce((total, product) => total + (product.cantidad || 1), 0);
+		setCantidadProductos(totalQuantity);
 	};
 
 	const eliminarProducto = (index) => {
