@@ -53,23 +53,19 @@ const CrearPedido = () => {
 		total: null,
 	});
 
+
 	const onSubmit = async (data) => {
-		if (!data.idCardClient || !data.clientname || !data.clientAddress || !data.clientPhone) {
-			return;
-		}
 		const newCliente = {
 			idCardClient: data.idCardClient,
 			clientname: data.clientname,
 			clientAddress: data.clientAddress,
 			clientPhone: data.clientPhone
 		};
-		console.log("newCliente:", newCliente);
 		const oldCliente = {
 			clientname: data.clientname,
 			clientAddress: data.clientAddress,
 			clientPhone: data.clientPhone
 		};
-		console.log("oldCliente:", oldCliente);
 		const orden = {
 			idCardWorker: `${id}`,
 			total: totalPrice,
@@ -102,8 +98,8 @@ const CrearPedido = () => {
 		const detailsOrder = {
 			detalle: productosConPropiedades
 		};
-	
-	console.log("detailsOrden:", detailsOrder);
+
+		console.log("detailsOrden:", detailsOrder);
 
 		try {
 			const infoClient = await detalleInformacionApi('cliente', data.idCardClient)
@@ -135,6 +131,8 @@ const CrearPedido = () => {
 		setSelectedProducts(updatedProducts); // Actualizar estado de productos seleccionados
 		console.log(updatedProducts);
 	};
+
+
 
 	return (
 		<div>
@@ -203,10 +201,11 @@ const CrearPedido = () => {
 
 				<Spacer y={4} />
 				<Acordeon titulo={'Lista de productos'}>
+
 					<Spacer y={3} />
-						<div>
-							{selectedProducts && selectedProducts.length > 0 ? (
-								selectedProducts.map((product, index) => (
+					<div>
+						{selectedProducts && selectedProducts.length > 0 ? (
+							selectedProducts.map((product, index) => (
 								<div key={index}>
 									<CardPerfil
 										className1={"cardCrearPedido"}
@@ -214,7 +213,7 @@ const CrearPedido = () => {
 									>
 										<div className="cont1CrP" style={{ gap: "6px" }}>
 											<Avatares
-												src={product.img} 
+												src={product.img}
 												alt={product.producto}
 												radio={"full"} />
 											<Spacer x={3} />
@@ -246,13 +245,15 @@ const CrearPedido = () => {
 												</Tooltip>
 											</div>
 										</div>
+
+
 									</CardPerfil>
 									<Spacer y={3} />
 								</div>
 							))
-							):(
-								<p>No hay productos seleccionados.</p>
-							)}
+						) : (
+							<p>No hay productos seleccionados.</p>
+						)}
 						</div>
 				</Acordeon>
 				<Spacer y={5} />
@@ -260,6 +261,7 @@ const CrearPedido = () => {
 					<Texto3 precio={`${totalPrice}`} />
 				</BotonComprar2>
 			</form>
+
 			<Footer />
 		</div>
 	);

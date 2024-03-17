@@ -12,13 +12,14 @@
 .rol {
     margin-top: -5px;
 }
-
+.formActualizarTra{
+    padding: 15px;
+   background-color:  rgb(238, 238, 238, 1);
+   margin: 0 auto;
+}
 
 @media screen and (max-width: 767px) {
 /* formulario trabajadores */
-    .card {
-        width: 90%;
-    }
 
     .botonEnviar {
         width: 100%;
@@ -36,17 +37,24 @@
             flex-direction: row;
        }
 
+       .formImgActualizarTra{
+        width: 95%;
+        margin: 0 auto;
+    }
+
    
 
 
 }
 @media (min-width: 767px) and (max-width: 1023px){
     /* formulario trabajadores */
-    .card {
-        width: 84%;
+    .formActualizarTra{
+        width: 75%;
         margin: 0 auto;
+        
 
     }
+
     /* lista trabajadores */
     .cardPerfil{
         width: 62%;
@@ -68,6 +76,10 @@
             justify-content: space-between;
             flex-direction: row;
        }
+       .botonEnviar {
+        width: 60%;
+        margin: 0 auto;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -76,6 +88,10 @@
         display: block;
         align-items: start;
 
+    }
+    .formImgActualizarTra{
+        width: 75%;
+        margin: 0 auto;
     }
    .cardListaTra{
     width: 60%;
@@ -88,9 +104,12 @@
         justify-content: space-between;
         flex-direction: row;
    }
+   .formImagenActualizarTra{
+    width: 100%;
+   }
     
 
-    .card {
+   .formActualizarTra {
         width: 74%;
         margin: 0 auto;
 
@@ -98,6 +117,7 @@
 
     .botonEnviar {
         width: 60%;
+        margin: 0 auto;
     }
     .inactivos{
         width: 62%;

@@ -47,3 +47,28 @@ z-index: 0;
     align-items: center;
 }
 
+@media screen and (max-width: 767px){
+    /*crear Lista de trabajo*/
+    .cardCrearListaT{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+}
+
+@media screen and (min-width: 1024px){
+     /*crear Lista de trabajo*/
+     .cardCrearListaT{
+        width: 60%;
+        margin: 0 auto;
+     }
+     .acordeonListaT, .botonCrearListaT{
+        width: 80%;
+        margin: 0 auto;
+     }
+     .botonCrearListaT{
+        width: 40%;
+        margin: 0 auto;
+    }
+     
+    }
