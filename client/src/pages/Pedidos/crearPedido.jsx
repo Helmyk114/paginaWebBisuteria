@@ -53,7 +53,6 @@ const CrearPedido = () => {
 		total: null,
 	});
 
-
 	const onSubmit = async (data) => {
 		const newCliente = {
 			idCardClient: data.idCardClient,
@@ -66,13 +65,6 @@ const CrearPedido = () => {
 			clientAddress: data.clientAddress,
 			clientPhone: data.clientPhone
 		};
-		const orden = {
-			idCardWorker: `${id}`,
-			total: totalPrice,
-			quantityProducts: cantidadProductos, // Convertir a string y añadir la cantidad de productos al objeto JSON
-			idCardClient: data.idCardClient
-		};
-		console.log("Orden:", orden);
 
 		let idsProductos = [];
 		const productIdPriceMap = {};
@@ -89,17 +81,20 @@ const CrearPedido = () => {
 			const precioProducto = productIdPriceMap[producto.idProduct];
 			const subtotal = producto.cantidad || 1; // Si la cantidad es falsa (0, undefined, null, etc.), utiliza 1 como valor predeterminado
 			return {
-				id: producto.idProduct,
-				cantidad: subtotal,
-				subtotal: precioProducto
+				idProduct: producto.idProduct,
+				quantity: subtotal,
+				subTotal: precioProducto
 			};
 		})
 
-		const detailsOrder = {
-			detalle: productosConPropiedades
+		const orden = {
+			idCardWorker: `${id}`,
+			total: totalPrice,
+			quantityProducts: cantidadProductos, // Convertir a string y añadir la cantidad de productos al objeto JSON
+			idCardClient: data.idCardClient,
+			details: productosConPropiedades
 		};
-
-		console.log("detailsOrden:", detailsOrder);
+		console.log("Orden:", orden);
 
 		try {
 			const infoClient = await detalleInformacionApi('cliente', data.idCardClient)
@@ -126,7 +121,6 @@ const CrearPedido = () => {
 			}
 			return product;
 		});
-	
 		setSelectedProducts(updatedProducts); // Actualizar estado de productos seleccionados
 	};
 
@@ -139,8 +133,6 @@ const CrearPedido = () => {
 		setSelectedProducts(updatedProducts); // Actualizar estado de productos seleccionados
 		console.log(updatedProducts);
 	};
-
-
 
 	return (
 		<div>
@@ -206,10 +198,8 @@ const CrearPedido = () => {
 					</div>
 					<Spacer y={4} />
 				</Acordeon>
-
 				<Spacer y={4} />
 				<Acordeon titulo={'Lista de productos'}>
-
 					<Spacer y={3} />
 					<div>
 						{selectedProducts && selectedProducts.length > 0 ? (
@@ -228,19 +218,19 @@ const CrearPedido = () => {
 											<Texto1Card
 												texto={product.producto} />
 											<div style={{ display: "flex", justifyContent: "center" }}>
-											<BotonCantidad
-    onPriceChange={(price) => {
-        const updatedPrices = [...productPrices];
-        if (updatedPrices[index] !== price) {
-            updatedPrices[index] = price;
-            setProductPrices(updatedPrices);
-            setTotalPrice(calculateTotalPrice());
-        }
-    }}
-    precio={product.precio}
-    index={index} // Pasa el índice como una prop
-    onQuantityChange={(quantity) => handleQuantityChange(quantity, index)} // Pasar el índice
-/>
+												<BotonCantidad
+													onPriceChange={(price) => {
+														const updatedPrices = [...productPrices];
+														if (updatedPrices[index] !== price) {
+															updatedPrices[index] = price;
+															setProductPrices(updatedPrices);
+															setTotalPrice(calculateTotalPrice());
+														}
+													}}
+													precio={product.precio}
+													index={index} // Pasa el índice como una prop
+													onQuantityChange={(quantity) => handleQuantityChange(quantity, index)} // Pasar el índice
+												/>
 											</div>
 										</div>
 										<div className="cont2CrP">
@@ -254,8 +244,6 @@ const CrearPedido = () => {
 												</Tooltip>
 											</div>
 										</div>
-
-
 									</CardPerfil>
 									<Spacer y={3} />
 								</div>
@@ -263,14 +251,13 @@ const CrearPedido = () => {
 						) : (
 							<p>No hay productos seleccionados.</p>
 						)}
-						</div>
+					</div>
 				</Acordeon>
 				<Spacer y={5} />
 				<BotonComprar2 text={"Comprar"}>
 					<Texto3 precio={`${totalPrice}`} />
 				</BotonComprar2>
 			</form>
-
 			<Footer />
 		</div>
 	);
