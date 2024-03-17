@@ -28,7 +28,7 @@ const CrearPedido = () => {
 		// Inicializar el array de precios con los precios iniciales de los productos
 		return state.selectedProducts.map(product => product.precio);
 	});
-
+	
 	const calculateTotalPrice = useCallback(() => {
 		return productPrices.reduce((total, price) => total + price, 0);
 	}, [productPrices]);
@@ -36,12 +36,12 @@ const CrearPedido = () => {
 	const [totalPrice, setTotalPrice] = useState(calculateTotalPrice());
 	const [cantidadProductos, setCantidadProductos] = useState(0); // Estado para la cantidad de productos
 	const [selectedProducts, setSelectedProducts] = useState(state.selectedProducts); // Nuevo estado para los productos seleccionados
-
+	
 	useEffect(() => {
 		// Actualizar el estado totalPrice con la suma calculada
 		setTotalPrice(calculateTotalPrice());
 	}, [productPrices, calculateTotalPrice]);
-
+	
 	const token = obtenerToken();
 	const id = decodificarToken(token).userId;
 	const mensaje = 'Este campo es requerido'
@@ -53,37 +53,33 @@ const CrearPedido = () => {
 		clientPhone: null,
 	});
 
+	
 	const onSubmit = async (data) => {
-		if (!data.idCardClient || !data.clientname || !data.clientAddress || !data.clientPhone) {
-			return;
-		}
 		const newCliente = {
 			idCardClient: data.idCardClient,
 			clientname: data.clientname,
 			clientAddress: data.clientAddress,
 			clientPhone: data.clientPhone
 		};
-		console.log("newCliente:", newCliente);
 		const oldCliente = {
 			clientname: data.clientname,
 			clientAddress: data.clientAddress,
 			clientPhone: data.clientPhone
 		};
-		console.log("oldCliente:", oldCliente);
 		const orden = {
 			idCardWorker: `${id}`,
 			total: data.total,
-			quantityProducts: "5", // Convertir a string y añadir la cantidad de productos al objeto JSON
+			cantidadProductos: cantidadProductos.toString(), // Convertir a string y añadir la cantidad de productos al objeto JSON
 			idCardClient: data.idCardClient
 		};
 
 		console.log("Orden:", orden);
 
-		// let idsProductos = [];
+		let idsProductos = [];
 
-		// state.selectedProducts.forEach(producto => {
-		// 	idsProductos.push(producto.idProduct);
-		// });
+		state.selectedProducts.forEach(producto => {
+			idsProductos.push(producto.idProduct);
+		});
 		// const detallepProductos = {
 		// 	idProduct: idsProductos,
 		// 	quantity: "10",
@@ -110,17 +106,19 @@ const CrearPedido = () => {
 		// Suma la cantidad de unidades de todos los productos
 		const totalQuantity = state.selectedProducts.reduce((total, product) => total + quantity, 0);
 		setCantidadProductos(totalQuantity);
-	};
+	  };
 
 	const eliminarProducto = (index) => {
-		const updatedProducts = [...selectedProducts];
-		updatedProducts.splice(index, 1);
-		const updatedPrices = [...productPrices];
-		updatedPrices.splice(index, 1);
-		setProductPrices(updatedPrices);
-		setSelectedProducts(updatedProducts); // Actualizar estado de productos seleccionados
-		console.log(updatedProducts);
-	};
+        const updatedProducts = [...selectedProducts];
+        updatedProducts.splice(index, 1);
+        const updatedPrices = [...productPrices];
+        updatedPrices.splice(index, 1);
+        setProductPrices(updatedPrices);
+        setSelectedProducts(updatedProducts); // Actualizar estado de productos seleccionados
+		console.log(updatedProducts); 
+    };
+
+	
 
 	return (
 		<div>
@@ -130,8 +128,7 @@ const CrearPedido = () => {
 			</NavigateVEN>
 			<Spacer y={4} />
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<Acordeon titulo={'Datos del cliente'}
-				className={"acordeonCrearP"}>
+				<Acordeon titulo={'Datos del cliente'}>
 					<div className="gap-4" style={{ display: "grid", gridTemplateColumns: "2fr 2fr" }}>
 						<div className="flex flex-col">
 							<InputText ref={(el) => { refs.current.idCardClient = el; }}
@@ -189,71 +186,67 @@ const CrearPedido = () => {
 				</Acordeon>
 
 				<Spacer y={4} />
-				<Acordeon titulo={'Lista de productos'}
-				className={"acordeonCrearP"}>
+				<Acordeon titulo={'Lista de productos'}>
+
 					<Spacer y={3} />
-						<div>
-							{selectedProducts && selectedProducts.length > 0 ? (
-								selectedProducts.map((product, index) => (
-								<div key={index}>
-									<CardPerfil
-										className1={"cardCrearPedido"}
-										className2={"cardCrearPedidoGap"}
-									>
-										<div className="cont1CrP" style={{ gap: "6px" }}>
-											<Avatares
-												src={product.img} alt={product.producto}
-												radio={"full"} />
-											<Spacer x={3} />
-											<Texto1Card
-												texto={product.producto} />
-											<div style={{ display: "flex", justifyContent: "center" }}>
-												<BotonCantidad
-													onPriceChange={(price) => {
-														const updatedPrices = [...productPrices];
-														if (updatedPrices[index] !== price) {
-															updatedPrices[index] = price;
-															setProductPrices(updatedPrices);
-															setTotalPrice(calculateTotalPrice());
-														}
-													}}
-													precio={product.precio}
-													onQuantityChange={(quantity) => handleQuantityChange(quantity)} // Agrega esta prop
-												/>
-											</div>
+					{selectedProducts.map((product, index) => (
+						<div key={index}>
+							<CardPerfil
+								className1={"cardCrearPedido"}
+								className2={"cardCrearPedidoGap"}
+							>
+								
+									<div className="cont1CrP" style={{gap:"6px"}}>
+										<Avatares
+											src={product.img} alt={product.producto}
+											radio={"full"} />
+										<Spacer x={3} />
+										<Texto1Card
+											texto={product.producto} />
+										<div style={{ display: "flex", justifyContent: "center" }}>
+										<BotonCantidad
+          								onPriceChange={(price) => {
+            							const updatedPrices = [...productPrices];
+            							if (updatedPrices[index] !== price) {
+              							updatedPrices[index] = price;
+              							setProductPrices(updatedPrices);
+              							setTotalPrice(calculateTotalPrice());
+            								}
+         								 }}
+          								precio={product.precio}
+          								onQuantityChange={(quantity) => handleQuantityChange(quantity)} // Agrega esta prop
+        								/>
 										</div>
-										<div className="cont2CrP">
-											<Texto2Card
-												texto2={productPrices[index]}
-											/>
-											<div
-												style={{ display: "flex" }}>
-												<Tooltip content="Eliminar producto">
-													<span className="text-lg text-danger cursor-pointer active:opacity-50" >
-														<DeleteIcon eliminar={() => eliminarProducto(index)} />
-													</span>
-												</Tooltip>
-											</div>
+									</div>
+									<div className="cont2CrP">
+										<Texto2Card
+						
+											texto2={productPrices[index]}
+										/>
+										<div
+											style={{ display: "flex" }}>
+											<Tooltip content="Eliminar producto">
+											<span className="text-lg text-danger cursor-pointer active:opacity-50" onClick={() => eliminarProducto(index)}>
+													<DeleteIcon />
+												</span>
+											</Tooltip>
 										</div>
-									</CardPerfil>
-									<Spacer y={3} />
-								</div>
-							))
-							):(
-								<p>No hay productos seleccionados.</p>
-							)}
+									</div>
+								
+							</CardPerfil>
+							<Spacer y={3} />
 						</div>
+					))}
 				</Acordeon>
-				
 				<Spacer y={5} />
 				<BotonComprar2 text={"Comprar"} onClick={() => onSubmit({ total: totalPrice })}>
-					<Texto3
-						{...register("total", { value: totalPrice })}
-						precio={`${totalPrice}`}
-					/>
-				</BotonComprar2>
+                <Texto3
+                    {...register("total", { value: totalPrice })}
+                    precio={`${totalPrice}`}
+                />
+            </BotonComprar2>
+
 			</form>
-			
 			<Footer />
 
 		</div>

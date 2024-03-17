@@ -14,6 +14,7 @@ import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/c
 import Avatares from "../../components/UI/avatar/Avatares";
 import BotonCantidad from "../../components/UI/botones/botonCantidad";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
+import img from '../../img/anillo.jpg'
 
 function CrearListaTrabajo() {
 
@@ -99,29 +100,18 @@ function CrearListaTrabajo() {
 						className1={"cardCrearListaT"}
 						className2={"cardCrearPedidoGap"}>
 						<Avatares
-							// src={product.img} alt={product.producto}
+							src={img} alt={"hola"}
 							radio={"full"} />
 						<Texto1Card
-							texto={"product.producto"} />
+							texto={"anillo"} />
 						<div style={{ display: "flex", justifyContent: "center" }}>
 
 						</div>
 						<div className="cont2CrP">
 							<Texto2Card
-								texto2={"productPrices[index]"}
+								texto2={"Cantidad"}
 							/>
-							<div
-								style={{ display: "flex" }}>
-								<Tooltip content="Eliminar producto">
-									<span className="text-lg text-danger cursor-pointer active:opacity-50" >
-										<DeleteIcon  />
-									</span>
-								</Tooltip>
-							</div>
 						</div>
-
-
-
 
 					</CardPerfil>
 					<p>No hay pedidos seleccionados.</p>
