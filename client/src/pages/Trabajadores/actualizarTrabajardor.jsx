@@ -79,10 +79,10 @@ function ActualizarTrabajador() {
 			</NavigateADM>
 
 			<Spacer y={4} />
-			<form style={{ margin: '0 auto', width: '100%' }} onSubmit={handleSubmit(onSubmit)}>
-				<SubirImagen onImageChange={setSelectedImage} defaultImageSrc={informacionTrabajador || ""} />
+			<form className="formImgActualizarTra" onSubmit={handleSubmit(onSubmit)}>
+				<SubirImagen className="formImgActualizarTra" onImageChange={setSelectedImage} defaultImageSrc={informacionTrabajador || ""} />
 				<Spacer y={4} />
-				<Card className='card' style={{ width: '90%' }}>
+				<Card className='formActualizarTra' >
 					<Spacer y={4} />
 					<div className="gap-4" style={{ display: "grid", gridTemplateColumns: "2fr 2fr" }}>
 						<div className=" cardForm flex flex-col">

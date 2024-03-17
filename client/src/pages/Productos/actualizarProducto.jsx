@@ -77,7 +77,8 @@ function ActualizarProducto() {
 			<form style={{ display: 'block', justifyContent: 'center', padding: '10px' }} onSubmit={handleSubmit(onSubmit)}>
 				<SubirImagen onImageChange={setSelectedImage} defaultImageSrc={informacionProducto || ""} />
 				<Spacer y={4} />
-				<Card className='card' style={{ width: '90%' }}>
+				<div className="formCrearPro">
+				<Card className='cardFormCrearPro' >
 					<Spacer y={4} />
 					<InputText ref={(el) => { refs.current.nameProduct = el; }}
 						{...register("nameProduct", { required: { value: true, message: 'El nombre del producto es requerido' } })}
@@ -145,9 +146,13 @@ function ActualizarProducto() {
 					/>
 					{errors.idCategory && <span>{errors.idCategory.message}</span>}
 					<Spacer y={4} />
-					<BotonEnviar text="Editar producto" type="submit" />
+					<BotonEnviar
+					className={"botonCrearPro"} text="Editar producto" type="submit" />
 					<Spacer y={4} />
 				</Card>
+
+				</div>
+				
 			</form>
 			<Spacer y={4} />
 			<Footer />

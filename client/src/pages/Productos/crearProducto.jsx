@@ -46,13 +46,14 @@ function CrearProducto() {
       </NavigateADM>
       <Spacer y={4} />
       <form
-        style={{ display: "block", justifyContent: "center", padding: "10px" }}
+        className="formImagenCrearPro"
+        
         onSubmit={handleSubmit(onSubmit)}
       >
         <SubirImagen onImageChange={setSelectedImage} />
         <Spacer y={4} />
-        <div className="content1">
-          <Card className="card" style={{ width: "90%" }}>
+        <div className="formCrearPro">
+          <Card className="cardFormCrearPro" >
             <Spacer y={4} />
             <InputText
               ref={(el) => { refs.current.nameProduct = el; }}
@@ -115,7 +116,8 @@ function CrearProducto() {
             />
             {errors.idCategory && <span>{errors.idCategory.message}</span>}
             <Spacer y={4} />
-            <BotonEnviar text="Añadir producto" type="submit" />
+            <BotonEnviar text="Añadir producto" type="submit"
+            className={"botonCrearPro"} />
             <Spacer y={4} />
           </Card>
         </div>
