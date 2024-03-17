@@ -65,6 +65,24 @@ function CrearListaTrabajo() {
 			</NavigateADM>
 			<Spacer y={4} />
 			<form onSubmit={handleSubmit(onSubmit)}>
+
+				<Acordeon titulo={"Nombre pedidos"}
+				  className={"acordeonListaT"}>
+					<CardPerfil
+						className1={"cardCrearListaT"}
+						className2={"cardCrearPedidoGap"}>
+					
+						<div className="cont2CrP">
+							<Texto2Card
+								texto2={"nombre del pedido"}
+							/>
+						</div>
+
+					</CardPerfil>
+					<p>No hay pedidos seleccionados.</p>
+				</Acordeon>
+				<Spacer y={4} />
+
 				<Acordeon titulo={"Artesanos"}
 				className={"acordeonListaT"}>
 					{cargando ? (
@@ -112,6 +130,15 @@ function CrearListaTrabajo() {
 								texto2={"Cantidad"}
 							/>
 						</div>
+
+						<div
+								style={{ display: "flex" }}>
+								<Tooltip content="Eliminar producto">
+									<span className="text-lg text-danger cursor-pointer active:opacity-50" >
+										<DeleteIcon  />
+									</span>
+								</Tooltip>
+							</div>
 
 					</CardPerfil>
 					<p>No hay pedidos seleccionados.</p>
