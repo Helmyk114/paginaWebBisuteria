@@ -16,7 +16,7 @@ import Texto3 from "../../components/UI/botones/total";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
 
 import { decodificarToken, obtenerToken } from "../../utils/token";
-import { actualizarInformacionSinImagenApi, añadirInformacionSinImagenAPI, detalleInformacionApi } from "../../api/productos";
+import { actualizarInformacionSinImagenApi, añadirInformacionSinImagenAPI, detalleInformacionApi } from "../../api/axiosServices";
 import { notificacionConfirmar, notificacionError } from "../../utils/notificacionCliente";
 
 const CrearPedido = () => {

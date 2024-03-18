@@ -9,7 +9,7 @@ import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/
 import BotonComprar from "../../components/UI/botones/BotonComprarProductos";
 import Footer from "../../components/UI/Footer/Footer";
 
-import { listarInformacionConParametroApi } from "../../api/productos";
+import { listarInformacionConParametroApi } from "../../api/axiosServices";
 
 function ListarPedidoAdministrador() {
 	const [informacionC, setInformacionC] = useState([]);

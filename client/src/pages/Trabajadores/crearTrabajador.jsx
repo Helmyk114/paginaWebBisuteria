@@ -11,7 +11,7 @@ import ListBoxSimple from "../../components/UI/formulario/Combox/listBoxSimple";
 import BotonEnviar from "../../components/UI/botones/botonEnviar";
 import Footer from "../../components/UI/Footer/Footer";
 
-import { añadirInformacionAPI } from "../../api/productos";
+import { añadirInformacionAPI } from "../../api/axiosServices";
 import { notificacionConfirmar, notificacionError } from "../../utils/notificacionCliente";
 
 

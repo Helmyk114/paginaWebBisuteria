@@ -10,7 +10,7 @@ import Loader from "../../components/UI/cargando/loader";
 import BotonComprar from "../../components/UI/botones/BotonComprarProductos";
 import Footer from "../../components/UI/Footer/Footer";
 
-import { listarInformacionConParametroApi } from "../../api/productos";
+import { listarInformacionConParametroApi } from "../../api/axiosServices";
 
 export default function ListProduct() {
   const [informacion, setInformacion] = useState([]);

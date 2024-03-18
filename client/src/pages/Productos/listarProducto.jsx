@@ -12,7 +12,7 @@ import Acordeon from "../../components/UI/Acordeon/Acordeon";
 import Footer from "../../components/UI/Footer/Footer";
 
 import { notificacionActivarInactivar, notificacionInformativa } from "../../utils/notificacionCliente";
-import { cambiarEstadoInformacionApi, listarInformacionConParametroApi } from "../../api/productos";
+import { cambiarEstadoInformacionApi, listarInformacionConParametroApi } from "../../api/axiosServices";
 
 function ListarProducto() {
 
@@ -168,11 +168,6 @@ function ListarProducto() {
 												</div>
 											</div>
 											<div className="relative flex items-center gap-1" style={{ justifyContent: "center" }}>
-												<Tooltip content="Editar producto">
-													<span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-														<EditIcon ruta={`/editar/producto/${datos.idProduct}`} />
-													</span>
-												</Tooltip>
 												<Tooltip content="Eliminar producto">
 													<span className="text-lg text-danger cursor-pointer active:opacity-50">
 														<DeleteIcon className="iconoEliminar" eliminar={() => activarProducto(datos.idProduct)} />

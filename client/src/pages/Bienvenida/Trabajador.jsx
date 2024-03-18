@@ -10,7 +10,7 @@ import CerrarSesionIcono from "../../components/UI/iconos/CerrarSesion";
 import Footer from "../../components/UI/Footer/Footer";
 
 import { decodificarToken, obtenerToken } from "../../utils/token";
-import { detalleInformacionApi } from "../../api/productos";
+import { detalleInformacionApi } from "../../api/axiosServices";
 
 
 function BienvenidaTrabajador() {
