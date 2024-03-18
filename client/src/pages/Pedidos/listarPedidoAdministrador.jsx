@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import '../Pedidos/crearPedido.css'
 
 import { Spacer } from "@nextui-org/react";
@@ -9,7 +10,6 @@ import BotonComprar from "../../components/UI/botones/BotonComprarProductos";
 import Footer from "../../components/UI/Footer/Footer";
 
 import { listarInformacionConParametroApi } from "../../api/productos";
-import { useNavigate } from "react-router-dom";
 
 function ListarPedidoAdministrador() {
 	const [informacionC, setInformacionC] = useState([]);
@@ -47,7 +47,6 @@ function ListarPedidoAdministrador() {
 				<Titulo espacio="center" titulo="Pedidos" />
 			</NavigateADM>
 			<Spacer y={4} />
-
 			{cargando ? (
 				<Loader />
 			) : (
@@ -87,6 +86,7 @@ function ListarPedidoAdministrador() {
 										</div>
 									</div>
 								</CardPerfil>
+								<Spacer y={4} />
 							</div>
 						))
 					) : (
@@ -94,6 +94,7 @@ function ListarPedidoAdministrador() {
 					)}
 				</div>
 			)}
+			<Spacer y={4} />
 			<BotonComprar onClick={handleCrearListraClick} text={"Crear lista"} type={"Submit"} />
 			<Footer />
 		</>
