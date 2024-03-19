@@ -10,6 +10,7 @@ import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/c
 import { cambiarEstadoInformacionApi, listarInformacionConDosParametroApi } from "../../api/axiosServices";
 import { notificacionActivarInactivar, notificacionInformativa } from "../../utils/notificacionCliente";
 import { decodificarToken, obtenerToken } from "../../utils/token";
+import EditIcon from "../../components/UI/iconos/Editar";
 
 function ListarPedidoVendedor() {
 	const [informacion, setInformacion] = useState([]);
@@ -34,7 +35,7 @@ function ListarPedidoVendedor() {
 
 	const cancelProducto = async (idOrder) => {
 		try {
-			const result = await notificacionActivarInactivar({ titulo: "¿Quieres eliminar este pedido?", boton: "Eliminar"  });
+			const result = await notificacionActivarInactivar({ titulo: "¿Quieres eliminar este pedido?", boton: "Eliminar" });
 			if (result.isConfirmed) {
 				await cambiarEstadoInformacionApi('orden/cancelar', idOrder, "6")
 
@@ -57,43 +58,48 @@ function ListarPedidoVendedor() {
 				<Loader />
 			) : (
 				<div>
-				{informacion && informacion.length > 0 ? (
-					informacion.map((datos) => (
-						<div key={datos.idOrder}>
-							<CardPerfil
-								className="card1ListaP"
-								width={"280px"}
-								height={"198px"}
-								display={"block"}>
-								<div className="cont1ListaP">
-									<div className="contTexto1P">
-										<Texto1Card
-											texto={`${datos.clientname}`} />
-									</div>
-								</div>
-								<div className="cont2ListaP">
-									<div className="card2ListaP">
-										<div className="contText">
-											<div className="contTexto2P">
-												<Texto2Card
-													texto2={`Fecha de creacion: ${datos.Date}`} />
-											</div>
-											<div className="contTexto2P">
-												<Texto2Card
-													texto2={`Cantidad de productos: ${datos.quantityProducts}`} />
-											</div>
+					{informacion && informacion.length > 0 ? (
+						informacion.map((datos) => (
+							<div key={datos.idOrder}>
+								<CardPerfil
+									className="card1ListaP"
+									width={"280px"}
+									height={"198px"}
+									display={"block"}>
+									<div className="cont1ListaP">
+										<div className="contTexto1P">
+											<Texto1Card
+												texto={`${datos.clientname}`} />
 										</div>
-										<div className="contIconoP">
-										<Tooltip content="Eliminar producto">
+									</div>
+									<div className="cont2ListaP">
+										<div className="card2ListaP">
+											<div className="contText">
+												<div className="contTexto2P">
+													<Texto2Card
+														texto2={`Fecha de creacion: ${datos.Date}`} />
+												</div>
+												<div className="contTexto2P">
+													<Texto2Card
+														texto2={`Cantidad de productos: ${datos.quantityProducts}`} />
+												</div>
+											</div>
+											<div className="contIconoP">
+												<Tooltip content="Editar pedido">
+													<span className="text-lg text-default-400 cursor-pointer active:opacity-50">
+														<EditIcon ruta={`/editar/pedidos/${datos.idOrder}`} />
+													</span>
+												</Tooltip>
+												<Tooltip content="Eliminar producto">
 													<span className="text-lg text-danger cursor-pointer active:opacity-50">
 														<DeleteIcon className="iconoEliminar" eliminar={() => cancelProducto(datos.idOrder)} />
 													</span>
 												</Tooltip>
+											</div>
 										</div>
 									</div>
-								</div>
-							</CardPerfil>
-							<Spacer y={4} />
+								</CardPerfil>
+								<Spacer y={4} />
 							</div>
 						))
 					) : (

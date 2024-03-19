@@ -63,7 +63,7 @@ const AppRouter = () => {
         <Route path="/pedidos/administracion" element={<ListarPedidoAdministrador />} />
         <Route path="/pedidos/vendedor" element={<ListarPedidoVendedor />} />
         <Route path="/crear/pedidos" element={<CrearPedido />} />
-        <Route path="/editar/pedidos" element={<ActualizarPedido />} />
+        <Route path="/editar/pedidos/:idOrder" element={<ActualizarPedido />} />
 
         {/* Pantallas de Lista Trabajdos */}
         <Route path="/listaTrabajo/administracion" element={<ListarListaTrabajoAdministrador />} />

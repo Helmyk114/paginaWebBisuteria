@@ -13,7 +13,6 @@ import Loader from "../../components/UI/cargando/loader";
 import Footer from "../../components/UI/Footer/Footer";
 
 import { listarInformacionApi } from "../../api/axiosServices";
-import BotonCantidad from "../../components/UI/botones/botonCantidad";
 import img from '../../img/anillo.jpg'
 
 function CrearListaTrabajo() {
