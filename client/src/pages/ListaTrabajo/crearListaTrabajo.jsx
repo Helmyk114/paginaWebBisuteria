@@ -24,7 +24,7 @@ function CrearListaTrabajo() {
 	const urlImage = process.env.REACT_APP_API_URL;
 	const location = useLocation();
 	const pedidosSeleccionados = location.state.pedidosSeleccionados;
-	const idOrder = location.state.pedidosSeleccionados[0].idOrder;
+	const idOrders = location.state.pedidosSeleccionados.map(pedido => pedido.idOrder);
 
 	const refs = useRef({
 		idCardWorker: [],
@@ -47,8 +47,10 @@ function CrearListaTrabajo() {
 	useEffect(() => {
 		const dataProductos = async () => {
 			try {
-				const productosInformacion = await listarInformacionConParametroApi('orden-CrearLista', idOrder);
-				setInformacionProductos(productosInformacion.data);
+				const productosInformacion = await Promise.all(idOrders.map(idOrder =>
+					listarInformacionConParametroApi('orden-CrearLista', idOrder)
+				));
+				setInformacionProductos(productosInformacion);
 				setCargando(false);
 			} catch (error) {
 				console.error('Error al acceder a la informacion: ', error);
@@ -56,9 +58,8 @@ function CrearListaTrabajo() {
 			}
 		};
 		dataProductos();
-	}, [idOrder]);
+	}, [idOrders]);
 
-	
 	const [selectedOption, setSelectedOption] = useState(null);
 	const [selectedIdCardWorker, setSelectedIdCardWorker] = useState(null);
 	const handleOptionChange = (option) => {
@@ -133,28 +134,33 @@ function CrearListaTrabajo() {
 					) : (
 						<div>
 							{informacionProductos && informacionProductos.length > 0 ? (
-								informacionProductos.map((datos) => (
-									<div key={datos.idOrder}>
-										<CardPerfil
-											className1={"cardCrearListaT"}
-											className2={"cardCrearPedidoGap"}
-											key={datos.idOrder}	
-										>
-											<Avatares src={`${urlImage}/${datos.image}`} alt={"imagen"} radio={"full"} />
-											<Texto1Card texto={datos.nameProduct} />
-											<div style={{ display: "flex", justifyContent: "center" }}></div>
-											<div className="cont2CrP">
-												<Texto2Card texto2={datos.quantity} />
+								informacionProductos.map((datos, index) => (
+									<div key={index}>
+										{datos.data.map((productos) => (
+											<div key={productos.nameProduct}>
+												<CardPerfil
+													className1={"cardCrearListaT"}
+													className2={"cardCrearPedidoGap"}
+													key={productos.idOrder}
+												>
+													<Avatares src={`${urlImage}/${productos.image}`} alt={"imagen"} radio={"full"} />
+													<Texto1Card texto={productos.nameProduct} />
+													<div style={{ display: "flex", justifyContent: "center" }}></div>
+													<div className="cont2CrP">
+														<Texto2Card texto2={productos.quantity} />
+													</div>
+													<div style={{ display: "flex" }}>
+														<Tooltip content="Eliminar producto">
+															<span className="text-lg text-danger cursor-pointer active:opacity-50">
+																<DeleteIcon />
+															</span>
+														</Tooltip>
+													</div>
+												</CardPerfil>
+												<Spacer y={3} />
 											</div>
-											<div style={{ display: "flex" }}>
-												<Tooltip content="Eliminar producto">
-													<span className="text-lg text-danger cursor-pointer active:opacity-50">
-														<DeleteIcon />
-													</span>
-												</Tooltip>
-											</div>
-										</CardPerfil>
-										<Spacer y={3} />
+										))}
+
 									</div>
 								))
 							) : (
