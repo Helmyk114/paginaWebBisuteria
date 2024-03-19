@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useLocation } from "react-router-dom"; // Agrega esta línea
+import { useLocation } from "react-router-dom";
 
 import { Spacer, Tooltip } from "@nextui-org/react";
 import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
@@ -86,16 +86,19 @@ function CrearListaTrabajo() {
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<Acordeon titulo={"Nombre pedidos"} className={"acordeonListaT"}>
 					{pedidosSeleccionados && pedidosSeleccionados.map((pedido, index) => (
-						<CardPerfil
-							key={index}
-							className1={"cardCrearListaT"}
-							className2={"cardCrearPedidoGap"}
-						>
-							<div className="cont2CrP">
-								<Texto2Card texto2={pedido.clientname} />
-								<p>ID del pedido: {pedido.idOrder}</p>
-							</div>
-						</CardPerfil>
+						<div>
+							<CardPerfil
+								key={index}
+								className1={"cardCrearListaT"}
+								className2={"cardCrearPedidoGap"}
+							>
+								<div className="cont2CrP">
+									<Texto2Card texto2={pedido.clientname} />
+									<p style={{fontSize:"12px"}}>Código: {pedido.idOrder}</p>
+								</div>
+							</CardPerfil>
+							<Spacer y={4} />
+						</div>
 					))}
 					{!pedidosSeleccionados || pedidosSeleccionados.length === 0 && <p>No hay pedidos seleccionados.</p>}
 				</Acordeon>
@@ -169,9 +172,6 @@ function CrearListaTrabajo() {
 						</div>
 					)}
 				</Acordeon>
-
-
-
 				<Spacer y={4} />
 				<BotonEnviar text={"Enviar lista"} type={"submit"} className="botonCrearListaT" />
 			</form>
