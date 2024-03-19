@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import '../Pedidos/crearPedido.css'
 
 import { Spacer } from "@nextui-org/react";
@@ -8,8 +9,7 @@ import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/
 import BotonComprar from "../../components/UI/botones/BotonComprarProductos";
 import Footer from "../../components/UI/Footer/Footer";
 
-import { listarInformacionConParametroApi } from "../../api/productos";
-import { useNavigate } from "react-router-dom";
+import { listarInformacionConParametroApi } from "../../api/axiosServices";
 
 function ListarPedidoAdministrador() {
 	const [informacionC, setInformacionC] = useState([]);
@@ -47,22 +47,20 @@ function ListarPedidoAdministrador() {
 				<Titulo espacio="center" titulo="Pedidos" />
 			</NavigateADM>
 			<Spacer y={4} />
-
 			{cargando ? (
 				<Loader />
 			) : (
 				<div>
 					{informacionC && informacionC.length > 0 ? (
 						informacionC.map((datos) => (
-							<div key={datos.idOrder}>
+							<div key={datos.idOrder} >
 								<CardPerfil
-									className="card1ListaP"
-									width={"280px"}
-									height={"198px"}
-									display={"block"}>
+								className1={"cont1ListaP"}
+								className2={"cont1ListaPGap"}>
 									<div className="cont1ListaP">
 										<div className="contTexto1P">
 											<Texto1Card
+											     className={"text1ListaP"}
 												texto={`${datos.clientname}`} />
 										</div>
 									</div>
@@ -80,13 +78,14 @@ function ListarPedidoAdministrador() {
 											</div>
 											<div className="contIconoP">
 												<IconoCard
+												    className={"iconoListarP"}
 													icon={"solar:add-circle-bold"}
-													width={"35px"}
-													height={"35px"} />
+													 />
 											</div>
 										</div>
 									</div>
 								</CardPerfil>
+								<Spacer y={4} />
 							</div>
 						))
 					) : (
@@ -94,6 +93,7 @@ function ListarPedidoAdministrador() {
 					)}
 				</div>
 			)}
+			<Spacer y={4} />
 			<BotonComprar onClick={handleCrearListraClick} text={"Crear lista"} type={"Submit"} />
 			<Footer />
 		</>

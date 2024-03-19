@@ -8,7 +8,7 @@ import Avatares from "../../components/UI/avatar/Avatares";
 import Loader from "../../components/UI/cargando/loader";
 import Footer from "../../components/UI/Footer/Footer";
 
-import { detalleInformacionApi } from "../../api/productos";
+import { detalleInformacionApi } from "../../api/axiosServices";
 import { decodificarToken, obtenerToken } from "../../utils/token";
 
 export default function PerfilinfoTrabajador() {

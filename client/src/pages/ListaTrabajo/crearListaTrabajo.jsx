@@ -2,18 +2,18 @@ import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { Spacer, Tooltip } from "@nextui-org/react";
-import Acordeon from "../../components/UI/Acordeon/Acordeon";
-import CheckboxInfo from "../../components/UI/formulario/CheckBox/CheckBox";
-import BotonEnviar from "../../components/UI/botones/botonEnviar";
-import Footer from "../../components/UI/Footer/Footer";
-import Loader from "../../components/UI/cargando/loader";
-
-import { listarInformacionApi } from "../../api/productos";
 import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
+import Acordeon from "../../components/UI/Acordeon/Acordeon";
 import Avatares from "../../components/UI/avatar/Avatares";
-import BotonCantidad from "../../components/UI/botones/botonCantidad/botonCantidad";
+import CheckboxInfo from "../../components/UI/formulario/CheckBox/CheckBox";
+import BotonEnviar from "../../components/UI/botones/botonEnviar";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
+import Loader from "../../components/UI/cargando/loader";
+import Footer from "../../components/UI/Footer/Footer";
+
+import { listarInformacionApi } from "../../api/axiosServices";
+import BotonCantidad from "../../components/UI/botones/botonCantidad";
 import img from '../../img/anillo.jpg'
 
 function CrearListaTrabajo() {

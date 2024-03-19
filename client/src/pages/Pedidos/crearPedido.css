@@ -31,7 +31,15 @@
     align-items: center;
     justify-content: space-between;
   }
+  .cont1ListaP{
+    width: 90%;
+    margin: 0 auto;
+  }
+  .text1ListaP{
+    font-size: 20px;
+  }
 }
+
 
 @media screen and (min-width: 1024px) {
   .cont1CrP {
@@ -76,6 +84,42 @@
         margin: 0 auto;
      
   }
+  .cont1ListaP{
+    width: 60%;
+    margin: 0 auto;
+  }
+  .tex1ListaP{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    font-size: 30px;
+  }
+  .cont2ListaP{
+    width: 100%;
+  }
+  .cont1ListaPGap{
+    width: 100%;
+    margin: 0 auto;
+  }
+  .iconoListarP{
+    width: 30px;
+    
+  }
+  .contIconoP {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px;
+    align-items: center;
+  }
+  .contTexto1P {
+    width: 100%;
+    margin-bottom: 5px;
+    size: 30px;
+    display: flex;
+    justify-content: flex-start;
+  }
+  
 }
 
 
@@ -117,6 +161,21 @@
     display: flex;
     flex-direction: row;
   }
+  .cont1ListaP{
+    width: 60%;
+    margin: 0 auto;
+  }
+  .text1ListaP{
+    font-size: 25px;
+  }
+  .contTexto1P {
+    width: 100%;
+    margin-bottom: 5px;
+    size: 30px;
+    display: flex;
+    justify-content: flex-start;
+  }
+  
 }
 
 
@@ -135,14 +194,18 @@
 }
 
 .contTexto1P {
-  margin-bottom: 55px;
+  width: 100%;
+  margin-bottom: 5px;
+  size: 30px;
+  display: flex;
+  justify-content: flex-start;
 }
+
 
 .card2ListaP {
   display: flex;
   justify-content: space-between;
-  width: 254px;
-  height: 95px;
+  width: 100%;
   position: relative;
   background-color: #eeee;
   border-radius: 8px;
@@ -160,5 +223,9 @@
   display: flex;
   justify-content: space-between;
   margin: 8px;
-  align-items: flex-start;
+  align-items: center;
+}
+.cont1ListaPGap{
+  width: 100%;
+  margin: 0 auto;
 }

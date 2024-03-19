@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 
-import { Tooltip } from "@nextui-org/react";
+import { Spacer, Tooltip } from "@nextui-org/react";
 import NavigateVEN, { Retroceder, Titulo } from "../../components/UI/navbar/navbarVendedor";
 import Loader from "../../components/UI/cargando/loader";
 import Footer from "../../components/UI/Footer/Footer";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
 import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 
-import { cambiarEstadoInformacionApi, listarInformacionConDosParametroApi } from "../../api/productos";
+import { cambiarEstadoInformacionApi, listarInformacionConDosParametroApi } from "../../api/axiosServices";
 import { notificacionActivarInactivar, notificacionInformativa } from "../../utils/notificacionCliente";
 import { decodificarToken, obtenerToken } from "../../utils/token";
 
@@ -36,7 +36,7 @@ function ListarPedidoVendedor() {
 		try {
 			const result = await notificacionActivarInactivar({ titulo: "¿Quieres eliminar este pedido?", boton: "Eliminar"  });
 			if (result.isConfirmed) {
-				await cambiarEstadoInformacionApi('producto/Activo-Inactivo', idOrder, "5")
+				await cambiarEstadoInformacionApi('orden/cancelar', idOrder, "6")
 
 				notificacionInformativa({ icono: "success", titulo: "Pedido eliminado" })
 			}
@@ -52,6 +52,7 @@ function ListarPedidoVendedor() {
 				<Retroceder />
 				<Titulo espacio="center" titulo="Pedidos" />
 			</NavigateVEN>
+			<Spacer y={4} />
 			{cargando ? (
 				<Loader />
 			) : (
@@ -92,6 +93,7 @@ function ListarPedidoVendedor() {
 									</div>
 								</div>
 							</CardPerfil>
+							<Spacer y={4} />
 							</div>
 						))
 					) : (
@@ -99,6 +101,7 @@ function ListarPedidoVendedor() {
 					)}
 				</div>
 			)}
+			<Spacer y={4} />
 			<Footer />
 		</div>
 	);

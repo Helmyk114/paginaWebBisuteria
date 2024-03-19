@@ -2,6 +2,7 @@ import axios from "axios";
 
 const raizUrl = process.env.REACT_APP_API_URL;
 
+//Función para enviar infomación desde el front hacia el back con imagen
 async function añadirInformacionAPI(producto, endPoint) {
   const url = `${raizUrl}/${endPoint}`
 
@@ -18,6 +19,7 @@ async function añadirInformacionAPI(producto, endPoint) {
   }
 };
 
+//Función para enviar infomación desde el front hacia el back sin imagen
 async function añadirInformacionSinImagenAPI(producto, endPoint) {
   const url = `${raizUrl}/${endPoint}`
 
@@ -30,6 +32,7 @@ async function añadirInformacionSinImagenAPI(producto, endPoint) {
   }
 };
 
+//Función para mostrar información desde el back hacia el front
 async function listarInformacionApi(endPoint) {
   const url = `${raizUrl}/${endPoint}`
 
@@ -42,6 +45,7 @@ async function listarInformacionApi(endPoint) {
   }
 };
 
+//Función para mostrar información desde el back hacia el front usando un parametro
 async function listarInformacionConParametroApi(endPoint, parametro) {
   const url = `${raizUrl}/${endPoint}`
 
@@ -54,7 +58,7 @@ async function listarInformacionConParametroApi(endPoint, parametro) {
   }
 };
 
-//Función para comunicar el front con el back usando dos parametros
+//Función para mostrar información desde el back hacia el front usando dos parametros
 async function listarInformacionConDosParametroApi(endPoint, parametro1, parametro2) {
   const url = `${raizUrl}/${endPoint}`
 
@@ -67,6 +71,7 @@ async function listarInformacionConDosParametroApi(endPoint, parametro1, paramet
   }
 };
 
+//Función para actualizar el estado desde el front hacia el back
 async function cambiarEstadoInformacionApi(endPoint, id, estado) {
   const url = `${raizUrl}/${endPoint}`
 
@@ -78,6 +83,7 @@ async function cambiarEstadoInformacionApi(endPoint, id, estado) {
   }
 };
 
+//Función para mostrar la información en detalle en el front desde el back
 async function detalleInformacionApi(endPoint, id) {
   const url = `${raizUrl}/${endPoint}`
 
@@ -90,6 +96,7 @@ async function detalleInformacionApi(endPoint, id) {
   }
 };
 
+//Función para actualizar la información desde el front hacia el back con imagen
 async function actualizarInformacionApi(endPoint, id, informacion){
   const url = `${raizUrl}/${endPoint}`
 
@@ -108,6 +115,8 @@ async function actualizarInformacionApi(endPoint, id, informacion){
     console.error(`Error en la Api actualizar: ${error.message}`);
   }
 };
+
+//Función para actualizar la información desde el front hacia el back sin imagen
 async function actualizarInformacionSinImagenApi(endPoint, id, informacion){
   const url = `${raizUrl}/${endPoint}`
 

@@ -13,7 +13,7 @@ import ListBoxSimple from "../../components/UI/formulario/Combox/listBoxSimple";
 
 import procesarImagen from "../../utils/procesadorImagenes";
 import { notificacionConfirmar, notificacionError } from "../../utils/notificacionCliente";
-import { actualizarInformacionApi, detalleInformacionApi } from "../../api/productos";
+import { actualizarInformacionApi, detalleInformacionApi } from "../../api/axiosServices";
 
 function ActualizarProducto() {
 	const { register, handleSubmit, formState: { errors } } = useForm();

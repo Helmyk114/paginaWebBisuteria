@@ -11,7 +11,7 @@ import Acordeon from "../../components/UI/Acordeon/Acordeon";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
 import Footer from "../../components/UI/Footer/Footer";
 
-import { cambiarEstadoInformacionApi, listarInformacionConParametroApi } from "../../api/productos";
+import { cambiarEstadoInformacionApi, listarInformacionConParametroApi } from "../../api/axiosServices";
 import { notificacionActivarInactivar, notificacionInformativa } from "../../utils/notificacionCliente";
 
 function ListarTrabajador() {

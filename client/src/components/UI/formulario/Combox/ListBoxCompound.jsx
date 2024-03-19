@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {Autocomplete, AutocompleteItem, Avatar} from "@nextui-org/react";
 import { forwardRef } from "react";
-import { infoComboBox } from "../../../../api/formularios.jsx";
+import { listarInformacionApi } from "../../../../api/axiosServices.jsx";
 
 const ListBoxCompound = forwardRef(({ apiEndpoint, idOpcion, nombre, imagen, ...prop},ref) => {
 
@@ -11,7 +11,7 @@ const ListBoxCompound = forwardRef(({ apiEndpoint, idOpcion, nombre, imagen, ...
   useEffect(() => {
     const obtenerOpciones = async () => {
       try {
-        const response = await infoComboBox(apiEndpoint)
+        const response = await listarInformacionApi(apiEndpoint)
         setOpciones(response.data);
       } catch (error) {
         console.error('Error al obtener opciones:', error);

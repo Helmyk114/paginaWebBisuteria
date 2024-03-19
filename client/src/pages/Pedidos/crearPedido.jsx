@@ -15,8 +15,8 @@ import BotonComprar2 from "../../components/UI/botones/botonCompraPedido";
 import Texto3 from "../../components/UI/botones/total";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
 
-import { actualizarInformacionSinImagenApi, añadirInformacionSinImagenAPI, detalleInformacionApi } from "../../api/productos";
 import { decodificarToken, obtenerToken } from "../../utils/token";
+import { actualizarInformacionSinImagenApi, añadirInformacionSinImagenAPI, detalleInformacionApi } from "../../api/axiosServices";
 import { notificacionConfirmar, notificacionError } from "../../utils/notificacionCliente";
 
 const CrearPedido = () => {
@@ -50,7 +50,6 @@ const CrearPedido = () => {
 		clientname: null,
 		clientAddress: null,
 		clientPhone: null,
-		total: null,
 	});
 
 	const onSubmit = async (data) => {
@@ -90,7 +89,7 @@ const CrearPedido = () => {
 		const orden = {
 			idCardWorker: `${id}`,
 			total: totalPrice,
-			quantityProducts: cantidadProductos, // Convertir a string y añadir la cantidad de productos al objeto JSON
+			quantityProducts: cantidadProductos,
 			idCardClient: data.idCardClient,
 			details: productosConPropiedades
 		};
@@ -231,8 +230,8 @@ const CrearPedido = () => {
 														}
 													}}
 													precio={product.precio}
-													index={index} // Pasa el índice como una prop
-													onQuantityChange={(quantity) => handleQuantityChange(quantity, index)} // Pasar el índice
+													index={index}
+													onQuantityChange={(quantity) => handleQuantityChange(quantity, index)}
 												/>
 											</div>
 										</div>

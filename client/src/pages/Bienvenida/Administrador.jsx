@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import '../Bienvenida/bienvenida.css'
 
 import { decodificarToken, obtenerToken } from "../../utils/token";
-import { detalleInformacionApi } from "../../api/productos";
+import { detalleInformacionApi } from "../../api/axiosServices";
 
 import { Spacer } from "@nextui-org/react";
 import Loader from "../../components/UI/cargando/loader";
