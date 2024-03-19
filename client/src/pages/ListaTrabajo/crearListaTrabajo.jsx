@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useLocation } from "react-router-dom"; // Agrega esta línea
+import { useLocation } from "react-router-dom";
 
 import { Spacer, Tooltip } from "@nextui-org/react";
 import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
@@ -184,9 +184,6 @@ function CrearListaTrabajo() {
 						</div>
 					)}
 				</Acordeon>
-
-
-
 				<Spacer y={4} />
 				<BotonEnviar text={"Enviar lista"} type={"submit"} className="botonCrearListaT" />
 			</form>
