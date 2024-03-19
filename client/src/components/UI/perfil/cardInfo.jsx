@@ -27,7 +27,7 @@ export function IconoCard({ icon, width, height, color }) {
 export function Texto1Card({ className, texto, fontSize, fontWeight, color, textAlign }) {
   return (
 
-    <h4 className={className} style={{ fontFamily: "Roboto, sans-serif", fontSize: fontSize || "16px", fontWeight: fontWeight || "600", color: color || "#000", textAlign: textAlign }}>
+    <h4 className={className} style={{ fontFamily: "Roboto, sans-serif", fontSize: fontSize, fontWeight: fontWeight || "600", color: color || "#000", textAlign: textAlign }}>
       {texto} 
     </h4>
   );

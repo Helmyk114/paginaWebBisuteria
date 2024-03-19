@@ -53,15 +53,14 @@ function ListarPedidoAdministrador() {
 				<div>
 					{informacionC && informacionC.length > 0 ? (
 						informacionC.map((datos) => (
-							<div key={datos.idOrder}>
+							<div key={datos.idOrder} >
 								<CardPerfil
-									className="card1ListaP"
-									width={"280px"}
-									height={"198px"}
-									display={"block"}>
+								className1={"cont1ListaP"}
+								className2={"cont1ListaPGap"}>
 									<div className="cont1ListaP">
 										<div className="contTexto1P">
 											<Texto1Card
+											     className={"text1ListaP"}
 												texto={`${datos.clientname}`} />
 										</div>
 									</div>
@@ -79,9 +78,9 @@ function ListarPedidoAdministrador() {
 											</div>
 											<div className="contIconoP">
 												<IconoCard
+												    className={"iconoListarP"}
 													icon={"solar:add-circle-bold"}
-													width={"35px"}
-													height={"35px"} />
+													 />
 											</div>
 										</div>
 									</div>
