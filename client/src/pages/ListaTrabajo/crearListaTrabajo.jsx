@@ -12,7 +12,7 @@ import { listarInformacionApi } from "../../api/productos";
 import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 import Avatares from "../../components/UI/avatar/Avatares";
-import BotonCantidad from "../../components/UI/botones/botonCantidad";
+import BotonCantidad from "../../components/UI/botones/botonCantidad/botonCantidad";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
 import img from '../../img/anillo.jpg'
 
@@ -74,7 +74,7 @@ function CrearListaTrabajo() {
 					
 						<div className="cont2CrP">
 							<Texto2Card
-								texto2={"nombre del pedido"}
+								texto2={"nombre del cliente"}
 							/>
 						</div>
 

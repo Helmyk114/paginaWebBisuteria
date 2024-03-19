@@ -10,7 +10,7 @@ import InputText from "../../components/UI/formulario/Inputs/inputText";
 import Footer from "../../components/UI/Footer/Footer";
 import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 import Avatares from "../../components/UI/avatar/Avatares";
-import BotonCantidad from "../../components/UI/botones/botonCantidad";
+import BotonCantidad from "../../components/UI/botones/botonCantidad/botonCantidad";
 import BotonComprar2 from "../../components/UI/botones/botonCompraPedido";
 import Texto3 from "../../components/UI/botones/total";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
