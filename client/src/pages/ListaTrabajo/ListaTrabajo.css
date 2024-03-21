@@ -3,13 +3,15 @@
     display: flex;
     margin-bottom: 30px;
     gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    
     
 }
 
 .card1ListaT{
 position: relative;
-width:260px;
-height:170px;
+
 z-index: 0;
 }
 .cont2ListaT{
@@ -23,11 +25,12 @@ z-index: 0;
 .card2ListaT{
     display: flex;
     justify-content: space-between;
-    width: 224px;
+    width: 284px;
     height: 65px;
     position: relative;
     background-color: #eeee;
     border-radius: 8px;
+    gap: 2px;
 
 }
 
@@ -45,7 +48,9 @@ z-index: 0;
     justify-content: space-between;
     margin: 8px;
     align-items: center;
+    gap: 0 auto;
 }
+
 
 @media screen and (max-width: 767px){
     /*crear Lista de trabajo*/
@@ -54,6 +59,23 @@ z-index: 0;
         margin: 0 auto;
     }
 
+    .cont1ListaT{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 auto;
+
+    }
+
+}
+@media only screen and (max-width: 768px) {
+    .cont1ListaT{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 auto;
+
+    }
 }
 
 @media screen and (min-width: 1024px){
@@ -69,6 +91,19 @@ z-index: 0;
      .botonCrearListaT{
         width: 40%;
         margin: 0 auto;
+    }
+
+    .cont1ListaT{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        justify-content: center;
+        
+
+    }
+    .contIconoListaT{
+        width: 20%;
+        background-color: #6977E4 ;
     }
      
     }

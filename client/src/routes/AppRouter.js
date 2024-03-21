@@ -8,7 +8,7 @@ import BienvenidaVendedor from "../pages/Bienvenida/Vendedor";
 import BienvenidaTrabajador from "../pages/Bienvenida/Trabajador";
 
 import ListarListaTrabajoAdministrador from "../pages/ListaTrabajo/listarListaTrabajoAdministrador";
-import ListarListaTrabajoVendedor from "../pages/ListaTrabajo/listarListaTrabajoVendedor";
+import ListarListaTrabajoTrabajador from "../pages/ListaTrabajo/listarListaTrabajoTrabajador";
 import CrearListaTrabajo from "../pages/ListaTrabajo/crearListaTrabajo";
 import ActualizarListaTrabajo from "../pages/ListaTrabajo/actualizarListaTrabajo";
 
@@ -67,7 +67,7 @@ const AppRouter = () => {
 
         {/* Pantallas de Lista Trabajdos */}
         <Route path="/listaTrabajo/administracion" element={<ListarListaTrabajoAdministrador />} />
-        <Route path="/listaTrabajo/vendedor" element={<ListarListaTrabajoVendedor />} />
+        <Route path="/listaTrabajo/Trabajador" element={<ListarListaTrabajoTrabajador />} />
         <Route path="/crear/listaTrabajo" element={<CrearListaTrabajo />} />
         <Route path="/editar/listaTrabajo"element={<ActualizarListaTrabajo />} />
 
