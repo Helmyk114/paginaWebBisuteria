@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useLocation } from "react-router-dom"; // Agrega esta línea
+import { useLocation } from "react-router-dom";
 
 import { Spacer, Tooltip } from "@nextui-org/react";
 import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
@@ -16,90 +16,105 @@ import Footer from "../../components/UI/Footer/Footer";
 import { listarInformacionApi, listarInformacionConParametroApi } from "../../api/axiosServices";
 
 function CrearListaTrabajo() {
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const [informacionArtesano, setInformacionArtesano] = useState([]);
+    const [informacionProductos, setInformacionProductos] = useState({});
+    const [cargando, setCargando] = useState(true);
+    const urlImage = process.env.REACT_APP_API_URL;
+    const location = useLocation();
+    const [pedidosSeleccionados, setPedidosSeleccionados] = useState(location.state.pedidosSeleccionados);
+    const idOrders = pedidosSeleccionados.map(pedido => pedido.idOrder);
 
-	const { register, handleSubmit, formState: { errors } } = useForm();
-	const [informacionArtesano, setInformacionArtesano] = useState([]);
-	const [informacionProductos, setInformacionProductos] = useState({});
-	const [cargando, setCargando] = useState(true);
-	const urlImage = process.env.REACT_APP_API_URL;
-	const location = useLocation();
-	const pedidosSeleccionados = location.state.pedidosSeleccionados;
-	const idOrders = location.state.pedidosSeleccionados.map(pedido => pedido.idOrder);
+    const refs = useRef({
+        idCardWorker: [],
+    });
 
-	const refs = useRef({
-		idCardWorker: [],
-	});
+    useEffect(() => {
+        const dataArtesano = async () => {
+            try {
+                const artesanoInformacion = await listarInformacionApi('artesano-Activo');
+                setInformacionArtesano(artesanoInformacion.data);
+                setCargando(false);
+            } catch (error) {
+                console.error('Error al acceder a la información del artesano: ', error);
+                setCargando(false);
+            }
+        };
+        dataArtesano();
+    }, []);
 
-	useEffect(() => {
-		const dataArtesano = async () => {
-			try {
-				const artesanoInformacion = await listarInformacionApi('artesano-Activo');
-				setInformacionArtesano(artesanoInformacion.data);
-				setCargando(false);
-			} catch (error) {
-				console.error('Error al acceder a la informacion: ', error);
-				setCargando(false);
-			}
-		};
-		dataArtesano();
-	}, []);
+    useEffect(() => {
+        const dataProductos = async () => {
+            try {
+                const productosInformacion = await Promise.all(idOrders.map(idOrder =>
+                    listarInformacionConParametroApi('orden-CrearLista', idOrder)
+                ));
+                setInformacionProductos(productosInformacion);
+                setCargando(false);
+            } catch (error) {
+                console.error('Error al acceder a la información de los productos: ', error);
+                setCargando(false);
+            }
+        };
+        dataProductos();
+    }, [idOrders]);
 
-	useEffect(() => {
-		const dataProductos = async () => {
-			try {
-				const productosInformacion = await Promise.all(idOrders.map(idOrder =>
-					listarInformacionConParametroApi('orden-CrearLista', idOrder)
-				));
-				setInformacionProductos(productosInformacion);
-				setCargando(false);
-			} catch (error) {
-				console.error('Error al acceder a la informacion: ', error);
-				setCargando(false);
-			}
-		};
-		dataProductos();
-	}, [idOrders]);
+    const handleDeletePedido = (index) => {
+        const updatedPedidos = [...pedidosSeleccionados];
+        updatedPedidos.splice(index, 1);
+        setPedidosSeleccionados(updatedPedidos);
+    };
 
-	const [selectedOption, setSelectedOption] = useState(null);
-	const [selectedIdCardWorker, setSelectedIdCardWorker] = useState(null);
-	const handleOptionChange = (option) => {
-		setSelectedOption(option);
-		setSelectedIdCardWorker(option.idCardWorker);
-	};
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedIdCardWorker, setSelectedIdCardWorker] = useState(null);
+    const handleOptionChange = (option) => {
+        setSelectedOption(option);
+        setSelectedIdCardWorker(option.idCardWorker);
+    };
 
-	const onSubmit = async (data) => {
-		console.log("Formulario enviado");
-		const listaTrabajo = {
-			...data,
-			idCardWorker: selectedIdCardWorker,
-		};
-		console.log(listaTrabajo)
-	};
+    const onSubmit = async (data) => {
+        console.log("Formulario enviado");
+        const listaTrabajo = {
+            ...data,
+            idCardWorker: selectedIdCardWorker,
+        };
+        console.log(listaTrabajo)
+    };
 
-	return (
-		<div>
-			<NavigateADM>
-				<Retroceder />
-				<Titulo espacio="center" titulo="Crear lista" />
-			</NavigateADM>
-			<Spacer y={4} />
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<Acordeon titulo={"Nombre pedidos"} className={"acordeonListaT"}>
-					{pedidosSeleccionados && pedidosSeleccionados.map((pedido, index) => (
-						<CardPerfil
-							key={index}
-							className1={"cardCrearListaT"}
-							className2={"cardCrearPedidoGap"}
-						>
-							<div className="cont2CrP">
-								<Texto2Card texto2={pedido.clientname} />
-								<p>ID del pedido: {pedido.idOrder}</p>
-							</div>
-						</CardPerfil>
-					))}
-					{!pedidosSeleccionados || pedidosSeleccionados.length === 0 && <p>No hay pedidos seleccionados.</p>}
-				</Acordeon>
-				<Spacer y={4} />
+    return (
+        <div>
+            <NavigateADM>
+                <Retroceder />
+                <Titulo espacio="center" titulo="Crear lista" />
+            </NavigateADM>
+            <Spacer y={4} />
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <Acordeon titulo={"Nombre pedidos"} className={"acordeonListaT"}>
+                    {pedidosSeleccionados && pedidosSeleccionados.map((pedido, index) => (
+                        <CardPerfil
+                            key={index}
+                            className1={"cardCrearListaT"}
+                            className2={"cardCrearPedidoGap"}
+                        >
+                            <div className="cont2CrP">
+                                <Texto2Card texto2={pedido.clientname} />
+                                <p>ID del pedido: {pedido.idOrder}</p>
+                            </div>
+                            <div style={{ display: "flex" }}>
+                                <Tooltip content="Eliminar pedido">
+                                    <span
+                                        className="text-lg text-danger cursor-pointer active:opacity-50"
+                                        onClick={() => handleDeletePedido(index)}
+                                    >
+                                        <DeleteIcon />
+                                    </span>
+                                </Tooltip>
+                            </div>
+                        </CardPerfil>
+                    ))}
+                    {(!pedidosSeleccionados || pedidosSeleccionados.length === 0) && <p>No hay pedidos seleccionados.</p>}
+                </Acordeon>
+                <Spacer y={4} />
 
 				<Acordeon titulo={"Artesanos"} className={"acordeonListaT"}>
 					{cargando ? (
@@ -169,9 +184,6 @@ function CrearListaTrabajo() {
 						</div>
 					)}
 				</Acordeon>
-
-
-
 				<Spacer y={4} />
 				<BotonEnviar text={"Enviar lista"} type={"submit"} className="botonCrearListaT" />
 			</form>

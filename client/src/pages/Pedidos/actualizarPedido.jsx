@@ -2,12 +2,16 @@ import React, { useRef, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 
-import { Spacer } from "@nextui-org/react";
+import { Spacer, Tooltip } from "@nextui-org/react";
 import NavigateVEN, { Retroceder, Titulo } from "../../components/UI/navbar/navbarVendedor";
 import Acordeon from "../../components/UI/Acordeon/Acordeon";
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 import Footer from "../../components/UI/Footer/Footer";
 import { detalleInformacionApi } from "../../api/axiosServices";
+import DeleteIcon from "../../components/UI/iconos/Eliminar";
+import BotonCantidad from "../../components/UI/botones/botonCantidad/botonCantidad";
+import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
+import Avatares from "../../components/UI/avatar/Avatares";
 
 function ActualizarPedido() {
 
@@ -109,6 +113,62 @@ function ActualizarPedido() {
 					<Spacer y={4} />
 				</Acordeon>
 				<Spacer y={4} />
+	
+				<Acordeon titulo={'Lista de productos'}>
+					<Spacer y={3} />
+					{/* <div>
+						{selectedProducts && selectedProducts.length > 0 ? (
+							selectedProducts.map((product, index) => (
+								<div key={index}>
+									<CardPerfil
+										className1={"cardCrearPedido"}
+										className2={"cardCrearPedidoGap"}
+									>
+										<div className="cont1CrP" style={{ gap: "6px" }}>
+											<Avatares
+												src={product.img}
+												alt={product.producto}
+												radio={"full"} />
+											<Spacer x={3} />
+											<Texto1Card
+												texto={product.producto} />
+											<div style={{ display: "flex", justifyContent: "center" }}>
+												<BotonCantidad
+													onPriceChange={(price) => {
+														const updatedPrices = [...productPrices];
+														if (updatedPrices[index] !== price) {
+															updatedPrices[index] = price;
+															setProductPrices(updatedPrices);
+															setTotalPrice(calculateTotalPrice());
+														}
+													}}
+													precio={product.precio}
+													index={index}
+													onQuantityChange={(quantity) => handleQuantityChange(quantity, index)}
+												/>
+											</div>
+										</div>
+										<div className="cont2CrP">
+											<Texto2Card texto2={productPrices[index]} />
+											<div
+												style={{ display: "flex" }}>
+												<Tooltip content="Eliminar producto">
+													<span className="text-lg text-danger cursor-pointer active:opacity-50" >
+														<DeleteIcon />
+														eliminar={() => eliminarProducto(index)}
+													</span>
+												</Tooltip>
+											</div>
+										</div>
+									</CardPerfil>
+									<Spacer y={3} />
+								</div>
+							))
+						) : (
+							<p>No hay productos seleccionados.</p>
+						)}
+					</div> */}
+				</Acordeon>
 				</form>
 
 			<Footer />
