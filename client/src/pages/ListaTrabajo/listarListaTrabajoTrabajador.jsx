@@ -15,11 +15,23 @@ function ListarListaTrabajoVendedor() {
 			<div style={{ marginBottom: "30px" }}>
 			</div>
 			<div className="cont1ListaT">
+			
 				<CardPerfil
 					className="card1ListaT"
-					width={"250px"}
-					height={"150px"}>
+					> <div className="contenedor1ListaT" style={{display:"flex"}}>
+
+					
+						<div className="contIconoListaT" style={{backgroundColor:"#6977E4 ", display:"flex"}}>
+						<Texto1Card
+						texto={"Finalizdo"}
+						/>
+
+						
+						</div>
+						
+
 					<div className="cont2ListaT">
+					
 
 						<div className="contTexto1">
 							<Texto1Card
@@ -30,29 +42,30 @@ function ListarListaTrabajoVendedor() {
 
 						<div
 							className="card2ListaT">
+								
 							<div className="contTexto2">
 								<Texto2Card
 
-									texto2={"Nombre trabajador"}
+									texto2={"Ver"}
 								/>
 							</div>
 							<div className="contIcono">
+							
 								<IconoCard
-									icon={"bi:currency-dollar"}
-									width={"22px"}
-									height={"22px"} />
-							</div>
-							<div className="contIcono">
-								<IconoCard
-									icon={"bi:check-circle-fill"}
-									width={"22px"}
-									height={"22px"} />
-							</div>
+									icon={"akar-icons:arrow-right"}
+									width={"42px"}
+									height={"42px"} />
+							
+							
 
-
+							</div>
+						
 						</div>
 					</div>
+					</div>
+					
 				</CardPerfil>
+				
 
 			</div>
 
