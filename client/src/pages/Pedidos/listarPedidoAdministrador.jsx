@@ -16,6 +16,7 @@ function ListarPedidoAdministrador() {
 	const [informacionC, setInformacionC] = useState([]);
 	const [informacionE, setInformacionE] = useState([]);
 	const [informacionT, setInformacionT] = useState([]);
+	const [informacionD, setInformacionD] = useState([]);
 	const [cargando, setCargando] = useState(true);
 	const [pedidosSeleccionados, setPedidosSeleccionados] = useState([]);
 	const navigate = useNavigate();
@@ -26,9 +27,11 @@ function ListarPedidoAdministrador() {
 				const informacionListaPedidoC = await listarInformacionConParametroApi('orden', "1");
 				const informacionListaPedidoE = await listarInformacionConParametroApi('orden', "2");
 				const informacionListaPedidoT = await listarInformacionConParametroApi('orden', "3");
+				const informacionListaPedidoD = await listarInformacionConParametroApi('orden', "6");
 				setInformacionC(informacionListaPedidoC.data);
 				setInformacionE(informacionListaPedidoE.data);
 				setInformacionT(informacionListaPedidoT.data);
+				setInformacionD(informacionListaPedidoD.data);
 				setCargando(false);
 			} catch (error) {
 				console.error('Error al acceder a la informacion listaTrabajo: ', error);
@@ -36,7 +39,7 @@ function ListarPedidoAdministrador() {
 			}
 		};
 		data();
-	}, [informacionC, informacionE, informacionT]);
+	}, [informacionC, informacionE, informacionT, informacionD]);
 
 	// Define la función para manejar el clic en el botón Comprar
 	const handleCrearListraClick = () => {
@@ -90,12 +93,10 @@ function ListarPedidoAdministrador() {
 										<div className="card2ListaP">
 											<div className="contText">
 												<div className="contTexto2P">
-													<Texto2Card
-														texto2={`Fecha de creacion: ${datos.Date}`} />
+													<Texto2Card texto2={`Fecha de creacion: ${datos.Date}`} />
 												</div>
 												<div className="contTexto2P">
-													<Texto2Card
-														texto2={`Cantidad de productos: ${datos.quantityProducts}`} />
+													<Texto2Card texto2={`Cantidad de productos: ${datos.quantityProducts}`} />
 												</div>
 											</div>
 											<div className="contIconoP" onClick={() => handleIconoCardClick(datos)}>
@@ -138,12 +139,10 @@ function ListarPedidoAdministrador() {
 											<div className="card2ListaP">
 												<div className="contText">
 													<div className="contTexto2P">
-														<Texto2Card
-															texto2={`Fecha de creacion: ${datos.Date}`} />
+														<Texto2Card texto2={`Fecha de creacion: ${datos.Date}`} />
 													</div>
 													<div className="contTexto2P">
-														<Texto2Card
-															texto2={`Cantidad de productos: ${datos.quantityProducts}`} />
+														<Texto2Card texto2={`Cantidad de productos: ${datos.quantityProducts}`} />
 													</div>
 												</div>
 											</div>
@@ -181,12 +180,10 @@ function ListarPedidoAdministrador() {
 											<div className="card2ListaP">
 												<div className="contText">
 													<div className="contTexto2P">
-														<Texto2Card
-															texto2={`Fecha de creacion: ${datos.Date}`} />
+														<Texto2Card texto2={`Fecha de creacion: ${datos.Date}`} />
 													</div>
 													<div className="contTexto2P">
-														<Texto2Card
-															texto2={`Cantidad de productos: ${datos.quantityProducts}`} />
+														<Texto2Card texto2={`Cantidad de productos: ${datos.quantityProducts}`} />
 													</div>
 												</div>
 											</div>
@@ -207,8 +204,8 @@ function ListarPedidoAdministrador() {
 					<Loader />
 				) : (
 					<div>
-						{informacionC && informacionC.length > 0 ? (
-							informacionC.map((datos) => (
+						{informacionD && informacionD.length > 0 ? (
+							informacionD.map((datos) => (
 								<div key={datos.idOrder} >
 									<CardPerfil
 										className1={"cont1ListaP"}
@@ -224,12 +221,10 @@ function ListarPedidoAdministrador() {
 											<div className="card2ListaP">
 												<div className="contText">
 													<div className="contTexto2P">
-														<Texto2Card
-															texto2={`Fecha de creacion: ${datos.Date}`} />
+														<Texto2Card texto2={`Fecha de creacion: ${datos.Date}`} />
 													</div>
 													<div className="contTexto2P">
-														<Texto2Card
-															texto2={`Cantidad de productos: ${datos.quantityProducts}`} />
+														<Texto2Card texto2={`Cantidad de productos: ${datos.quantityProducts}`} />
 													</div>
 												</div>
 											</div>
