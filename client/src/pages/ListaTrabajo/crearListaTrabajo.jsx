@@ -14,6 +14,7 @@ import Loader from "../../components/UI/cargando/loader";
 import Footer from "../../components/UI/Footer/Footer";
 
 import { listarInformacionApi, listarInformacionConParametroApi } from "../../api/axiosServices";
+import BotonCantidad from "../../components/UI/botones/botonCantidad/botonCantidadSimple";
 
 function CrearListaTrabajo() {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -164,6 +165,9 @@ function CrearListaTrabajo() {
 													<div className="cont2CrP">
 														<Texto2Card texto2={productos.quantity} />
 													</div>
+                                                    <div>
+                                                        <BotonCantidad/>
+                                                    </div>
 													<div style={{ display: "flex" }}>
 														<Tooltip content="Eliminar producto">
 															<span className="text-lg text-danger cursor-pointer active:opacity-50">
