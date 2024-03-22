@@ -15,6 +15,8 @@ import Footer from "../../components/UI/Footer/Footer";
 
 import { listarInformacionApi, listarInformacionConParametroApi } from "../../api/axiosServices";
 import BotonCantidad from "../../components/UI/botones/botonCantidad/botonCantidadSimple";
+import BotonComprar2 from "../../components/UI/botones/botonCompraPedido";
+import Texto3 from "../../components/UI/botones/total";
 
 function CrearListaTrabajo() {
 	const { register, handleSubmit, formState: { errors } } = useForm();
@@ -161,20 +163,20 @@ function CrearListaTrabajo() {
 												>
 													<Avatares src={`${urlImage}/${productos.image}`} alt={"imagen"} radio={"full"} />
 													<Texto1Card texto={productos.nameProduct} />
-													<div style={{ display: "flex", justifyContent: "center" }}>
-														<div className="cont2CrP">
-															<Texto2Card texto2={productos.quantity} />
-														</div>
-														<div>
-															<BotonCantidad />
-														</div>
-														<div style={{ display: "flex" }}>
-															<Tooltip content="Eliminar producto">
-																<span className="text-lg text-danger cursor-pointer active:opacity-50">
-																	<DeleteIcon />
-																</span>
-															</Tooltip>
-														</div>
+													<div style={{ display: "flex", justifyContent: "center" }}></div>
+													<div className="cont2CrP">
+														<Texto2Card texto2={`Cantidad disponible: ${productos.quantity}`} />
+														<Texto2Card texto2={`precio labor: ${productos.laborPrice}`} />
+													</div>
+													<div>
+														<BotonCantidad maxCantidad={productos.quantity} />
+													</div>
+													<div style={{ display: "flex" }}>
+														<Tooltip content="Eliminar producto">
+															<span className="text-lg text-danger cursor-pointer active:opacity-50">
+																<DeleteIcon />
+															</span>
+														</Tooltip>
 													</div>
 												</CardPerfil>
 												<Spacer y={3} />
@@ -190,9 +192,11 @@ function CrearListaTrabajo() {
 					)}
 				</Acordeon>
 				<Spacer y={4} />
-				<BotonEnviar text={"Enviar lista"} type={"submit"} className="botonCrearListaT" />
 			</form>
 			<Spacer y={4} />
+			<BotonComprar2 text={"Enviar Lista"}>
+					<Texto3 precio={`Total: 10000`} />
+			</BotonComprar2>
 			<Footer />
 		</div>
 	);

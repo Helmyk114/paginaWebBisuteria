@@ -17,6 +17,7 @@ z-index: 0;
 .cont2ListaT{
     display: flex;
     flex-direction: column;
+    
 
 }
 .contTexto1{
@@ -25,7 +26,7 @@ z-index: 0;
 .card2ListaT{
     display: flex;
     justify-content: space-between;
-    width: 284px;
+    width: 214px;
     height: 65px;
     position: relative;
     background-color: #eeee;
@@ -37,7 +38,7 @@ z-index: 0;
 .contTexto2{
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     margin: 10px;
     font-size: 10px;
     
