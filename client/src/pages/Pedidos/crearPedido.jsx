@@ -82,6 +82,7 @@ const CrearPedido = () => {
 			return {
 				idProduct: producto.idProduct,
 				quantity: subtotal,
+				maxQuantity: subtotal,
 				subTotal: precioProducto
 			};
 		})
