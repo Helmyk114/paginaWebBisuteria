@@ -171,13 +171,6 @@ function CrearListaTrabajo() {
 													<div>
 														<BotonCantidad maxCantidad={productos.quantity} />
 													</div>
-													<div style={{ display: "flex" }}>
-														<Tooltip content="Eliminar producto">
-															<span className="text-lg text-danger cursor-pointer active:opacity-50">
-																<DeleteIcon />
-															</span>
-														</Tooltip>
-													</div>
 												</CardPerfil>
 												<Spacer y={3} />
 											</div>

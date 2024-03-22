@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { ButtonGroup, Button } from '@nextui-org/react';
 import './botones.css';
 
-function BotonCantidad({ maxCantidad }) {
-  const [number, setNumber] = useState(1);
+function BotonCantidad({ maxCantidad, onCantidadChange }) {
+  const [number, setNumber] = useState(0);
 
   const increaseNumber = () => {
     if (number < maxCantidad) {
