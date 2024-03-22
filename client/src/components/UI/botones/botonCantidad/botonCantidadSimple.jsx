@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ButtonGroup, Button } from '@nextui-org/react';
 import './botones.css';
 
-function BotonCantidad() {
+function BotonCantidad({ maxCantidad }) {
   const [number, setNumber] = useState(1);
 
   const increaseNumber = () => {
-    const newNumber = number + 1;
-    setNumber(newNumber);
+    if (number < maxCantidad) {
+      const newNumber = number + 1;
+      setNumber(newNumber);
+    }
   };
 
   const decreaseNumber = () => {
