@@ -101,7 +101,7 @@ function CrearListaTrabajo() {
 						>
 							<div className="cont2CrP">
 								<Texto2Card texto2={pedido.clientname} />
-								<p>Código del pedido: {pedido.idOrder}</p>
+								<p>ID del pedido: {pedido.idOrder}</p>
 							</div>
 							<div style={{ display: "flex" }}>
 								<Tooltip content="Eliminar pedido">
