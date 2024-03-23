@@ -13,10 +13,11 @@ import DeleteIcon from "../../components/UI/iconos/Eliminar";
 import Loader from "../../components/UI/cargando/loader";
 import Footer from "../../components/UI/Footer/Footer";
 
-import { listarInformacionApi, listarInformacionConParametroApi } from "../../api/axiosServices";
+import { añadirInformacionSinImagenAPI, listarInformacionApi, listarInformacionConParametroApi } from "../../api/axiosServices";
 import BotonCantidad from "../../components/UI/botones/botonCantidad/botonCantidadSimple";
 import BotonComprar2 from "../../components/UI/botones/botonCompraPedido";
 import Texto3 from "../../components/UI/botones/total";
+import { notificacionConfirmar, notificacionError } from "../../utils/notificacionCliente";
 
 function CrearListaTrabajo() {
 	const { register, handleSubmit, formState: { errors } } = useForm();
@@ -76,12 +77,22 @@ function CrearListaTrabajo() {
 	};
 
 	const onSubmit = async (data) => {
-		console.log("Formulario enviado");
 		const listaTrabajo = {
 			...data,
+			listName: 'Prueba',
+			total: '2000',
 			idCardWorker: selectedIdCardWorker,
+			idState: '1'
 		};
-		console.log(listaTrabajo)
+		console.log(listaTrabajo);
+
+		try {
+			await añadirInformacionSinImagenAPI(listaTrabajo,'listaTrabajo')
+			notificacionConfirmar({ titulo: "Se ha creado una lista de trabajo!" });
+		} catch (error) {
+			console.error('Error al crear una lista de trabajo', error);
+			notificacionError({ titulo: "No Se puede crear la lista de trabajo!" });
+		}
 	};
 
 	return (
@@ -165,11 +176,11 @@ function CrearListaTrabajo() {
 													<Texto1Card texto={productos.nameProduct} />
 													<div style={{ display: "flex", justifyContent: "center" }}></div>
 													<div className="cont2CrP">
-														<Texto2Card texto2={`Cantidad disponible: ${productos.quantity}`} />
+														<Texto2Card texto2={`Cantidad disponible: ${productos.maxQuantity}`} />
 														<Texto2Card texto2={`precio labor: ${productos.laborPrice}`} />
 													</div>
 													<div>
-														<BotonCantidad maxCantidad={productos.quantity} />
+														<BotonCantidad maxCantidad={productos.maxQuantity} />
 													</div>
 												</CardPerfil>
 												<Spacer y={3} />
@@ -185,11 +196,11 @@ function CrearListaTrabajo() {
 					)}
 				</Acordeon>
 				<Spacer y={4} />
-			</form>
 			<Spacer y={4} />
 			<BotonComprar2 text={"Enviar Lista"}>
 					<Texto3 precio={`Total: 10000`} />
 			</BotonComprar2>
+			</form>
 			<Footer />
 		</div>
 	);
