@@ -16,7 +16,6 @@ function ListarPedidoAdministrador() {
 	const [informacionC, setInformacionC] = useState([]);
 	const [informacionE, setInformacionE] = useState([]);
 	const [informacionT, setInformacionT] = useState([]);
-	const [informacionD, setInformacionD] = useState([]);
 	const [cargando, setCargando] = useState(true);
 	const [pedidosSeleccionados, setPedidosSeleccionados] = useState([]);
 	const navigate = useNavigate();
@@ -27,19 +26,17 @@ function ListarPedidoAdministrador() {
 				const informacionListaPedidoC = await listarInformacionConParametroApi('orden', "1");
 				const informacionListaPedidoE = await listarInformacionConParametroApi('orden', "2");
 				const informacionListaPedidoT = await listarInformacionConParametroApi('orden', "3");
-				const informacionListaPedidoD = await listarInformacionConParametroApi('orden', "6");
 				setInformacionC(informacionListaPedidoC.data);
 				setInformacionE(informacionListaPedidoE.data);
 				setInformacionT(informacionListaPedidoT.data);
-				setInformacionD(informacionListaPedidoD.data);
 				setCargando(false);
 			} catch (error) {
-				console.error('Error al acceder a la informacion listaTrabajo: ', error);
+				console.error('Error al acceder a la informacion listarPedido: ', error);
 				setCargando(false);
 			}
 		};
 		data();
-	}, [informacionC, informacionE, informacionT, informacionD]);
+	}, [informacionC, informacionE, informacionT]);
 
 	// Define la función para manejar el clic en el botón Comprar
 	const handleCrearListraClick = () => {

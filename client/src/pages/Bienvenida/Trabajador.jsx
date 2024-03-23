@@ -72,7 +72,7 @@ function BienvenidaTrabajador() {
           </div>
           <Spacer x={2} />
           <div className=" carta flex flex-col items-center">
-            <ListaTrabajoIcono ruta="/listaTrabajo/administracion" 
+            <ListaTrabajoIcono ruta="/listaTrabajo/Trabajador" 
             className={"listaTrabajo"}/>
             <h1 className="textoPrincipal">Lista de trabajo</h1>
           </div>
