@@ -80,6 +80,7 @@ function ListarListaTrabajoVendedor() {
 										</div>
 									</div>
 								</CardPerfil>
+								</div>
 										))
 					) : (
 						<p>No hay listas de trabajo disponibles.</p>
