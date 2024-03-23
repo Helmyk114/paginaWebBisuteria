@@ -9,12 +9,13 @@ import Avatares from "../../components/UI/avatar/Avatares";
 
 function DetalleTrabajo() {
     return (
-        <div>
+        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+           
             <NavigateTRJ>
                 <Retroceder />
                 <Titulo espacio="center" titulo="Lista de trabajo" />
             </NavigateTRJ>
-            <div>
+            <div style={{ flex: '1' }}>
                 <CardPerfil
                 className1={"cardListaPro"}
                 className2={"cardListaProGap"}>
@@ -42,8 +43,10 @@ function DetalleTrabajo() {
 
                 </CardPerfil>
             </div>
-            <div style={{ display: "block", justifyContent: "space-evenly" }}>
-                <Footer />
+            
+                    
+            <div >
+                <Footer style={{marginTop:"auto"}}  />
             </div>
 
         </div>

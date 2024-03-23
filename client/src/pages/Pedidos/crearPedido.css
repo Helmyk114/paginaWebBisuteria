@@ -81,12 +81,13 @@
   }
   .acordeonCrearP{
     width: 60%;
-        margin: 0 auto;
+    margin: 0 auto;
      
   }
   .cont1ListaP{
-    width: 60%;
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
   }
   .tex1ListaP{
     display: flex;
@@ -118,6 +119,15 @@
     size: 30px;
     display: flex;
     justify-content: flex-start;
+  }
+  .acordeonListaP{
+    width: 62%;
+    margin: 0 auto;
+  }
+  .contCardListaP{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
   }
   
 }
@@ -162,7 +172,9 @@
     flex-direction: row;
   }
   .cont1ListaP{
-    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
     margin: 0 auto;
   }
   .text1ListaP{
@@ -175,13 +187,18 @@
     display: flex;
     justify-content: flex-start;
   }
-  
+  .contCardListaP{
+    display: flex;
+    flex-wrap: wrap;
+    
+  }
 }
 
 
 /* estilos de la tarjeta  */
-.cont1ListaP {
-  margin-bottom: 30px;
+.cont1ListaP{
+  
+  margin-bottom: 10px;
 }
 
 .card1ListaP {
@@ -228,4 +245,10 @@
 .cont1ListaPGap{
   width: 100%;
   margin: 0 auto;
+}
+
+.contCardListaP {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
 }

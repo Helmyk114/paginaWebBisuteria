@@ -78,12 +78,13 @@ function ListarPedidoAdministrador() {
 				<div>
 					{informacionC && informacionC.length > 0 ? (
 						informacionC.map((datos) => (
-							<div key={datos.idOrder} >
+							<div key={datos.idOrder} className="contCardListaP" style={{display:" flex", flexWrap:"wrap"}} >
 								<CardPerfil
 									className1={"cont1ListaP"}
-									className2={"cont1ListaPGap"}>
-									<div className="cont1ListaP">
-										<div className="contTexto1P">
+									className2={"cont1ListaPGap"}
+									>
+									<div className="contCardListaP" >
+										<div className="contTexto1P" >
 											<Texto1Card
 												className={"text1ListaP"}
 												texto={`${datos.clientname}`} />
@@ -117,7 +118,7 @@ function ListarPedidoAdministrador() {
 				</div>
 			)}
 			<Spacer y={4} />
-			<Acordeon titulo={"Pedidos en proceso"}>
+			<Acordeon className={"acordeonListaP"} titulo={"Pedidos en proceso"}>
 				{cargando ? (
 					<Loader />
 				) : (
@@ -158,7 +159,7 @@ function ListarPedidoAdministrador() {
 				)}
 			</Acordeon>
 			<Spacer y={4} />
-			<Acordeon titulo={"Pedidos terminados"}>
+			<Acordeon className={"acordeonListaP"} titulo={"Pedidos terminados"}>
 				{cargando ? (
 					<Loader />
 				) : (
@@ -199,7 +200,7 @@ function ListarPedidoAdministrador() {
 				)}
 			</Acordeon>
 			<Spacer y={4} />
-			<Acordeon titulo={"Pedidos cancelados"}>
+			<Acordeon className={"acordeonListaP"} titulo={"Pedidos cancelados"}>
 				{cargando ? (
 					<Loader />
 				) : (

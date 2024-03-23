@@ -8,7 +8,7 @@ import { Spacer } from "@nextui-org/react";
 
 function ListarListaTrabajoVendedor() {
 	return (
-		<div>
+		<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
 			<NavigateTRJ>
 				<Retroceder />
 				<Titulo espacio="center" titulo="Lista de trabajo" />
@@ -16,10 +16,12 @@ function ListarListaTrabajoVendedor() {
 
 			<div style={{ marginBottom: "30px" }}>
 			</div>
-			<div className="cont1ListaT">
+			<div className=".cont1ListaT" style={{ flex: "1"}}>
 
 				<CardPerfil
-					className="card1ListaT">
+				
+					className1={"card1ListaT"}
+					className2={"cardListaTGap"}>
 
 					<div className="cont2ListaT">
 						<div className="contTexto1">
@@ -55,8 +57,7 @@ function ListarListaTrabajoVendedor() {
 					</div>
 
 				</CardPerfil>
-			</div>
-			<Spacer y={4} />
+				<Spacer y={4} />
 			<div>
 				<Acordeon className={"contAcordeonLt"}  titulo={"Lista de trabajo terminadas "}>
 					<div className="cont1AcordeonListaT">
@@ -196,9 +197,14 @@ function ListarListaTrabajoVendedor() {
 
 				</Acordeon>
 			</div>
-
-			<Footer />
-		</div>
+           
+			
+		</div> 
+		<div>
+			<Footer style={{marginBottom: "0"}}  />
+			</div>
+</div>
+			
 	);
 };
 

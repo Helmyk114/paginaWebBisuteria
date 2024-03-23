@@ -1,22 +1,23 @@
 /* estilos de la tarjeta  */
-.cont1ListaT{
+
+.cont1ListaTA{
     display: flex;
-    margin-bottom: 30px;
-    gap: 20px;
     flex-wrap: wrap;
-    justify-content: center; 
+    gap: 9px;
+    margin: 0 auto;
 }
 
 .card1ListaT{
-position: relative;
-
-z-index: 0;
+width: 23%;
+margin: 0 auto;
+}
+.card1ListaTA{
+    width: 30%;
+    margin: 0 auto;  
 }
 .cont2ListaT{
     display: flex;
     flex-direction: column;
-    
-
 }
 .contTexto1{
     margin-bottom: 15px;
@@ -24,22 +25,32 @@ z-index: 0;
 .card2ListaT{
     display: flex;
     justify-content: space-between;
-    width: 214px;
-    height: 55px;
+    width: 234px;
+    height: 50px;
     position: relative;
     background-color: #eeee;
     border-radius: 8px;
     gap: 2px;
 
 }
+.card2ListaTA{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #eeee;
+    border-radius: 8px;
+    gap: 2px;
+}
 
 .contTexto2{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin: 10px;
-    font-size: 10px;
-    
+    font-size: 10px;    
 
 }
 .contIcono{
@@ -58,10 +69,9 @@ z-index: 0;
 }
 
 @media only screen and (max-width: 768px) {
-    .cont1ListaT{
-        display: flex;
+    .cont1ListaT, .cont1ListaTA{
+        display: grid;
         flex-wrap: wrap;
-        justify-content: center;
         margin: 0 auto;
 
     }
@@ -83,22 +93,35 @@ z-index: 0;
     .card2ListaT{
         display: flex;
         justify-content: space-between;
-        width: 170px;
-        height: 55px;
+        width: 98%;
+        height: 100%;
         position: relative;
         background-color: #eeee;
         border-radius: 8px;
         gap: 2px;
     }
+    .card2ListaTA{
+        width: 98%;
+    
+    }
+    .card1ListaTAGap, .cardListaTGap{
+        width: 100%;
+    }
     .contTexto1{
         font-size: 15px ;
     }
-    .cont1AcordeonListaT{
+    .cont1AcordeonListaT, .contAcordeonListaTA{
         display: flex;
         flex-direction: column;
         gap:8px;
-        width: 98%;
-       
+        width: 98%; 
+    }
+    .cont1AcordeonListaTA {
+        width: 100%;
+    }
+    .card1ListaT{
+        width: 95%;
+        margin: 0 auto;
     }
 }
 
@@ -121,9 +144,6 @@ z-index: 0;
         display: flex;
         flex-wrap: wrap;
         margin: 0 auto;
-        justify-content: center;
-        
-
     }
     .contIconoListaT{
         width: 20%;
@@ -147,10 +167,10 @@ z-index: 0;
         width: 5px;
        
     }
-    .contAcordeonLt{
+    .contAcordeonLt, .cont1AcordeonListaTA {
         width: 75%;
     }
-    .cont1AcordeonListaT{
+    .cont1AcordeonListaT, .contAcordeonListaTA{
         display: flex;
         flex-wrap: wrap;
         margin: 0 auto;
@@ -176,7 +196,7 @@ z-index: 0;
     .contTexto1{
         font-size: 17px ;
     }
-    .cont1AcordeonListaT{
+    .cont1AcordeonListaT, .contAcordeonListaTA{
         display: flex;
         flex-wrap: wrap;
         margin: 0 auto;
@@ -184,8 +204,20 @@ z-index: 0;
         margin-left: 2%;
         margin-right: 2%;
     }
-    .contAcordeonLt{
+    .contAcordeonLt, .cont1AcordeonListaTA {
         width: 85%;
+        margin: 0 auto;
+    }
+    .cont1ListaT{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+    }
+
+    .card2ListaTA{
+        width: 296px;
+        height: 100%;
+    
     }
 
 }
