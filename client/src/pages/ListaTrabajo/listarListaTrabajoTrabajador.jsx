@@ -4,6 +4,7 @@ import NavigateTRJ, { Retroceder, Titulo } from "../../components/UI/navbar/navb
 import Footer from "../../components/UI/Footer/Footer";
 import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 import Acordeon from "../../components/UI/Acordeon/Acordeon";
+import { Spacer } from "@nextui-org/react";
 
 function ListarListaTrabajoVendedor() {
 	return (
@@ -16,14 +17,11 @@ function ListarListaTrabajoVendedor() {
 			<div style={{ marginBottom: "30px" }}>
 			</div>
 			<div className="cont1ListaT">
-			
+
 				<CardPerfil
-					className="card1ListaT"> 
-					
+					className="card1ListaT">
 
 					<div className="cont2ListaT">
-					
-
 						<div className="contTexto1">
 							<Texto1Card
 								texto={"Nombre de la lista"}
@@ -34,113 +32,168 @@ function ListarListaTrabajoVendedor() {
 							/>
 
 						</div>
-						
-							
-
-					
 
 						<div
 							className="card2ListaT">
-								
+
 							<div className="contTexto2">
 								<Texto2Card
-
 									texto2={"Ver"}
+									fontWeight={"400"}
 								/>
 							</div>
 							<div className="contIcono">
-							
+
 								<IconoCard
 									icon={"akar-icons:arrow-right"}
-									width={"42px"}
-									height={"42px"} />
-							
-							
+									className="iconoFlecha"
+								/>
 
 							</div>
-						
+
 						</div>
 					</div>
-					
+
 				</CardPerfil>
-				
-
 			</div>
-
+			<Spacer y={4} />
 			<div>
-				<Acordeon titulo={"Lista "}>
-				<div className="cont1ListaT">
-			
-			<CardPerfil
-				className="card1ListaT"> 
-				<div className="contenedor1ListaT" style={{display:"flex"}}>
+				<Acordeon className={"contAcordeonLt"}  titulo={"Lista de trabajo terminadas "}>
+					<div className="cont1AcordeonListaT">
 
-					
-					 <div className="contIconoListaT"style={{backgroundColor:"#6977E4 ", borderRadius:"10px", marginRight:"8px", width:"60%", display:"column", padding:"30px"}} >
-					 <div className="contIcono">
-						
-						<IconoCard
-							icon={"icon-park-solid:check-one"}
-							width={"42px"}
-							height={"42px"} 
-							color={"#ffff"}
-					/>
-					
+						<CardPerfil
+							className="card1ListaT">
+							<div className="contenedor1ListaT">
+
+
+								<div className="contIconoListaT" >
+									<div className="contIconoCheck" style={{ justifyContent: "center" }}>
+
+										<IconoCard
+											icon={"icon-park-solid:check-one"}
+											color={"#ffff"}
+										/>
+
+									</div >
+									<Texto1Card
+
+										texto={"Finalizdo"}
+										color={"#ffff"}
+										fontWeight={"400"}
+										className="contTexto1" />
+								</div>
+
+								<div className="cont2ListaT">
+
+
+									<div className="contTexto1">
+										<Texto1Card
+											texto={"Nombre de la lista"}
+										/>
+										<Texto1Card
+											texto={"Codigo"}
+											fontWeight={"200"}
+										/>
+
+									</div>
+
+									<div
+										className="card2ListaT">
+
+										<div className="contTexto2">
+											<Texto2Card
+												texto2={"Pago total: 30.000"}
+												fontWeight={"200"}
+											/>
+										</div>
+										<div className="contIcono">
+
+											<IconoCard
+												icon={"akar-icons:arrow-right"}
+												className="iconoFlecha"
+											/>
+
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+						</CardPerfil>
+
 					</div>
-					<Texto1Card
 					
-					texto={"Finalizdo"}
-					color={"#ffff"}
-					fontWeight={"300"}/>
+
+				</Acordeon>
+			</div>
+			<Spacer y={3} />
+			<div>
+				<Acordeon className={"contAcordeonLt"} titulo={"Lista de trabajo pagas"}>
+					<div className="cont1AcordeonListaT">
+
+						<CardPerfil
+							className="card1ListaT">
+							<div className="contenedor1ListaT">
+
+
+								<div className="contIconoListaT" >
+									<div className="contIconoCheck" style={{ justifyContent: "center" }}>
+
+										<IconoCard
+											icon={"mage:dollar-fill"}
+											color={"#ffff"}
+										/>
+
+									</div >
+									<Texto1Card
+
+										texto={"Pagas"}
+										color={"#ffff"}
+										fontWeight={"400"}
+										className="contTexto1" />
+								</div>
+
+								<div className="cont2ListaT">
+
+
+									<div className="contTexto1">
+										<Texto1Card
+											texto={"Nombre de la lista"}
+										/>
+										<Texto1Card
+											texto={"Codigo"}
+											fontWeight={"200"}
+										/>
+
+									</div>
+
+									<div
+										className="card2ListaT">
+
+										<div className="contTexto2">
+											<Texto2Card
+												texto2={"Pago total: 30.000"}
+												fontWeight={"200"}
+											/>
+										</div>
+										<div className="contIcono">
+
+											<IconoCard
+												icon={"akar-icons:arrow-right"}
+												className="iconoFlecha"
+											/>
+
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+						</CardPerfil>
+
+
 					</div>
 
-				<div className="cont2ListaT">
-				
-
-					<div className="contTexto1">
-						<Texto1Card
-							texto={"Nombre de la lista"}
-						/>
-						<Texto1Card
-							texto={"Codigo"}
-							fontWeight={"200"}
-						/>
-
-					</div>
-					
-						
-
-				
-
-					<div
-						className="card2ListaT">
-							
-						<div className="contTexto2">
-							<Texto2Card
-
-								texto2={"Ver"}
-							/>
-						</div>
-						<div className="contIcono">
-						
-							<IconoCard
-								icon={"akar-icons:arrow-right"}
-								width={"42px"}
-								height={"42px"} />
-						
-						
-
-						</div>
-					
-					</div>
-				</div>
-				</div>
-				
-			</CardPerfil>
-			
-
-		</div>
-					
 				</Acordeon>
 			</div>
 

@@ -4,9 +4,7 @@
     margin-bottom: 30px;
     gap: 20px;
     flex-wrap: wrap;
-    justify-content: center;
-    
-    
+    justify-content: center; 
 }
 
 .card1ListaT{
@@ -21,13 +19,13 @@ z-index: 0;
 
 }
 .contTexto1{
-    margin-bottom: 55px;
+    margin-bottom: 15px;
 }
 .card2ListaT{
     display: flex;
     justify-content: space-between;
     width: 214px;
-    height: 65px;
+    height: 55px;
     position: relative;
     background-color: #eeee;
     border-radius: 8px;
@@ -51,24 +49,14 @@ z-index: 0;
     align-items: center;
     gap: 0 auto;
 }
-
-
-@media screen and (max-width: 767px){
-    /*crear Lista de trabajo*/
-    .cardCrearListaT{
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .cont1ListaT{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 0 auto;
-
-    }
-
+.contIconoCheck{
+    justify-content: center;
+    display: flex;
+    margin: 8px;
+    align-items: center;
+    gap: 0 auto;
 }
+
 @media only screen and (max-width: 768px) {
     .cont1ListaT{
         display: flex;
@@ -76,6 +64,41 @@ z-index: 0;
         justify-content: center;
         margin: 0 auto;
 
+    }
+    .contIconoListaT{
+        background-color: #6977E4 ;
+        border-radius:10px;
+        margin-right: 10px;
+        width:40%; 
+        display:column;
+        padding:20px;
+    }
+    .cardCrearListaT{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .contenedor1ListaT{
+        display: flex;
+    }
+    .card2ListaT{
+        display: flex;
+        justify-content: space-between;
+        width: 170px;
+        height: 55px;
+        position: relative;
+        background-color: #eeee;
+        border-radius: 8px;
+        gap: 2px;
+    }
+    .contTexto1{
+        font-size: 15px ;
+    }
+    .cont1AcordeonListaT{
+        display: flex;
+        flex-direction: column;
+        gap:8px;
+        width: 98%;
+       
     }
 }
 
@@ -106,5 +129,63 @@ z-index: 0;
         width: 20%;
         background-color: #6977E4 ;
     }
-     
+    .contenedor1ListaT{
+        display: flex;
     }
+    .contIconoListaT{
+        background-color: #6977E4 ;
+        border-radius:10px;
+        margin-right: 10px;
+        width:60%; 
+        display:column;
+        padding:30px;
+    }
+    .contTexto1{
+        font-size: 20px ;
+    }
+    .iconoFlecha{
+        width: 5px;
+       
+    }
+    .contAcordeonLt{
+        width: 75%;
+    }
+    .cont1AcordeonListaT{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        gap:8px
+    }
+    
+   
+ }
+
+ @media screen and (min-width: 768px),
+(max-width:1023){
+    .contenedor1ListaT{
+        display: flex;
+    }
+    .contIconoListaT{
+        background-color: #6977E4 ;
+        border-radius:10px;
+        margin-right: 10px;
+        width:40%; 
+        display:column;
+        padding:20px;
+    }
+    .contTexto1{
+        font-size: 17px ;
+    }
+    .cont1AcordeonListaT{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        gap:8px;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    .contAcordeonLt{
+        width: 85%;
+    }
+
+}
