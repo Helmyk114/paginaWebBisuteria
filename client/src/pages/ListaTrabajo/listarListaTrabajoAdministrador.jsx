@@ -7,7 +7,7 @@ import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/
 import Loader from "../../components/UI/cargando/loader";
 import Footer from "../../components/UI/Footer/Footer";
 import Acordeon from "../../components/UI/Acordeon/Acordeon"
-import { Spacer } from "@nextui-org/react";
+
 
 import { listarInformacionConParametroApi } from "../../api/axiosServices";
 
@@ -30,7 +30,7 @@ function ListarListaTrabajoAdministrador() {
 	}, [informacionLista]);
 
 	return (
-		<div>
+		<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
 			<NavigateADM>
 				<Retroceder />
 				<Titulo espacio="center" titulo="Lista de trabajo" />
@@ -39,7 +39,7 @@ function ListarListaTrabajoAdministrador() {
 			{cargando ? (
 				<Loader />
 			) : (
-				<div>
+				<div style={{ flex:"1",  marginLeft: "20px", marginRight: "20px" }}>
 					{informacionLista && informacionLista.length > 0 ? (
 						informacionLista.map((datos) => (
 							<div className="cont1ListaT" key={datos.idWorkList}>
@@ -70,6 +70,7 @@ function ListarListaTrabajoAdministrador() {
 										</div>
 									</div>
 								</CardPerfil>
+
 								<Spacer y={4} />
 							</div>
 						))
@@ -79,51 +80,7 @@ function ListarListaTrabajoAdministrador() {
 				</div>
 			)}
 			<Spacer y={4} />
-			<Footer />
-		</div>
-	);
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <NavigateADM>
-        <Retroceder />
-        <Titulo espacio="center" titulo="Lista de trabajo" />
-      </NavigateADM>
-      <div style={{ marginBottom: "30px" }}>
-      </div>
-      <div style={{ flex: "1", marginLeft: "20px", marginRight: "20px" }}>
-        <div className="cont1ListaTA">
-          <CardPerfil
-            className1="card1ListaTA"
-            className2="card1ListaTAGap">
-
-            <div className="cont2ListaTA">
-
-              <div className="contTexto1">
-                <Texto1Card
-                  texto={"Nombre de la lista"} />
-              </div>
-              <div
-                className="card2ListaTA">
-                <div className="contTexto2">
-                  <Texto2Card
-                    texto2={"Nombre trabajador"}
-                  />
-                  <Texto2Card
-                    texto2={"Total pago: 123$"} />
-                </div>
-
-
-                <div className="contIcono">
-                  <IconoCard
-                    icon={"akar-icons:edit"}
-                    width={"28px"}
-                    height={"28px"} />
-                </div>
-
-              </div>
-            </div>
-          </CardPerfil>
-          <div className="cont1AcordeonListaTA">
+      <div className="cont1AcordeonListaTA">
             <Acordeon className={"contAcordeonListaTA"} titulo={"Listas de trabajo terminadas"}>
               <div className="cont1AcordeonListaT">
 
@@ -257,14 +214,11 @@ function ListarListaTrabajoAdministrador() {
             </Acordeon>
 
           </div>
-
-        </div>
-      </div>
-
-
-      <Footer style={{ marginTop: "auto" }} />
-    </div>
-  );
-};
+         
+      
+			<Footer style={{ marginTop: "auto" }} />
+		</div>
+	)};
+ 
 
 export default ListarListaTrabajoAdministrador;

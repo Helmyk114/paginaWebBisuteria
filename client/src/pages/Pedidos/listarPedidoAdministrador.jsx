@@ -197,47 +197,7 @@ function ListarPedidoAdministrador() {
 				)}
 			</Acordeon>
 			<Spacer y={4} />
-			<Acordeon className={"acordeonListaP"} titulo={"Pedidos cancelados"}>
-				{cargando ? (
-					<Loader />
-				) : (
-					<div>
-						{informacionD && informacionD.length > 0 ? (
-							informacionD.map((datos) => (
-								<div key={datos.idOrder} >
-									<CardPerfil
-										className1={"cont1ListaP"}
-										className2={"cont1ListaPGap"}>
-										<div className="cont1ListaP">
-											<div className="contTexto1P">
-												<Texto1Card
-													className={"text1ListaP"}
-													texto={`${datos.clientname}`} />
-											</div>
-										</div>
-										<div className="cont2ListaP">
-											<div className="card2ListaP">
-												<div className="contText">
-													<div className="contTexto2P">
-														<Texto2Card texto2={`Fecha de creacion: ${datos.Date}`} />
-													</div>
-													<div className="contTexto2P">
-														<Texto2Card texto2={`Cantidad de productos: ${datos.quantityProducts}`} />
-													</div>
-												</div>
-											</div>
-										</div>
-									</CardPerfil>
-									<Spacer y={4} />
-								</div>
-							))
-						) : (
-							<p>No hay pedidos cancelados.</p>
-						)}
-					</div>
-				)}
-			</Acordeon>
-			<Spacer y={4} />
+			
 			<BotonComprar onClick={handleCrearListraClick} text={"Crear lista"} type={"Submit"} />
 			<Footer />
 		</>
