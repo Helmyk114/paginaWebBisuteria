@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import '../ListaTrabajo/ListaTrabajo.css'
 
 import { Spacer } from "@nextui-org/react";
 import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
-import Loader from "../../components/UI/cargando/loader";
 import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
+import Loader from "../../components/UI/cargando/loader";
 import Footer from "../../components/UI/Footer/Footer";
-import { useEffect } from "react";
-import { listarInformacionConParametroApi } from "../../api/axiosServices";
 
+import { listarInformacionConParametroApi } from "../../api/axiosServices";
 
 function ListarListaTrabajoAdministrador() {
 	const [informacionLista, setInformacionLista] = useState([]);
@@ -17,8 +16,8 @@ function ListarListaTrabajoAdministrador() {
 	useEffect(() => {
 		const data = async () => {
 			try {
-				const informacionListaC = await listarInformacionConParametroApi('','1');
-				setInformacionLista(informacionListaC);
+				const informacionListaC = await listarInformacionConParametroApi('listaTrabajo-Estado','1');
+				setInformacionLista(informacionListaC.data);
 				setCargando(false);
 			} catch (error) {
 				console.error('Error al acceder a la informacion listaTrabajo: ', error);
@@ -41,17 +40,18 @@ function ListarListaTrabajoAdministrador() {
 				<div>
 					{informacionLista && informacionLista.length > 0 ? (
 						informacionLista.map((datos) => (
-							<div className="cont1ListaT" key={""}>
+							<div className="cont1ListaT" key={datos.idWorkList}>
 								<CardPerfil
 									className1="card1ListaT">
 									<div className="cont2ListaT">
 										<div className="contTexto1">
-											<Texto1Card texto={"Nombre de la lista"} />
+											<Texto1Card texto={datos.listName} />
+											<Texto1Card texto={datos.idWorkList} />
 										</div>
 										<div
 											className="card2ListaT">
 											<div className="contTexto2">
-												<Texto2Card texto2={"Nombre trabajador"} />
+												<Texto2Card texto2={`Nombre trabajador: ${datos.workerName} ${datos.workerLastName}`} />
 											</div>
 											<div className="contIcono">
 												<IconoCard
@@ -70,7 +70,6 @@ function ListarListaTrabajoAdministrador() {
 								</CardPerfil>
 								<Spacer y={4} />
 							</div>
-
 						))
 					) : (
 						<p>No hay listas de trabajo disponibles.</p>

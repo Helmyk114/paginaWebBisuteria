@@ -46,7 +46,7 @@ export default function PerfilinfoVendedor() {
           {informacion && informacion.length > 0 ? (
             informacion.map((datos) => (
               <div className="perfil" key={datos.idCardWorker} style={{ height: "100%" }}>
-                <div style={{ width:"100%", height: "35%", padding: "10px", display: "flex", alignItems: "center", gap: "30px", position: "absolute", backgroundColor: "#454F96", marginTop:"-61px" }}>
+                <div style={{ width: "100%", height: "35%", padding: "10px", display: "flex", alignItems: "center", gap: "30px", position: "absolute", backgroundColor: "#454F96", marginTop: "-61px" }}>
                   <Avatares
                     className={'w-15 h-15'}
                     maxWidth={"90px"}
@@ -69,75 +69,64 @@ export default function PerfilinfoVendedor() {
                 <div style={{ backgroundColor: "#EEEEEE", width: "90%", padding: "1px", borderRadius: "13px", margin: "0 auto", marginBottom: "30px", position: "relative", top: "140px", zIndex: "1" }}>
                   <Spacer y={4} />
                   <CardPerfil
-                  className1={"cardPerfil"}
-                  className2={"cardPerfilGap"}
-                  gap={"15px"}>
+                    className1={"cardPerfil"}
+                    className2={"cardPerfilGap"}
+                    gap={"15px"}>
                     <IconoCard icon={"gridicons:user-circle"} />
                     <div style={{ display: "block" }}>
-                      <Texto1Card
-                        texto={"Usuario"} />
-                      <Texto2Card
-                        texto2={`${datos.workerName}`} />
+                      <Texto1Card texto={"Usuario"} />
+                      <Texto2Card texto2={`${datos.workerName}`} />
                     </div>
                   </CardPerfil>
                   <Spacer y={3} />
                   <CardPerfil
-                  className1={"cardPerfil"}
-                  className2={"cardPerfilGap"}
-                  gap={"15px"}>
+                    className1={"cardPerfil"}
+                    className2={"cardPerfilGap"}
+                    gap={"15px"}>
                     <IconoCard icon={"mdi:user-card-details"} />
                     <div style={{ display: "block" }}>
-                      <Texto1Card
-                        texto={"Cedula"} />
-                      <Texto2Card
-                        texto2={datos.idCardWorker}
-                      />
+                      <Texto1Card texto={"Cedula"} />
+                      <Texto2Card texto2={datos.idCardWorker} />
                     </div>
                   </CardPerfil>
                   <Spacer y={3} />
                   <CardPerfil
-                  className1={"cardPerfil"}
-                  className2={"cardPerfilGap"}
-                  gap={"15px"}>
+                    className1={"cardPerfil"}
+                    className2={"cardPerfilGap"}
+                    gap={"15px"}>
                     <IconoCard icon={"mdi:email"} />
                     <div style={{ display: "block" }}>
-                      <Texto1Card
-                        texto={"Email"} />
-                      <Texto2Card
-                        texto2={datos.workerEmail} />
+                      <Texto1Card texto={"Email"} />
+                      <Texto2Card texto2={datos.workerEmail} />
                     </div>
                   </CardPerfil>
                   <Spacer y={3} />
                   <CardPerfil
-                  className1={"cardPerfil"}
-                  className2={"cardPerfilGap"}
-                  gap={"15px"}>
+                    className1={"cardPerfil"}
+                    className2={"cardPerfilGap"}
+                    gap={"15px"}>
                     <IconoCard icon={"mdi:telephone"} />
                     <div style={{ display: "block" }}>
-                      <Texto1Card
-                        texto={"Telefono"} />
-                      <Texto2Card
-                        texto2={datos.workerPhone} />
+                      <Texto1Card texto={"Telefono"} />
+                      <Texto2Card texto2={datos.workerPhone} />
                     </div>
                   </CardPerfil>
                   <Spacer y={3} />
                   <CardPerfil
-                  className1={"cardPerfil"}
-                  className2={"cardPerfilGap"}
-                  gap={"15px"}>
+                    className1={"cardPerfil"}
+                    className2={"cardPerfilGap"}
+                    gap={"15px"}>
                     <IconoCard icon={"mdi:cash-multiple"} />
                     <div style={{ display: "block" }}>
-                      <Texto1Card
-                        texto={"Numero de cuenta"} />
-                      <Texto2Card
-                        texto2={`${datos.numberBank} ${datos.banks}`} />
+                      <Texto1Card texto={"Numero de cuenta"} />
+                      <Texto2Card texto2={`${datos.numberBank} ${datos.banks}`} />
                     </div>
                   </CardPerfil>
                   <Spacer y={3} />
                   <Link to={`/editar/trabajador/${datos.idCardWorker}`}>
                     <CardPerfil
-                    className1={"cardPerfil"}
-                    className2={"cardBotonPerfil"}>
+                      className1={"cardPerfil"}
+                      className2={"cardBotonPerfil"}>
                       <IconoCard icon={"akar-icons:edit"} />
                       <div>
                         <Texto1Card

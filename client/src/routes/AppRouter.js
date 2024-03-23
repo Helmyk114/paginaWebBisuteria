@@ -71,7 +71,7 @@ const AppRouter = () => {
         <Route path="/listaTrabajo/Trabajador" element={<ListarListaTrabajoTrabajador />} />
         <Route path="/crear/listaTrabajo" element={<CrearListaTrabajo />} />
         <Route path="/editar/listaTrabajo"element={<ActualizarListaTrabajo />} />
-        <Route path="/detalle/trabajo"element={<DetalleTrabajo/>} />
+        <Route path="/detalle/Trabajo"element={<DetalleTrabajo/>} />
 
 
         <Route path="/unauthorized" element={<Unauthorized />} />
