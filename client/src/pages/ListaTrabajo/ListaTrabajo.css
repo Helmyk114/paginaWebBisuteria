@@ -93,6 +93,13 @@ z-index: 0;
     .contTexto1{
         font-size: 15px ;
     }
+    .cont1AcordeonListaT{
+        display: flex;
+        flex-direction: column;
+        gap:8px;
+        width: 98%;
+       
+    }
 }
 
 @media screen and (min-width: 1024px){
@@ -140,6 +147,15 @@ z-index: 0;
         width: 5px;
        
     }
+    .contAcordeonLt{
+        width: 75%;
+    }
+    .cont1AcordeonListaT{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        gap:8px
+    }
     
    
  }
@@ -159,6 +175,17 @@ z-index: 0;
     }
     .contTexto1{
         font-size: 17px ;
+    }
+    .cont1AcordeonListaT{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        gap:8px;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    .contAcordeonLt{
+        width: 85%;
     }
 
 }

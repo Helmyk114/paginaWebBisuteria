@@ -4,6 +4,7 @@ import NavigateTRJ, { Retroceder, Titulo } from "../../components/UI/navbar/navb
 import Footer from "../../components/UI/Footer/Footer";
 import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 import Acordeon from "../../components/UI/Acordeon/Acordeon";
+import { Spacer } from "@nextui-org/react";
 
 function ListarListaTrabajoVendedor() {
 	return (
@@ -54,13 +55,11 @@ function ListarListaTrabajoVendedor() {
 					</div>
 
 				</CardPerfil>
-
-
 			</div>
-
+			<Spacer y={4} />
 			<div>
-				<Acordeon titulo={"Lista "}>
-					<div className="cont1ListaT">
+				<Acordeon className={"contAcordeonLt"}  titulo={"Lista de trabajo terminadas "}>
+					<div className="cont1AcordeonListaT">
 
 						<CardPerfil
 							className="card1ListaT">
@@ -122,14 +121,15 @@ function ListarListaTrabajoVendedor() {
 
 						</CardPerfil>
 
-
 					</div>
+					
 
 				</Acordeon>
 			</div>
+			<Spacer y={3} />
 			<div>
-				<Acordeon titulo={"Lista "}>
-					<div className="cont1ListaT">
+				<Acordeon className={"contAcordeonLt"} titulo={"Lista de trabajo pagas"}>
+					<div className="cont1AcordeonListaT">
 
 						<CardPerfil
 							className="card1ListaT">
@@ -140,14 +140,14 @@ function ListarListaTrabajoVendedor() {
 									<div className="contIconoCheck" style={{ justifyContent: "center" }}>
 
 										<IconoCard
-											icon={"icon-park-solid:check-one"}
+											icon={"mage:dollar-fill"}
 											color={"#ffff"}
 										/>
 
 									</div >
 									<Texto1Card
 
-										texto={"Finalizdo"}
+										texto={"Pagas"}
 										color={"#ffff"}
 										fontWeight={"400"}
 										className="contTexto1" />
