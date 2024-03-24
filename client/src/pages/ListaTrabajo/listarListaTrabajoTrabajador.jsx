@@ -97,7 +97,7 @@ function ListarListaTrabajoVendedor() {
 						<div>
 							{listaT && listaT.length > 0 ? (
 								listaT.map((lista) => (
-									<div className="cont1AcordeonListaT">
+									<div className="cont1AcordeonListaT" key={lista.idWorkList}>
 										<CardPerfil className="card1ListaT">
 											<div className="contenedor1ListaT">
 												<div className="contIconoListaT" >
@@ -161,7 +161,7 @@ function ListarListaTrabajoVendedor() {
 						<div>
 							{listaP && listaP.length > 0 ? (
 								listaP.map((lista) => (
-									<div className="cont1AcordeonListaT">
+									<div className="cont1AcordeonListaT" key={lista.idWorkList}>
 										<CardPerfil className="card1ListaT">
 											<div className="contenedor1ListaT">
 												<div className="contIconoListaT" >
