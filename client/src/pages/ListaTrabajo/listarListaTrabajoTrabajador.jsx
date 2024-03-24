@@ -8,7 +8,6 @@ import Loader from "../../components/UI/cargando/loader";
 import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 import Footer from "../../components/UI/Footer/Footer";
 
-
 import { decodificarToken, obtenerToken } from "../../utils/token";
 import { listarInformacionConDosParametroApi } from "../../api/axiosServices";
 
@@ -25,7 +24,11 @@ function ListarListaTrabajoVendedor() {
 		const data = async () => {
 			try {
 				const informacionListaC = await listarInformacionConDosParametroApi('listaTrabajo-Estado-Trabajador', "1", id);
+				const informacionListaT = await listarInformacionConDosParametroApi('listaTrabajo-Estado-Trabajador', "3", id);
+				const informacionListaP = await listarInformacionConDosParametroApi('listaTrabajo-Estado-Trabajador', "6", id);
 				setListaC(informacionListaC.data);
+				setListaT(informacionListaT.data);
+				setListaP(informacionListaP.data);
 				setCargando(false);
 			} catch (error) {
 				console.error('Error al acceder a la informacion listaTrabajo: ', error);
@@ -33,7 +36,7 @@ function ListarListaTrabajoVendedor() {
 			}
 		};
 		data();
-	}, [listaC, id])
+	}, [listaC, listaP, listaT, id])
 
 	return (
 		<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
@@ -48,11 +51,10 @@ function ListarListaTrabajoVendedor() {
 				<div>
 					{listaC && listaC.length > 0 ? (
 						listaC.map((lista) => (
-							<div className=".cont1ListaT" style={{ flex: "1"}} key={lista.idWorkList}>
+							<div className=".cont1ListaT" style={{ flex: "1" }} key={lista.idWorkList}>
 								<CardPerfil
-								
-					className1={"card1ListaT"}
-					className2={"cardListaTGap"}>
+									className1={"card1ListaT"}
+									className2={"cardListaTGap"}>
 									<div className="cont2ListaT">
 										<div className="contTexto1">
 											<Texto1Card texto={lista.listName} />
@@ -61,8 +63,7 @@ function ListarListaTrabajoVendedor() {
 												fontWeight={"200"}
 											/>
 										</div>
-										<div
-											className="card2ListaT">
+										<div className="card2ListaT">
 											<div className="contTexto2">
 												<Texto2Card
 													texto2={"Ver"}
@@ -70,7 +71,7 @@ function ListarListaTrabajoVendedor() {
 												/>
 											</div>
 											<div className="contIcono">
-												<Link to={`/detalle/Trabajo`}>
+												<Link to={`/detalle/Trabajo/${lista.idWorkList}`}>
 													<IconoCard
 														icon={"akar-icons:arrow-right"}
 														className="iconoFlecha"
@@ -80,116 +81,141 @@ function ListarListaTrabajoVendedor() {
 										</div>
 									</div>
 								</CardPerfil>
-								</div>
-										))
+							</div>
+						))
 					) : (
 						<p>No hay listas de trabajo disponibles.</p>
 					)}
 				</div>
 			)}
-
-				<Spacer y={4} />
+			<Spacer y={4} />
 			<div>
 				<Acordeon className={"contAcordeonLt"} titulo={"Lista de trabajo terminadas "}>
-					<div className="cont1AcordeonListaT">
-						<CardPerfil
-							className="card1ListaT">
-							<div className="contenedor1ListaT">
-								<div className="contIconoListaT" >
-									<div className="contIconoCheck" style={{ justifyContent: "center" }}>
-										<IconoCard
-											icon={"icon-park-solid:check-one"}
-											color={"#ffff"}
-										/>
-
-									</div >
-									<Texto1Card
-										texto={"Finalizdo"}
-										color={"#ffff"}
-										fontWeight={"400"}
-										className="contTexto1" />
-								</div>
-								<div className="cont2ListaT">
-									<div className="contTexto1">
-										<Texto1Card
-											texto={"Nombre de la lista"}
-										/>
-										<Texto1Card
-											texto={"Codigo"}
-											fontWeight={"200"}
-										/>
+					{cargando ? (
+						<Loader />
+					) : (
+						<div>
+							{listaT && listaT.length > 0 ? (
+								listaT.map((lista) => (
+									<div className="cont1AcordeonListaT">
+										<CardPerfil className="card1ListaT">
+											<div className="contenedor1ListaT">
+												<div className="contIconoListaT" >
+													<div className="contIconoCheck" style={{ justifyContent: "center" }}>
+														<IconoCard
+															icon={"icon-park-solid:check-one"}
+															color={"#ffff"}
+														/>
+													</div >
+													<Texto1Card
+														texto={"Finalizdo"}
+														color={"#ffff"}
+														fontWeight={"400"}
+														className="contTexto1"
+													/>
+												</div>
+												<div className="cont2ListaT">
+													<div className="contTexto1">
+														<Texto1Card texto={lista.listName} />
+														<Texto1Card
+															texto={`Codigo: ${lista.idWorkList}`}
+															fontWeight={"200"}
+														/>
+													</div>
+													<div className="card2ListaT">
+														<div className="contTexto2">
+															<Texto2Card
+																texto2={`Pago total: 30.000`}
+																fontWeight={"200"}
+															/>
+														</div>
+														<div className="contIcono">
+															<Link to={`/detalle/Trabajo/${lista.idWorkList}`}>
+																<IconoCard
+																	icon={"akar-icons:arrow-right"}
+																	className="iconoFlecha"
+																/>
+															</Link>
+														</div>
+													</div>
+												</div>
+											</div>
+										</CardPerfil>
 									</div>
-									<div
-										className="card2ListaT">
-										<div className="contTexto2">
-											<Texto2Card
-												texto2={"Pago total: 30.000"}
-												fontWeight={"200"}
-											/>
-										</div>
-										<div className="contIcono">
-											<IconoCard
-												icon={"akar-icons:arrow-right"}
-												className="iconoFlecha"
-											/>
-										</div>
-									</div>
-								</div>
-							</div>
-						</CardPerfil>
-					</div>
+								))
+							) : (
+								<p>No hay listas de trabajos terminados disponibles.</p>
+							)}
+						</div>
+					)}
+					<Spacer y={4} />
 				</Acordeon>
 			</div>
-			<Spacer y={3} />
+			<Spacer y={4} />
+
 			<div>
 				<Acordeon className={"contAcordeonLt"} titulo={"Lista de trabajo pagas"}>
-					<div className="cont1AcordeonListaT">
-						<CardPerfil
-							className="card1ListaT">
-							<div className="contenedor1ListaT">
-								<div className="contIconoListaT" >
-									<div className="contIconoCheck" style={{ justifyContent: "center" }}>
-										<IconoCard
-											icon={"mage:dollar-fill"}
-											color={"#ffff"}
-										/>
-									</div >
-									<Texto1Card
-										texto={"Pagas"}
-										color={"#ffff"}
-										fontWeight={"400"}
-										className="contTexto1" />
-								</div>
-								<div className="cont2ListaT">
-									<div className="contTexto1">
-										<Texto1Card texto={"Nombre de la lista"} />
-										<Texto1Card
-											texto={"Codigo"}
-											fontWeight={"200"}
-										/>
+					{cargando ? (
+						<Loader />
+					) : (
+						<div>
+							{listaP && listaP.length > 0 ? (
+								listaP.map((lista) => (
+									<div className="cont1AcordeonListaT">
+										<CardPerfil className="card1ListaT">
+											<div className="contenedor1ListaT">
+												<div className="contIconoListaT" >
+													<div className="contIconoCheck" style={{ justifyContent: "center" }}>
+														<IconoCard
+															icon={"mage:dollar-fill"}
+															color={"#ffff"}
+														/>
+													</div >
+													<Texto1Card
+														texto={"Pagas"}
+														color={"#ffff"}
+														fontWeight={"400"}
+														className="contTexto1"
+													/>
+												</div>
+												<div className="cont2ListaT">
+													<div className="contTexto1">
+														<Texto1Card texto={lista.listName} />
+														<Texto1Card
+															texto={`Codigo: ${lista.idWorkList}`}
+															fontWeight={"200"}
+														/>
+													</div>
+													<div className="card2ListaT">
+														<div className="contTexto2">
+															<Texto2Card
+																texto2={`Pago total: 30.000`}
+																fontWeight={"200"}
+															/>
+														</div>
+														<div className="contIcono">
+														<Link to={`/detalle/Trabajo/${lista.idWorkList}`}>
+																<IconoCard
+																	icon={"akar-icons:arrow-right"}
+																	className="iconoFlecha"
+																/>
+															</Link>
+														</div>
+													</div>
+												</div>
+											</div>
+										</CardPerfil>
 									</div>
-									<div
-										className="card2ListaT">
-										<div className="contTexto2">
-											<Texto2Card
-												texto2={"Pago total: 30.000"}
-												fontWeight={"200"}
-											/>
-										</div>
-										<div className="contIcono">
-											<IconoCard
-												icon={"akar-icons:arrow-right"}
-												className="iconoFlecha"
-											/>
-										</div>
-									</div>
-								</div>
-							</div>
-						</CardPerfil>
-					</div>
+								))
+							) : (
+								<p>No hay listas de trabajos pagas disponibles.</p>
+							)}
+						</div>
+					)}
+					<Spacer y={4} />
 				</Acordeon>
 			</div>
-
+			<Spacer y={4} />
 			<Footer />
 		</div>
 	);

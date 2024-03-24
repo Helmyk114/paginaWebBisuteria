@@ -87,7 +87,7 @@ function CrearListaTrabajo() {
 		console.log(listaTrabajo);
 
 		try {
-			await añadirInformacionSinImagenAPI(listaTrabajo,'listaTrabajo')
+			await añadirInformacionSinImagenAPI(listaTrabajo, 'listaTrabajo')
 			notificacionConfirmar({ titulo: "Se ha creado una lista de trabajo!" });
 		} catch (error) {
 			console.error('Error al crear una lista de trabajo', error);
@@ -196,10 +196,10 @@ function CrearListaTrabajo() {
 					)}
 				</Acordeon>
 				<Spacer y={4} />
-			<Spacer y={4} />
-			<BotonComprar2 text={"Enviar Lista"}>
+				<Spacer y={4} />
+				<BotonComprar2 text={"Enviar Lista"}>
 					<Texto3 precio={`Total: 10000`} />
-			</BotonComprar2>
+				</BotonComprar2>
 			</form>
 			<Footer />
 		</div>
