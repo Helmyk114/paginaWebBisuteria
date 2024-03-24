@@ -65,14 +65,16 @@ function CrearListaTrabajo() {
 
 	let array = [];
 
-	informacionProductos.map((producto, index) => {
-		producto.data.map((pro) => {
+	informacionProductos.map((producto) => {
+		return producto.data.map((pro) => {
 			const productoInfo = {
-				index: index,
 				idOrder: pro.idOrder,
-				idProduct: pro.idProduct
+				idProduct: pro.idProduct,
+				quantity: "2",
+				subTotal: "30000"
 			};
 			array.push(productoInfo);
+			return null;
 		})
 	})
 
@@ -89,24 +91,22 @@ function CrearListaTrabajo() {
 		setSelectedIdCardWorker(option.idCardWorker);
 	};
 
-	const onSubmit = async (data) => {
+	const onSubmit = async () => {
 		const listaTrabajo = {
-			...data,
 			listName: 'Prueba',
 			total: '2000',
 			idCardWorker: selectedIdCardWorker,
 			idState: '1',
-			detalle: array
+			details: array
 		};
-		console.log(listaTrabajo);
 
-		// try {
-		// 	await añadirInformacionSinImagenAPI(listaTrabajo, 'listaTrabajo')
-		// 	notificacionConfirmar({ titulo: "Se ha creado una lista de trabajo!" });
-		// } catch (error) {
-		// 	console.error('Error al crear una lista de trabajo', error);
-		// 	notificacionError({ titulo: "No Se puede crear la lista de trabajo!" });
-		// }
+		try {
+			await añadirInformacionSinImagenAPI(listaTrabajo, 'listaTrabajo')
+			notificacionConfirmar({ titulo: "Se ha creado una lista de trabajo!" });
+		} catch (error) {
+			console.error('Error al crear una lista de trabajo', error);
+			notificacionError({ titulo: "No Se puede crear la lista de trabajo!" });
+		}
 	};
 
 	return (
