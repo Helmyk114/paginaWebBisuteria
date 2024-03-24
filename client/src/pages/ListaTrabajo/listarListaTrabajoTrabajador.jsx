@@ -36,7 +36,7 @@ function ListarListaTrabajoVendedor() {
 	}, [listaC, id])
 
 	return (
-		<div>
+		<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
 			<NavigateTRJ>
 				<Retroceder />
 				<Titulo espacio="center" titulo="Lista de trabajo" />
@@ -48,9 +48,11 @@ function ListarListaTrabajoVendedor() {
 				<div>
 					{listaC && listaC.length > 0 ? (
 						listaC.map((lista) => (
-							<div className="cont1ListaT" key={lista.idWorkList}>
+							<div className=".cont1ListaT" style={{ flex: "1"}} key={lista.idWorkList}>
 								<CardPerfil
-									className="card1ListaT">
+								
+					className1={"card1ListaT"}
+					className2={"cardListaTGap"}>
 									<div className="cont2ListaT">
 										<div className="contTexto1">
 											<Texto1Card texto={lista.listName} />
@@ -78,15 +80,15 @@ function ListarListaTrabajoVendedor() {
 										</div>
 									</div>
 								</CardPerfil>
-							</div>
-						))
+								</div>
+										))
 					) : (
 						<p>No hay listas de trabajo disponibles.</p>
 					)}
 				</div>
 			)}
 
-			<Spacer y={4} />
+				<Spacer y={4} />
 			<div>
 				<Acordeon className={"contAcordeonLt"} titulo={"Lista de trabajo terminadas "}>
 					<div className="cont1AcordeonListaT">
@@ -187,6 +189,7 @@ function ListarListaTrabajoVendedor() {
 					</div>
 				</Acordeon>
 			</div>
+
 			<Footer />
 		</div>
 	);
