@@ -67,6 +67,9 @@ margin: 0 auto;
     align-items: center;
     gap: 0 auto;
 }
+.cardCrearListaT{
+  margin: 0 auto;
+}
 
 @media only screen and (max-width: 768px) {
     .cont1ListaT, .cont1ListaTA{
@@ -123,13 +126,25 @@ margin: 0 auto;
         width: 95%;
         margin: 0 auto;
     }
+    .cardCrearListaTGap{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 }
 
 @media screen and (min-width: 1024px){
      /*crear Lista de trabajo*/
      .cardCrearListaT{
-        width: 60%;
+        width: 100%;
         margin: 0 auto;
+     }
+     .cardCrearListaTGap{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
      }
      .acordeonListaT, .botonCrearListaT{
         width: 80%;
@@ -219,5 +234,14 @@ margin: 0 auto;
         height: 100%;
     
     }
+    .cardCrearListaT{
+        width: 90%;
+   }
+   .cardCrearListaTGap{
+    width: 100%;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+   }
 
 }

@@ -75,18 +75,17 @@ function ListarPedidoAdministrador() {
 				<div>
 					{informacionC && informacionC.length > 0 ? (
 						informacionC.map((datos) => (
-							<div key={datos.idOrder} className="contCardListaP" style={{display:" flex", flexWrap:"wrap"}} >
+							<div key={datos.idOrder} className="contCardListaP" >
 								<CardPerfil
 									className1={"cont1ListaP"}
 									className2={"cont1ListaPGap"}
 									>
-									<div className="contCardListaP" >
 										<div className="contTexto1P" >
 											<Texto1Card
 												className={"text1ListaP"}
 												texto={`${datos.clientname}`} />
 										</div>
-									</div>
+							
 									<div className="cont2ListaP">
 										<div className="card2ListaP">
 											<div className="contText">
