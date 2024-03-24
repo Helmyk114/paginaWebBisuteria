@@ -22,7 +22,7 @@ import { notificacionConfirmar, notificacionError } from "../../utils/notificaci
 function CrearListaTrabajo() {
 	const { register, handleSubmit, formState: { errors } } = useForm();
 	const [informacionArtesano, setInformacionArtesano] = useState([]);
-	const [informacionProductos, setInformacionProductos] = useState({});
+	const [informacionProductos, setInformacionProductos] = useState([]);
 	const [cargando, setCargando] = useState(true);
 	const urlImage = process.env.REACT_APP_API_URL;
 	const location = useLocation();
@@ -63,6 +63,19 @@ function CrearListaTrabajo() {
 		dataProductos();
 	}, [idOrders]);
 
+	let array = [];
+
+	informacionProductos.map((producto, index) => {
+		producto.data.map((pro) => {
+			const productoInfo = {
+				index: index,
+				idOrder: pro.idOrder,
+				idProduct: pro.idProduct
+			};
+			array.push(productoInfo);
+		})
+	})
+
 	const handleDeletePedido = (index) => {
 		const updatedPedidos = [...pedidosSeleccionados];
 		updatedPedidos.splice(index, 1);
@@ -82,17 +95,18 @@ function CrearListaTrabajo() {
 			listName: 'Prueba',
 			total: '2000',
 			idCardWorker: selectedIdCardWorker,
-			idState: '1'
+			idState: '1',
+			detalle: array
 		};
 		console.log(listaTrabajo);
 
-		try {
-			await añadirInformacionSinImagenAPI(listaTrabajo,'listaTrabajo')
-			notificacionConfirmar({ titulo: "Se ha creado una lista de trabajo!" });
-		} catch (error) {
-			console.error('Error al crear una lista de trabajo', error);
-			notificacionError({ titulo: "No Se puede crear la lista de trabajo!" });
-		}
+		// try {
+		// 	await añadirInformacionSinImagenAPI(listaTrabajo, 'listaTrabajo')
+		// 	notificacionConfirmar({ titulo: "Se ha creado una lista de trabajo!" });
+		// } catch (error) {
+		// 	console.error('Error al crear una lista de trabajo', error);
+		// 	notificacionError({ titulo: "No Se puede crear la lista de trabajo!" });
+		// }
 	};
 
 	return (
@@ -165,6 +179,7 @@ function CrearListaTrabajo() {
 							{informacionProductos && informacionProductos.length > 0 ? (
 								informacionProductos.map((datos, index) => (
 									<div key={index}>
+										<p>`${index}`</p>
 										{datos.data.map((productos) => (
 											<div key={productos.nameProduct}>
 												<CardPerfil
@@ -198,10 +213,10 @@ function CrearListaTrabajo() {
 					)}
 				</Acordeon>
 				<Spacer y={4} />
-			<Spacer y={4} />
-			<BotonComprar2 text={"Enviar Lista"}>
+				<Spacer y={4} />
+				<BotonComprar2 text={"Enviar Lista"}>
 					<Texto3 precio={`Total: 10000`} />
-			</BotonComprar2>
+				</BotonComprar2>
 			</form>
 			<Footer />
 		</div>

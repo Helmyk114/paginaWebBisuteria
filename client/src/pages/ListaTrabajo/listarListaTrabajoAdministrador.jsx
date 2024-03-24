@@ -53,7 +53,7 @@ function ListarListaTrabajoAdministrador() {
 										<div
 											className="card2ListaT">
 											<div className="contTexto2">
-												<Texto2Card texto2={`Nombre trabajador: ${datos.workerName} ${datos.workerLastName}`} />
+												<Texto2Card texto2={`Artesano: ${datos.workerName} ${datos.workerLastName}`} />
 											</div>
 											<div className="contIcono">
 												<IconoCard
