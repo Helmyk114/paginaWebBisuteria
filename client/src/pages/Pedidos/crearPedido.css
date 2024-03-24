@@ -1,8 +1,17 @@
 /* estilos de la tarjeta  */
-.cont1ListaP{
-  
-  margin-bottom: 10px;
-  gap: 9px;
+
+.cont1ListaPV{
+  margin: 10px;
+}
+
+.card1ListaPV{
+  margin: 0 auto;
+max-width: 35%;
+}
+.card1ListaPVGap{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .card1ListaP {
@@ -51,13 +60,6 @@
   margin: 0 auto;
 }
 
-.contCardListaP {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  
-  
-}
 
 /* styles.css */
 
@@ -98,6 +100,15 @@
   }
   .text1ListaP{
     font-size: 20px;
+  }
+  .card1ListaPV{
+    margin: 0 auto;
+    max-width: 95%;
+  }
+  .card1ListaPVGap{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 }
 
@@ -140,15 +151,13 @@
     flex-direction: row;
     justify-content: space-between;
   }
-  .acordeonCrearP{
+  .acordeonCrearP, .acordeonListaPV{
     width: 60%;
     margin: 0 auto;
      
   }
   .cont1ListaP{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
+    width: 95%;
   }
   .tex1ListaP{
     display: flex;
@@ -168,16 +177,11 @@
     width: 30px;
     
   }
-  .contIconoP {
-    display: flex;
-    justify-content: space-between;
-    margin: 8px;
-    align-items: center;
-  }
+ 
   .contTexto1P {
     width: 100%;
     margin-bottom: 5px;
-    size: 30px;
+    size: 20px;
     display: flex;
     justify-content: flex-start;
   }
@@ -233,11 +237,10 @@
     flex-direction: row;
   }
   .cont1ListaP{
-    display: flex;
     
-    width: 30%;
+    width: 55%;
     margin: 0 auto;
-    gap: 20px;
+  
   }
   .text1ListaP{
     font-size: 25px;
@@ -249,11 +252,21 @@
     display: flex;
     justify-content: flex-start;
   }
-  .contCardListaP{
-    display: flex;
-    flex-wrap: wrap;
-    
+
+  .card1ListaPV{
+    margin: 0 auto;
+    max-width: 55%;
   }
+  .card1ListaPVGap{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .acordeonListaPV{
+    width: 60%;
+    margin: 0 auto;
+  }
+ 
 }
 
 

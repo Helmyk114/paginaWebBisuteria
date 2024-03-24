@@ -75,7 +75,8 @@ function ListarPedidoAdministrador() {
 				<div>
 					{informacionC && informacionC.length > 0 ? (
 						informacionC.map((datos) => (
-							<div key={datos.idOrder} className="contCardListaP" >
+							<div key={datos.idOrder} >
+		
 								<CardPerfil
 									className1={"cont1ListaP"}
 									className2={"cont1ListaPGap"}
@@ -106,6 +107,7 @@ function ListarPedidoAdministrador() {
 									</div>
 								</CardPerfil>
 								<Spacer y={4} />
+								
 							</div>
 						))
 					) : (
