@@ -1,3 +1,66 @@
+/* estilos de la tarjeta  */
+
+.cont1ListaPV{
+  margin: 10px;
+}
+
+.card1ListaPV{
+  margin: 0 auto;
+max-width: 35%;
+}
+.card1ListaPVGap{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.card1ListaP {
+  position: absolute;
+}
+
+.cont2ListaP {
+  display: flex;
+  flex-direction: column;
+}
+
+.contTexto1P {
+  width: 100%;
+  margin-bottom: 5px;
+  size: 30px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+.card2ListaP {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  background-color: #eeee;
+  border-radius: 8px;
+}
+
+.contTexto2P {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 10px;
+  font-size: 10px;
+}
+
+.contIconoP {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px;
+  align-items: center;
+}
+.cont1ListaPGap{
+  width: 100%;
+  margin: 0 auto;
+}
+
+
 /* styles.css */
 
 @media screen and (max-width: 767px) {
@@ -37,6 +100,15 @@
   }
   .text1ListaP{
     font-size: 20px;
+  }
+  .card1ListaPV{
+    margin: 0 auto;
+    max-width: 95%;
+  }
+  .card1ListaPVGap{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 }
 
@@ -79,15 +151,13 @@
     flex-direction: row;
     justify-content: space-between;
   }
-  .acordeonCrearP{
+  .acordeonCrearP, .acordeonListaPV{
     width: 60%;
     margin: 0 auto;
      
   }
   .cont1ListaP{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
+    width: 95%;
   }
   .tex1ListaP{
     display: flex;
@@ -107,16 +177,11 @@
     width: 30px;
     
   }
-  .contIconoP {
-    display: flex;
-    justify-content: space-between;
-    margin: 8px;
-    align-items: center;
-  }
+ 
   .contTexto1P {
     width: 100%;
     margin-bottom: 5px;
-    size: 30px;
+    size: 20px;
     display: flex;
     justify-content: flex-start;
   }
@@ -172,10 +237,10 @@
     flex-direction: row;
   }
   .cont1ListaP{
-    display: flex;
-    flex-wrap: wrap;
-    width: 30%;
+    
+    width: 55%;
     margin: 0 auto;
+  
   }
   .text1ListaP{
     font-size: 25px;
@@ -187,68 +252,21 @@
     display: flex;
     justify-content: flex-start;
   }
-  .contCardListaP{
-    display: flex;
-    flex-wrap: wrap;
-    
+
+  .card1ListaPV{
+    margin: 0 auto;
+    max-width: 55%;
   }
+  .card1ListaPVGap{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .acordeonListaPV{
+    width: 60%;
+    margin: 0 auto;
+  }
+ 
 }
 
 
-/* estilos de la tarjeta  */
-.cont1ListaP{
-  
-  margin-bottom: 10px;
-}
-
-.card1ListaP {
-  position: absolute;
-}
-
-.cont2ListaP {
-  display: flex;
-  flex-direction: column;
-}
-
-.contTexto1P {
-  width: 100%;
-  margin-bottom: 5px;
-  size: 30px;
-  display: flex;
-  justify-content: flex-start;
-}
-
-
-.card2ListaP {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  position: relative;
-  background-color: #eeee;
-  border-radius: 8px;
-}
-
-.contTexto2P {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin: 10px;
-  font-size: 10px;
-}
-
-.contIconoP {
-  display: flex;
-  justify-content: space-between;
-  margin: 8px;
-  align-items: center;
-}
-.cont1ListaPGap{
-  width: 100%;
-  margin: 0 auto;
-}
-
-.contCardListaP {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
-}

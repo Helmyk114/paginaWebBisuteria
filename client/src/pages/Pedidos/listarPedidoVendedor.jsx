@@ -68,15 +68,15 @@ function ListarPedidoVendedor() {
 					{informacionC && informacionC.length > 0 ? (
 						informacionC.map((datos) => (
 							<div key={datos.idOrder}>
+								<div style={{}}>
 								<CardPerfil
-									className="card1ListaP"
-									width={"280px"}
-									height={"198px"}
-									display={"block"}>
-									<div className="cont1ListaP">
+									className1={"card1ListaPV"}
+									className2={"card1ListaPVGap"}>
+									<div className="cont1ListaPV">
 										<div className="contTexto1P">
 											<Texto1Card
-												texto={`${datos.clientname}`} />
+												texto={`${datos.clientname}`}
+												fontSize={"20px"} />
 										</div>
 									</div>
 									<div className="cont2ListaP">
@@ -106,7 +106,9 @@ function ListarPedidoVendedor() {
 										</div>
 									</div>
 								</CardPerfil>
+
 								<Spacer y={4} />
+								</div>
 							</div>
 						))
 					) : (
@@ -115,7 +117,7 @@ function ListarPedidoVendedor() {
 				</div>
 			)}
 			<Spacer y={4} />
-			<Acordeon titulo={"Pedidos en proceso"}>
+			<Acordeon className={"acordeonListaPV"} titulo={"Pedidos en proceso"}>
 				{cargando ? (
 					<Loader />
 				) : (
@@ -124,10 +126,8 @@ function ListarPedidoVendedor() {
 							informacionP.map((datos) => (
 								<div key={datos.idOrder}>
 									<CardPerfil
-										className="card1ListaP"
-										width={"280px"}
-										height={"198px"}
-										T display={"block"}>
+										className1={"card1ListaPV"}
+										className2={"card1ListaPVGap"}>
 										<div className="cont1ListaP">
 											<div className="contTexto1P">
 												<Texto1Card
@@ -159,7 +159,7 @@ function ListarPedidoVendedor() {
 				)}
 			</Acordeon>
 			<Spacer y={4} />
-			<Acordeon titulo={"Pedidos terminados"}>
+			<Acordeon  className={"acordeonListaPV"} titulo={"Pedidos terminados"}>
 				{cargando ? (
 					<Loader />
 				) : (
@@ -168,10 +168,8 @@ function ListarPedidoVendedor() {
 							informacionT.map((datos) => (
 								<div key={datos.idOrder}>
 									<CardPerfil
-										className="card1ListaP"
-										width={"280px"}
-										height={"198px"}
-										display={"block"}>
+										className1={"card1ListaPV"}
+										className2={"card1ListaPVGap"}>
 										<div className="cont1ListaP">
 											<div className="contTexto1P">
 												<Texto1Card

@@ -184,10 +184,12 @@ function CrearListaTrabajo() {
 											<div key={productos.nameProduct}>
 												<CardPerfil
 													className1={"cardCrearListaT"}
-													className2={"cardCrearPedidoGap"}
-													key={productos.idOrder}
-												>
-													<Avatares src={`${urlImage}/${productos.image}`} alt={"imagen"} radio={"full"} />
+													className2={"cardCrearListaTGap"}
+													key={productos.idOrder}>
+												     <div>
+													 <Avatares src={`${urlImage}/${productos.image}`} alt={"imagen"} radio={"full"} />
+													 </div>
+								
 													<Texto1Card texto={productos.nameProduct} />
 													<div style={{ display: "flex", justifyContent: "center" }}></div>
 													<div className="cont2CrP">
