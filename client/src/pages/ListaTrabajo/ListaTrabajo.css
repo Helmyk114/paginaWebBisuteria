@@ -9,11 +9,19 @@
 
 .cont1ListaT{
     display: flex;
+    flex-wrap: wrap;
     height: 100%;
-    gap:"10px"
+    justify-content: space-between;
+    gap: 5px;
+    
+}
+.card1ListaT{
+    flex: 1 1 30%;
+    max-width: 30%;
+    min-width: 250px;
+    margin: 10px; 
 
 }
-
 .card1ListaTA{
     width: 30%;
     margin: 0 auto;  
@@ -78,6 +86,15 @@
 .cardCrearListaT{
   margin: 0 auto;
 }
+.contIconoListaT{
+        background-color: #6977E4 ;
+        border-radius:10px;
+        margin-right: 10px;
+        width:60%; 
+        display:column;
+        padding:30px;
+}
+
 
 @media only screen and (max-width: 768px) {
     .cont1ListaT, .cont1ListaTA{
@@ -86,6 +103,9 @@
         margin: 0 auto;
 
     }
+    .codListaTtrabajador{
+        font-size: 10px;
+     }
     .contIconoListaT, .contIconoListaTA{
         background-color: #6977E4 ;
         border-radius:10px;
@@ -146,6 +166,12 @@
      .cardCrearListaT{
         width: 100%;
         margin: 0 auto;
+     }
+     .card1ListaT {
+        flex-basis: 48%; 
+      }
+     .codListaTtrabajador{
+        font-size: 14px;
      }
      .cardCrearListaTGap{
         width: 100%;
@@ -208,6 +234,9 @@
     .contenedor1ListaT{
         display: flex;
     }
+    .codListaTtrabajador{
+        font-size: 14px;
+     }
     .contIconoListaTA{
         background-color: #6977E4 ;
         border-radius:10px;

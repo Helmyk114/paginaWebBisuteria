@@ -48,7 +48,7 @@ function ListarListaTrabajoVendedor() {
 			{cargando ? (
 				<Loader />
 			) : (
-				<div style={{display:"flex", flexWrap:"wrap"}}>
+				<div style={{display:"flex", flexWrap:"wrap", gap:"5px"}}>
 					{listaC && listaC.length > 0 ? (
 						listaC.map((lista) => (
 							<div className=".cont1ListaT" style={{ flex: "1" }} key={lista.idWorkList}>
@@ -61,6 +61,7 @@ function ListarListaTrabajoVendedor() {
 											<Texto1Card
 												texto={`Codigo: ${lista.idWorkList}`}
 												fontWeight={"200"}
+												className={"codListaTtrabajador"}
 											/>
 										</div>
 										<div className="card2ListaT">
@@ -94,13 +95,13 @@ function ListarListaTrabajoVendedor() {
 					{cargando ? (
 						<Loader />
 					) : (
-						<div>
+						<div style={{display:"flex", flexWrap:"wrap", gap:"5px"}}>
 							{listaT && listaT.length > 0 ? (
 								listaT.map((lista) => (
 									<div className="cont1AcordeonListaT" key={lista.idWorkList}>
 										<CardPerfil className="card1ListaT">
 											<div className="contenedor1ListaT">
-												<div className="contIconoListaT" >
+												<div className="contIconoListaT " >
 													<div className="contIconoCheck" style={{ justifyContent: "center" }}>
 														<IconoCard
 															icon={"icon-park-solid:check-one"}
