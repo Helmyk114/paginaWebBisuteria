@@ -43,8 +43,8 @@ function DetalleTrabajo() {
 			) : (
 				<div>
 					{informacion && informacion.length > 0 ? (
-						informacion.map((detalle) => (
-							<div style={{ flex: '1' }}>
+						informacion.map((detalle, index ) => (
+							<div style={{ flex: '1' }} key={index}>
 								<CardPerfil
 									className1={"cardListaPro"}
 									className2={"cardListaProGap"}>
