@@ -109,7 +109,7 @@ function CrearListaTrabajo() {
   };
   
 
-	const onSubmit = async (data) => {
+	const onSubmit = async () => {
 		console.log("Formulario enviado");
 		const listaTrabajo = {
 			listName: 'Prueba',
@@ -209,7 +209,7 @@ function CrearListaTrabajo() {
             <Texto1Card texto={productos.nameProduct} />
             <div style={{ display: "flex", justifyContent: "center" }}></div>
             <div className="cont2CrP">
-              <Texto2Card texto2={`Cantidad disponible: ${productos.quantity}`} />
+              <Texto2Card texto2={`Cantidad disponible: ${productos.maxQuantity}`} />
               {/* Verificar si laborPrices[productIndex] está definido */}
               {laborPrices[productIndex] !== undefined && laborPrices[productIndex] > 0 && (
                 <Texto2Card texto2={`Precio labor: ${laborPrices[productIndex]}`} />
@@ -217,7 +217,7 @@ function CrearListaTrabajo() {
             </div>
             <div>
               <BotonCantidad
-                maxCantidad={productos.quantity}
+                maxCantidad={productos.maxQuantity}
                 laborPrice={productos.laborPrice}
                 onCantidadChange={(newCantidad) => handleCantidadChange(productIndex, newCantidad)}
               />
