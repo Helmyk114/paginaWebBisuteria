@@ -39,12 +39,13 @@ function ListarListaTrabajoAdministrador() {
 			{cargando ? (
 				<Loader />
 			) : (
-				<div style={{ flex:"1",  marginLeft: "20px", marginRight: "20px" }}>
+				<div style={{ display:"flex", flex:"1", flexWrap:"wrap",  marginLeft: "20px", marginRight: "20px" }}>
 					{informacionLista && informacionLista.length > 0 ? (
 						informacionLista.map((datos) => (
 							<div className="cont1ListaT" key={datos.idWorkList}>
 								<CardPerfil
-									className1="card1ListaT">
+									className1={"card1ListaT"}
+                  className2={"card1ListaTGap"}>
 									<div className="cont2ListaT">
 										<div className="contTexto1">
 											<Texto1Card texto={datos.listName} />
@@ -57,12 +58,13 @@ function ListarListaTrabajoAdministrador() {
 											</div>
 											<div className="contIcono">
 												<IconoCard
+                         
 													icon={"akar-icons:edit"}
 													width={"28px"}
 													height={"28px"} />
-											</div>
-											<div className="contIcono">
-												<IconoCard
+                          <Spacer y={5} />
+                          <IconoCard
+                         
 													icon={"bi:check-circle-fill"}
 													width={"25px"}
 													height={"25px"} />
@@ -85,11 +87,12 @@ function ListarListaTrabajoAdministrador() {
               <div className="cont1AcordeonListaT">
 
                 <CardPerfil
-                  className="card1ListaT">
+                  className1={"cardListaTerminadaTA"}
+                  className2={"cardListaTerminadaTAGap"}>
                   <div className="contenedor1ListaT">
 
 
-                    <div className="contIconoListaT" >
+                    <div className="contIconoListaTA" >
                       <div className="contIconoCheck" style={{ justifyContent: "center" }}>
 
                         <IconoCard
@@ -103,13 +106,11 @@ function ListarListaTrabajoAdministrador() {
                         texto={"Finalizdo"}
                         color={"#ffff"}
                         fontWeight={"400"}
-                        className="contTexto1" />
+                        className="contTexto1A" />
                     </div>
 
-                    <div className="cont2ListaT">
-
-
-                      <div className="contTexto1">
+                    <div className="cont2ListaTA">
+                      <div className="contTexto1A">
                         <Texto1Card
                           texto={"Nombre de la lista"}
                         />
@@ -121,15 +122,15 @@ function ListarListaTrabajoAdministrador() {
                       </div>
 
                       <div
-                        className="card2ListaT">
+                        className="card2ListaTA">
 
-                        <div className="contTexto2">
+                        <div className="contTexto2A">
                           <Texto2Card
                             texto2={"Pago total: 30.000"}
                             fontWeight={"200"}
                           />
                         </div>
-                        <div className="contIcono">
+                        <div className="contIconoA">
 
                           <IconoCard
                             icon={"akar-icons:arrow-right"}

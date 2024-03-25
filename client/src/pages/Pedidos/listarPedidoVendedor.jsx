@@ -64,7 +64,7 @@ function ListarPedidoVendedor() {
 			{cargando ? (
 				<Loader />
 			) : (
-				<div>
+				<div style={{display:"flex", flexWrap:"wrap", justifyContent:"center", gap:"10px"}}>
 					{informacionC && informacionC.length > 0 ? (
 						informacionC.map((datos) => (
 							<div key={datos.idOrder}>
