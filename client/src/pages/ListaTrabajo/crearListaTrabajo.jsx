@@ -13,15 +13,16 @@ import DeleteIcon from "../../components/UI/iconos/Eliminar";
 import Loader from "../../components/UI/cargando/loader";
 import Footer from "../../components/UI/Footer/Footer";
 
-import { listarInformacionApi, listarInformacionConParametroApi } from "../../api/axiosServices";
+import { añadirInformacionSinImagenAPI, listarInformacionApi, listarInformacionConParametroApi } from "../../api/axiosServices";
 import BotonCantidad from "../../components/UI/botones/botonCantidad/botonCantidadSimple";
 import BotonComprar2 from "../../components/UI/botones/botonCompraPedido";
 import Texto3 from "../../components/UI/botones/total";
+import { notificacionConfirmar, notificacionError } from "../../utils/notificacionCliente";
 
 function CrearListaTrabajo() {
 	const { register, handleSubmit, formState: { errors } } = useForm();
 	const [informacionArtesano, setInformacionArtesano] = useState([]);
-	const [informacionProductos, setInformacionProductos] = useState({});
+	const [informacionProductos, setInformacionProductos] = useState([]);
 	const [cargando, setCargando] = useState(true);
 	const urlImage = process.env.REACT_APP_API_URL;
 	const location = useLocation();
@@ -62,6 +63,21 @@ function CrearListaTrabajo() {
 		dataProductos();
 	}, [idOrders]);
 
+	let array = [];
+
+	informacionProductos.map((producto) => {
+		return producto.data.map((pro) => {
+			const productoInfo = {
+				idOrder: pro.idOrder,
+				idProduct: pro.idProduct,
+				quantity: "2",
+				subTotal: "30000"
+			};
+			array.push(productoInfo);
+			return null;
+		})
+	})
+
 	const handleDeletePedido = (index) => {
 		const updatedPedidos = [...pedidosSeleccionados];
 		updatedPedidos.splice(index, 1);
@@ -96,10 +112,20 @@ function CrearListaTrabajo() {
 	const onSubmit = async (data) => {
 		console.log("Formulario enviado");
 		const listaTrabajo = {
-			...data,
+			listName: 'Prueba',
+			total: '2000',
 			idCardWorker: selectedIdCardWorker,
+			idState: '1',
+			details: array
 		};
-		console.log(listaTrabajo)
+
+		try {
+			await añadirInformacionSinImagenAPI(listaTrabajo, 'listaTrabajo')
+			notificacionConfirmar({ titulo: "Se ha creado una lista de trabajo!" });
+		} catch (error) {
+			console.error('Error al crear una lista de trabajo', error);
+			notificacionError({ titulo: "No Se puede crear la lista de trabajo!" });
+		}
 	};
 
 	return (
@@ -210,11 +236,11 @@ function CrearListaTrabajo() {
 </Acordeon>
 
 				<Spacer y={4} />
-			</form>
-			<Spacer y={4} />
-			<BotonComprar2 text={"Enviar Lista"}>
+				<Spacer y={4} />
+				<BotonComprar2 text={"Enviar Lista"}>
 					<Texto3 precio={`Total: 10000`} />
-			</BotonComprar2>
+				</BotonComprar2>
+			</form>
 			<Footer />
 		</div>
 	);

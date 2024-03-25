@@ -11,6 +11,7 @@ import ListarListaTrabajoAdministrador from "../pages/ListaTrabajo/listarListaTr
 import ListarListaTrabajoTrabajador from "../pages/ListaTrabajo/listarListaTrabajoTrabajador";
 import CrearListaTrabajo from "../pages/ListaTrabajo/crearListaTrabajo";
 import ActualizarListaTrabajo from "../pages/ListaTrabajo/actualizarListaTrabajo";
+import DetalleTrabajo from "../pages/ListaTrabajo/detalleListaTrabajoTrabajador";
 
 import ListarPedidoAdministrador from "../pages/Pedidos/listarPedidoAdministrador";
 import ListarPedidoVendedor from "../pages/Pedidos/listarPedidoVendedor";
@@ -70,6 +71,8 @@ const AppRouter = () => {
         <Route path="/listaTrabajo/Trabajador" element={<ListarListaTrabajoTrabajador />} />
         <Route path="/crear/listaTrabajo" element={<CrearListaTrabajo />} />
         <Route path="/editar/listaTrabajo"element={<ActualizarListaTrabajo />} />
+        <Route path="/detalle/Trabajo/:idWorkList"element={<DetalleTrabajo/>} />
+
 
         <Route path="/unauthorized" element={<Unauthorized />} />
       </Routes>

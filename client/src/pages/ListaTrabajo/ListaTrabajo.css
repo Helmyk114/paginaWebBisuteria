@@ -1,47 +1,64 @@
 /* estilos de la tarjeta  */
-.cont1ListaT{
+
+.cont1ListaTA{
     display: flex;
-    margin-bottom: 30px;
-    gap: 20px;
     flex-wrap: wrap;
-    justify-content: center;
-    
-    
+    gap: 9px;
+    margin: 0 auto;
 }
 
-.card1ListaT{
-position: relative;
+.cont1ListaT{
+    display: flex;
+    height: 100%;
+    gap:"10px"
 
-z-index: 0;
+}
+
+.card1ListaTA{
+    width: 30%;
+    margin: 0 auto;  
 }
 .cont2ListaT{
     display: flex;
     flex-direction: column;
-    
-
 }
+
 .contTexto1{
-    margin-bottom: 55px;
+    margin-bottom: 15px;
+}
+.card2ListaTA{
+    display: flex;
+    height: 10%;
 }
 .card2ListaT{
     display: flex;
     justify-content: space-between;
-    width: 214px;
-    height: 65px;
+    width: 100%;
+    height: 50px;
     position: relative;
     background-color: #eeee;
     border-radius: 8px;
     gap: 2px;
 
 }
+.card2ListaTA{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #eeee;
+    border-radius: 8px;
+    gap: 2px;
+}
 
 .contTexto2{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin: 10px;
-    font-size: 10px;
-    
+    font-size: 10px;    
 
 }
 .contIcono{
@@ -51,39 +68,91 @@ z-index: 0;
     align-items: center;
     gap: 0 auto;
 }
+.contIconoCheck{
+    justify-content: center;
+    display: flex;
+    margin: 8px;
+    align-items: center;
+    gap: 0 auto;
+}
+.cardCrearListaT{
+  margin: 0 auto;
+}
 
+@media only screen and (max-width: 768px) {
+    .cont1ListaT, .cont1ListaTA{
+        display: grid;
+        flex-wrap: wrap;
+        margin: 0 auto;
 
-@media screen and (max-width: 767px){
-    /*crear Lista de trabajo*/
+    }
+    .contIconoListaT, .contIconoListaTA{
+        background-color: #6977E4 ;
+        border-radius:10px;
+        margin-right: 10px;
+        width:40%; 
+        display:column;
+        padding:20px;
+    }
     .cardCrearListaT{
         width: 90%;
         margin: 0 auto;
     }
-
-    .cont1ListaT{
+    .contenedor1ListaT{
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 0 auto;
-
     }
-
-}
-@media only screen and (max-width: 768px) {
-    .cont1ListaT{
+    .card2ListaT{
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 0 auto;
-
+        justify-content: space-between;
+        width: 98%;
+        height: 100%;
+        position: relative;
+        background-color: #eeee;
+        border-radius: 8px;
+        gap: 2px;
     }
+    .card2ListaTA{
+        width: 98%;
+    
+    }
+    .card1ListaTAGap, .cardListaTGap{
+        width: 100%;
+    }
+    .contTexto1{
+        font-size: 15px ;
+    }
+    .cont1AcordeonListaT, .contAcordeonListaTA{
+        display: flex;
+        flex-direction: column;
+        gap:8px;
+        width: 98%; 
+    }
+    .cont1AcordeonListaTA {
+        width: 100%;
+    }
+    .card1ListaT{
+        width: 95%;
+        margin: 0 auto;
+    }
+    .cardCrearListaTGap{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 }
 
 @media screen and (min-width: 1024px){
      /*crear Lista de trabajo*/
      .cardCrearListaT{
-        width: 60%;
+        width: 100%;
         margin: 0 auto;
+     }
+     .cardCrearListaTGap{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
      }
      .acordeonListaT, .botonCrearListaT{
         width: 80%;
@@ -96,15 +165,90 @@ z-index: 0;
 
     .cont1ListaT{
         display: flex;
+        height: 100%;
+        gap:"10px"
+    }
+    
+    .contenedor1ListaT{
+        display: flex;
+    }
+     .contIconoListaTA{
+        background-color: #6977E4 ;
+        border-radius:10px;
+        margin-right: 10px;
+        width:60%; 
+        display:column;
+        padding:30px;
+    }
+    .contTexto1{
+        font-size: 20px ;
+    }
+    .contTexto1A{
+        font-size: 16px ;
+    }
+    .iconoFlecha{
+        width: 5px;
+       
+    }
+    .contAcordeonLt, .cont1AcordeonListaTA {
+        width: 75%;
+    }
+    .cont1AcordeonListaT, .contAcordeonListaTA{
+        display: flex;
         flex-wrap: wrap;
         margin: 0 auto;
-        justify-content: center;
-        
+        gap:8px
+    }
+    
+   
+ }
 
+ @media screen and (min-width: 768px),
+(max-width:1023){
+    .contenedor1ListaT{
+        display: flex;
     }
-    .contIconoListaT{
-        width: 20%;
+    .contIconoListaTA{
         background-color: #6977E4 ;
+        border-radius:10px;
+        margin-right: 10px;
+        width:40%; 
+        display:column;
+        padding:20px;
     }
-     
+    .contTexto1{
+        font-size: 17px ;
     }
+    .cont1AcordeonListaT, .contAcordeonListaTA{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        gap:8px;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    .contAcordeonLt, .cont1AcordeonListaTA {
+        width: 85%;
+        margin: 0 auto;
+    }
+    .cont1ListaT{
+        height: 100%;
+        gap:"10px"
+    }
+
+    .card2ListaTA{
+        width: 296px;
+        height: 100%;
+    
+    }
+    .cardCrearListaT{
+        width: 90%;
+   }
+   .cardCrearListaTGap{
+    width: 100%;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+   }
+
+}

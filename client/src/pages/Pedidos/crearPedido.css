@@ -1,187 +1,16 @@
-/* styles.css */
-
-@media screen and (max-width: 767px) {
-  .cont1CrP {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-  }
-
-  .cont2CrP {
-    flex-direction: row;
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    align-items: flex-end;
-    gap: 10px;
-  }
-
-  .cardCrearPedido {
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .cardCrearPedidoGap {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .cont1ListaP{
-    width: 90%;
-    margin: 0 auto;
-  }
-  .text1ListaP{
-    font-size: 20px;
-  }
-}
-
-
-@media screen and (min-width: 1024px) {
-  .cont1CrP {
-    width: 70%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: "13px";
-    justify-content: space-between;
-  }
-
-  .cont2CrP {
-
-    display: flex;
-    justify-content: flex-end;
-    width: 30%;
-    align-items: center;
-    gap: 13px;
-    align-items: center;
-  }
-
-  .cardCrearPedido {
-    width: 60%;
-    margin: 0 auto;
-  }
-
-  .cardCrearPedidoGap {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-  }
-
-  .cardCrearPedidoDiv {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .acordeonCrearP{
-    width: 60%;
-        margin: 0 auto;
-     
-  }
-  .cont1ListaP{
-    width: 60%;
-    margin: 0 auto;
-  }
-  .tex1ListaP{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    text-align: left;
-    font-size: 30px;
-  }
-  .cont2ListaP{
-    width: 100%;
-  }
-  .cont1ListaPGap{
-    width: 100%;
-    margin: 0 auto;
-  }
-  .iconoListarP{
-    width: 30px;
-    
-  }
-  .contIconoP {
-    display: flex;
-    justify-content: space-between;
-    margin: 8px;
-    align-items: center;
-  }
-  .contTexto1P {
-    width: 100%;
-    margin-bottom: 5px;
-    size: 30px;
-    display: flex;
-    justify-content: flex-start;
-  }
-  
-}
-
-
-@media screen and (min-width: 768px),
-(max-width:1023) {
-  .cont1CrP {
-    width: 70%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: "13px";
-    justify-content: space-around;
-  }
-
-  .cont2CrP {
-    display: flex;
-    justify-content: flex-end;
-    width: 30%;
-    align-items: center;
-    gap: 13px;
-    align-items: center;
-  }
-
-  .cardCrearPedido {
-    width: 90%;
-    margin: 0 auto;
-  }
-
-  .cardCrearPedidoGap {
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: "";
-    flex-direction: row;
-  }
-
-  .cardCrearPedidoDiv {
-    display: flex;
-    flex-direction: row;
-  }
-  .cont1ListaP{
-    width: 60%;
-    margin: 0 auto;
-  }
-  .text1ListaP{
-    font-size: 25px;
-  }
-  .contTexto1P {
-    width: 100%;
-    margin-bottom: 5px;
-    size: 30px;
-    display: flex;
-    justify-content: flex-start;
-  }
-  
-}
-
-
 /* estilos de la tarjeta  */
-.cont1ListaP {
-  margin-bottom: 30px;
+
+.cont1ListaPV{
+  margin: 10px;
+}
+
+.card1ListaPV{
+
+}
+.card1ListaPVGap{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .card1ListaP {
@@ -229,3 +58,203 @@
   width: 100%;
   margin: 0 auto;
 }
+.cont1ListaP{
+  display: flex;
+ gap: 2px;
+}
+
+
+/* styles.css */
+
+@media screen and (max-width: 767px) {
+  .cont1CrP {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .cont2CrP {
+    flex-direction: row;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    align-items: flex-end;
+    gap: 10px;
+  }
+
+  .cardCrearPedido {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cardCrearPedidoGap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .text1ListaP{
+    font-size: 20px;
+  }
+  .card1ListaPV{
+   
+  }
+  .card1ListaPVGap{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+
+@media screen and (min-width: 1024px) {
+  .cont1CrP {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: "13px";
+    justify-content: space-between;
+  }
+
+  .cont2CrP {
+
+    display: flex;
+    justify-content: flex-end;
+    width: 30%;
+    align-items: center;
+    gap: 13px;
+    align-items: center;
+  }
+
+  .cardCrearPedido {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .cardCrearPedidoGap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .cardCrearPedidoDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .acordeonCrearP, .acordeonListaPV{
+    width: 60%;
+    margin: 0 auto;
+     
+  }
+  
+  .tex1ListaP{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    font-size: 30px;
+  }
+  .cont2ListaP{
+    width: 100%;
+  }
+  .cont1ListaPGap{
+    width: 100%;
+    margin: 0 auto;
+  }
+  .iconoListarP{
+    width: 30px;
+    
+  }
+ 
+  .contTexto1P {
+    width: 100%;
+    margin-bottom: 5px;
+    size: 20px;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .acordeonListaP{
+    width: 62%;
+    margin: 0 auto;
+  }
+  .contCardListaP{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+}
+
+
+@media screen and (min-width: 768px),
+(max-width:1023) {
+  .cont1CrP {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: "13px";
+    justify-content: space-around;
+  }
+
+  .cont2CrP {
+    display: flex;
+    justify-content: flex-end;
+    width: 30%;
+    align-items: center;
+    gap: 13px;
+    align-items: center;
+  }
+
+  .cardCrearPedido {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .cardCrearPedidoGap {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: "";
+    flex-direction: row;
+  }
+
+  .cardCrearPedidoDiv {
+    display: flex;
+    flex-direction: row;
+  }
+ 
+  .text1ListaP{
+    font-size: 25px;
+  }
+  .contTexto1P {
+    width: 100%;
+    margin-bottom: 5px;
+    size: 30px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .card1ListaPVGap{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .acordeonListaPV{
+    width: 60%;
+    margin: 0 auto;
+  }
+ 
+}
+
+
