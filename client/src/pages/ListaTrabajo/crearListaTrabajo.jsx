@@ -18,6 +18,7 @@ import BotonCantidad from "../../components/UI/botones/botonCantidad/botonCantid
 import BotonComprar2 from "../../components/UI/botones/botonCompraPedido";
 import Texto3 from "../../components/UI/botones/total";
 import { notificacionConfirmar, notificacionError } from "../../utils/notificacionCliente";
+import InputText from "../../components/UI/formulario/Inputs/inputText";
 
 function CrearListaTrabajo() {
 	const { register, handleSubmit, formState: { errors } } = useForm();
@@ -234,8 +235,10 @@ function CrearListaTrabajo() {
     </div>
   )}
 </Acordeon>
-
 				<Spacer y={4} />
+				<Acordeon titulo={"Nombre de la lista"}>
+				<InputText/>
+				</Acordeon>
 				<Spacer y={4} />
 				<BotonComprar2 text={"Enviar Lista"}>
 					<Texto3 precio={`Total: 10000`} />
