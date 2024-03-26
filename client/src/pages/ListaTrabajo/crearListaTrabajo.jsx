@@ -97,9 +97,11 @@ function CrearListaTrabajo() {
   // Otro código...
 
   const handleCantidadChange = (productId, newCantidad) => {
-	const productInfo = informacionProductos[productId];
+	const productInfo = informacionProductos.find(productos =>
+	  productos.data.some(producto => producto.idProduct === productId)
+	);
 	if (productInfo && productInfo.data && productInfo.data.length > 0) {
-	  const laborPrice = productInfo.data[0].laborPrice;
+	  const laborPrice = productInfo.data.find(producto => producto.idProduct === productId).laborPrice;
 	  setLaborPrices(prevPrices => ({
 		...prevPrices,
 		[productId]: newCantidad * laborPrice
@@ -108,6 +110,7 @@ function CrearListaTrabajo() {
 	  console.error('No se pudo encontrar la información del producto:', productId);
 	}
   };
+  
   
 
 	const onSubmit = async () => {
@@ -212,16 +215,18 @@ function CrearListaTrabajo() {
             <div className="cont2CrP">
               <Texto2Card texto2={`Cantidad disponible: ${productos.maxQuantity}`} />
               {/* Verificar si laborPrices[productIndex] está definido */}
-              {laborPrices[productIndex] !== undefined && laborPrices[productIndex] > 0 && (
-                <Texto2Card texto2={`Precio labor: ${laborPrices[productIndex]}`} />
-              )}
+              <Texto2Card 
+  texto2={`Precio labor: ${laborPrices[productos.idProduct] !== undefined ? laborPrices[productos.idProduct] : 'No disponible'}`} 
+/>
+
             </div>
             <div>
-              <BotonCantidad
-                maxCantidad={productos.maxQuantity}
-                laborPrice={productos.laborPrice}
-                onCantidadChange={(newCantidad) => handleCantidadChange(productIndex, newCantidad)}
-              />
+			<BotonCantidad
+  maxCantidad={productos.maxQuantity}
+  laborPrice={productos.laborPrice}
+  onCantidadChange={(newCantidad) => handleCantidadChange(productos.idProduct, newCantidad)}
+/>
+
             </div>
           </CardPerfil>
           <Spacer y={3} />
