@@ -94,8 +94,6 @@ function CrearListaTrabajo() {
 
 	const [laborPrices, setLaborPrices] = useState({}); // Estado para almacenar los laborPrice actualizados
 
-  // Otro código...
-
   const handleCantidadChange = (productId, newCantidad) => {
 	const productInfo = informacionProductos.find(productos =>
 	  productos.data.some(producto => producto.idProduct === productId)
@@ -111,8 +109,6 @@ function CrearListaTrabajo() {
 	}
   };
   
-  
-
 	const onSubmit = async () => {
 		console.log("Formulario enviado");
 		const listaTrabajo = {
