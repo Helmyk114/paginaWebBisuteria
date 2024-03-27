@@ -57,7 +57,7 @@ function ListarListaTrabajoVendedor() {
 									className2={"cardListaTGap"}>
 									<div className="cont2ListaT">
 										<div className="contTexto1">
-											<Texto1Card texto={lista.listName} />
+											<Texto1Card texto={lista.listName} fontSize={"20px"}/>
 											<Texto1Card
 												texto={`Codigo: ${lista.idWorkList}`}
 												fontWeight={"200"}

@@ -48,11 +48,11 @@ function ListarListaTrabajoAdministrador() {
                   className2={"card1ListaTGap"}>
                   <div className="cont2ListaT">
                     <div className="contTexto1">
-                      <Texto1Card texto={datos.listName} />
-                      <Texto1Card texto={datos.idWorkList} />
+                      <Texto1Card texto={datos.listName} fontSize={"20px"}/>
+                      <Texto1Card texto={datos.idWorkList}fontSize={"15px"} fontWeight={"200"} />
                     </div>
                     <div
-                      className="card2ListaT">
+                      className="card2ListaTA">
                       <div className="contTexto2">
                         <Texto2Card texto2={`Artesano: ${datos.workerName} ${datos.workerLastName}`} />
                       </div>

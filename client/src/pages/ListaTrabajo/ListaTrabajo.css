@@ -6,9 +6,6 @@
     gap: 9px;
     margin: 0 auto;
 }
-.cardListaTerminadaTA{
-    width: 42%;
-}
 
 .cardListaTerminadaTAGap{
     display: flex;
@@ -252,6 +249,9 @@
         width: 40%;
         margin: 0 auto;
      }
+     .cardListaTerminadaTA{
+        width: 43%;
+    }
      .cont2ProCrListaT{
         display: flex;
         flex-direction: row;
@@ -297,16 +297,18 @@
         display: flex;
     }
      .contIconoListaTA{
+
         background-color: #6977E4 ;
         border-radius:10px;
         margin-right: 10px;
         width:60%; 
-        display:column;
+        display:flex;
+        flex-direction: column;
+        
         padding:30px;
+       
     }
-    .contTexto1{
-        font-size: 20px ;
-    }
+    
     .contTexto1A{
         font-size: 16px ;
     }
@@ -386,7 +388,7 @@
     }
 
     .card2ListaTA{
-        width: 296px;
+        width: 50%;
         height: 100%;
     
     }
@@ -410,7 +412,7 @@
     gap: 2px;
 }
 .cardListaTerminadaTA{
-    width: 55%;
+    width: 45%;
 }
 .contTexto1A{
     font-size: 15px;
