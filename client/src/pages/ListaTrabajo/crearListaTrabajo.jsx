@@ -5,20 +5,19 @@ import { useLocation } from "react-router-dom";
 import { Spacer, Tooltip } from "@nextui-org/react";
 import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
+import Loader from "../../components/UI/cargando/loader";
 import Acordeon from "../../components/UI/Acordeon/Acordeon";
 import Avatares from "../../components/UI/avatar/Avatares";
 import CheckboxInfo from "../../components/UI/formulario/CheckBox/CheckBox";
-import BotonEnviar from "../../components/UI/botones/botonEnviar";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
-import Loader from "../../components/UI/cargando/loader";
+import InputText from "../../components/UI/formulario/Inputs/inputText";
+import Texto3 from "../../components/UI/botones/total";
+import BotonCantidad from "../../components/UI/botones/botonCantidad/botonCantidadSimple";
+import BotonComprar2 from "../../components/UI/botones/botonCompraPedido";
 import Footer from "../../components/UI/Footer/Footer";
 
 import { añadirInformacionSinImagenAPI, listarInformacionApi, listarInformacionConParametroApi } from "../../api/axiosServices";
-import BotonCantidad from "../../components/UI/botones/botonCantidad/botonCantidadSimple";
-import BotonComprar2 from "../../components/UI/botones/botonCompraPedido";
-import Texto3 from "../../components/UI/botones/total";
 import { notificacionConfirmar, notificacionError } from "../../utils/notificacionCliente";
-import InputText from "../../components/UI/formulario/Inputs/inputText";
 
 function CrearListaTrabajo() {
     const { register, handleSubmit, formState: { errors } , watch} = useForm();
@@ -32,43 +31,43 @@ function CrearListaTrabajo() {
     const nombreLista = watch("nombreLista"); 
 
 
-    const refs = useRef({
-        idCardWorker: [],
-    });
+	const refs = useRef({
+		idCardWorker: [],
+	});
 
-    useEffect(() => {
-        const dataArtesano = async () => {
-            try {
-                const artesanoInformacion = await listarInformacionApi('artesano-Activo');
-                setInformacionArtesano(artesanoInformacion.data);
-                setCargando(false);
-            } catch (error) {
-                console.error('Error al acceder a la información del artesano: ', error);
-                setCargando(false);
-            }
-        };
-        dataArtesano();
-    }, []);
+	useEffect(() => {
+		const dataArtesano = async () => {
+			try {
+				const artesanoInformacion = await listarInformacionApi('artesano-Activo');
+				setInformacionArtesano(artesanoInformacion.data);
+				setCargando(false);
+			} catch (error) {
+				console.error('Error al acceder a la información del artesano: ', error);
+				setCargando(false);
+			}
+		};
+		dataArtesano();
+	}, []);
 
-    useEffect(() => {
-    const dataProductos = async () => {
-        try {
-            const productosInformacion = await Promise.all(idOrders.map(idOrder =>
-                listarInformacionConParametroApi('orden-CrearLista', idOrder)
-            ));
-            setInformacionProductos(productosInformacion);
-            setCargando(false);
-        } catch (error) {
-            console.error('Error al acceder a la información de los productos: ', error);
-            setCargando(false);
-        }
-    };
+	useEffect(() => {
+		const dataProductos = async () => {
+			try {
+				const productosInformacion = await Promise.all(idOrders.map(idOrder =>
+					listarInformacionConParametroApi('orden-CrearLista', idOrder)
+				));
+				setInformacionProductos(productosInformacion);
+				setCargando(false);
+			} catch (error) {
+				console.error('Error al acceder a la información de los productos: ', error);
+				setCargando(false);
+			}
+		};
 
-    // Solo ejecutar la carga de datos si informacionProductos está vacío
-    if (informacionProductos.length === 0) {
-        dataProductos();
-    }
-}, [idOrders, informacionProductos.length]); // Dependencias actualizadas
+		// Solo ejecutar la carga de datos si informacionProductos está vacío
+		if (informacionProductos.length === 0) {
+			dataProductos();
+		}
+	}, [idOrders, informacionProductos.length]); // Dependencias actualizadas
 
 
 	let array = [];
@@ -88,11 +87,11 @@ function CrearListaTrabajo() {
         });
     });
 
-    const handleDeletePedido = (index) => {
-        const updatedPedidos = [...pedidosSeleccionados];
-        updatedPedidos.splice(index, 1);
-        setPedidosSeleccionados(updatedPedidos);
-    };
+	const handleDeletePedido = (index) => {
+		const updatedPedidos = [...pedidosSeleccionados];
+		updatedPedidos.splice(index, 1);
+		setPedidosSeleccionados(updatedPedidos);
+	};
 
     const [selectedOption, setSelectedOption] = useState(null);
     const [selectedIdCardWorker, setSelectedIdCardWorker] = useState(null);
@@ -101,22 +100,22 @@ function CrearListaTrabajo() {
         setSelectedIdCardWorker(option.idCardWorker);
     };
 
-    const handleCantidadChange = (productId, newCantidad) => {
-        const productInfo = informacionProductos.find(productos =>
-            productos.data.some(producto => producto.idProduct === productId)
-        );
-        if (productInfo && productInfo.data && productInfo.data.length > 0) {
-            const laborPrice = productInfo.data.find(producto => producto.idProduct === productId).laborPrice;
-            setLaborPrices(prevPrices => ({
-                ...prevPrices,
-                [productId]: newCantidad * laborPrice
-            }));
-        } else {
-            console.error('No se pudo encontrar la información del producto:', productId);
-        }
-    };
+	const handleCantidadChange = (productId, newCantidad) => {
+		const productInfo = informacionProductos.find(productos =>
+			productos.data.some(producto => producto.idProduct === productId)
+		);
+		if (productInfo && productInfo.data && productInfo.data.length > 0) {
+			const laborPrice = productInfo.data.find(producto => producto.idProduct === productId).laborPrice;
+			setLaborPrices(prevPrices => ({
+				...prevPrices,
+				[productId]: newCantidad * laborPrice
+			}));
+		} else {
+			console.error('No se pudo encontrar la información del producto:', productId);
+		}
+	};
 
-    const [sumaPrecios, setSumaPrecios] = useState(0); // Estado para almacenar la suma de precios
+	const [sumaPrecios, setSumaPrecios] = useState(0); // Estado para almacenar la suma de precios
 
 	useEffect(() => {
 		let suma = 0;
@@ -127,11 +126,11 @@ function CrearListaTrabajo() {
 		});
 		setSumaPrecios(suma);
 	}, [informacionProductos, laborPrices]);
-	
-	
-    const onSubmit = async (data) => {
-        console.log("Formulario enviado");
-        const listaTrabajo = {
+
+
+	const onSubmit = async (data) => {
+		console.log("Formulario enviado");
+		const listaTrabajo = {
 			listName: data.nombreLista, // Obtener el nombre de la lista desde el input
 			total: sumaPrecios.toString(), // Utilizar el total calculado
 			idCardWorker: selectedIdCardWorker,
@@ -141,14 +140,14 @@ function CrearListaTrabajo() {
 
 		console.log("Lista de trabajo:", listaTrabajo);
 
-        try {
-            await añadirInformacionSinImagenAPI(listaTrabajo, 'listaTrabajo')
-            notificacionConfirmar({ titulo: "Se ha creado una lista de trabajo!" });
-        } catch (error) {
-            console.error('Error al crear una lista de trabajo', error);
-            notificacionError({ titulo: "No Se puede crear la lista de trabajo!" });
-        }
-    };
+		try {
+			await añadirInformacionSinImagenAPI(listaTrabajo, 'listaTrabajo')
+			notificacionConfirmar({ titulo: "Se ha creado una lista de trabajo!" });
+		} catch (error) {
+			console.error('Error al crear una lista de trabajo', error);
+			notificacionError({ titulo: "No Se puede crear la lista de trabajo!" });
+		}
+	};
 
 
 	return (
@@ -159,33 +158,35 @@ function CrearListaTrabajo() {
 			</NavigateADM>
 			<Spacer y={4} />
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<Acordeon titulo={"Nombre pedidos"} className={"acordeonListaT"}>
+				<Acordeon titulo={"Pedido"} className={"acordeonListaT"}>
 					{pedidosSeleccionados && pedidosSeleccionados.map((pedido, index) => (
-						<CardPerfil
-							key={index}
-							className1={"cardCrearListaT"}
-							className2={"cardCrearListaTGap"}
-						>
-							<div className="cont2CrListaT">
-								<Texto2Card className="txtTituloCrListaT" texto2={pedido.clientname} fontSize={"20px"} fontWeight={"400"} />
-								<p>ID del pedido: {pedido.idOrder}</p>
-							</div>
-							<div style={{ display: "flex" }}>
-								<Tooltip content="Eliminar pedido">
-									<span
-										className="text-lg text-danger cursor-pointer active:opacity-50"
-										onClick={() => handleDeletePedido(index)}
-									>
-										<DeleteIcon />
-									</span>
-								</Tooltip>
-							</div>
-						</CardPerfil>
+						<div key={pedido.idOrder}>
+							<CardPerfil
+								key={index}
+								className1={"cardCrearListaT"}
+								className2={"cardCrearListaTGap"}
+							>
+								<div className="cont2CrListaT">
+									<Texto2Card className="txtTituloCrListaT" texto2={pedido.clientname} fontSize={"20px"} fontWeight={"400"} />
+									<p>Código: {pedido.idOrder}</p>
+								</div>
+								<div style={{ display: "flex" }}>
+									<Tooltip content="Eliminar pedido">
+										<span
+											className="text-lg text-danger cursor-pointer active:opacity-50"
+											onClick={() => handleDeletePedido(index)}
+										>
+											<DeleteIcon />
+										</span>
+									</Tooltip>
+								</div>
+							</CardPerfil>
+							<Spacer y={4} />
+						</div>
 					))}
 					{(!pedidosSeleccionados || pedidosSeleccionados.length === 0) && <p>No hay pedidos seleccionados.</p>}
 				</Acordeon>
 				<Spacer y={4} />
-
 				<Acordeon titulo={"Artesanos"} className={"acordeonListaT"}>
 					{cargando ? (
 						<Loader />
@@ -212,8 +213,7 @@ function CrearListaTrabajo() {
 					)}
 				</Acordeon>
 				<Spacer y={4} />
-
-				<Acordeon titulo={"Lista productos"} className={"acordeonListaT"}>
+				<Acordeon titulo={"Lista de productos"} className={"acordeonListaT"}>
 					{cargando ? (
 						<Loader />
 					) : (
@@ -227,14 +227,14 @@ function CrearListaTrabajo() {
 													className1={"cardProCrearListaT"}
 													className2={"cardProCrearPedidoGap"}
 													key={productos.idOrder}
-												>   <div className="divcardProCrearPedido" >
+												>
+													<div className="divcardProCrearPedido" >
 														<div>
 															<div className="cont1ProCrListaT" >
 																<Avatares src={`${urlImage}/${productos.image}`} alt={"imagen"} radio={"full"} />
 																<Texto1Card texto={productos.nameProduct} />
 															</div>
 														</div>
-
 														<div >
 															<div className="cont2ProCrListaT">
 																<Texto2Card texto2={`Cantidad disponible: ${productos.maxQuantity}`} />
@@ -248,15 +248,10 @@ function CrearListaTrabajo() {
 																		laborPrice={productos.laborPrice}
 																		onCantidadChange={(newCantidad) => handleCantidadChange(productos.idProduct, newCantidad)}
 																	/>
-
 																</div>
-
 															</div>
-
-
 														</div>
 													</div>
-
 												</CardPerfil>
 												<Spacer y={3} />
 											</div>
@@ -275,7 +270,7 @@ function CrearListaTrabajo() {
 				</Acordeon>
 				<Spacer y={4} />
 				<BotonComprar2 text={"Enviar Lista"}>
- 			 		<Texto3 precio={`Total: ${sumaPrecios}`} />
+					<Texto3 precio={`Total: ${sumaPrecios}`} />
 				</BotonComprar2>
 
 

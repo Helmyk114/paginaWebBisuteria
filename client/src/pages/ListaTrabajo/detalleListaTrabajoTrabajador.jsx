@@ -82,7 +82,7 @@ function DetalleTrabajo() {
 			)}
 			<Spacer y={4} />
 				<BotonComprar2 text={"Comprar"}>
-					<Texto3 precio={'Total: 100000 '} />
+					<Texto3 precio={`Total: ${informacion[0].total}`} />
 				</BotonComprar2>
 			<div >
 				<Footer style={{ marginTop: "auto" }} />
