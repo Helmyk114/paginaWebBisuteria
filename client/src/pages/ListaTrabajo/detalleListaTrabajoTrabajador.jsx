@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react"
+import { useParams } from "react-router-dom";
 
+import { Spacer } from "@nextui-org/react";
 import NavigateTRJ, { Retroceder, Titulo } from "../../components/UI/navbar/navbarTrabajador";
+import Loader from "../../components/UI/cargando/loader";
 import CardPerfil, { Texto1Card } from "../../components/UI/perfil/cardInfo";
 import Avatares from "../../components/UI/avatar/Avatares";
+import BotonComprar2 from "../../components/UI/botones/botonCompraPedido";
+import Texto3 from "../../components/UI/botones/total";
 import Footer from "../../components/UI/Footer/Footer";
-import { useParams } from "react-router-dom";
-import { detalleInformacionApi } from "../../api/axiosServices";
-import { Spacer } from "@nextui-org/react";
-import Loader from "../../components/UI/cargando/loader";
 
+import { detalleInformacionApi } from "../../api/axiosServices";
 
 function DetalleTrabajo() {
 
@@ -79,6 +81,9 @@ function DetalleTrabajo() {
 				</div>
 			)}
 			<Spacer y={4} />
+				<BotonComprar2 text={"Comprar"}>
+					<Texto3 precio={'Total: 100000 '} />
+				</BotonComprar2>
 			<div >
 				<Footer style={{ marginTop: "auto" }} />
 			</div>

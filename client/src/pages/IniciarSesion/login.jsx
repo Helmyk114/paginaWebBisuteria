@@ -11,6 +11,7 @@ import Footer from "../../components/UI/Footer/Footer";
 
 import inicioSesion from "../../api/IniciarSesion";
 import { guardarToken, decodificarToken } from "../../utils/token";
+import { notificacionError } from "../../utils/notificacionCliente";
 
 function Login() {
   const { register, handleSubmit, formState: { errors }, } = useForm();
@@ -44,6 +45,7 @@ function Login() {
         console.error("Error al decodificar el token:", error.message);
       }
     } else {
+      notificacionError({ titulo:'El usuario o la contraseña son incorrectos' })
       console.error(errorMsg);
     }
   };
