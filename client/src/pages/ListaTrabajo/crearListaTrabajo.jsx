@@ -94,21 +94,21 @@ function CrearListaTrabajo() {
 
 	const [laborPrices, setLaborPrices] = useState({}); // Estado para almacenar los laborPrice actualizados
 
-  const handleCantidadChange = (productId, newCantidad) => {
-	const productInfo = informacionProductos.find(productos =>
-	  productos.data.some(producto => producto.idProduct === productId)
-	);
-	if (productInfo && productInfo.data && productInfo.data.length > 0) {
-	  const laborPrice = productInfo.data.find(producto => producto.idProduct === productId).laborPrice;
-	  setLaborPrices(prevPrices => ({
-		...prevPrices,
-		[productId]: newCantidad * laborPrice
-	  }));
-	} else {
-	  console.error('No se pudo encontrar la información del producto:', productId);
-	}
-  };
-  
+	const handleCantidadChange = (productId, newCantidad) => {
+		const productInfo = informacionProductos.find(productos =>
+			productos.data.some(producto => producto.idProduct === productId)
+		);
+		if (productInfo && productInfo.data && productInfo.data.length > 0) {
+			const laborPrice = productInfo.data.find(producto => producto.idProduct === productId).laborPrice;
+			setLaborPrices(prevPrices => ({
+				...prevPrices,
+				[productId]: newCantidad * laborPrice
+			}));
+		} else {
+			console.error('No se pudo encontrar la información del producto:', productId);
+		}
+	};
+
 	const onSubmit = async () => {
 		console.log("Formulario enviado");
 		const listaTrabajo = {
@@ -191,54 +191,54 @@ function CrearListaTrabajo() {
 				<Spacer y={4} />
 
 				<Acordeon titulo={"Lista productos"} className={"acordeonListaT"}>
-  {cargando ? (
-    <Loader />
-  ) : (
-    <div>
-      {informacionProductos && informacionProductos.length > 0 ? (
-  informacionProductos.map((datos, index) => (
-    <div key={index}>
-      {datos.data && datos.data.map((productos, productIndex) => ( // Verificar si datos.data está definido
-        <div key={productos.nameProduct}>
-          <CardPerfil
-            className1={"cardCrearListaT"}
-            className2={"cardCrearPedidoGap"}
-            key={productos.idOrder}
-          >
-            <Avatares src={`${urlImage}/${productos.image}`} alt={"imagen"} radio={"full"} />
-            <Texto1Card texto={productos.nameProduct} />
-            <div style={{ display: "flex", justifyContent: "center" }}></div>
-            <div className="cont2CrP">
-              <Texto2Card texto2={`Cantidad disponible: ${productos.maxQuantity}`} />
-              {/* Verificar si laborPrices[productIndex] está definido */}
-              <Texto2Card 
-  texto2={`Precio labor: ${laborPrices[productos.idProduct] !== undefined ? laborPrices[productos.idProduct] : 'No disponible'}`} 
-/>
+					{cargando ? (
+						<Loader />
+					) : (
+						<div>
+							{informacionProductos && informacionProductos.length > 0 ? (
+								informacionProductos.map((datos, index) => (
+									<div key={index}>
+										{datos.data && datos.data.map((productos, productIndex) => ( // Verificar si datos.data está definido
+											<div key={productos.nameProduct}>
+												<CardPerfil
+													className1={"cardCrearListaT"}
+													className2={"cardCrearPedidoGap"}
+													key={productos.idOrder}
+												>
+													<Avatares src={`${urlImage}/${productos.image}`} alt={"imagen"} radio={"full"} />
+													<Texto1Card texto={productos.nameProduct} />
+													<div style={{ display: "flex", justifyContent: "center" }}></div>
+													<div className="cont2CrP">
+														<Texto2Card texto2={`Cantidad disponible: ${productos.maxQuantity}`} />
+														{/* Verificar si laborPrices[productIndex] está definido */}
+														<Texto2Card
+															texto2={`Precio labor: ${laborPrices[productos.idProduct] !== undefined ? laborPrices[productos.idProduct] : 0}`}
+														/>
 
-            </div>
-            <div>
-			<BotonCantidad
-  maxCantidad={productos.maxQuantity}
-  laborPrice={productos.laborPrice}
-  onCantidadChange={(newCantidad) => handleCantidadChange(productos.idProduct, newCantidad)}
-/>
+													</div>
+													<div>
+														<BotonCantidad
+															maxCantidad={productos.maxQuantity}
+															laborPrice={productos.laborPrice}
+															onCantidadChange={(newCantidad) => handleCantidadChange(productos.idProduct, newCantidad)}
+														/>
 
-            </div>
-          </CardPerfil>
-          <Spacer y={3} />
-        </div>
-      ))}
-    </div>
-  ))
-) : (
-  <p>No hay productos disponibles.</p>
-)}
-    </div>
-  )}
-</Acordeon>
+													</div>
+												</CardPerfil>
+												<Spacer y={3} />
+											</div>
+										))}
+									</div>
+								))
+							) : (
+								<p>No hay productos disponibles.</p>
+							)}
+						</div>
+					)}
+				</Acordeon>
 				<Spacer y={4} />
 				<Acordeon titulo={"Nombre de la lista"}>
-				<InputText/>
+					<InputText />
 				</Acordeon>
 				<Spacer y={4} />
 				<BotonComprar2 text={"Enviar Lista"}>

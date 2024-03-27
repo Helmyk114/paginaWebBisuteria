@@ -1,7 +1,6 @@
-// BotonComprar.js
 import React from "react";
 import { Button } from "@nextui-org/react";
-import "./contenedor2.css"; // Ajusta la ruta según la ubicación real del archivo CSS
+import "./contenedor2.css";
 
 export default function BotonComprar2({ fontSize, text, type, children, ...props }) {
   return (
@@ -17,4 +16,4 @@ export default function BotonComprar2({ fontSize, text, type, children, ...props
       {children}
     </div>
   );
-}
+};

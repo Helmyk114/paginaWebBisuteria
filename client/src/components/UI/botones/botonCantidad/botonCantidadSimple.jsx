@@ -1,5 +1,3 @@
-// En BotonCantidad.js
-
 import React, { useState } from 'react';
 import { ButtonGroup, Button } from '@nextui-org/react';
 import './botones.css';
