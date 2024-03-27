@@ -29,6 +29,7 @@ function CrearListaTrabajo() {
     const [pedidosSeleccionados, setPedidosSeleccionados] = useState(location.state.pedidosSeleccionados);
     const idOrders = pedidosSeleccionados.map(pedido => pedido.idOrder);
     const nombreLista = watch("nombreLista"); 
+	const [cantidadProductos, setCantidadProductos] = useState({});
 
 
 	const refs = useRef({
@@ -75,8 +76,8 @@ function CrearListaTrabajo() {
 
 	informacionProductos.forEach((producto) => {
         producto.data.forEach((pro) => {
-            const cantidadSeleccionada = watch(`cantidad-${pro.idProduct}`) || 1; // Obtener la cantidad seleccionada del formulario o usar 1 si no hay ninguna
-            const subtotal = cantidadSeleccionada * (laborPrices[pro.idProduct] || 0); // Calcular el subtotal multiplicando la cantidad por el precio laboral o 0 si no hay precio
+            const cantidadSeleccionada = cantidadProductos[pro.idProduct] || 1; // Obtener la cantidad seleccionada del estado
+            const subtotal = laborPrices[pro.idProduct] || 0;
             const productoInfo = {
                 idOrder: pro.idOrder,
                 idProduct: pro.idProduct,
@@ -109,6 +110,12 @@ function CrearListaTrabajo() {
 			setLaborPrices(prevPrices => ({
 				...prevPrices,
 				[productId]: newCantidad * laborPrice
+			}));
+
+			// Aquí deberías actualizar también la cantidad seleccionada en cantidadProductos
+			setCantidadProductos(prevCantidad => ({
+				...prevCantidad,
+				[productId]: newCantidad
 			}));
 		} else {
 			console.error('No se pudo encontrar la información del producto:', productId);
@@ -243,11 +250,12 @@ function CrearListaTrabajo() {
 																	texto2={`Precio labor: ${laborPrices[productos.idProduct] !== undefined ? laborPrices[productos.idProduct] : 0}`}
 																/>
 																<div>
-																	<BotonCantidad
-																		maxCantidad={productos.maxQuantity}
-																		laborPrice={productos.laborPrice}
-																		onCantidadChange={(newCantidad) => handleCantidadChange(productos.idProduct, newCantidad)}
-																	/>
+																<BotonCantidad
+    maxCantidad={productos.maxQuantity}
+    laborPrice={productos.laborPrice}
+    onCantidadChange={(newCantidad) => handleCantidadChange(productos.idProduct, newCantidad)} // Asegúrate de que newCantidad sea el valor correcto
+/>
+
 																</div>
 															</div>
 														</div>
