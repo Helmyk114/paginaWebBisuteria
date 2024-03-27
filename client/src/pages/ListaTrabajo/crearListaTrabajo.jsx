@@ -5,20 +5,19 @@ import { useLocation } from "react-router-dom";
 import { Spacer, Tooltip } from "@nextui-org/react";
 import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 import CardPerfil, { Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
+import Loader from "../../components/UI/cargando/loader";
 import Acordeon from "../../components/UI/Acordeon/Acordeon";
 import Avatares from "../../components/UI/avatar/Avatares";
 import CheckboxInfo from "../../components/UI/formulario/CheckBox/CheckBox";
-import BotonEnviar from "../../components/UI/botones/botonEnviar";
 import DeleteIcon from "../../components/UI/iconos/Eliminar";
-import Loader from "../../components/UI/cargando/loader";
+import InputText from "../../components/UI/formulario/Inputs/inputText";
+import Texto3 from "../../components/UI/botones/total";
+import BotonCantidad from "../../components/UI/botones/botonCantidad/botonCantidadSimple";
+import BotonComprar2 from "../../components/UI/botones/botonCompraPedido";
 import Footer from "../../components/UI/Footer/Footer";
 
 import { añadirInformacionSinImagenAPI, listarInformacionApi, listarInformacionConParametroApi } from "../../api/axiosServices";
-import BotonCantidad from "../../components/UI/botones/botonCantidad/botonCantidadSimple";
-import BotonComprar2 from "../../components/UI/botones/botonCompraPedido";
-import Texto3 from "../../components/UI/botones/total";
 import { notificacionConfirmar, notificacionError } from "../../utils/notificacionCliente";
-import InputText from "../../components/UI/formulario/Inputs/inputText";
 
 function CrearListaTrabajo() {
 	const { register, handleSubmit, formState: { errors } } = useForm();
@@ -136,8 +135,9 @@ function CrearListaTrabajo() {
 			</NavigateADM>
 			<Spacer y={4} />
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<Acordeon titulo={"Nombre pedidos"} className={"acordeonListaT"}>
+				<Acordeon titulo={"Pedido"} className={"acordeonListaT"}>
 					{pedidosSeleccionados && pedidosSeleccionados.map((pedido, index) => (
+						<div key={pedido.idOrder}>
 						<CardPerfil
 							key={index}
 							className1={"cardCrearListaT"}
@@ -145,7 +145,7 @@ function CrearListaTrabajo() {
 						>
 							<div className="cont2CrListaT">
 								<Texto2Card className="txtTituloCrListaT" texto2={pedido.clientname} fontSize={"20px"} fontWeight={"400"} />
-								<p>ID del pedido: {pedido.idOrder}</p>
+								<p>Código: {pedido.idOrder}</p>
 							</div>
 							<div style={{ display: "flex" }}>
 								<Tooltip content="Eliminar pedido">
@@ -158,11 +158,12 @@ function CrearListaTrabajo() {
 								</Tooltip>
 							</div>
 						</CardPerfil>
+						<Spacer y={4} />
+						</div>
 					))}
 					{(!pedidosSeleccionados || pedidosSeleccionados.length === 0) && <p>No hay pedidos seleccionados.</p>}
 				</Acordeon>
 				<Spacer y={4} />
-
 				<Acordeon titulo={"Artesanos"} className={"acordeonListaT"}>
 					{cargando ? (
 						<Loader />
@@ -189,8 +190,7 @@ function CrearListaTrabajo() {
 					)}
 				</Acordeon>
 				<Spacer y={4} />
-
-				<Acordeon titulo={"Lista productos"} className={"acordeonListaT"}>
+				<Acordeon titulo={"Lista de productos"} className={"acordeonListaT"}>
 					{cargando ? (
 						<Loader />
 					) : (
@@ -204,14 +204,14 @@ function CrearListaTrabajo() {
 													className1={"cardProCrearListaT"}
 													className2={"cardProCrearPedidoGap"}
 													key={productos.idOrder}
-												>   <div className="divcardProCrearPedido" >
+												>
+													<div className="divcardProCrearPedido" >
 														<div>
 															<div className="cont1ProCrListaT" >
 																<Avatares src={`${urlImage}/${productos.image}`} alt={"imagen"} radio={"full"} />
 																<Texto1Card texto={productos.nameProduct} />
 															</div>
 														</div>
-
 														<div >
 															<div className="cont2ProCrListaT">
 																<Texto2Card texto2={`Cantidad disponible: ${productos.maxQuantity}`} />
@@ -225,15 +225,10 @@ function CrearListaTrabajo() {
 																		laborPrice={productos.laborPrice}
 																		onCantidadChange={(newCantidad) => handleCantidadChange(productos.idProduct, newCantidad)}
 																	/>
-
 																</div>
-
 															</div>
-
-
 														</div>
 													</div>
-
 												</CardPerfil>
 												<Spacer y={3} />
 											</div>
