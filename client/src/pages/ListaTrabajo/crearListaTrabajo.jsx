@@ -141,10 +141,10 @@ function CrearListaTrabajo() {
 						<CardPerfil
 							key={index}
 							className1={"cardCrearListaT"}
-							className2={"cardCrearPedidoGap"}
+							className2={"cardCrearListaTGap"}
 						>
-							<div className="cont2CrP">
-								<Texto2Card texto2={pedido.clientname} />
+							<div className="cont2CrListaT">
+								<Texto2Card className="txtTituloCrListaT" texto2={pedido.clientname} fontSize={"20px"} fontWeight={"400"} />
 								<p>ID del pedido: {pedido.idOrder}</p>
 							</div>
 							<div style={{ display: "flex" }}>
@@ -201,29 +201,39 @@ function CrearListaTrabajo() {
 										{datos.data && datos.data.map((productos, productIndex) => ( // Verificar si datos.data está definido
 											<div key={productos.nameProduct}>
 												<CardPerfil
-													className1={"cardCrearListaT"}
-													className2={"cardCrearPedidoGap"}
+													className1={"cardProCrearListaT"}
+													className2={"cardProCrearPedidoGap"}
 													key={productos.idOrder}
-												>
-													<Avatares src={`${urlImage}/${productos.image}`} alt={"imagen"} radio={"full"} />
-													<Texto1Card texto={productos.nameProduct} />
-													<div style={{ display: "flex", justifyContent: "center" }}></div>
-													<div className="cont2CrP">
-														<Texto2Card texto2={`Cantidad disponible: ${productos.maxQuantity}`} />
-														{/* Verificar si laborPrices[productIndex] está definido */}
-														<Texto2Card
-															texto2={`Precio labor: ${laborPrices[productos.idProduct] !== undefined ? laborPrices[productos.idProduct] : 0}`}
-														/>
+												>   <div className="divcardProCrearPedido" >
+														<div>
+															<div className="cont1ProCrListaT" >
+																<Avatares src={`${urlImage}/${productos.image}`} alt={"imagen"} radio={"full"} />
+																<Texto1Card texto={productos.nameProduct} />
+															</div>
+														</div>
 
-													</div>
-													<div>
-														<BotonCantidad
-															maxCantidad={productos.maxQuantity}
-															laborPrice={productos.laborPrice}
-															onCantidadChange={(newCantidad) => handleCantidadChange(productos.idProduct, newCantidad)}
-														/>
+														<div >
+															<div className="cont2ProCrListaT">
+																<Texto2Card texto2={`Cantidad disponible: ${productos.maxQuantity}`} />
+																{/* Verificar si laborPrices[productIndex] está definido */}
+																<Texto2Card
+																	texto2={`Precio labor: ${laborPrices[productos.idProduct] !== undefined ? laborPrices[productos.idProduct] : 0}`}
+																/>
+																<div>
+																	<BotonCantidad
+																		maxCantidad={productos.maxQuantity}
+																		laborPrice={productos.laborPrice}
+																		onCantidadChange={(newCantidad) => handleCantidadChange(productos.idProduct, newCantidad)}
+																	/>
 
+																</div>
+
+															</div>
+
+
+														</div>
 													</div>
+
 												</CardPerfil>
 												<Spacer y={3} />
 											</div>
@@ -237,7 +247,7 @@ function CrearListaTrabajo() {
 					)}
 				</Acordeon>
 				<Spacer y={4} />
-				<Acordeon titulo={"Nombre de la lista"}>
+				<Acordeon className={"acordeonListaT"} titulo={"Nombre de la lista"}>
 					<InputText />
 				</Acordeon>
 				<Spacer y={4} />

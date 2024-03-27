@@ -114,9 +114,57 @@
     justify-content: space-between;
     gap:0px;
 }
+.cardCrearListaTGap{
+    display: flex;
+    flex-direction: row;
+}
+
+.cardProCrearListaT{
+    display: flex;
+    width: 85%;
+    margin: 0 auto;
+}
+.cardProCrearPedidoGap{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+.divcardProCrearPedido{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+
+
 
 
 @media only screen and (max-width: 768px) {
+    .cardProCrearListaT{
+        display: flex;
+        width: 98%;
+        margin: 0 auto;
+    }
+    .cardProCrearPedidoGap{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        gap:3px;
+    }
+    .divcardProCrearPedido{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 2px;
+    }
+    .cont2ProCrListaT{
+        display: flex;
+        flex-direction: column;
+    }
     .cont1ListaT, .cont1ListaTA{
         display: grid;
         flex-wrap: wrap;
@@ -126,6 +174,11 @@
     .codListaTtrabajador{
         font-size: 10px;
      }
+     .cont2CrListaT p{
+        font-size: 18px;
+        font-weight: 200;
+    }
+    
     .contIconoListaT, .contIconoListaTA{
         background-color: #6977E4 ;
         border-radius:10px;
@@ -196,9 +249,22 @@
 @media screen and (min-width: 1024px){
      /*crear Lista de trabajo*/
      .cardCrearListaT{
-        width: 100%;
+        width: 40%;
         margin: 0 auto;
      }
+     .cont2ProCrListaT{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        gap: 15px;
+    }
+     .cont1ProCrListaT{
+        display: flex;
+        align-items: start;
+        flex-direction: row;
+        
+    }
      .card1ListaT {
         flex-basis: 48%; 
       }
@@ -244,6 +310,10 @@
     .contTexto1A{
         font-size: 16px ;
     }
+    .cont2CrListaT{
+        font-size: 15px;
+        font-weight: 200;
+    }
     .iconoFlecha{
         width: 5px;
        
@@ -266,9 +336,27 @@
     .contenedor1ListaT{
         display: flex;
     }
+    .cont2ProCrListaT{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        gap: 15px;
+    }
+    .cont1ProCrListaT{
+        display: flex;
+        align-items: start;
+        flex-direction: row;
+        gap: 9px;
+        
+    }
     .codListaTtrabajador{
         font-size: 14px;
      }
+     .cont2CrListaT{
+        font-size: 15px;
+        font-weight: 200;
+    }
     .contIconoListaTA{
         background-color: #6977E4 ;
         border-radius:10px;
@@ -303,7 +391,7 @@
     
     }
     .cardCrearListaT{
-        width: 90%;
+        width: 40%;
    }
    .cardCrearListaTGap{
     width: 100%;
