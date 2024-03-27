@@ -20,112 +20,121 @@ import { añadirInformacionSinImagenAPI, listarInformacionApi, listarInformacion
 import { notificacionConfirmar, notificacionError } from "../../utils/notificacionCliente";
 
 function CrearListaTrabajo() {
-	const { register, handleSubmit, formState: { errors } } = useForm();
-	const [informacionArtesano, setInformacionArtesano] = useState([]);
-	const [informacionProductos, setInformacionProductos] = useState([]);
-	const [cargando, setCargando] = useState(true);
-	const urlImage = process.env.REACT_APP_API_URL;
-	const location = useLocation();
-	const [pedidosSeleccionados, setPedidosSeleccionados] = useState(location.state.pedidosSeleccionados);
-	const idOrders = pedidosSeleccionados.map(pedido => pedido.idOrder);
+    const { register, handleSubmit, formState: { errors } , watch} = useForm();
+    const [informacionArtesano, setInformacionArtesano] = useState([]);
+    const [informacionProductos, setInformacionProductos] = useState([]);
+    const [cargando, setCargando] = useState(true);
+    const urlImage = process.env.REACT_APP_API_URL;
+    const location = useLocation();
+    const [pedidosSeleccionados, setPedidosSeleccionados] = useState(location.state.pedidosSeleccionados);
+    const idOrders = pedidosSeleccionados.map(pedido => pedido.idOrder);
+    const nombreLista = watch("nombreLista"); 
 
-	const refs = useRef({
-		idCardWorker: [],
-	});
+    const refs = useRef({
+        idCardWorker: [],
+    });
 
-	useEffect(() => {
-		const dataArtesano = async () => {
-			try {
-				const artesanoInformacion = await listarInformacionApi('artesano-Activo');
-				setInformacionArtesano(artesanoInformacion.data);
-				setCargando(false);
-			} catch (error) {
-				console.error('Error al acceder a la información del artesano: ', error);
-				setCargando(false);
-			}
-		};
-		dataArtesano();
-	}, []);
+    useEffect(() => {
+        const dataArtesano = async () => {
+            try {
+                const artesanoInformacion = await listarInformacionApi('artesano-Activo');
+                setInformacionArtesano(artesanoInformacion.data);
+                setCargando(false);
+            } catch (error) {
+                console.error('Error al acceder a la información del artesano: ', error);
+                setCargando(false);
+            }
+        };
+        dataArtesano();
+    }, []);
 
-	useEffect(() => {
-		const dataProductos = async () => {
-			try {
-				const productosInformacion = await Promise.all(idOrders.map(idOrder =>
-					listarInformacionConParametroApi('orden-CrearLista', idOrder)
-				));
-				setInformacionProductos(productosInformacion);
-				setCargando(false);
-			} catch (error) {
-				console.error('Error al acceder a la información de los productos: ', error);
-				setCargando(false);
-			}
-		};
-		dataProductos();
-	}, [idOrders]);
+    useEffect(() => {
+    const dataProductos = async () => {
+        try {
+            const productosInformacion = await Promise.all(idOrders.map(idOrder =>
+                listarInformacionConParametroApi('orden-CrearLista', idOrder)
+            ));
+            setInformacionProductos(productosInformacion);
+            setCargando(false);
+        } catch (error) {
+            console.error('Error al acceder a la información de los productos: ', error);
+            setCargando(false);
+        }
+    };
+
+    // Solo ejecutar la carga de datos si informacionProductos está vacío
+    if (informacionProductos.length === 0) {
+        dataProductos();
+    }
+}, [idOrders, informacionProductos.length]); // Dependencias actualizadas
+
 
 	let array = [];
 
-	informacionProductos.map((producto) => {
-		return producto.data.map((pro) => {
-			const productoInfo = {
-				idOrder: pro.idOrder,
-				idProduct: pro.idProduct,
-				quantity: "2",
-				subTotal: "30000"
-			};
-			array.push(productoInfo);
-			return null;
-		})
-	})
+    const handleDeletePedido = (index) => {
+        const updatedPedidos = [...pedidosSeleccionados];
+        updatedPedidos.splice(index, 1);
+        setPedidosSeleccionados(updatedPedidos);
+    };
 
-	const handleDeletePedido = (index) => {
-		const updatedPedidos = [...pedidosSeleccionados];
-		updatedPedidos.splice(index, 1);
-		setPedidosSeleccionados(updatedPedidos);
-	};
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedIdCardWorker, setSelectedIdCardWorker] = useState(null);
+    const handleOptionChange = (option) => {
+        setSelectedOption(option);
+        setSelectedIdCardWorker(option.idCardWorker);
+    };
 
-	const [selectedOption, setSelectedOption] = useState(null);
-	const [selectedIdCardWorker, setSelectedIdCardWorker] = useState(null);
-	const handleOptionChange = (option) => {
-		setSelectedOption(option);
-		setSelectedIdCardWorker(option.idCardWorker);
-	};
+    const [laborPrices, setLaborPrices] = useState({}); // Estado para almacenar los laborPrice actualizados
 
-	const [laborPrices, setLaborPrices] = useState({}); // Estado para almacenar los laborPrice actualizados
+    const handleCantidadChange = (productId, newCantidad) => {
+        const productInfo = informacionProductos.find(productos =>
+            productos.data.some(producto => producto.idProduct === productId)
+        );
+        if (productInfo && productInfo.data && productInfo.data.length > 0) {
+            const laborPrice = productInfo.data.find(producto => producto.idProduct === productId).laborPrice;
+            setLaborPrices(prevPrices => ({
+                ...prevPrices,
+                [productId]: newCantidad * laborPrice
+            }));
+        } else {
+            console.error('No se pudo encontrar la información del producto:', productId);
+        }
+    };
 
-	const handleCantidadChange = (productId, newCantidad) => {
-		const productInfo = informacionProductos.find(productos =>
-			productos.data.some(producto => producto.idProduct === productId)
-		);
-		if (productInfo && productInfo.data && productInfo.data.length > 0) {
-			const laborPrice = productInfo.data.find(producto => producto.idProduct === productId).laborPrice;
-			setLaborPrices(prevPrices => ({
-				...prevPrices,
-				[productId]: newCantidad * laborPrice
-			}));
-		} else {
-			console.error('No se pudo encontrar la información del producto:', productId);
-		}
-	};
+    const [sumaPrecios, setSumaPrecios] = useState(0); // Estado para almacenar la suma de precios
 
-	const onSubmit = async () => {
-		console.log("Formulario enviado");
-		const listaTrabajo = {
-			listName: 'Prueba',
-			total: '2000',
+	useEffect(() => {
+		let suma = 0;
+		informacionProductos.forEach(producto => {
+			producto.data.forEach(item => {
+				suma += parseFloat(laborPrices[item.idProduct]) || 0;
+			});
+		});
+		setSumaPrecios(suma);
+	}, [informacionProductos, laborPrices]);
+	
+	
+    const onSubmit = async (data) => {
+        console.log("Formulario enviado");
+        const listaTrabajo = {
+			listName: data.nombreLista, // Obtener el nombre de la lista desde el input
+			total: sumaPrecios.toString(), // Utilizar el total calculado
 			idCardWorker: selectedIdCardWorker,
 			idState: '1',
 			details: array
 		};
 
-		try {
-			await añadirInformacionSinImagenAPI(listaTrabajo, 'listaTrabajo')
-			notificacionConfirmar({ titulo: "Se ha creado una lista de trabajo!" });
-		} catch (error) {
-			console.error('Error al crear una lista de trabajo', error);
-			notificacionError({ titulo: "No Se puede crear la lista de trabajo!" });
-		}
-	};
+		console.log("Lista de trabajo:", listaTrabajo);
+
+        try {
+            await añadirInformacionSinImagenAPI(listaTrabajo, 'listaTrabajo')
+            notificacionConfirmar({ titulo: "Se ha creado una lista de trabajo!" });
+        } catch (error) {
+            console.error('Error al crear una lista de trabajo', error);
+            notificacionError({ titulo: "No Se puede crear la lista de trabajo!" });
+        }
+    };
+
 
 	return (
 		<div>
@@ -243,12 +252,14 @@ function CrearListaTrabajo() {
 				</Acordeon>
 				<Spacer y={4} />
 				<Acordeon className={"acordeonListaT"} titulo={"Nombre de la lista"}>
-					<InputText />
+					<InputText nputText {...register("nombreLista")} />
 				</Acordeon>
 				<Spacer y={4} />
 				<BotonComprar2 text={"Enviar Lista"}>
-					<Texto3 precio={`Total: 10000`} />
+ 			 		<Texto3 precio={`Total: ${sumaPrecios}`} />
 				</BotonComprar2>
+
+
 			</form>
 			<Footer />
 		</div>
