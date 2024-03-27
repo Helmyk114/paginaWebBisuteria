@@ -21,7 +21,7 @@ import { notificacionConfirmar, notificacionError } from "../../utils/notificaci
 import InputText from "../../components/UI/formulario/Inputs/inputText";
 
 function CrearListaTrabajo() {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } , watch} = useForm();
     const [informacionArtesano, setInformacionArtesano] = useState([]);
     const [informacionProductos, setInformacionProductos] = useState([]);
     const [cargando, setCargando] = useState(true);
@@ -29,6 +29,7 @@ function CrearListaTrabajo() {
     const location = useLocation();
     const [pedidosSeleccionados, setPedidosSeleccionados] = useState(location.state.pedidosSeleccionados);
     const idOrders = pedidosSeleccionados.map(pedido => pedido.idOrder);
+    const nombreLista = watch("nombreLista"); 
 
     const refs = useRef({
         idCardWorker: [],
@@ -49,20 +50,25 @@ function CrearListaTrabajo() {
     }, []);
 
     useEffect(() => {
-        const dataProductos = async () => {
-            try {
-                const productosInformacion = await Promise.all(idOrders.map(idOrder =>
-                    listarInformacionConParametroApi('orden-CrearLista', idOrder)
-                ));
-                setInformacionProductos(productosInformacion);
-                setCargando(false);
-            } catch (error) {
-                console.error('Error al acceder a la información de los productos: ', error);
-                setCargando(false);
-            }
-        };
+    const dataProductos = async () => {
+        try {
+            const productosInformacion = await Promise.all(idOrders.map(idOrder =>
+                listarInformacionConParametroApi('orden-CrearLista', idOrder)
+            ));
+            setInformacionProductos(productosInformacion);
+            setCargando(false);
+        } catch (error) {
+            console.error('Error al acceder a la información de los productos: ', error);
+            setCargando(false);
+        }
+    };
+
+    // Solo ejecutar la carga de datos si informacionProductos está vacío
+    if (informacionProductos.length === 0) {
         dataProductos();
-    }, [idOrders]);
+    }
+}, [idOrders, informacionProductos.length]); // Dependencias actualizadas
+
 
 	let array = [];
 
@@ -98,25 +104,28 @@ function CrearListaTrabajo() {
 
     const [sumaPrecios, setSumaPrecios] = useState(0); // Estado para almacenar la suma de precios
 
-    useEffect(() => {
+	useEffect(() => {
 		let suma = 0;
 		informacionProductos.forEach(producto => {
 			producto.data.forEach(item => {
-				suma += laborPrices[item.idProduct] || 0; // Sumar el precio de mano de obra actualizado
+				suma += parseFloat(laborPrices[item.idProduct]) || 0;
 			});
 		});
 		setSumaPrecios(suma);
 	}, [informacionProductos, laborPrices]);
 	
-    const onSubmit = async () => {
+	
+    const onSubmit = async (data) => {
         console.log("Formulario enviado");
         const listaTrabajo = {
-            listName: 'Prueba',
-            total: '2000',
-            idCardWorker: selectedIdCardWorker,
-            idState: '1',
-            details: array
-        };
+			listName: data.nombreLista, // Obtener el nombre de la lista desde el input
+			total: sumaPrecios.toString(), // Utilizar el total calculado
+			idCardWorker: selectedIdCardWorker,
+			idState: '1',
+			details: array
+		};
+
+		console.log("Lista de trabajo:", listaTrabajo);
 
         try {
             await añadirInformacionSinImagenAPI(listaTrabajo, 'listaTrabajo')
@@ -248,7 +257,7 @@ function CrearListaTrabajo() {
 				</Acordeon>
 				<Spacer y={4} />
 				<Acordeon className={"acordeonListaT"} titulo={"Nombre de la lista"}>
-					<InputText />
+					<InputText nputText {...register("nombreLista")} />
 				</Acordeon>
 				<Spacer y={4} />
 				<BotonComprar2 text={"Enviar Lista"}>
