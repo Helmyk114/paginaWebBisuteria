@@ -45,7 +45,7 @@ function DetalleTrabajo() {
 			) : (
 				<div>
 					{informacion && informacion.length > 0 ? (
-						informacion.map((detalle, index ) => (
+						informacion.map((detalle, index) => (
 							<div style={{ flex: '1' }} key={index}>
 								<CardPerfil
 									className1={"cardListaPro"}
@@ -81,9 +81,11 @@ function DetalleTrabajo() {
 				</div>
 			)}
 			<Spacer y={4} />
+			{informacion.length > 0 && (
 				<BotonComprar2 text={"Comprar"}>
 					<Texto3 precio={`Total: ${informacion[0].total}`} />
 				</BotonComprar2>
+			)}
 			<div >
 				<Footer style={{ marginTop: "auto" }} />
 			</div>

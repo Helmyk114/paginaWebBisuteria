@@ -94,12 +94,12 @@ function CrearListaTrabajo() {
 		setPedidosSeleccionados(updatedPedidos);
 	};
 
-    const [selectedOption, setSelectedOption] = useState(null);
-    const [selectedIdCardWorker, setSelectedIdCardWorker] = useState(null);
-    const handleOptionChange = (option) => {
-        setSelectedOption(option);
-        setSelectedIdCardWorker(option.idCardWorker);
-    };
+	const [selectedOption, setSelectedOption] = useState(null);
+	const [selectedIdCardWorker, setSelectedIdCardWorker] = useState(null);
+	const handleOptionChange = (option) => {
+		setSelectedOption(option);
+		setSelectedIdCardWorker(option.idCardWorker);
+	};
 
 	const handleCantidadChange = (productId, newCantidad) => {
 		const productInfo = informacionProductos.find(productos =>
