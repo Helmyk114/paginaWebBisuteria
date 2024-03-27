@@ -62,8 +62,8 @@ function DetalleTrabajo() {
 									<div >
 										<Texto1Card
 											className={"texto1CardListaPro"}
-											textAlign={detalle.quantity}
-											texto={"2"} />
+											textAlign={"start"}
+											texto={detalle.quantity} />
 									</div>
 									<div >
 										<Texto1Card
