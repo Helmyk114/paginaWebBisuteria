@@ -20,15 +20,15 @@ import { añadirInformacionSinImagenAPI, listarInformacionApi, listarInformacion
 import { notificacionConfirmar, notificacionError } from "../../utils/notificacionCliente";
 
 function CrearListaTrabajo() {
-    const { register, handleSubmit, formState: { errors } , watch} = useForm();
-    const [informacionArtesano, setInformacionArtesano] = useState([]);
-    const [informacionProductos, setInformacionProductos] = useState([]);
-    const [cargando, setCargando] = useState(true);
-    const urlImage = process.env.REACT_APP_API_URL;
-    const location = useLocation();
-    const [pedidosSeleccionados, setPedidosSeleccionados] = useState(location.state.pedidosSeleccionados);
-    const idOrders = pedidosSeleccionados.map(pedido => pedido.idOrder);
-    const nombreLista = watch("nombreLista"); 
+	const { register, handleSubmit, formState: { errors }, watch } = useForm();
+	const [informacionArtesano, setInformacionArtesano] = useState([]);
+	const [informacionProductos, setInformacionProductos] = useState([]);
+	const [cargando, setCargando] = useState(true);
+	const urlImage = process.env.REACT_APP_API_URL;
+	const location = useLocation();
+	const [pedidosSeleccionados, setPedidosSeleccionados] = useState(location.state.pedidosSeleccionados);
+	const idOrders = pedidosSeleccionados.map(pedido => pedido.idOrder);
+	const nombreLista = watch("nombreLista");
 
 
 	const refs = useRef({
@@ -74,18 +74,18 @@ function CrearListaTrabajo() {
 	const [laborPrices, setLaborPrices] = useState({});
 
 	informacionProductos.forEach((producto) => {
-        producto.data.forEach((pro) => {
-            const cantidadSeleccionada = watch(`cantidad-${pro.idProduct}`) || 1; // Obtener la cantidad seleccionada del formulario o usar 1 si no hay ninguna
-            const subtotal = cantidadSeleccionada * (laborPrices[pro.idProduct] || 0); // Calcular el subtotal multiplicando la cantidad por el precio laboral o 0 si no hay precio
-            const productoInfo = {
-                idOrder: pro.idOrder,
-                idProduct: pro.idProduct,
-                quantity: cantidadSeleccionada,
-                subTotal: subtotal
-            };
-            array.push(productoInfo);
-        });
-    });
+		producto.data.forEach((pro) => {
+			const cantidadSeleccionada = watch(`cantidad-${pro.idProduct}`) || 1; // Obtener la cantidad seleccionada del formulario o usar 1 si no hay ninguna
+			const subtotal = cantidadSeleccionada * (laborPrices[pro.idProduct] || 0); // Calcular el subtotal multiplicando la cantidad por el precio laboral o 0 si no hay precio
+			const productoInfo = {
+				idOrder: pro.idOrder,
+				idProduct: pro.idProduct,
+				quantity: cantidadSeleccionada,
+				subTotal: subtotal
+			};
+			array.push(productoInfo);
+		});
+	});
 
 	const handleDeletePedido = (index) => {
 		const updatedPedidos = [...pedidosSeleccionados];
@@ -93,12 +93,12 @@ function CrearListaTrabajo() {
 		setPedidosSeleccionados(updatedPedidos);
 	};
 
-    const [selectedOption, setSelectedOption] = useState(null);
-    const [selectedIdCardWorker, setSelectedIdCardWorker] = useState(null);
-    const handleOptionChange = (option) => {
-        setSelectedOption(option);
-        setSelectedIdCardWorker(option.idCardWorker);
-    };
+	const [selectedOption, setSelectedOption] = useState(null);
+	const [selectedIdCardWorker, setSelectedIdCardWorker] = useState(null);
+	const handleOptionChange = (option) => {
+		setSelectedOption(option);
+		setSelectedIdCardWorker(option.idCardWorker);
+	};
 
 	const handleCantidadChange = (productId, newCantidad) => {
 		const productInfo = informacionProductos.find(productos =>
