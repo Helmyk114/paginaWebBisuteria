@@ -8,12 +8,10 @@ const CerrarSesionIcono = ({ ruta, className, eliminarCookie }) => {
       <div >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          
           fill="currentColor"
           className= {className}
           viewBox="0 0 16 16"
           color="#6977E4"
-          
         >
           <path
             fillRule="evenodd"

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import '../Bienvenida/bienvenida.css'
 
-import { decodificarToken, obtenerToken } from "../../utils/token";
+import { decodificarToken, eliminarCookie, obtenerToken } from "../../utils/token";
 import { detalleInformacionApi } from "../../api/axiosServices";
 
 import { Spacer } from "@nextui-org/react";
 import Loader from "../../components/UI/cargando/loader";
-import NavigateADM, {Icono, Texto} from "../../components/UI/navbar/navbarAdmin";
+import NavigateADM, { Icono, Texto } from "../../components/UI/navbar/navbarAdmin";
 import PerfilIcono from "../../components/UI/iconos/Perfil";
 import ListaTrabajoIcono from "../../components/UI/iconos/ListaTrabajo";
 import ProductoIcono from "../../components/UI/iconos/Producto";
@@ -14,8 +14,6 @@ import TrabajadorIcono from "../../components/UI/iconos/Trabajador";
 import PedidoIcono from "../../components/UI/iconos/Pedido";
 import CerrarSesionIcono from "../../components/UI/iconos/CerrarSesion";
 import Footer from "../../components/UI/Footer/Footer";
-import Cookies from "js-cookie";
-
 
 function BienvenidaAdmi() {
   const [informacion, setInformacion] = useState([]);
@@ -36,11 +34,6 @@ function BienvenidaAdmi() {
     };
     data();
   }, [id]);
-
-  const eliminarCookie = () => {
-    Cookies.remove('token');
-    console.log("Cookie eliminada");
-  };
 
   return (
     <div>
@@ -78,14 +71,14 @@ function BienvenidaAdmi() {
           </div>
           <Spacer x={2} />
           <div className=" carta flex flex-col items-center">
-            <ListaTrabajoIcono ruta="/listaTrabajo/administracion" 
-            className={"listaTrabajo"}/>
+            <ListaTrabajoIcono ruta="/listaTrabajo/administracion"
+              className={"listaTrabajo"} />
             <h1 className="textoPrincipal">Lista de trabajo</h1>
           </div>
           <Spacer x={2} />
           <div className=" carta flex flex-col items-center">
-            <ProductoIcono ruta="/productos" 
-            className={"producto"}/>
+            <ProductoIcono ruta="/productos"
+              className={"producto"} />
             <h1 className="textoPrincipal">Productos</h1>
           </div>
         </div>
@@ -93,22 +86,22 @@ function BienvenidaAdmi() {
       <Spacer y={5} />
       <div className="flex flex-col items-center">
         <div className=" cartaEspacio relative flex gap-4">
-          <div className= " carta flex flex-col items-center" >
-            <TrabajadorIcono ruta="/trabajadores" 
-            className={"trabajador"}/>
+          <div className=" carta flex flex-col items-center" >
+            <TrabajadorIcono ruta="/trabajadores"
+              className={"trabajador"} />
             <h1 className="textoPrincipal">Trabajadores</h1>
           </div>
           <Spacer x={2} />
           <div className=" carta flex flex-col items-center">
             <PedidoIcono ruta="/pedidos/administracion"
-            className={"pedidos"} />
+              className={"pedidos"} />
             <h1 className="textoPrincipal">Pedidos</h1>
           </div>
           <Spacer x={2} />
           <div className=" carta flex flex-col items-center">
             <CerrarSesionIcono ruta="/"
-            eliminarCookie={eliminarCookie}
-            className={"cerrarSesion"}/>
+              eliminarCookie={eliminarCookie}
+              className={"cerrarSesion"} />
             <h1 className="textoPrincipal">Cerrar sesión</h1>
           </div>
         </div>
@@ -116,8 +109,8 @@ function BienvenidaAdmi() {
       <Spacer y={5} />
       <div className="footerBienvenido">
         <Footer
-        classNameF={"footer"}
-        classNameF2={"footer2"} />
+          classNameF={"footer"}
+          classNameF2={"footer2"} />
       </div>
     </div>
   );

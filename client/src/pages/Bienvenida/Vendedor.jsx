@@ -10,7 +10,7 @@ import ProductoIcono from "../../components/UI/iconos/Producto";
 import CerrarSesionIcono from "../../components/UI/iconos/CerrarSesion";
 import Footer from "../../components/UI/Footer/Footer";
 
-import { decodificarToken, obtenerToken } from "../../utils/token";
+import { decodificarToken, eliminarCookie, obtenerToken } from "../../utils/token";
 import { detalleInformacionApi } from "../../api/axiosServices";
 
 function BienvenidaVendedor() {
@@ -18,7 +18,6 @@ function BienvenidaVendedor() {
   const [cargando, setCargando] = useState(true);
   const token = obtenerToken();
   const id = decodificarToken(token).userId;
-
   const urlImage = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
@@ -47,7 +46,6 @@ function BienvenidaVendedor() {
                   radio={"full"}
                   maxWidth={"100px"}
                   imagen={`${(urlImage)}/${datos.photo}`}
-                  
                 />
                 <Texto
                   titulo={"Bienvenido"}
@@ -57,7 +55,7 @@ function BienvenidaVendedor() {
               </NavigateVEN>
             ))
           ) : (
-            <p>No hay informacion disponible</p>
+            <p>No hay informacion disponible.</p>
           )}
         </div>
       )}
@@ -82,6 +80,7 @@ function BienvenidaVendedor() {
           </div>
           <div className=" carta flex flex-col items-center">
             <CerrarSesionIcono ruta="/"
+              eliminarCookie={eliminarCookie}
               className={"producto"} />
             <h1 className="textoPrincipal">Cerrar sesión</h1>
           </div>

@@ -85,17 +85,6 @@ function CrearListaTrabajo() {
 		});
 	});
 
-	const restarCantidadDisponible = (producto, newCantidad) => {
-		const cantidadDisponible = producto.maxQuantity; // Obtener la cantidad disponible del producto
-		const resta = cantidadDisponible - newCantidad; // Restar la nueva cantidad seleccionada de la cantidad disponible
-
-		return {
-			idOrder: producto.idOrder,
-			idProduct: producto.idProduct,
-			restaCantidad: resta // Resultado de la resta
-		};
-	};
-
 	const handleDeletePedido = (index) => {
 		const updatedPedidos = [...pedidosSeleccionados];
 		updatedPedidos.splice(index, 1);
@@ -173,7 +162,7 @@ const onSubmit = async (data) => {
         total: sumaPrecios.toString(), // Utilizar el total calculado
         idCardWorker: selectedIdCardWorker,
         idState: '1',
-        details: array,
+        details: detailsListWork,
         cantidadDisponible: restaCantidadInfo // Usar la información de la resta almacenada
     };
 
