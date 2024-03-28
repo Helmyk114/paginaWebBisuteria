@@ -8,7 +8,7 @@ function obtenerToken() {
 
 function guardarToken(token) {
    // Guarda el token en una cookie con una duración de 1 hora
-  Cookies.set('token', token, {expires: 1 / 24})
+  Cookies.set('token', token, {expires: 24 / 24})
 };
 
 function eliminarCookie() {
