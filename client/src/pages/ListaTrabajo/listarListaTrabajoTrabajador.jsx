@@ -51,7 +51,7 @@ function ListarListaTrabajoVendedor() {
 				<div style={{display:"flex", flexWrap:"wrap", gap:"5px"}}>
 					{listaC && listaC.length > 0 ? (
 						listaC.map((lista) => (
-							<div className=".cont1ListaT" style={{ flex: "1" }} key={lista.idWorkList}>
+							<div   key={lista.idWorkList}>
 								<CardPerfil
 									className1={"card1ListaT"}
 									className2={"cardListaTGap"}>
@@ -69,6 +69,7 @@ function ListarListaTrabajoVendedor() {
 												<Texto2Card
 													texto2={"Ver"}
 													fontWeight={"400"}
+													
 												/>
 											</div>
 											<div className="contIcono">
@@ -98,8 +99,9 @@ function ListarListaTrabajoVendedor() {
 						<div style={{display:"flex", flexWrap:"wrap", gap:"5px"}}>
 							{listaT && listaT.length > 0 ? (
 								listaT.map((lista) => (
-									<div className="cont1AcordeonListaT" key={lista.idWorkList}>
-										<CardPerfil className="card1ListaT">
+									<div style={{display:"flex", flexWrap:"wrap", margin:"0 auto"}} key={lista.idWorkList}>
+										<CardPerfil className1={"cardListaTerminadaT"} 
+										className2={"cardListaTerminadaTGap"}>
 											<div className="contenedor1ListaT">
 												<div className="contIconoListaT " >
 													<div className="contIconoCheck" style={{ justifyContent: "center" }}>
@@ -121,6 +123,7 @@ function ListarListaTrabajoVendedor() {
 														<Texto1Card
 															texto={`Codigo: ${lista.idWorkList}`}
 															fontWeight={"200"}
+															className={"codListaTtrabajador"}
 														/>
 													</div>
 													<div className="card2ListaT">

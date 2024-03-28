@@ -3,33 +3,26 @@
 .cont1ListaTA{
     display: flex;
     flex-wrap: wrap;
-    gap: 9px;
+    
     margin: 0 auto;
 }
 
-.cardListaTerminadaTAGap{
+.cardListaTerminadaTAGap, .cardListaTerminadaTGap{
     display: flex;
     width: 100%;
 }
 
-.cont1ListaT{
-    display: flex;
-    flex-wrap: wrap;
-    height: 100%;
-    justify-content: space-between;
-    gap: 5px;
-    
-}
+
 .card1ListaT{
-    flex: 1 1 30%;
-    max-width: 30%;
-    min-width: 250px;
+
+    width: 78%;
     margin: 10px; 
 
 }
 .card1ListaTA{
-    width: 30%;
-    margin: 0 auto;  
+    width: 100%;
+    margin: 0 auto;
+    height: 65%;  
    
 }
 .cont2ListaT{
@@ -51,7 +44,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 50px;
+    height: 58px;
     position: relative;
     background-color: #eeee;
     border-radius: 8px;
@@ -101,9 +94,10 @@
         background-color: #6977E4 ;
         border-radius:10px;
         margin-right: 10px;
-        width:60%; 
+        width:35%; 
         display:column;
-        padding:30px;
+        padding:20px;
+        height: 100%;
 }
 .contenedor1ListaT{
     width: 100%;
@@ -134,7 +128,10 @@
     justify-content: space-between;
     
 }
-
+.cardListaTerminadaT{
+    width: 75%;
+    height: 100%;
+}
 
 
 
@@ -145,6 +142,12 @@
         width: 98%;
         margin: 0 auto;
     }
+    .cont1ListaT{
+        display: flex;
+        flex-direction: column;
+        
+    }
+   
     .cardProCrearPedidoGap{
         display: flex;
         width: 100%;
@@ -169,7 +172,7 @@
 
     }
     .codListaTtrabajador{
-        font-size: 10px;
+        font-size: 15px;
      }
      .cont2CrListaT p{
         font-size: 18px;
@@ -222,8 +225,14 @@
         width: 100%;
     }
     .card1ListaT{
+        width: 98%;
+        margin: 0 auto;
+        max-width: 100%;
+    }
+    .card1ListaTA{
         width: 95%;
         margin: 0 auto;
+        height: 100%;
     }
     .cardCrearListaTGap{
         display: flex;
@@ -232,6 +241,10 @@
       }
       .cardListaTerminadaTA{
         width: 100%;
+    }
+    .cardListaTerminadaT{
+        width: 98%;
+        height: 100%;
     }
     
     .cardListaTerminadaTAGap{
@@ -249,7 +262,7 @@
         width: 40%;
         margin: 0 auto;
      }
-     .cardListaTerminadaTA{
+     .cardListaTerminadaTA {
         width: 43%;
     }
      .cont2ProCrListaT{
@@ -266,7 +279,7 @@
         
     }
      .card1ListaT {
-        flex-basis: 48%; 
+        width: 78%; 
       }
      .codListaTtrabajador{
         font-size: 14px;
@@ -301,7 +314,7 @@
         background-color: #6977E4 ;
         border-radius:10px;
         margin-right: 10px;
-        width:60%; 
+        width:40%; 
         display:flex;
         flex-direction: column;
         
@@ -329,7 +342,13 @@
         margin: 0 auto;
         gap:8px
     }
-    
+    .card1ListaTA{
+        width: 100%;
+        margin: 0 auto;  
+        height: 74%;
+        gap: 8px;
+       
+    }
    
  }
 
@@ -363,7 +382,7 @@
         background-color: #6977E4 ;
         border-radius:10px;
         margin-right: 10px;
-        width:40%; 
+        width:35%; 
         display:column;
         padding:20px;
     }
@@ -412,7 +431,7 @@
     gap: 2px;
 }
 .cardListaTerminadaTA{
-    width: 45%;
+    width: 35%;
 }
 .contTexto1A{
     font-size: 15px;
@@ -421,6 +440,15 @@
 .cardListaTerminadaTAGap{
     display: flex;
     width: 100%;
+}
+.card1ListaT {
+    width: 78%; 
+  }
+  .card1ListaTA{
+    width: 100%;
+    margin: 0 auto;  
+    height: 100%;
+   
 }
 
 }
