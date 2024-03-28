@@ -88,17 +88,6 @@ function CrearListaTrabajo() {
         });
     });
 
-	const restarCantidadDisponible = (producto, newCantidad) => {
-		const cantidadDisponible = producto.maxQuantity; // Obtener la cantidad disponible del producto
-		const resta = cantidadDisponible - newCantidad; // Restar la nueva cantidad seleccionada de la cantidad disponible
-	
-		return {
-			idOrder: producto.idOrder,
-			idProduct: producto.idProduct,
-			restaCantidad: resta // Resultado de la resta
-		};
-	};	
-
 	const handleDeletePedido = (index) => {
 		const updatedPedidos = [...pedidosSeleccionados];
 		updatedPedidos.splice(index, 1);
@@ -120,8 +109,7 @@ function CrearListaTrabajo() {
 			const laborPrice = productInfo.data.find(producto => producto.idProduct === productId).laborPrice;
 			const productToUpdate = productInfo.data.find(producto => producto.idProduct === productId); // Encuentra el producto específico
 	
-			const restaInfo = restarCantidadDisponible(productToUpdate, newCantidad); // Usa el producto específico
-			console.log('Información de la resta:', restaInfo);
+			const restaInfo = restarCantidadDisponible(productToUpdate, newCantidad); 
 	
 			setLaborPrices(prevPrices => ({
 				...prevPrices,
@@ -150,27 +138,46 @@ function CrearListaTrabajo() {
 	}, [informacionProductos, laborPrices]);
 
 
-	const onSubmit = async (data) => {
-		console.log("Formulario enviado");
-		const listaTrabajo = {
-			listName: data.nombreLista, // Obtener el nombre de la lista desde el input
-			total: sumaPrecios.toString(), // Utilizar el total calculado
-			idCardWorker: selectedIdCardWorker,
-			idState: '1',
-			details: array
+	const [restaCantidadInfo, setRestaCantidadInfo] = useState({});
+
+	const restarCantidadDisponible = (producto, newCantidad) => {
+		const cantidadDisponible = producto.maxQuantity - newCantidad; // Calcular la cantidad disponible
+		const resta = cantidadDisponible; // Restar la nueva cantidad seleccionada de la cantidad disponible
+	
+		const info = {
+			idOrder: producto.idOrder,
+			idProduct: producto.idProduct,
+			restaCantidad: resta // Resultado de la resta
 		};
+		setRestaCantidadInfo(prevInfo => ({
+			...prevInfo,
+			[producto.idProduct]: info
+		}));
+		
+		return info; // Devolver la información de la resta
+	};  
 
-		console.log("Lista de trabajo:", listaTrabajo);
+const onSubmit = async (data) => {
+    console.log("Formulario enviado");
+    const listaTrabajo = {
+        listName: data.nombreLista, // Obtener el nombre de la lista desde el input
+        total: sumaPrecios.toString(), // Utilizar el total calculado
+        idCardWorker: selectedIdCardWorker,
+        idState: '1',
+        details: array,
+        cantidadDisponible: restaCantidadInfo // Usar la información de la resta almacenada
+    };
 
-		try {
-			await añadirInformacionSinImagenAPI(listaTrabajo, 'listaTrabajo')
-			notificacionConfirmar({ titulo: "Se ha creado una lista de trabajo!" });
-		} catch (error) {
-			console.error('Error al crear una lista de trabajo', error);
-			notificacionError({ titulo: "No Se puede crear la lista de trabajo!" });
-		}
-	};
+    console.log("Lista de trabajo:", listaTrabajo);
 
+    try {
+        await añadirInformacionSinImagenAPI(listaTrabajo, 'listaTrabajo')
+        notificacionConfirmar({ titulo: "Se ha creado una lista de trabajo!" });
+    } catch (error) {
+        console.error('Error al crear una lista de trabajo', error);
+        notificacionError({ titulo: "No Se puede crear la lista de trabajo!" });
+    }
+};
 
 	return (
 		<div>
