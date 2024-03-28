@@ -147,31 +147,46 @@ function CrearListaTrabajo() {
 	}, [informacionProductos, laborPrices]);
 
 
-	const onSubmit = async (data) => {
-		console.log("Formulario enviado");
-		const listaTrabajo = {
-			listName: data.nombreLista, // Obtener el nombre de la lista desde el input
-			total: sumaPrecios.toString(), // Utilizar el total calculado
-			idCardWorker: selectedIdCardWorker,
-			idState: '1',
-			details: detailsListWork
+	const [restaCantidadInfo, setRestaCantidadInfo] = useState({});
+
+	const restarCantidadDisponible = (producto, newCantidad) => {
+		const cantidadDisponible = producto.maxQuantity - newCantidad; // Calcular la cantidad disponible
+		const resta = cantidadDisponible; // Restar la nueva cantidad seleccionada de la cantidad disponible
+	
+		const info = {
+			idOrder: producto.idOrder,
+			idProduct: producto.idProduct,
+			restaCantidad: resta // Resultado de la resta
 		};
+		setRestaCantidadInfo(prevInfo => ({
+			...prevInfo,
+			[producto.idProduct]: info
+		}));
+		
+		return info; // Devolver la información de la resta
+	};  
 
-		// const nuevaCantidad = {
-		// 	quantity:
-		// }
+const onSubmit = async (data) => {
+    console.log("Formulario enviado");
+    const listaTrabajo = {
+        listName: data.nombreLista, // Obtener el nombre de la lista desde el input
+        total: sumaPrecios.toString(), // Utilizar el total calculado
+        idCardWorker: selectedIdCardWorker,
+        idState: '1',
+        details: array,
+        cantidadDisponible: restaCantidadInfo // Usar la información de la resta almacenada
+    };
 
-		// console.log("nueva Cantidad:", nuevaCantidad);
-		console.log("Lista de trabajo:", listaTrabajo);
+    console.log("Lista de trabajo:", listaTrabajo);
 
-		// try {
-		// 	await añadirInformacionSinImagenAPI(listaTrabajo, 'listaTrabajo')
-		// 	notificacionConfirmar({ titulo: "Se ha creado una lista de trabajo!" });
-		// } catch (error) {
-		// 	console.error('Error al crear una lista de trabajo', error);
-		// 	notificacionError({ titulo: "No Se puede crear la lista de trabajo!" });
-		// }
-	};
+    try {
+        await añadirInformacionSinImagenAPI(listaTrabajo, 'listaTrabajo')
+        notificacionConfirmar({ titulo: "Se ha creado una lista de trabajo!" });
+    } catch (error) {
+        console.error('Error al crear una lista de trabajo', error);
+        notificacionError({ titulo: "No Se puede crear la lista de trabajo!" });
+    }
+};
 
 	return (
 		<div>
