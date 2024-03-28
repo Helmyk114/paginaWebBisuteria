@@ -75,7 +75,7 @@ function ListarPedidoAdministrador() {
 				<div style={{display:"flex", flexWrap:"wrap", justifyContent: "center", gap: "8px"}}>
 					{informacionC && informacionC.length > 0 ? (
 						informacionC.map((datos) => (
-							<div key={datos.idOrder} >
+							<div  key={datos.idOrder} >
 		
 								<CardPerfil
 									className1={"cont1ListaP"}
@@ -123,10 +123,10 @@ function ListarPedidoAdministrador() {
 					<div>
 						{informacionE && informacionE.length > 0 ? (
 							informacionE.map((datos) => (
-								<div key={datos.idOrder} >
+								<div style={{display:"flex", flexWrap:"wrap"}} key={datos.idOrder} >
 									<CardPerfil
-										className1={"cont1ListaP"}
-										className2={"cont1ListaPGap"}>
+										className1={"cont1ProcesoListaP"}
+										className2={"cont1ProcesoListaPGap"}>
 										<div className="cont1ListaP">
 											<div className="contTexto1P">
 												<Texto1Card
@@ -134,8 +134,8 @@ function ListarPedidoAdministrador() {
 													texto={`${datos.clientname}`} />
 											</div>
 										</div>
-										<div className="cont2ListaP">
-											<div className="card2ListaP">
+										<div className="cont2ProcesoListaP">
+											<div className="card2ProcesoListaP">
 												<div className="contText">
 													<div className="contTexto2P">
 														<Texto2Card texto2={`Fecha de creacion: ${datos.Date}`} />
@@ -164,10 +164,10 @@ function ListarPedidoAdministrador() {
 					<div>
 						{informacionT && informacionT.length > 0 ? (
 							informacionT.map((datos) => (
-								<div key={datos.idOrder} >
+								<div style={{display:"flex", flexWrap:"wrap"}} key={datos.idOrder} >
 									<CardPerfil
-										className1={"cont1ListaP"}
-										className2={"cont1ListaPGap"}>
+										className1={"cont1ProcesoListaP"}
+										className2={"cont1ProcesoListaPGap"}>
 										<div className="cont1ListaP">
 											<div className="contTexto1P">
 												<Texto1Card

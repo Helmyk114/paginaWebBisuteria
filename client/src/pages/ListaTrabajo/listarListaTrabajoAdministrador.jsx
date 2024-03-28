@@ -39,13 +39,13 @@ function ListarListaTrabajoAdministrador() {
       {cargando ? (
         <Loader />
       ) : (
-        <div style={{ display: "flex", flex: "1", flexWrap: "wrap", marginLeft: "20px", marginRight: "20px" }}>
+        <div style={{ display: "flex",  flexWrap: "wrap", marginLeft: "20px", marginRight: "20px" }}>
           {informacionLista && informacionLista.length > 0 ? (
             informacionLista.map((datos) => (
-              <div className="cont1ListaT" key={datos.idWorkList}>
+              <div className="cont1ListaTA" key={datos.idWorkList}>
                 <CardPerfil
-                  className1={"card1ListaT"}
-                  className2={"card1ListaTGap"}>
+                  className1={"card1ListaTA"}
+                  className2={"card1ListaTAGap"}>
                   <div className="cont2ListaT">
                     <div className="contTexto1">
                       <Texto1Card texto={datos.listName} fontSize={"20px"}/>
@@ -84,7 +84,7 @@ function ListarListaTrabajoAdministrador() {
       <Spacer y={4} />
       <div className="cont1AcordeonListaTA">
         <Acordeon className={"contAcordeonListaTA"} titulo={"Listas de trabajo terminadas"}>
-          <div className="cont1AcordeonListaT">
+          <div style={{display:"flex", flexWrap:"wrap"}}>
 
             <CardPerfil
               className1={"cardListaTerminadaTA"}

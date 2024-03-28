@@ -4,9 +4,7 @@
   margin: 10px;
 }
 
-.card1ListaPV{
 
-}
 .card1ListaPVGap{
   display: flex;
   flex-direction: column;
@@ -31,7 +29,7 @@
 }
 
 
-.card2ListaP {
+.card2ListaP, .card2ProcesoListaP {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -54,13 +52,19 @@
   margin: 8px;
   align-items: center;
 }
-.cont1ListaPGap{
+.cont1ListaPGap, .cont1ProcesoListaPGap{
   width: 100%;
   margin: 0 auto;
 }
 .cont1ListaP{
   display: flex;
- gap: 2px;
+  gap: 2px;
+   
+}
+.cont1ProcesoListaP{
+  display: flex;
+  width: 35%;
+ 
 }
 
 
@@ -72,6 +76,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+  }
+  .cont1ProcesoListaP{
+    display: flex;
+    width: 98%;
+    margin: 0 auto;
   }
 
   .cont2CrP {
@@ -101,9 +110,7 @@
   .text1ListaP{
     font-size: 20px;
   }
-  .card1ListaPV{
-   
-  }
+ 
   .card1ListaPVGap{
     display: flex;
     flex-direction: column;
@@ -204,6 +211,11 @@
     align-items: center;
     gap: "13px";
     justify-content: space-around;
+  }
+  .cont1ProcesoListaP{
+    display: flex;
+    width: 45%;
+    margin: 0 auto;
   }
 
   .cont2CrP {
