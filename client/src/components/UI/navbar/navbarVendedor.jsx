@@ -1,16 +1,7 @@
 import React from "react";
 import "./navbar.css";
 
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenu,
-  NavbarMenuItem,
-  NavbarMenuToggle,
-} from "@nextui-org/react";
-
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from "@nextui-org/react";
 import Avatares from "../avatar/Avatares";
 import Campana from "../iconos/Notificacion";
 import BotonRetroceder from "../iconos/Retroceder";
@@ -18,20 +9,21 @@ import AgregarPedido from "../iconos/agregar/Pedido";
 import PerfilNav from "../iconos/PerfilNavbar";
 import CerrarSesionNav from "../iconos/CerrarSesionNavbars";
 import Inicio from "../iconos/Inicio";
+import { eliminarCookie } from "../../../utils/token";
 
 export default function NavigateVEN({ children, height }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   return (
-    <Navbar 
+    <Navbar
       style={{ backgroundColor: "#6977E4" }}
       height={height || "140px"}
       onMenuOpenChange={setIsMenuOpen}
     >
       {children}
       <NavbarContent justify="end" style={{ color: "white" }}  >
-        <NavbarMenuToggle  
+        <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden" 
+          className="sm:hidden"
         />
         <DesplegableVEN />
       </NavbarContent>
@@ -98,7 +90,6 @@ const Texto = ({ titulo, nombre, rol }) => {
         >
           {nombre}
         </h2>
-
         <h3
           className="rol"
           style={{
@@ -118,7 +109,7 @@ const Texto = ({ titulo, nombre, rol }) => {
 
 const Notificacion = () => {
   return (
-    <NavbarContent style={{ marginTop: "0px", color:"#6977E4" }}>
+    <NavbarContent style={{ marginTop: "0px", color: "#6977E4" }}>
       <NavbarItem>
         <div>
           <Campana />
@@ -127,7 +118,6 @@ const Notificacion = () => {
     </NavbarContent>
   );
 };
-
 
 const Retroceder = () => {
   return (
@@ -141,10 +131,10 @@ const Retroceder = () => {
 
 const CerrarSesion = () => {
   return (
-    <NavbarContent style={{ marginTop: "0px", color:"#6977E4" }} >
+    <NavbarContent style={{ marginTop: "0px", color: "#6977E4" }} >
       <NavbarItem>
         <div>
-          <CerrarSesionNav/>
+          <CerrarSesionNav eliminarCookie={eliminarCookie} />
         </div>
       </NavbarItem>
     </NavbarContent>
@@ -189,11 +179,11 @@ const Inicios = () => {
 
 const DesplegableVEN = () => {
   const menuItems = [
-    <Inicios/>,
-    <Notificacion/>,
-    <Perfil/>,
-    <AgregamosPedido/>,
-    <CerrarSesion/> 
+    <Inicios />,
+    <Perfil />,
+    <Notificacion />,
+    <AgregamosPedido />,
+    <CerrarSesion />
   ];
 
   return (
@@ -207,4 +197,14 @@ const DesplegableVEN = () => {
   );
 };
 
-export { Titulo, Notificacion, Retroceder, Icono, Texto, AgregamosPedido, DesplegableVEN, Inicios, Perfil};
+export { 
+  Titulo, 
+  Notificacion, 
+  Retroceder, 
+  Icono, 
+  Texto, 
+  AgregamosPedido, 
+  DesplegableVEN, 
+  Inicios, 
+  Perfil 
+};

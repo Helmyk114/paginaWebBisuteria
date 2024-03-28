@@ -13,6 +13,8 @@ import CerrarSesionNav from "../iconos/CerrarSesionNavbars";
 import PerfilNav from "../iconos/PerfilNavbar";
 import Inicio from "../iconos/Inicio";
 
+import { eliminarCookie } from "../../../utils/token"
+
 export default function NavigateADM({ children, height }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   return (
@@ -166,7 +168,7 @@ const CerrarSesion = () => {
     <NavbarContent style={{ marginTop: "0px", color: "#6977E4" }}>
       <NavbarItem>
         <div>
-          <CerrarSesionNav />
+          <CerrarSesionNav eliminarCookie={eliminarCookie} />
         </div>
       </NavbarItem>
     </NavbarContent>
@@ -200,10 +202,10 @@ const Inicios = () => {
 const DesplegableADM = () => {
   const menuItems = [
     <Inicios />,
-    <Notificacion />,
     <Perfil />,
-    <AgregamosTrabajador />,
+    <Notificacion />,
     <AgregamosProducto />,
+    <AgregamosTrabajador />,
     <AgregamosListaTrabajo />,
     <CerrarSesion />
   ];
