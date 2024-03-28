@@ -1,22 +1,15 @@
 import React from "react";
 import "./navbar.css";
 
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenu,
-  NavbarMenuItem,
-  NavbarMenuToggle,
-} from "@nextui-org/react";
-
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenu, NavbarMenuItem, NavbarMenuToggle } from "@nextui-org/react";
 import Avatares from "../avatar/Avatares";
 import Campana from "../iconos/Notificacion";
 import BotonRetroceder from "../iconos/Retroceder";
 import CerrarSesionNav from "../iconos/CerrarSesionNavbars";
 import PerfilNav from "../iconos/PerfilNavbar";
 import Inicio from "../iconos/Inicio";
+
+import { eliminarCookie } from "../../../utils/token";
 
 export default function NavigateTRJ({ children, height }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -97,7 +90,6 @@ const Texto = ({ titulo, nombre, rol }) => {
         >
           {nombre}
         </h2>
-
         <h3
           className="rol"
           style={{
@@ -132,7 +124,7 @@ const CerrarSesion = () => {
     <NavbarContent style={{ marginTop: "0px", color: "#6977E4" }}>
       <NavbarItem>
         <div>
-          <CerrarSesionNav />
+          <CerrarSesionNav eliminarCookie={eliminarCookie} />
         </div>
       </NavbarItem>
     </NavbarContent>
@@ -173,14 +165,12 @@ const Retroceder = () => {
   );
 };
 
-
-
 const DesplegableTRJ = () => {
   const menuItems = [
-    <Inicios/>,
-    <Notificacion/>,
-    <Perfil/>,
-    <CerrarSesion/> 
+    <Inicios />,
+    <Perfil />,
+    <Notificacion />,
+    <CerrarSesion />
   ];
 
   return (
@@ -195,5 +185,13 @@ const DesplegableTRJ = () => {
 };
 
 export {
-  Icono, Titulo, Texto, Notificacion, Retroceder, DesplegableTRJ, Perfil, CerrarSesion, Inicios,
+  Icono, 
+  Titulo, 
+  Texto, 
+  Notificacion, 
+  Retroceder, 
+  DesplegableTRJ, 
+  Perfil, 
+  CerrarSesion, 
+  Inicios,
 };

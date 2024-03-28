@@ -1,24 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CerrarSesionIcono = ({ ruta, className }) => {
-  // const cerrarSesion = () => {
-  //   // Lógica para cerrar sesión y eliminar la cookie
-  //   document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-  //   // Redirigir a la ruta especificada después de cerrar sesión
-  // };
-
+const CerrarSesionIcono = ({ ruta, className, eliminarCookie }) => {
+  
   return (
-    <Link to={ruta}>
+    <Link to={ruta} onClick={eliminarCookie}>
       <div >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          
           fill="currentColor"
           className= {className}
           viewBox="0 0 16 16"
           color="#6977E4"
-          
         >
           <path
             fillRule="evenodd"

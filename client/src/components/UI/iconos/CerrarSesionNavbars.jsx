@@ -1,15 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CerrarSesionNav = () => {
-  const cerrarSesion = () => {
-    // Lógica para cerrar sesión y eliminar la cookie
-    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    // Redirigir al usuario a la página de inicio después de cerrar sesión
-  };
+const CerrarSesionNav = ({ eliminarCookie }) => {
 
   return (
-    <Link to={"/"} onClick={cerrarSesion}>
+    <Link to={"/"} onClick={eliminarCookie}>
       <div className="relative flex gap-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
