@@ -88,6 +88,17 @@ function CrearListaTrabajo() {
         });
     });
 
+	const restarCantidadDisponible = (producto, newCantidad) => {
+		const cantidadDisponible = producto.maxQuantity; // Obtener la cantidad disponible del producto
+		const resta = cantidadDisponible - newCantidad; // Restar la nueva cantidad seleccionada de la cantidad disponible
+	
+		return {
+			idOrder: producto.idOrder,
+			idProduct: producto.idProduct,
+			restaCantidad: resta // Resultado de la resta
+		};
+	};	
+
 	const handleDeletePedido = (index) => {
 		const updatedPedidos = [...pedidosSeleccionados];
 		updatedPedidos.splice(index, 1);
@@ -107,12 +118,16 @@ function CrearListaTrabajo() {
 		);
 		if (productInfo && productInfo.data && productInfo.data.length > 0) {
 			const laborPrice = productInfo.data.find(producto => producto.idProduct === productId).laborPrice;
+			const productToUpdate = productInfo.data.find(producto => producto.idProduct === productId); // Encuentra el producto específico
+	
+			const restaInfo = restarCantidadDisponible(productToUpdate, newCantidad); // Usa el producto específico
+			console.log('Información de la resta:', restaInfo);
+	
 			setLaborPrices(prevPrices => ({
 				...prevPrices,
 				[productId]: newCantidad * laborPrice
 			}));
-
-			// Aquí deberías actualizar también la cantidad seleccionada en cantidadProductos
+	
 			setCantidadProductos(prevCantidad => ({
 				...prevCantidad,
 				[productId]: newCantidad
@@ -120,7 +135,7 @@ function CrearListaTrabajo() {
 		} else {
 			console.error('No se pudo encontrar la información del producto:', productId);
 		}
-	};
+	};	
 
 	const [sumaPrecios, setSumaPrecios] = useState(0); // Estado para almacenar la suma de precios
 
