@@ -33,13 +33,12 @@ export default function NavigateADM({ children, height }) {
   );
 }
 
-const Icono = ({ radio, imagen,  className, maxWidth }) => {
+const Icono = ({ radio, imagen, className, maxWidth }) => {
   return (
     <NavbarBrand className="justify-center" style={{ marginTop: "5px" }}>
       <Avatares
         radio={radio}
         src={imagen}
-        
         maxWidth={maxWidth}
         className={className}
       />
@@ -80,8 +79,10 @@ const Texto = ({ titulo, nombre, rol }) => {
         </h2>
         <h3
           className="rol"
-          style={{ marginTop: "-9px", marginBottom: "15px",  fontFamily: "Roboto, sans-serif",
-          fontStyle: "italic", fontSize: "12px", color: "#fff" }}
+          style={{
+            marginTop: "-9px", marginBottom: "15px", fontFamily: "Roboto, sans-serif",
+            fontStyle: "italic", fontSize: "12px", color: "#fff"
+          }}
         >
           {rol}
         </h3>
@@ -95,7 +96,7 @@ const Notificacion = () => {
     <NavbarContent style={{ marginTop: "0px", color: "#6977E4" }}>
       <NavbarItem>
         <div>
-          <Campana />
+          <Campana ruta={"/notificaciones"} />
         </div>
       </NavbarItem>
     </NavbarContent>
@@ -198,13 +199,13 @@ const Inicios = () => {
 
 const DesplegableADM = () => {
   const menuItems = [
-    <Inicios/>,
-    <Notificacion/>,
-    <Perfil/>,
-    <AgregamosTrabajador/>,
-    <AgregamosProducto/>,
-    <AgregamosListaTrabajo/>,
-    <CerrarSesion/>
+    <Inicios />,
+    <Notificacion />,
+    <Perfil />,
+    <AgregamosTrabajador />,
+    <AgregamosProducto />,
+    <AgregamosListaTrabajo />,
+    <CerrarSesion />
   ];
 
   return (

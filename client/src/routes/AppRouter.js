@@ -27,11 +27,13 @@ import ListarTrabajador from "../pages/Trabajadores/listarTrabajador";
 import CrearTrabajador from "../pages/Trabajadores/crearTrabajador";
 import ActualizarTrabajador from "../pages/Trabajadores/actualizarTrabajardor";
 
-import Unauthorized from "./PrivateRoute/Unauthorized";
 import ProtectedRoute from "./PrivateRoute/protectedRoute";
 import Perfilinfo from "../pages/Perfil/perfil";
 import PerfilinfoTrabajador from "../pages/Perfil/perfilTrabajador";
 import PerfilinfoVendedor from "../pages/Perfil/perfilVendedor";
+
+import Unauthorized from "./PrivateRoute/Unauthorized";
+import Notificaciones from "../pages/notificaciones";
 
 const AppRouter = () => {
   return (
@@ -73,8 +75,11 @@ const AppRouter = () => {
         <Route path="/editar/listaTrabajo"element={<ActualizarListaTrabajo />} />
         <Route path="/detalle/Trabajo/:idWorkList"element={<DetalleTrabajo/>} />
 
-
+        {/* Pantalla noAutorizado */}
         <Route path="/unauthorized" element={<Unauthorized />} />
+
+        {/* Pantalla de Notificaciones */}
+        <Route path="/notificaciones" element={<Notificaciones />} />
       </Routes>
     </Router>
   );

@@ -20,17 +20,15 @@ import { añadirInformacionSinImagenAPI, listarInformacionApi, listarInformacion
 import { notificacionConfirmar, notificacionError } from "../../utils/notificacionCliente";
 
 function CrearListaTrabajo() {
-    const { register, handleSubmit, formState: { errors } , watch} = useForm();
-    const [informacionArtesano, setInformacionArtesano] = useState([]);
-    const [informacionProductos, setInformacionProductos] = useState([]);
-    const [cargando, setCargando] = useState(true);
-    const urlImage = process.env.REACT_APP_API_URL;
-    const location = useLocation();
-    const [pedidosSeleccionados, setPedidosSeleccionados] = useState(location.state.pedidosSeleccionados);
-    const idOrders = pedidosSeleccionados.map(pedido => pedido.idOrder);
-    const nombreLista = watch("nombreLista"); 
+	const { register, handleSubmit, formState: { errors }} = useForm();
+	const [informacionArtesano, setInformacionArtesano] = useState([]);
+	const [informacionProductos, setInformacionProductos] = useState([]);
+	const [cargando, setCargando] = useState(true);
+	const urlImage = process.env.REACT_APP_API_URL;
+	const location = useLocation();
+	const [pedidosSeleccionados, setPedidosSeleccionados] = useState(location.state.pedidosSeleccionados);
+	const idOrders = pedidosSeleccionados.map(pedido => pedido.idOrder);
 	const [cantidadProductos, setCantidadProductos] = useState({});
-
 
 	const refs = useRef({
 		idCardWorker: [],
@@ -70,34 +68,33 @@ function CrearListaTrabajo() {
 		}
 	}, [idOrders, informacionProductos.length]); // Dependencias actualizadas
 
-
-	let array = [];
+	let detailsListWork = [];
 	const [laborPrices, setLaborPrices] = useState({});
 
 	informacionProductos.forEach((producto) => {
-        producto.data.forEach((pro) => {
-            const cantidadSeleccionada = cantidadProductos[pro.idProduct] || 1; // Obtener la cantidad seleccionada del estado
-            const subtotal = laborPrices[pro.idProduct] || 0;
-            const productoInfo = {
-                idOrder: pro.idOrder,
-                idProduct: pro.idProduct,
-                quantity: cantidadSeleccionada,
-                subTotal: subtotal
-            };
-            array.push(productoInfo);
-        });
-    });
+		producto.data.forEach((pro) => {
+			const cantidadSeleccionada = cantidadProductos[pro.idProduct] || 1; // Obtener la cantidad seleccionada del estado
+			const subtotal = laborPrices[pro.idProduct] || 0;
+			const productoInfo = {
+				idOrder: pro.idOrder,
+				idProduct: pro.idProduct,
+				quantity: cantidadSeleccionada,
+				subTotal: subtotal
+			};
+			detailsListWork.push(productoInfo);
+		});
+	});
 
 	const restarCantidadDisponible = (producto, newCantidad) => {
 		const cantidadDisponible = producto.maxQuantity; // Obtener la cantidad disponible del producto
 		const resta = cantidadDisponible - newCantidad; // Restar la nueva cantidad seleccionada de la cantidad disponible
-	
+
 		return {
 			idOrder: producto.idOrder,
 			idProduct: producto.idProduct,
 			restaCantidad: resta // Resultado de la resta
 		};
-	};	
+	};
 
 	const handleDeletePedido = (index) => {
 		const updatedPedidos = [...pedidosSeleccionados];
@@ -119,15 +116,15 @@ function CrearListaTrabajo() {
 		if (productInfo && productInfo.data && productInfo.data.length > 0) {
 			const laborPrice = productInfo.data.find(producto => producto.idProduct === productId).laborPrice;
 			const productToUpdate = productInfo.data.find(producto => producto.idProduct === productId); // Encuentra el producto específico
-	
+
 			const restaInfo = restarCantidadDisponible(productToUpdate, newCantidad); // Usa el producto específico
-			console.log('Información de la resta:', restaInfo);
-	
+			console.log('Resultado de la resta: ', restaInfo)
+
 			setLaborPrices(prevPrices => ({
 				...prevPrices,
 				[productId]: newCantidad * laborPrice
 			}));
-	
+			
 			setCantidadProductos(prevCantidad => ({
 				...prevCantidad,
 				[productId]: newCantidad
@@ -135,7 +132,7 @@ function CrearListaTrabajo() {
 		} else {
 			console.error('No se pudo encontrar la información del producto:', productId);
 		}
-	};	
+	};
 
 	const [sumaPrecios, setSumaPrecios] = useState(0); // Estado para almacenar la suma de precios
 
@@ -157,20 +154,24 @@ function CrearListaTrabajo() {
 			total: sumaPrecios.toString(), // Utilizar el total calculado
 			idCardWorker: selectedIdCardWorker,
 			idState: '1',
-			details: array
+			details: detailsListWork
 		};
 
+		// const nuevaCantidad = {
+		// 	quantity:
+		// }
+
+		// console.log("nueva Cantidad:", nuevaCantidad);
 		console.log("Lista de trabajo:", listaTrabajo);
 
-		try {
-			await añadirInformacionSinImagenAPI(listaTrabajo, 'listaTrabajo')
-			notificacionConfirmar({ titulo: "Se ha creado una lista de trabajo!" });
-		} catch (error) {
-			console.error('Error al crear una lista de trabajo', error);
-			notificacionError({ titulo: "No Se puede crear la lista de trabajo!" });
-		}
+		// try {
+		// 	await añadirInformacionSinImagenAPI(listaTrabajo, 'listaTrabajo')
+		// 	notificacionConfirmar({ titulo: "Se ha creado una lista de trabajo!" });
+		// } catch (error) {
+		// 	console.error('Error al crear una lista de trabajo', error);
+		// 	notificacionError({ titulo: "No Se puede crear la lista de trabajo!" });
+		// }
 	};
-
 
 	return (
 		<div>
@@ -265,12 +266,11 @@ function CrearListaTrabajo() {
 																	texto2={`Precio labor: ${laborPrices[productos.idProduct] !== undefined ? laborPrices[productos.idProduct] : 0}`}
 																/>
 																<div>
-																<BotonCantidad
-    maxCantidad={productos.maxQuantity}
-    laborPrice={productos.laborPrice}
-    onCantidadChange={(newCantidad) => handleCantidadChange(productos.idProduct, newCantidad)} // Asegúrate de que newCantidad sea el valor correcto
-/>
-
+																	<BotonCantidad
+																		maxCantidad={productos.maxQuantity}
+																		laborPrice={productos.laborPrice}
+																		onCantidadChange={(newCantidad) => handleCantidadChange(productos.idProduct, newCantidad)} // Asegúrate de que newCantidad sea el valor correcto
+																	/>
 																</div>
 															</div>
 														</div>
@@ -295,8 +295,6 @@ function CrearListaTrabajo() {
 				<BotonComprar2 text={"Enviar Lista"}>
 					<Texto3 precio={`Total: ${sumaPrecios}`} />
 				</BotonComprar2>
-
-
 			</form>
 			<Footer />
 		</div>

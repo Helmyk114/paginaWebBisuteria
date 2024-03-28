@@ -14,6 +14,7 @@ import TrabajadorIcono from "../../components/UI/iconos/Trabajador";
 import PedidoIcono from "../../components/UI/iconos/Pedido";
 import CerrarSesionIcono from "../../components/UI/iconos/CerrarSesion";
 import Footer from "../../components/UI/Footer/Footer";
+import Cookies from "js-cookie";
 
 
 function BienvenidaAdmi() {
@@ -35,6 +36,11 @@ function BienvenidaAdmi() {
     };
     data();
   }, [id]);
+
+  const eliminarCookie = () => {
+    Cookies.remove('token');
+    console.log("Cookie eliminada");
+  };
 
   return (
     <div>
@@ -100,7 +106,8 @@ function BienvenidaAdmi() {
           </div>
           <Spacer x={2} />
           <div className=" carta flex flex-col items-center">
-            <CerrarSesionIcono ruta="/" 
+            <CerrarSesionIcono ruta="/"
+            eliminarCookie={eliminarCookie}
             className={"cerrarSesion"}/>
             <h1 className="textoPrincipal">Cerrar sesión</h1>
           </div>

@@ -11,6 +11,10 @@ function guardarToken(token) {
   Cookies.set('token', token, {expires: 1 / 24})
 };
 
+function eliminarCookie() {
+  Cookies.remove('token')
+}
+
 function decodificarToken(token) {
   const decodedToken = jwtDecode(token);
   return decodedToken;
@@ -19,5 +23,6 @@ function decodificarToken(token) {
 export {
   obtenerToken,
   guardarToken,
+  eliminarCookie,
   decodificarToken
 }

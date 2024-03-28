@@ -1,454 +1,504 @@
 /* estilos de la tarjeta  */
 
-.cont1ListaTA{
-    display: flex;
-    flex-wrap: wrap;
-    
-    margin: 0 auto;
+.cont1ListaTA {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto;
 }
 
-.cardListaTerminadaTAGap, .cardListaTerminadaTGap{
-    display: flex;
-    width: 100%;
+.cardListaTerminadaTAGap,
+.cardListaTerminadaTGap {
+	display: flex;
+	width: 100%;
 }
 
-
-.card1ListaT{
-
-    width: 78%;
-    margin: 10px; 
-
-}
-.card1ListaTA{
-    width: 100%;
-    margin: 0 auto;
-    height: 65%;  
-   
-}
-.cont2ListaT{
-    display: flex;
-    flex-direction: column;
-}
-.cont2ListaTA{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.card1ListaT {
+	width: 78%;
+	margin: 10px;
 }
 
-.contTexto1{
-    margin-bottom: 15px;
+.card1ListaTA {
+	width: 100%;
+	margin: 0 auto;
+	height: 65%;
 }
 
-.card2ListaT{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 58px;
-    position: relative;
-    background-color: #eeee;
-    border-radius: 8px;
-    gap: 2px;
-
-}
-.card2ListaTA{
-    display: flex;
-    width: 100%;
-    height: 55%;
-    justify-content: space-between;
-    position: relative;
-    background-color: #eeee;
-    border-radius: 8px;
-    gap: 2px;
-    padding: 8px;
-    align-items: center;
+.cont2ListaT {
+	display: flex;
+	flex-direction: column;
 }
 
-.contTexto2{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 10px;
-    font-size: 10px;    
-
-}
-.contIcono{
-    display: flex;
-    justify-content: space-between;
-    margin: 8px;
-    align-items: center;
-    gap: 0 auto;
-}
-.contIconoCheck{
-    justify-content: center;
-    display: flex;
-    margin: 8px;
-    align-items: center;
-    gap: 0 auto;
-}
-.cardCrearListaT{
-  margin: 0 auto;
-}
-.contIconoListaT{
-        background-color: #6977E4 ;
-        border-radius:10px;
-        margin-right: 10px;
-        width:35%; 
-        display:column;
-        padding:20px;
-        height: 100%;
-}
-.contenedor1ListaT{
-    width: 100%;
-    margin: 0;
-    justify-content: space-between;
-    gap:0px;
-}
-.cardCrearListaTGap{
-    display: flex;
-    flex-direction: row;
+.cont2ListaTA {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
-.cardProCrearListaT{
-    display: flex;
-    width: 85%;
-    margin: 0 auto;
-}
-.cardProCrearPedidoGap{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-}
-.divcardProCrearPedido{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    
-}
-.cardListaTerminadaT{
-    width: 75%;
-    height: 100%;
+.contTexto1 {
+	margin-bottom: 15px;
 }
 
+.card2ListaT {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 58px;
+	position: relative;
+	background-color: #eeee;
+	border-radius: 8px;
+	gap: 2px;
+}
 
+.card2ListaTA {
+	display: flex;
+	width: 100%;
+	height: 55%;
+	justify-content: space-between;
+	position: relative;
+	background-color: #eeee;
+	border-radius: 8px;
+	gap: 2px;
+	padding: 8px;
+	align-items: center;
+}
 
+.contTexto2 {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin: 10px;
+	font-size: 10px;
+}
+
+.contIcono {
+	display: flex;
+	justify-content: space-between;
+	margin: 8px;
+	align-items: center;
+	gap: 0 auto;
+}
+
+.contIconoCheck {
+	justify-content: center;
+	display: flex;
+	margin: 8px;
+	align-items: center;
+	gap: 0 auto;
+}
+
+.cardCrearListaT {
+	margin: 0 auto;
+}
+
+.contIconoListaT {
+	background-color: #6977E4;
+	border-radius: 10px;
+	margin-right: 10px;
+	width: 35%;
+	display: column;
+	padding: 20px;
+	height: 100%;
+}
+
+.contenedor1ListaT {
+	width: 100%;
+	margin: 0;
+	justify-content: space-between;
+	gap: 0px;
+}
+
+.cardCrearListaTGap {
+	display: flex;
+	flex-direction: row;
+}
+
+.cardProCrearListaT {
+	display: flex;
+	width: 85%;
+	margin: 0 auto;
+}
+
+.cardProCrearPedidoGap {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.divcardProCrearPedido {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.cardListaTerminadaT {
+	width: 75%;
+	height: 100%;
+}
 
 @media only screen and (max-width: 768px) {
-    .cardProCrearListaT{
-        display: flex;
-        width: 98%;
-        margin: 0 auto;
-    }
-    .cont1ListaT{
-        display: flex;
-        flex-direction: column;
-        
-    }
-   
-    .cardProCrearPedidoGap{
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-        gap:3px;
-    }
-    .divcardProCrearPedido{
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        margin: 2px;
-    }
-    .cont2ProCrListaT{
-        display: flex;
-        flex-direction: column;
-    }
-    .cont1ListaT, .cont1ListaTA{
-        display: grid;
-        flex-wrap: wrap;
-        margin: 0 auto;
+	.cardProCrearListaT {
+		display: flex;
+		width: 98%;
+		margin: 0 auto;
+	}
 
-    }
-    .codListaTtrabajador{
-        font-size: 15px;
-     }
-     .cont2CrListaT p{
-        font-size: 18px;
-        font-weight: 200;
-    }
-    
-    .contIconoListaT, .contIconoListaTA{
-        background-color: #6977E4 ;
-        border-radius:10px;
-        margin-right: 10px;
-        width:40%; 
-        display:column;
-        padding:20px;
-        justify-content: space-between;
-    }
-    .cardCrearListaT{
-        width: 90%;
-        margin: 0 auto;
-    }
-    .contenedor1ListaT{
-        display: flex;
-    }
-    .card2ListaT{
-        display: flex;
-        justify-content: space-between;
-        width: 98%;
-        height: 100%;
-        position: relative;
-        background-color: #eeee;
-        border-radius: 8px;
-        gap: 2px;
-    }
-    .card2ListaTA{
-        width: 98%;
-    
-    }
-    .card1ListaTAGap, .cardListaTGap{
-        width: 100%;
-    }
-    .contTexto1{
-        font-size: 15px ;
-    }
-    .cont1AcordeonListaT, .contAcordeonListaTA{
-        display: flex;
-        flex-direction: column;
-        gap:8px;
-        width: 98%; 
-    }
-    .cont1AcordeonListaTA {
-        width: 100%;
-    }
-    .card1ListaT{
-        width: 98%;
-        margin: 0 auto;
-        max-width: 100%;
-    }
-    .card1ListaTA{
-        width: 95%;
-        margin: 0 auto;
-        height: 100%;
-    }
-    .cardCrearListaTGap{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .cardListaTerminadaTA{
-        width: 100%;
-    }
-    .cardListaTerminadaT{
-        width: 98%;
-        height: 100%;
-    }
-    
-    .cardListaTerminadaTAGap{
-        display: flex;
-        width: 100%;
-    }
-    .contTexto1A{
-        font-size: 15px;
-    }
+	.cont1ListaT {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.cardProCrearPedidoGap {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		align-items: center;
+		gap: 3px;
+	}
+
+	.divcardProCrearPedido {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		margin: 2px;
+	}
+
+	.cont2ProCrListaT {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.cont1ListaT,
+	.cont1ListaTA {
+		display: grid;
+		flex-wrap: wrap;
+		margin: 0 auto;
+	}
+
+	.codListaTtrabajador {
+		font-size: 15px;
+	}
+
+	.cont2CrListaT p {
+		font-size: 18px;
+		font-weight: 200;
+	}
+
+	.contIconoListaT,
+	.contIconoListaTA {
+		background-color: #6977E4;
+		border-radius: 10px;
+		margin-right: 10px;
+		width: 40%;
+		display: column;
+		padding: 20px;
+		justify-content: space-between;
+	}
+
+	.cardCrearListaT {
+		width: 90%;
+		margin: 0 auto;
+	}
+
+	.contenedor1ListaT {
+		display: flex;
+	}
+
+	.card2ListaT {
+		display: flex;
+		justify-content: space-between;
+		width: 98%;
+		height: 100%;
+		position: relative;
+		background-color: #eeee;
+		border-radius: 8px;
+		gap: 2px;
+	}
+
+	.card2ListaTA {
+		width: 98%;
+	}
+
+	.card1ListaTAGap,
+	.cardListaTGap {
+		width: 100%;
+	}
+
+	.contTexto1 {
+		font-size: 15px;
+	}
+
+	.cont1AcordeonListaT,
+	.contAcordeonListaTA {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		width: 98%;
+	}
+
+	.cont1AcordeonListaTA {
+		width: 100%;
+	}
+
+	.card1ListaT {
+		width: 98%;
+		margin: 0 auto;
+		max-width: 100%;
+	}
+
+	.card1ListaTA {
+		width: 95%;
+		margin: 0 auto;
+		height: 100%;
+	}
+
+	.cardCrearListaTGap {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.cardListaTerminadaTA {
+		width: 100%;
+	}
+
+	.cardListaTerminadaT {
+		width: 98%;
+		height: 100%;
+	}
+
+	.cardListaTerminadaTAGap {
+		display: flex;
+		width: 100%;
+	}
+
+	.contTexto1A {
+		font-size: 15px;
+	}
 }
 
-@media screen and (min-width: 1024px){
-     /*crear Lista de trabajo*/
-     .cardCrearListaT{
-        width: 40%;
-        margin: 0 auto;
-     }
-     .cardListaTerminadaTA {
-        width: 43%;
-    }
-     .cont2ProCrListaT{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 100%;
-        gap: 15px;
-    }
-     .cont1ProCrListaT{
-        display: flex;
-        align-items: start;
-        flex-direction: row;
-        
-    }
-     .card1ListaT {
-        width: 78%; 
-      }
-     .codListaTtrabajador{
-        font-size: 14px;
-     }
-     .cardCrearListaTGap{
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+@media screen and (min-width: 1024px) {
 
-     }
-     .acordeonListaT, .botonCrearListaT{
-        width: 80%;
-        margin: 0 auto;
-     }
-     .botonCrearListaT{
-        width: 40%;
-        margin: 0 auto;
-    }
+	/*crear Lista de trabajo*/
+	.cardCrearListaT {
+		width: 40%;
+		margin: 0 auto;
+	}
 
-    .cont1ListaT{
-        display: flex;
-        height: 100%;
-        gap:"10px"
-    }
-    
-    .contenedor1ListaT{
-        display: flex;
-    }
-     .contIconoListaTA{
+	.cardListaTerminadaTA {
+		width: 43%;
+	}
 
-        background-color: #6977E4 ;
-        border-radius:10px;
-        margin-right: 10px;
-        width:40%; 
-        display:flex;
-        flex-direction: column;
-        
-        padding:30px;
-       
-    }
-    
-    .contTexto1A{
-        font-size: 16px ;
-    }
-    .cont2CrListaT{
-        font-size: 15px;
-        font-weight: 200;
-    }
-    .iconoFlecha{
-        width: 5px;
-       
-    }
-    .contAcordeonLt, .cont1AcordeonListaTA {
-        width: 75%;
-    }
-    .cont1AcordeonListaT, .contAcordeonListaTA{
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 auto;
-        gap:8px
-    }
-    .card1ListaTA{
-        width: 100%;
-        margin: 0 auto;  
-        height: 74%;
-        gap: 8px;
-       
-    }
-   
- }
+	.cont2ProCrListaT {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 100%;
+		gap: 15px;
+	}
 
- @media screen and (min-width: 768px),
-(max-width:1023){
-    .contenedor1ListaT{
-        display: flex;
-    }
-    .cont2ProCrListaT{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 100%;
-        gap: 15px;
-    }
-    .cont1ProCrListaT{
-        display: flex;
-        align-items: start;
-        flex-direction: row;
-        gap: 9px;
-        
-    }
-    .codListaTtrabajador{
-        font-size: 14px;
-     }
-     .cont2CrListaT{
-        font-size: 15px;
-        font-weight: 200;
-    }
-    .contIconoListaTA{
-        background-color: #6977E4 ;
-        border-radius:10px;
-        margin-right: 10px;
-        width:35%; 
-        display:column;
-        padding:20px;
-    }
-    .contTexto1{
-        font-size: 17px ;
-    }
-    .cont1AcordeonListaT, .contAcordeonListaTA{
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 auto;
-        gap:8px;
-        margin-left: 2%;
-        margin-right: 2%;
-    }
-    .contAcordeonLt, .cont1AcordeonListaTA {
-        width: 85%;
-        margin: 0 auto;
-    }
-    .cont1ListaT{
-        height: 100%;
-        gap:"10px"
-    }
+	.cont1ProCrListaT {
+		display: flex;
+		align-items: flex-start;
+		flex-direction: row;
+	}
 
-    .card2ListaTA{
-        width: 50%;
-        height: 100%;
-    
-    }
-    .cardCrearListaT{
-        width: 40%;
-   }
-   .cardCrearListaTGap{
-    width: 100%;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-   }
-   .card2ListaTA{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 50px;
-    position: relative;
-    background-color: #eeee;
-    border-radius: 8px;
-    gap: 2px;
-}
-.cardListaTerminadaTA{
-    width: 35%;
-}
-.contTexto1A{
-    font-size: 15px;
+	.card1ListaT {
+		width: 78%;
+	}
+
+	.codListaTtrabajador {
+		font-size: 14px;
+	}
+
+	.cardCrearListaTGap {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.acordeonListaT,
+	.botonCrearListaT {
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	.botonCrearListaT {
+		width: 40%;
+		margin: 0 auto;
+	}
+
+	.cont1ListaT {
+		display: flex;
+		height: 100%;
+		gap: "10px"
+	}
+
+	.contenedor1ListaT {
+		display: flex;
+	}
+
+	.contIconoListaTA {
+
+		background-color: #6977E4;
+		border-radius: 10px;
+		margin-right: 10px;
+		width: 40%;
+		display: flex;
+		flex-direction: column;
+		padding: 30px;
+
+	}
+
+	.contTexto1A {
+		font-size: 16px;
+	}
+
+	.cont2CrListaT {
+		font-size: 15px;
+		font-weight: 200;
+	}
+
+	.iconoFlecha {
+		width: 5px;
+	}
+
+	.contAcordeonLt,
+	.cont1AcordeonListaTA {
+		width: 75%;
+	}
+
+	.cont1AcordeonListaT,
+	.contAcordeonListaTA {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 auto;
+		gap: 8px
+	}
+
+	.card1ListaTA {
+		width: 100%;
+		margin: 0 auto;
+		height: 74%;
+		gap: 8px;
+	}
 }
 
-.cardListaTerminadaTAGap{
-    display: flex;
-    width: 100%;
-}
-.card1ListaT {
-    width: 78%; 
-  }
-  .card1ListaTA{
-    width: 100%;
-    margin: 0 auto;  
-    height: 100%;
-   
-}
+@media screen and (min-width: 768px),
+(max-width:1023) {
+	.contenedor1ListaT {
+		display: flex;
+	}
 
+	.cont2ProCrListaT {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 100%;
+		gap: 15px;
+	}
+
+	.cont1ProCrListaT {
+		display: flex;
+		align-items: flex-start;
+		flex-direction: row;
+		gap: 9px;
+	}
+
+	.codListaTtrabajador {
+		font-size: 14px;
+	}
+
+	.cont2CrListaT {
+		font-size: 15px;
+		font-weight: 200;
+	}
+
+	.contIconoListaTA {
+		background-color: #6977E4;
+		border-radius: 10px;
+		margin-right: 10px;
+		width: 35%;
+		display: column;
+		padding: 20px;
+	}
+
+	.contTexto1 {
+		font-size: 17px;
+	}
+
+	.cont1AcordeonListaT,
+	.contAcordeonListaTA {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 auto;
+		gap: 8px;
+		margin-left: 2%;
+		margin-right: 2%;
+	}
+
+	.contAcordeonLt,
+	.cont1AcordeonListaTA {
+		width: 85%;
+		margin: 0 auto;
+	}
+
+	.cont1ListaT {
+		height: 100%;
+		gap: "10px"
+	}
+
+	.card2ListaTA {
+		width: 50%;
+		height: 100%;
+	}
+
+	.cardCrearListaT {
+		width: 40%;
+	}
+
+	.cardCrearListaTGap {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.card2ListaTA {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		height: 50px;
+		position: relative;
+		background-color: #eeee;
+		border-radius: 8px;
+		gap: 2px;
+	}
+
+	.cardListaTerminadaTA {
+		width: 35%;
+	}
+
+	.contTexto1A {
+		font-size: 15px;
+	}
+
+	.cardListaTerminadaTAGap {
+		display: flex;
+		width: 100%;
+	}
+
+	.card1ListaT {
+		width: 78%;
+	}
+
+	.card1ListaTA {
+		width: 100%;
+		margin: 0 auto;
+		height: 100%;
+	}
 }
