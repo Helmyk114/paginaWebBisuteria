@@ -121,13 +121,13 @@ function ListarPedidoVendedor() {
 				{cargando ? (
 					<Loader />
 				) : (
-					<div>
+					<div style={{display:"flex", flexWrap:"wrap", justifyContent:"center", gap:"10px"}}>
 						{informacionP && informacionP.length > 0 ? (
 							informacionP.map((datos) => (
 								<div key={datos.idOrder}>
 									<CardPerfil
-										className1={"card1ListaPV"}
-										className2={"card1ListaPVGap"}>
+										className1={"card2ListaPV"}
+										className2={"card2ListaPVGap"}>
 										<div className="cont1ListaP">
 											<div className="contTexto1P">
 												<Texto1Card
@@ -163,13 +163,13 @@ function ListarPedidoVendedor() {
 				{cargando ? (
 					<Loader />
 				) : (
-					<div>
+					<div style={{display:"flex", flexWrap:"wrap", justifyContent:"center", gap:"10px"}}>
 						{informacionT && informacionT.length > 0 ? (
 							informacionT.map((datos) => (
 								<div key={datos.idOrder}>
 									<CardPerfil
-										className1={"card1ListaPV"}
-										className2={"card1ListaPVGap"}>
+										className1={"card2ListaPV"}
+										className2={"card2ListaPVGap"}>
 										<div className="cont1ListaP">
 											<div className="contTexto1P">
 												<Texto1Card
