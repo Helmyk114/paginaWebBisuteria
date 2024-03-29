@@ -39,7 +39,7 @@ function ListarListaTrabajoAdministrador() {
       {cargando ? (
         <Loader />
       ) : (
-        <div style={{ display: "flex",  flexWrap: "wrap", marginLeft: "20px", marginRight: "20px" }}>
+        <div style={{ display: "flex",  flexWrap: "wrap",  justifyContent:"center", marginLeft: "20px", marginRight: "20px", gap:"10px" }}>
           {informacionLista && informacionLista.length > 0 ? (
             informacionLista.map((datos) => (
               <div className="cont1ListaTA" key={datos.idWorkList}>
@@ -48,7 +48,7 @@ function ListarListaTrabajoAdministrador() {
                   className2={"card1ListaTAGap"}>
                   <div className="cont2ListaT">
                     <div className="contTexto1">
-                      <Texto1Card texto={datos.listName} fontSize={"20px"}/>
+                      <Texto1Card texto={datos.listName} fontSize={"15px"}/>
                       <Texto1Card texto={datos.idWorkList}fontSize={"15px"} fontWeight={"200"} />
                     </div>
                     <div
