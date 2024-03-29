@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 
 import { Spacer } from "@nextui-org/react";
@@ -10,13 +11,15 @@ import BotonComprar2 from "../../components/UI/botones/botonCompraPedido";
 import Texto3 from "../../components/UI/botones/total";
 import Footer from "../../components/UI/Footer/Footer";
 
-import { detalleInformacionApi } from "../../api/axiosServices";
+import { cambiarEstadoInformacionApi, detalleInformacionApi } from "../../api/axiosServices";
+import { notificacionActivarInactivar, notificacionInformativa } from "../../utils/notificacionCliente";
 
 function DetalleTrabajo() {
 
 	const [informacion, setInformacion] = useState([]);
 	const [cargando, setCargando] = useState(true);
 	const { idWorkList } = useParams();
+	const { handleSubmit } = useForm();
 	const urlImage = process.env.REACT_APP_API_URL;
 
 	useEffect(() => {
@@ -32,6 +35,19 @@ function DetalleTrabajo() {
 		};
 		datos();
 	}, [idWorkList]);
+
+	const onSubmit = async () => {
+		try {
+			const result = await notificacionActivarInactivar({ titulo: 'Quiere finalizar esta lista de trabajo', boton: 'Aceptar' });
+			if (result.isConfirmed) {
+				await cambiarEstadoInformacionApi('listaTrabajo-CambiarEstado', informacion[0].idWorkList, '3');
+				notificacionInformativa({ icono: "success", titulo: "La lista de trabajo ha sido finalizada" });
+			}
+		} catch (error) {
+			console.error("error al finalizar la lista de trabajo: ", error);
+			notificacionInformativa({ icono: "error", titulo: "No es posible finalizar la lista de trabajo" });
+		};
+	};
 
 	return (
 		<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
@@ -81,11 +97,13 @@ function DetalleTrabajo() {
 				</div>
 			)}
 			<Spacer y={4} />
-			{informacion.length > 0 && (
-				<BotonComprar2 text={"Comprar"}>
-					<Texto3 precio={`Total: ${informacion[0].total}`} />
-				</BotonComprar2>
-			)}
+			<form onSubmit={handleSubmit(onSubmit)}>
+				{informacion.length > 0 && (
+					<BotonComprar2 text={"Completar lista"}>
+						<Texto3 precio={`Total: ${informacion[0].total}`} />
+					</BotonComprar2>
+				)}
+			</form>
 			<div >
 				<Footer style={{ marginTop: "auto" }} />
 			</div>
@@ -93,4 +111,4 @@ function DetalleTrabajo() {
 	)
 };
 
-export default DetalleTrabajo
+export default DetalleTrabajo;

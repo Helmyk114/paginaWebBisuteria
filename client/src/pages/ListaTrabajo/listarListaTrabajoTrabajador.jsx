@@ -38,6 +38,7 @@ function ListarListaTrabajoVendedor() {
 		data();
 	}, [listaC, listaP, listaT, id])
 
+
 	return (
 		<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
 			<NavigateTRJ>
@@ -48,16 +49,16 @@ function ListarListaTrabajoVendedor() {
 			{cargando ? (
 				<Loader />
 			) : (
-				<div style={{display:"flex", flexWrap:"wrap", gap:"5px", justifyContent:"center", }}>
+				<div style={{ display: "flex", flexWrap: "wrap", gap: "5px", justifyContent: "center", }}>
 					{listaC && listaC.length > 0 ? (
 						listaC.map((lista) => (
-							<div   key={lista.idWorkList}>
+							<div key={lista.idWorkList}>
 								<CardPerfil
 									className1={"card1ListaT"}
 									className2={"cardListaTGap"}>
 									<div className="cont2ListaT">
 										<div className="contTexto1">
-											<Texto1Card className="tituloCard" texto={lista.listName} fontSize={"15px"}/>
+											<Texto1Card className="tituloCard" texto={lista.listName} fontSize={"15px"} />
 											<Texto1Card
 												texto={`Codigo: ${lista.idWorkList}`}
 												fontWeight={"200"}
@@ -69,7 +70,6 @@ function ListarListaTrabajoVendedor() {
 												<Texto2Card
 													texto2={"Ver"}
 													fontWeight={"400"}
-													
 												/>
 											</div>
 											<div className="contIcono">
@@ -92,16 +92,16 @@ function ListarListaTrabajoVendedor() {
 			)}
 			<Spacer y={4} />
 			<div>
-				<Acordeon className={"contAcordeonLt"} titulo={"Lista de trabajo terminadas "}>
+				<Acordeon className={"contAcordeonLt"} titulo={"Listas de trabajo terminadas "}>
 					{cargando ? (
 						<Loader />
 					) : (
-						<div style={{display:"flex", flexWrap:"wrap", gap:"5px"}}>
+						<div style={{ display: "flex", flexWrap: "wrap", gap: "5px" }}>
 							{listaT && listaT.length > 0 ? (
 								listaT.map((lista) => (
-									<div style={{display:"flex", flexWrap:"wrap", margin:"0 auto"}} key={lista.idWorkList}>
-										<CardPerfil className1={"cardListaTerminadaT"} 
-										className2={"cardListaTerminadaTGap"}>
+									<div style={{ display: "flex", flexWrap: "wrap", margin: "0 auto" }} key={lista.idWorkList}>
+										<CardPerfil className1={"cardListaTerminadaT"}
+											className2={"cardListaTerminadaTGap"}>
 											<div className="contenedor1ListaT">
 												<div className="contIconoListaT " >
 													<div className="contIconoCheck" style={{ justifyContent: "center" }}>
@@ -129,7 +129,7 @@ function ListarListaTrabajoVendedor() {
 													<div className="card2ListaT">
 														<div className="contTexto2">
 															<Texto2Card
-																texto2={`Pago total: 30.000`}
+																texto2={`Pago total: ${lista.total}`}
 																fontWeight={"200"}
 															/>
 														</div>
@@ -198,7 +198,7 @@ function ListarListaTrabajoVendedor() {
 															/>
 														</div>
 														<div className="contIcono">
-														<Link to={`/detalle/Trabajo/${lista.idWorkList}`}>
+															<Link to={`/detalle/Trabajo/${lista.idWorkList}`}>
 																<IconoCard
 																	icon={"akar-icons:arrow-right"}
 																	className="iconoFlecha"

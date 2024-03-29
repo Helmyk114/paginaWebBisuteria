@@ -42,14 +42,14 @@ const AppRouter = () => {
         <Route path="/" element={<Login />} />
 
         {/* Pantallas de Perfiles */}
-        <Route path="/perfil" element={<Perfilinfo />} />
-        <Route path="/perfil/Trabajador" element={<PerfilinfoTrabajador />} />
-        <Route path="/perfil/Vendedor" element={<PerfilinfoVendedor />} />
+        <Route path="/perfil" element={<ProtectedRoute element={<Perfilinfo />} role={1} />} />
+        <Route path="/perfil/Trabajador" element={<ProtectedRoute element={<PerfilinfoTrabajador />} role={2} />} />
+        <Route path="/perfil/Vendedor" element={<ProtectedRoute element={<PerfilinfoVendedor />} role={3} />} />
 
         {/* Pantallas de Bienvenida */}
-        <Route path="/Administracion" element={<ProtectedRoute element={<BienvenidaAdmi />} role={1} />}/>
-        <Route path="/Artesano" element={<ProtectedRoute element={<BienvenidaTrabajador />} role={2} />}/>
-        <Route path="/Vendedor" element={<ProtectedRoute element={<BienvenidaVendedor />} role={3} />}/>
+        <Route path="/Administracion" element={<ProtectedRoute element={<BienvenidaAdmi />} role={1} />} />
+        <Route path="/Artesano" element={<ProtectedRoute element={<BienvenidaTrabajador />} role={2} />} />
+        <Route path="/Vendedor" element={<ProtectedRoute element={<BienvenidaVendedor />} role={3} />} />
 
         {/* Pantallas de Productos */}
         <Route path="/productos" element={<ListarProducto />} />

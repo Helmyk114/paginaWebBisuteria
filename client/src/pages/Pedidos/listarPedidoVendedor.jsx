@@ -26,7 +26,7 @@ function ListarPedidoVendedor() {
 		const data = async () => {
 			try {
 				const informacionListaPedidoC = await listarInformacionConDosParametroApi('orden', "1", id);
-				const informacionListaPedidoP = await listarInformacionConDosParametroApi('orden', "2", id);
+				const informacionListaPedidoP = await listarInformacionConDosParametroApi('orden1', "2/7", id);
 				const informacionListaPedidoT = await listarInformacionConDosParametroApi('orden', "3", id);
 				setInformacionC(informacionListaPedidoC.data);
 				setInformacionP(informacionListaPedidoP.data);
