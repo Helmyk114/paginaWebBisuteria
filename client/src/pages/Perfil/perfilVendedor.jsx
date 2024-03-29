@@ -68,6 +68,7 @@ export default function PerfilinfoVendedor() {
                 <Spacer y={4} />
                 <div style={{ backgroundColor: "#EEEEEE", width: "90%", padding: "1px", borderRadius: "13px", margin: "0 auto", marginBottom: "30px", position: "relative", top: "140px", zIndex: "1" }}>
                   <Spacer y={4} />
+                  <div>
                   <CardPerfil
                     className1={"cardPerfil"}
                     className2={"cardPerfilGap"}
@@ -78,6 +79,8 @@ export default function PerfilinfoVendedor() {
                       <Texto2Card texto2={`${datos.workerName}`} />
                     </div>
                   </CardPerfil>
+
+                  </div>
                   <Spacer y={3} />
                   <CardPerfil
                     className1={"cardPerfil"}

@@ -48,7 +48,7 @@ function ListarListaTrabajoVendedor() {
 			{cargando ? (
 				<Loader />
 			) : (
-				<div style={{display:"flex", flexWrap:"wrap", gap:"5px"}}>
+				<div style={{display:"flex", flexWrap:"wrap", gap:"5px", justifyContent:"center", }}>
 					{listaC && listaC.length > 0 ? (
 						listaC.map((lista) => (
 							<div   key={lista.idWorkList}>
@@ -57,7 +57,7 @@ function ListarListaTrabajoVendedor() {
 									className2={"cardListaTGap"}>
 									<div className="cont2ListaT">
 										<div className="contTexto1">
-											<Texto1Card texto={lista.listName} fontSize={"20px"}/>
+											<Texto1Card className="tituloCard" texto={lista.listName} fontSize={"15px"}/>
 											<Texto1Card
 												texto={`Codigo: ${lista.idWorkList}`}
 												fontWeight={"200"}

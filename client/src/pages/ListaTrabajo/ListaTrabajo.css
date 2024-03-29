@@ -13,7 +13,7 @@
 }
 
 .card1ListaT {
-	width: 78%;
+	width: 88%;
 	margin: 10px;
 }
 
@@ -43,7 +43,7 @@
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
-	height: 58px;
+	height: 48px;
 	position: relative;
 	background-color: #eeee;
 	border-radius: 8px;
@@ -137,6 +137,9 @@
 .cardListaTerminadaT {
 	width: 75%;
 	height: 100%;
+}
+.tituloCard{
+	width: 90%;
 }
 
 @media only screen and (max-width: 768px) {
@@ -246,7 +249,9 @@
 	.card1ListaT {
 		width: 98%;
 		margin: 0 auto;
-		max-width: 100%;
+		max-width: 98%;
+		
+		
 	}
 
 	.card1ListaTA {
@@ -307,7 +312,9 @@
 	}
 
 	.card1ListaT {
-		width: 78%;
+		width: 88%;
+		max-width: 88%;
+		overflow: hidden;
 	}
 
 	.codListaTtrabajador {
@@ -493,7 +500,11 @@
 	}
 
 	.card1ListaT {
-		width: 78%;
+		width: 100%;
+		max-width: 90%;
+		min-height:20%
+	
+		
 	}
 
 	.card1ListaTA {
