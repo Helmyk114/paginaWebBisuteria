@@ -85,8 +85,8 @@ function ListarTrabajador() {
             informacionA.map((datos) => (
               <div key={datos.idCardWorker}>
                 <CardPerfil
-                className1={"cardListaTra"}
-                className2={"cardListaTraGap"}
+                  className1={"cardListaTra"}
+                  className2={"cardListaTraGap"}
                   key={datos.idCardWorker}
                   img={`${urlImage}/${datos.photo}`}
                   justifyContent={"space-between"}
@@ -100,7 +100,7 @@ function ListarTrabajador() {
                       texto={`${datos.workerName} ${datos.workerLastName}`} />
                     <Texto2Card
                       className={"telefono"}
-                      texto2={`Celular: ${datos.workerPhone}`} 
+                      texto2={`Celular: ${datos.workerPhone}`}
                       fontSize={"11px"} />
                     <Texto2Card
                       className={"rol"}
@@ -131,47 +131,46 @@ function ListarTrabajador() {
       <Spacer y={5} />
 
       <Acordeon titulo={"Trabajadores inactivos"}
-      className={'inactivos'}>
-      {cargando ? (
-        <Loader />
-      ) : (
-        <div >
-          {informacionI && informacionI.length > 0 ? (
-            informacionI.map((datos) => (
-              <div key={datos.idCardWorker}>
-                <CardPerfil
-                className1={"cardListaTra"}
-                className2={"cardListaTraGap"}
-                alignItems={"center"}
-                  key={datos.idCardWorker}
-                  img={`${urlImage}/${datos.photo}`}
-                  
-                 >
-                  <Avatares
-                    src={`${urlImage}/${datos.photo}`}
-                    radio={"full"} />
-                  <div style={{ display: "block" }}>
-                    <Texto1Card
-                      texto={`${datos.workerName} ${datos.workerLastName}`} />
-                  </div>
-                  <div className=" relative flex items-center gap-1">
-                    <Tooltip content="Eliminar trabajador">
-                      <span className="text-lg text-danger cursor-pointer active:opacity-50">
-                        <DeleteIcon eliminar={() => activarTrabajador(datos.idCardWorker)} />
-                      </span>
-                    </Tooltip>
-                  </div>
-                </CardPerfil>
-                <Spacer y={3} />
-              </div>
-            ))
-          ) : (
-            <p>No hay trabajadores inactivos.</p>
-          )}
-        </div>
-      )}
+        className={'inactivos'}>
+        {cargando ? (
+          <Loader />
+        ) : (
+          <div >
+            {informacionI && informacionI.length > 0 ? (
+              informacionI.map((datos) => (
+                <div key={datos.idCardWorker}>
+                  <CardPerfil
+                    className1={"cardListaTra"}
+                    className2={"cardListaTraGap"}
+                    alignItems={"center"}
+                    key={datos.idCardWorker}
+                    img={`${urlImage}/${datos.photo}`}
+                  >
+                    <Avatares
+                      src={`${urlImage}/${datos.photo}`}
+                      radio={"full"} />
+                    <div style={{ display: "block" }}>
+                      <Texto1Card
+                        texto={`${datos.workerName} ${datos.workerLastName}`} />
+                    </div>
+                    <div className=" relative flex items-center gap-1">
+                      <Tooltip content="Eliminar trabajador">
+                        <span className="text-lg text-danger cursor-pointer active:opacity-50">
+                          <DeleteIcon eliminar={() => activarTrabajador(datos.idCardWorker)} />
+                        </span>
+                      </Tooltip>
+                    </div>
+                  </CardPerfil>
+                  <Spacer y={3} />
+                </div>
+              ))
+            ) : (
+              <p>No hay trabajadores inactivos.</p>
+            )}
+          </div>
+        )}
       </Acordeon>
-    
+
       <Spacer y={5} />
       <div style={{ position: "flex", bottom: "0", width: "100%", marginTop: "290px" }}>
 
