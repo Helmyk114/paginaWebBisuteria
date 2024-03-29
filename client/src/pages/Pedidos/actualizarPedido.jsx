@@ -52,7 +52,7 @@ function ActualizarPedido() {
 			<Spacer y={4} />
 			{/* onSubmit={handleSubmit(onSubmit)} */}
 			<form >
-				<Acordeon titulo={'Datos del cliente'}>
+				<Acordeon className="acordeonFormAP" titulo={'Datos del cliente'}>
 					<div className="gap-4" style={{ display: "grid", gridTemplateColumns: "2fr 2fr" }}>
 						<div className="flex flex-col">
 							<InputText ref={(el) => { refs.current.idCardClient = el; }}
@@ -114,7 +114,7 @@ function ActualizarPedido() {
 				</Acordeon>
 				<Spacer y={4} />
 	
-				<Acordeon titulo={'Lista de productos'}>
+				<Acordeon className="acordeonProAP" titulo={'Lista de productos'}>
 					<Spacer y={3} />
 					{/* <div>
 						{selectedProducts && selectedProducts.length > 0 ? (

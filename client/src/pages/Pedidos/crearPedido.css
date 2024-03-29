@@ -63,8 +63,12 @@
 }
 .cont1ProcesoListaP{
   display: flex;
-  width: 35%;
+  width: 100%;
+  margin: 0 auto;
  
+}
+.acordeonFormAP, .acordeonProAP {
+  width: 70%;
 }
 
 
@@ -76,6 +80,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+  }
+  .acordeonFormAP, .acordeonProAP {
+    width: 98%;
   }
   .cont1ProcesoListaP{
     display: flex;
@@ -214,7 +221,7 @@
   }
   .cont1ProcesoListaP{
     display: flex;
-    width: 45%;
+    width: 100%;
     margin: 0 auto;
   }
 
@@ -255,6 +262,10 @@
     size: 30px;
     display: flex;
     justify-content: flex-start;
+  }
+  .card1ListaPV{
+    display: flex;
+    width: 100%;
   }
 
   .card1ListaPVGap{

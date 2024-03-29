@@ -120,10 +120,10 @@ function ListarPedidoAdministrador() {
 				{cargando ? (
 					<Loader />
 				) : (
-					<div>
+					<div style={{ display: "flex", flexWrap:"wrap", gap:"10px", justifyContent:"center" }}>
 						{informacionE && informacionE.length > 0 ? (
 							informacionE.map((datos) => (
-								<div style={{display:"flex", flexWrap:"wrap"}} key={datos.idOrder} >
+								<div  key={datos.idOrder} >
 									<CardPerfil
 										className1={"cont1ProcesoListaP"}
 										className2={"cont1ProcesoListaPGap"}>
@@ -161,10 +161,10 @@ function ListarPedidoAdministrador() {
 				{cargando ? (
 					<Loader />
 				) : (
-					<div>
+					<div style={{ display: "flex", flexWrap:"wrap", gap:"10px", justifyContent:"center" }}>
 						{informacionT && informacionT.length > 0 ? (
 							informacionT.map((datos) => (
-								<div style={{display:"flex", flexWrap:"wrap"}} key={datos.idOrder} >
+								<div  key={datos.idOrder} >
 									<CardPerfil
 										className1={"cont1ProcesoListaP"}
 										className2={"cont1ProcesoListaPGap"}>
