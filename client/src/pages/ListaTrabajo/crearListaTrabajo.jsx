@@ -20,7 +20,7 @@ import { añadirInformacionSinImagenAPI, listarInformacionApi, listarInformacion
 import { notificacionConfirmar, notificacionError } from "../../utils/notificacionCliente";
 
 function CrearListaTrabajo() {
-	const { register, handleSubmit, formState: { errors }} = useForm();
+	const { register, handleSubmit, formState: { errors } } = useForm();
 	const [informacionArtesano, setInformacionArtesano] = useState([]);
 	const [informacionProductos, setInformacionProductos] = useState([]);
 	const [cargando, setCargando] = useState(true);
@@ -113,7 +113,7 @@ function CrearListaTrabajo() {
 				...prevPrices,
 				[productId]: newCantidad * laborPrice
 			}));
-			
+
 			setCantidadProductos(prevCantidad => ({
 				...prevCantidad,
 				[productId]: newCantidad
@@ -135,47 +135,44 @@ function CrearListaTrabajo() {
 		setSumaPrecios(suma);
 	}, [informacionProductos, laborPrices]);
 
-
-	const [restaCantidadInfo, setRestaCantidadInfo] = useState({});
+	const [maxQuantity, setmaxQuantity] = useState([]);
 
 	const restarCantidadDisponible = (producto, newCantidad) => {
 		const cantidadDisponible = producto.maxQuantity - newCantidad; // Calcular la cantidad disponible
 		const resta = cantidadDisponible; // Restar la nueva cantidad seleccionada de la cantidad disponible
-	
+
 		const info = {
 			idOrder: producto.idOrder,
 			idProduct: producto.idProduct,
-			restaCantidad: resta // Resultado de la resta
+			maxQuantity: resta // Resultado de la resta
 		};
-		setRestaCantidadInfo(prevInfo => ({
+		setmaxQuantity(prevInfo => ({
 			...prevInfo,
 			[producto.idProduct]: info
 		}));
-		
+
 		return info; // Devolver la información de la resta
-	};  
+	};
 
-const onSubmit = async (data) => {
-    console.log("Formulario enviado");
-    const listaTrabajo = {
-        listName: data.nombreLista, // Obtener el nombre de la lista desde el input
-        total: sumaPrecios.toString(), // Utilizar el total calculado
-        idCardWorker: selectedIdCardWorker,
-        idState: '1',
-        details: detailsListWork,
-        cantidadDisponible: restaCantidadInfo // Usar la información de la resta almacenada
-    };
+	const onSubmit = async (data) => {
+		console.log("Formulario enviado");
+		const listaTrabajo = {
+			listName: data.nombreLista, // Obtener el nombre de la lista desde el input
+			total: sumaPrecios.toString(), // Utilizar el total calculado
+			idCardWorker: selectedIdCardWorker,
+			idState: '1',
+			details: detailsListWork,
+			maxQuantity: maxQuantity // Usar la información de la resta almacenada
+		};
 
-    console.log("Lista de trabajo:", listaTrabajo);
-
-    try {
-        await añadirInformacionSinImagenAPI(listaTrabajo, 'listaTrabajo')
-        notificacionConfirmar({ titulo: "Se ha creado una lista de trabajo!" });
-    } catch (error) {
-        console.error('Error al crear una lista de trabajo', error);
-        notificacionError({ titulo: "No Se puede crear la lista de trabajo!" });
-    }
-};
+		try {
+			await añadirInformacionSinImagenAPI(listaTrabajo, 'listaTrabajo')
+			notificacionConfirmar({ titulo: "Se ha creado una lista de trabajo!" });
+		} catch (error) {
+			console.error('Error al crear una lista de trabajo', error);
+			notificacionError({ titulo: "No Se puede crear la lista de trabajo!" });
+		}
+	};
 
 	return (
 		<div>
@@ -248,7 +245,7 @@ const onSubmit = async (data) => {
 							{informacionProductos && informacionProductos.length > 0 ? (
 								informacionProductos.map((datos, index) => (
 									<div key={index}>
-										{datos.data && datos.data.map((productos, productIndex) => ( // Verificar si datos.data está definido
+										{datos.data && datos.data.map((productos, productIndex) => (
 											<div key={productos.nameProduct}>
 												<CardPerfil
 													className1={"cardProCrearListaT"}
@@ -265,15 +262,12 @@ const onSubmit = async (data) => {
 														<div >
 															<div className="cont2ProCrListaT">
 																<Texto2Card texto2={`Cantidad disponible: ${productos.maxQuantity}`} />
-																{/* Verificar si laborPrices[productIndex] está definido */}
-																<Texto2Card
-																	texto2={`Precio labor: ${laborPrices[productos.idProduct] !== undefined ? laborPrices[productos.idProduct] : 0}`}
-																/>
+																<Texto2Card texto2={`Precio labor: ${laborPrices[productos.idProduct] !== undefined ? laborPrices[productos.idProduct] : 0}`} />
 																<div>
 																	<BotonCantidad
 																		maxCantidad={productos.maxQuantity}
 																		laborPrice={productos.laborPrice}
-																		onCantidadChange={(newCantidad) => handleCantidadChange(productos.idProduct, newCantidad)} // Asegúrate de que newCantidad sea el valor correcto
+																		onCantidadChange={(newCantidad) => handleCantidadChange(productos.idProduct, newCantidad)}
 																	/>
 																</div>
 															</div>
