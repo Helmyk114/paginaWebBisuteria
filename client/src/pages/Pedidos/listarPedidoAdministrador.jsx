@@ -10,7 +10,7 @@ import Acordeon from "../../components/UI/Acordeon/Acordeon";
 import BotonComprar from "../../components/UI/botones/BotonComprarProductos";
 import Footer from "../../components/UI/Footer/Footer";
 
-import { listarInformacionConParametroApi } from "../../api/axiosServices";
+import { listarInformacionConDosParametroApi } from "../../api/axiosServices";
 
 function ListarPedidoAdministrador() {
 	const [informacionC, setInformacionC] = useState([]);
@@ -23,9 +23,9 @@ function ListarPedidoAdministrador() {
 	useEffect(() => {
 		const data = async () => {
 			try {
-				const informacionListaPedidoC = await listarInformacionConParametroApi('orden', "1");
-				const informacionListaPedidoE = await listarInformacionConParametroApi('orden', "2");
-				const informacionListaPedidoT = await listarInformacionConParametroApi('orden', "3");
+				const informacionListaPedidoC = await listarInformacionConDosParametroApi('orden', "1", "7");
+				const informacionListaPedidoE = await listarInformacionConDosParametroApi('orden', "2", '2');
+				const informacionListaPedidoT = await listarInformacionConDosParametroApi('orden', "3", '2');
 				setInformacionC(informacionListaPedidoC.data);
 				setInformacionE(informacionListaPedidoE.data);
 				setInformacionT(informacionListaPedidoT.data);

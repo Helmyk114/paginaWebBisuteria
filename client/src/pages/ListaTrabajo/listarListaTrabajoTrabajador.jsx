@@ -38,6 +38,7 @@ function ListarListaTrabajoVendedor() {
 		data();
 	}, [listaC, listaP, listaT, id])
 
+
 	return (
 		<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
 			<NavigateTRJ>
@@ -91,7 +92,7 @@ function ListarListaTrabajoVendedor() {
 			)}
 			<Spacer y={4} />
 			<div>
-				<Acordeon className={"contAcordeonLt"} titulo={"Lista de trabajo terminadas "}>
+				<Acordeon className={"contAcordeonLt"} titulo={"Listas de trabajo terminadas "}>
 					{cargando ? (
 						<Loader />
 					) : (
@@ -128,7 +129,7 @@ function ListarListaTrabajoVendedor() {
 													<div className="card2ListaT">
 														<div className="contTexto2">
 															<Texto2Card
-																texto2={`Pago total: 30.000`}
+																texto2={`Pago total: ${lista.total}`}
 																fontWeight={"200"}
 															/>
 														</div>
