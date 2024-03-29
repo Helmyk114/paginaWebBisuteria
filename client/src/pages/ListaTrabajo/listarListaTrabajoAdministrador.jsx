@@ -37,7 +37,10 @@ function ListarListaTrabajoAdministrador() {
       </NavigateADM>
       <Spacer y={4} />
       {cargando ? (
-        <Loader />
+     
+           <Loader />
+        
+        
       ) : (
         <div style={{ display: "flex",  flexWrap: "wrap",  justifyContent:"center", marginLeft: "20px", marginRight: "20px", gap:"10px" }}>
           {informacionLista && informacionLista.length > 0 ? (

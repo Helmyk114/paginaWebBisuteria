@@ -54,6 +54,7 @@ const Titulo = ({ titulo, espacio }) => {
             fontFamily: "Bebas Neue, sans-serif",
             fontSize: "30px",
             color: "#fff",
+            textAlign:"center"
           }}
         >
           {titulo}
@@ -71,10 +72,11 @@ const Texto = ({ titulo, nombre, rol }) => {
           className="titulo"
           style={{
             marginTop: "35px",
-            marginBottom: "5px",
+            marginBottom: "15px",
             fontFamily: "Bebas Neue, sans-serif",
-            fontSize: "40px",
+            fontSize: "45px",
             color: "#fff",
+            textAlign:"center"
           }}
         >
           {titulo}
@@ -82,10 +84,11 @@ const Texto = ({ titulo, nombre, rol }) => {
         <h2
           className="nombre"
           style={{
-            marginTop: "5px",
+            margin: "5px",
             fontFamily: "Roboto, sans-serif",
-            fontSize: "16px",
+            fontSize: "20px",
             color: "#fff",
+            textAlign:"center"
           }}
         >
           {nombre}
@@ -93,11 +96,12 @@ const Texto = ({ titulo, nombre, rol }) => {
         <h3
           className="rol"
           style={{
-            marginTop: "-9px",
+            
             marginBottom: "15px",
             fontFamily: "Roboto, sans-serif",
-            fontSize: "12px",
+            fontSize: "17px",
             color: "#fff",
+            textAlign:"center"
           }}
         >
           {rol}

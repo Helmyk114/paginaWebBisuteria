@@ -56,7 +56,7 @@ export default function ListProduct() {
       </NavigateVEN>
       
       <Spacer y={5} />
-      <div className="grid">
+      <div className="gridCategorias">
         <Categorias className="item2"/>
       </div>
     
