@@ -7,11 +7,13 @@
     padding: 30px;
     display: flex;
     justify-content: center;
+    transition: transform 0.3s ease;
 }
 
 .carta:hover{
     background-color: #f1f1f1  ;
-    transition: 0.5s;
+    transform: translateY(-10px);
+    
 }
 .textoPrincipal{
     text-align: center;
