@@ -91,15 +91,15 @@ function ListarListaTrabajoVendedor() {
 				</div>
 			)}
 			<Spacer y={4} />
-			<div>
+			<div >
 				<Acordeon className={"contAcordeonLt"} titulo={"Listas de trabajo terminadas "}>
 					{cargando ? (
 						<Loader />
 					) : (
-						<div style={{ justifyContent:"center", display: "flex", flexWrap: "wrap", gap: "5px" }}>
+						<div  style={{ justifyContent:"center", display: "flex", flexWrap:"wrap", gap: "5px" }}>
 							{listaT && listaT.length > 0 ? (
 								listaT.map((lista) => (
-									<div style={{ display: "flex", flexWrap: "wrap", margin: "0 auto" }} key={lista.idWorkList}>
+									<div  key={lista.idWorkList}>
 										<CardPerfil className1={"cardListaTerminadaT"}
 											className2={"cardListaTerminadaTGap"}>
 											<div className="contenedor1ListaT">
@@ -111,10 +111,11 @@ function ListarListaTrabajoVendedor() {
 														/>
 													</div >
 													<Texto1Card
-														texto={"Finalizdo"}
+														texto={"Finalizado"}
 														color={"#ffff"}
 														fontWeight={"400"}
-														className="contTexto1"
+														fontSize={"15px"}
+														className="textoTituloTrabajo"
 													/>
 												</div>
 												<div className="cont2ListaT">
@@ -162,7 +163,7 @@ function ListarListaTrabajoVendedor() {
 					{cargando ? (
 						<Loader />
 					) : (
-						<div>
+						<div style={{ justifyContent:"center", display: "flex", flexWrap: "wrap", gap:"10px"}}>
 							{listaP && listaP.length > 0 ? (
 								listaP.map((lista) => (
 									<div className="cont1AcordeonListaT" key={lista.idWorkList}>
