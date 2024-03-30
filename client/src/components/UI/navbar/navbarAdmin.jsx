@@ -69,21 +69,21 @@ const Texto = ({ titulo, nombre, rol }) => {
       <NavbarItem>
         <h1
           className="titulo"
-          style={{ marginTop: "35px", marginBottom: "5px", fontFamily: "Bebas Neue, sans-serif", fontSize: "40px", color: "#fff" }}
+          style={{ marginTop: "35px", marginBottom: "15px", fontFamily: "Bebas Neue, sans-serif", fontSize: "45px", color: "#fff", textAlign:"center" }}
         >
           {titulo}
         </h1>
         <h2
           className="nombre"
-          style={{ marginTop: "5px", fontFamily: "Roboto, sans-serif", fontSize: "16px", color: "#fff" }}
+          style={{ margin: "5px", fontFamily: "Roboto, sans-serif", fontSize: "20px", color: "#fff", textAlign:"center"}}
         >
           {nombre}
         </h2>
         <h3
           className="rol"
           style={{
-            marginTop: "-9px", marginBottom: "15px", fontFamily: "Roboto, sans-serif",
-            fontStyle: "italic", fontSize: "12px", color: "#fff"
+            margin: "2px", marginBottom: "15px", fontFamily: "Roboto, sans-serif",
+            fontStyle: "italic", fontSize: "17px", color: "#fff", textAlign:"center"
           }}
         >
           {rol}

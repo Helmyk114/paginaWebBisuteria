@@ -1,7 +1,8 @@
 .grid-container {
   display: flex;
-  gap: 50px;
-  margin-left: 400px;
+  gap: 20px;
+ 
+  
 }
 
 .card3 {
@@ -9,7 +10,7 @@
   height: 130px;
   position: flex;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 30px;
   margin-bottom: 25px;
 
 }
@@ -61,26 +62,34 @@
 }
 @media (max-width: 767px) {
   .card3 {
-    width: 67px;
-    height: 67px;
+    width: 90px;
+    height: 90px;
+    margin-bottom: 3px;
   }
 
   .img {
-    width: 67px;
-    height: 67px;
+    width: 90px;
+    height: 90px;
   }
 
   .grid-container {
-    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
     align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
   }
 
   .card-footer {
-    height: 10px;
+    height: 40%;
+    
+
   }
   
   .category-name {
     font-size: 0.7rem;
+    align-items: center;
   }
 }
 
