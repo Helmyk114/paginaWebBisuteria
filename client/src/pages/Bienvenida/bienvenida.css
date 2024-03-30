@@ -7,9 +7,11 @@
     padding: 30px;
     display: flex;
     justify-content: center;
-                 
+}
 
-  
+.carta:hover{
+    background-color: #f1f1f1  ;
+    transition: 0.5s;
 }
 .textoPrincipal{
     text-align: center;
@@ -21,9 +23,7 @@
     box-shadow:  5px 5px 14px #292929,
     -7px -7px 14px #ffffff; 
 }
-.carta:hover{
-  
-}
+
 
 @media screen and (max-width: 767px) {
     .cartaEspacio{
