@@ -96,7 +96,7 @@ function ListarListaTrabajoVendedor() {
 					{cargando ? (
 						<Loader />
 					) : (
-						<div style={{ display: "flex", flexWrap: "wrap", gap: "5px" }}>
+						<div style={{ justifyContent:"center", display: "flex", flexWrap: "wrap", gap: "5px" }}>
 							{listaT && listaT.length > 0 ? (
 								listaT.map((lista) => (
 									<div style={{ display: "flex", flexWrap: "wrap", margin: "0 auto" }} key={lista.idWorkList}>

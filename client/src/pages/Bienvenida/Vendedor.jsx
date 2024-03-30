@@ -42,7 +42,7 @@ function BienvenidaVendedor() {
           {informacion && informacion.length > 0 ? (
             informacion.map((datos) => (
               <NavigateVEN key={id}>
-                <Icono className="justify-end"
+                <Icono className=" iconoPerfil justify-end"
                   radio={"full"}
                   maxWidth={"100px"}
                   imagen={`${(urlImage)}/${datos.photo}`}

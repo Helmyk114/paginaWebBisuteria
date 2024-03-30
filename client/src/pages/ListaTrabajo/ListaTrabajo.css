@@ -5,6 +5,10 @@
 	flex-wrap: wrap;
 	margin: 0 auto;
 }
+.cardListaTerminadaTA {
+	width: 43%;
+}
+
 
 .cardListaTerminadaTAGap,
 .cardListaTerminadaTGap {
@@ -135,7 +139,7 @@
 }
 
 .cardListaTerminadaT {
-	width: 75%;
+	width: 85%;
 	height: 100%;
 }
 .tituloCard{
@@ -487,7 +491,7 @@
 	}
 
 	.cardListaTerminadaTA {
-		width: 35%;
+		width: 45%;
 	}
 
 	.contTexto1A {

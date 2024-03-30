@@ -86,7 +86,7 @@ function ListarListaTrabajoAdministrador() {
       <Spacer y={4} />
       <div className="cont1AcordeonListaTA">
         <Acordeon className={"contAcordeonListaTA"} titulo={"Listas de trabajo terminadas"}>
-          <div style={{ display: "flex", flexWrap: "wrap" }}>
+          <div style={{ justifyContent:"center", display: "flex", flexWrap: "wrap" }}>
             <CardPerfil
               className1={"cardListaTerminadaTA"}
               className2={"cardListaTerminadaTAGap"}>
@@ -121,7 +121,8 @@ function ListarListaTrabajoAdministrador() {
                     </div>
                     <div className="contIconoA">
                       <IconoCard
-                        icon={"akar-icons:arrow-right"}
+                        icon={"mage:dollar-fill"}
+                        width={"40px"}
                         className="iconoFlecha"
                       />
                     </div>

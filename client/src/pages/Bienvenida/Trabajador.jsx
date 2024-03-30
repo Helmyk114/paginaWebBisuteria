@@ -42,7 +42,7 @@ function BienvenidaTrabajador() {
             informacion.map((datos) => (
               <NavigateTRJ key={id}>
                 <Icono
-                  className="justify-end"
+                  className=" iconoPerfil justify-end"
                   radio={"full"}
                   imagen={`${urlImage}/${datos.photo}`}
                   maxWidth={"90px"}

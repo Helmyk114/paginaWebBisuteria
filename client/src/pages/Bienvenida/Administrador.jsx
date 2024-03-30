@@ -45,7 +45,7 @@ function BienvenidaAdmi() {
             informacion.map((datos) => (
               <NavigateADM key={id}>
                 <Icono
-                  className="justify-end"
+                  className="iconoPerfil justify-end"
                   radio={"full"}
                   imagen={`${urlImage}/${datos.photo}`}
                   maxWidth={"100px"}

@@ -9,11 +9,16 @@
     justify-content: center;
     transition: transform 0.3s ease;
 }
-
+.iconoPerfil{
+    transition: transform 0.3s ease;
+}
+.iconoPerfil:hover{
+   
+    transform: scale(1.1);
+}
 .carta:hover{
     background-color: #f1f1f1  ;
     transform: translateY(-10px);
-    
 }
 .textoPrincipal{
     text-align: center;
