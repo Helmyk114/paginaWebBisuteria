@@ -30,6 +30,12 @@
     box-shadow:  5px 5px 14px #292929,
     -7px -7px 14px #ffffff; 
 }
+.footerBienvenido{
+  
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
 
 
 @media screen and (max-width: 767px) {

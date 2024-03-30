@@ -36,7 +36,7 @@ function BienvenidaAdmi() {
   }, [id]);
 
   return (
-    <div>
+    <div style={{marginBottom:"100px"}}>
       {cargando ? (
         <Loader />
       ) : (
