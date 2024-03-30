@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import './listarProductoVendedor.css'; 
+import './listarProductoVendedor.css';
 
 import { Spacer } from "@nextui-org/react";
-import NavigateVEN, { Retroceder, Titulo }from "../../components/UI/navbar/navbarVendedor";
+import NavigateVEN, { Retroceder, Titulo } from "../../components/UI/navbar/navbarVendedor";
 import CardProduct from "../../components/UI/cardProduct/card";
 import Categorias from "../../components/UI/cardProduct/categorias";
 import Loader from "../../components/UI/cargando/loader";
@@ -74,19 +74,17 @@ export default function ListProduct() {
         <Retroceder />
         <Titulo espacio="center" titulo="PRODUCTOS" />
       </NavigateVEN>
-      
       <Spacer y={5} />
       <div className="gridCategorias">
         <Categorias onCategorySelect={handleCategorySelect} />
       </div>
-    
       {cargando ? (
         <Loader />
       ) : (
         <div className="grid">
           {selectedCategory === 0 ? (
             informacionInicial.map((datos) => (
-              <CardProduct 
+              <CardProduct
                 className="item"
                 key={datos.idProduct}
                 idProduct={datos.idProduct}
@@ -98,7 +96,7 @@ export default function ListProduct() {
             ))
           ) : (
             informacionCategoria.map((datos) => (
-              <CardProduct 
+              <CardProduct
                 className="item"
                 key={datos.idProduct}
                 idProduct={datos.idProduct}
@@ -113,7 +111,6 @@ export default function ListProduct() {
       )}
       <BotonComprar onClick={handleCrearPedidosClick} text={"Comprar"} type={"Submit"} />
       <Footer />
-        
     </div>
   );
-}
+};
