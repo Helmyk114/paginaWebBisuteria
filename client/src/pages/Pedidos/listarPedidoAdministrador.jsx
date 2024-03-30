@@ -25,7 +25,7 @@ function ListarPedidoAdministrador() {
 			try {
 				const informacionListaPedidoC = await listarInformacionConDosParametroApi('orden', "1", "7");
 				const informacionListaPedidoE = await listarInformacionConDosParametroApi('orden', "2", '2');
-				const informacionListaPedidoT = await listarInformacionConDosParametroApi('orden', "3", '2');
+				const informacionListaPedidoT = await listarInformacionConDosParametroApi('orden', "3", '3');
 				setInformacionC(informacionListaPedidoC.data);
 				setInformacionE(informacionListaPedidoE.data);
 				setInformacionT(informacionListaPedidoT.data);
