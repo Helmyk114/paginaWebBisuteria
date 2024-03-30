@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import '../ListaTrabajo/ListaTrabajo.css'
 
-import { Spacer } from "@nextui-org/react";
+import { Button, Spacer } from "@nextui-org/react";
 import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 import Loader from "../../components/UI/cargando/loader";
@@ -104,7 +104,7 @@ function ListarListaTrabajoAdministrador() {
                             />
                           </div >
                           <Texto1Card
-                            texto={"Finalizdo"}
+                            texto={"Finalizado"}
                             color={"#ffff"}
                             fontWeight={"400"}
                             className="contTexto1A" />
@@ -125,11 +125,14 @@ function ListarListaTrabajoAdministrador() {
                               />
                             </div>
                             <div className="contIconoA">
+                              <Button style={{background:"none", justifyContent:"flex-end", alignItems:"center" }}>
                               <IconoCard
                                 icon={"mage:dollar-fill"}
-                        width={"40px"}
+                                width={"40px"}
                                 className="iconoFlecha"
                               />
+                              </Button>
+                             
                             </div>
                           </div>
                         </div>
