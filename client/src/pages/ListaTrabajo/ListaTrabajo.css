@@ -6,7 +6,7 @@
 	margin: 0 auto;
 }
 .cardListaTerminadaTA {
-	width: 43%;
+	width: 93%;
 }
 
 
@@ -491,7 +491,8 @@
 	}
 
 	.cardListaTerminadaTA {
-		width: 45%;
+		width: 100%;
+		
 	}
 
 	.contTexto1A {

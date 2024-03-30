@@ -88,7 +88,7 @@ function ListarListaTrabajoAdministrador() {
           {cargando ? (
             <Loader />
           ) : (
-            <div style={{ justifyContent:"center", display: "flex", flexWrap: "wrap" }}>
+            <div style={{ justifyContent:"center", display: "flex", flexWrap: "wrap", gap:"10px" }}>
               {informacionListaT && informacionListaT.length > 0 ? (
                 informacionListaT.map((datos) => (
                   <div key={datos.idWorkList}>
