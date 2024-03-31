@@ -66,13 +66,13 @@ function BienvenidaVendedor() {
             <PerfilIcono className={"perfilPrincipal"} ruta="/perfil/Vendedor" />
             <h1 className="textoPrincipal">Perfil</h1>
           </div>
-          <Spacer x={2} />
+          
           <div className=" carta flex flex-col items-center">
             <ProductoIcono ruta="/productos/vendedor"
               className={"producto"} />
             <h1 className="textoPrincipal">Productos</h1>
           </div>
-          <Spacer x={2} />
+          <Spacer x={1}  />
           <div className=" carta flex flex-col items-center">
             <PedidoIcono ruta="/pedidos/vendedor"
               className={"pedidos"} />
@@ -86,7 +86,7 @@ function BienvenidaVendedor() {
           </div>
         </div>
       </div>
-      <Spacer x={4} />
+      <Spacer x={2} />
       <div className="footerBienvenido">
         <Footer />
       </div>

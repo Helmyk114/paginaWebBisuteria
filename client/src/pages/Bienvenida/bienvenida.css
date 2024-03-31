@@ -37,18 +37,34 @@
   width: 100%;
 }
 
+  
 
 @media screen and (max-width: 767px) {
     .cartaEspacio{
         display: flex;
-        flex-direction: row;
-        gap:5px;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap:15px;
         margin: 7px;
+        width: 100%;
+    }
+    .carta.flex.flex-col.items-center {
+        flex-direction: column;
+      }
+      .textoPrincipal {
+        width: 50%;
+        font-size: 13px;
+        text-align: center; 
+        margin-top: 10px; 
+      }
+    .cartaEspacio .carta{
+        margin-bottom: 10px;
+        flex: 1 1 calc(40% - 15px);
     }
     .carta{
     padding:10px ;
-    width: 100%;
-
+    width: 45%; 
+    max-width: 120px;
     }
     .cerrarSesion, .trabajador, .pedidos, .perfilPrincipal, .listaTrabajo, .producto{
         width: 50px;
@@ -56,6 +72,8 @@
     }
     .textoPrincipal{
         font-size: 13px;
+        display: flex;
+        flex-direction: column;
     }
 
 }
@@ -88,10 +106,3 @@
 
 }
 
-.footer{
- 
-}
-.footer2{
-   
-  
-}
