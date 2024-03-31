@@ -1,11 +1,11 @@
 import React from "react";
 import { Card, Image, Button } from "@nextui-org/react";
 import "./categorias.css";
-import img1 from "../../../../src/img2/anillo.png";
-import img2 from "../../../../src/img2/collar.png";
-import img3 from "../../../../src/img2/joyeria.png";
-import img4 from "../../../../src/img2/perla (1).png";
-import img5 from "../../../../src/img2/pulsera (2).png";
+import img1 from "../../../../src/img/anillo1.png";
+import img2 from "../../../../src/img/pulseras1.png";
+import img3 from "../../../../src/img/joya1.png";
+import img4 from "../../../../src/img/collar1.png";
+import img5 from "../../../../src/img/aretes1.png";
 
 const Categorias = ({ onCategorySelect }) => {
   const handleClick = (categoryId) => {
