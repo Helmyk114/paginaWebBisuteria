@@ -63,6 +63,9 @@
   width: 100px;
   height: 72px;
 }
+@media screen and (min-width: 768px), (max-width:1023) {
+  
+}
 @media (max-width: 767px) {
   .card3 {
     width: 90px;

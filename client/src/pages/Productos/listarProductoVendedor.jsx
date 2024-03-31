@@ -74,7 +74,7 @@ export default function ListProduct() {
         <Retroceder />
         <Titulo espacio="center" titulo="PRODUCTOS" />
       </NavigateVEN>
-      <Spacer y={5} />
+      <Spacer y={2} />
       <div className="gridCategorias">
         <Categorias onCategorySelect={handleCategorySelect} />
       </div>

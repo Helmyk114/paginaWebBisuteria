@@ -1,7 +1,7 @@
 /* card.css */
 .card1 {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 20px;
   align-items: center;
   justify-items: center;
@@ -17,15 +17,40 @@
   opacity: 0.7;
   transition: opacity 0.3s; /* Agregar transición de opacidad */
 }
+@media screen and (min-width: 768px), (max-width:1023) {
+  .card1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 20px;
+    align-items: center;
+    justify-items: center;
+    margin: 0 auto; /* Centrar el contenedor */
+    max-width: 10%; /* Establecer el máximo ancho del contenedor al 80% de la pantalla */
+    margin-bottom: 15px;
+  }
+}
 
 @media (min-width: 768px) {
   .card1 {
     grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); /* Ajustar el tamaño mínimo y máximo para pantallas más grandes */
-    gap: 100px;
+    gap: 10px;
     max-width: none; /* Restablecer el máximo ancho cuando la pantalla es más grande */
   }
 }
 
 .card1.selected .card2 {
   opacity: 1.0; /* Establecer la opacidad a 1.0 para eliminar completamente la opacidad */
+}
+
+@media screen and (min-width: 393px) and (max-width: 767px) {
+  .card1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    align-items: center;
+    justify-items: center;
+    margin: 0 auto;
+    max-width: 30%;
+    margin-bottom: 15px;
+  }
 }
