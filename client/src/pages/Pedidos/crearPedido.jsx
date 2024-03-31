@@ -145,7 +145,7 @@ const CrearPedido = () => {
 			</NavigateVEN>
 			<Spacer y={4} />
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<Acordeon titulo={'Datos del cliente'}>
+				<Acordeon className="acordeonCrP" titulo={'Datos del cliente'}>
 					<div className="gap-4" style={{ display: "grid", gridTemplateColumns: "2fr 2fr" }}>
 						<div className="flex flex-col">
 							<InputText ref={(el) => { refs.current.idCardClient = el; }}
@@ -202,7 +202,7 @@ const CrearPedido = () => {
 					<Spacer y={4} />
 				</Acordeon>
 				<Spacer y={4} />
-				<Acordeon titulo={'Lista de productos'}>
+				<Acordeon className="acordeonCrP" titulo={'Lista de productos'}>
 					<Spacer y={3} />
 					<div>
 						{selectedProducts && selectedProducts.length > 0 ? (
@@ -256,12 +256,17 @@ const CrearPedido = () => {
 						)}
 					</div>
 				</Acordeon>
-				<Spacer y={5} />
-				<BotonComprar2 text={"Comprar"}>
+				<Spacer y={230} />
+				<div className="footer-container" >
+				<BotonComprar2 className="btnComprar2" text={"Comprar"}>
 					<Texto3 precio={`${totalPrice}`} />
 				</BotonComprar2>
+				<Footer /> 
+				</div>
 			</form>
-			<Footer />
+			
+			
+			
 		</div>
 	);
 };
