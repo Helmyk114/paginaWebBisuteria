@@ -38,13 +38,13 @@ function ListarPedidoVendedor() {
 			}
 		};
 		data();
-	}, [informacionC, id]);
+	}, [informacionC, informacionP, informacionT, id]);
 
 	const cancelProducto = async (idOrder) => {
 		try {
 			const result = await notificacionActivarInactivar({ titulo: "¿Quieres eliminar este pedido?", boton: "Eliminar" });
 			if (result.isConfirmed) {
-				await cambiarEstadoInformacionApi('orden/cancelar', idOrder, "6")
+				await cambiarEstadoInformacionApi('orden-CambiarEstado', idOrder, "6")
 
 				notificacionInformativa({ icono: "success", titulo: "Pedido eliminado" })
 			}

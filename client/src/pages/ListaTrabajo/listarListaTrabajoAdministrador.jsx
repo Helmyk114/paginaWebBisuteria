@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import '../ListaTrabajo/ListaTrabajo.css'
 
-import { Button, Spacer } from "@nextui-org/react";
+import { Spacer } from "@nextui-org/react";
 import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
 import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 import Loader from "../../components/UI/cargando/loader";
 import Footer from "../../components/UI/Footer/Footer";
 import Acordeon from "../../components/UI/Acordeon/Acordeon"
 
-import { listarInformacionConParametroApi } from "../../api/axiosServices";
+import { cambiarEstadoInformacionApi, listarInformacionConParametroApi } from "../../api/axiosServices";
+import { notificacionActivarInactivar, notificacionInformativa } from "../../utils/notificacionCliente";
 
 function ListarListaTrabajoAdministrador() {
   const [informacionListaC, setInformacionListaC] = useState([]);
@@ -21,7 +22,7 @@ function ListarListaTrabajoAdministrador() {
       try {
         const informacionListaC = await listarInformacionConParametroApi('listaTrabajo-Estado', '1');
         const informacionListaT = await listarInformacionConParametroApi('listaTrabajo-Estado', '3');
-        const informacionListaP = await listarInformacionConParametroApi('listaTrabajo-Estado', '6');
+        const informacionListaP = await listarInformacionConParametroApi('listaTrabajo-Estado', '8');
         setInformacionListaC(informacionListaC.data);
         setInformacionListaT(informacionListaT.data);
         setInformacionListaP(informacionListaP.data);
@@ -32,7 +33,22 @@ function ListarListaTrabajoAdministrador() {
       }
     };
     data()
-  }, [informacionListaC, informacionListaT], informacionListaP);
+  }, [informacionListaC, informacionListaT, informacionListaP]);
+
+  const handlerPagar = async (idWorkList) => {
+    notificacionInformativa({ icono: '', titulo: `${idWorkList}` })
+    try {
+      const result = await notificacionActivarInactivar({ titulo: "¿Esta seguro que ya pago esta lista de trabajo?", boton: "Si" });
+      if (result.isConfirmed) {
+        await cambiarEstadoInformacionApi('listaTrabajo-CambiarEstado', idWorkList, "8")
+
+        notificacionInformativa({ icono: "success", titulo: "Lista de trabajo pagada" })
+      }
+    } catch (error) {
+      notificacionInformativa({ icono: "error", titulo: "Error al pagar la lista de trabajo" })
+      console.error('error al pagar la lista de trabajo ', error)
+    }
+  }
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
@@ -88,7 +104,7 @@ function ListarListaTrabajoAdministrador() {
           {cargando ? (
             <Loader />
           ) : (
-            <div style={{ justifyContent:"center", display: "flex", flexWrap: "wrap", gap:"10px" }}>
+            <div style={{ justifyContent: "center", display: "flex", flexWrap: "wrap", gap: "10px" }}>
               {informacionListaT && informacionListaT.length > 0 ? (
                 informacionListaT.map((datos) => (
                   <div key={datos.idWorkList}>
@@ -124,15 +140,12 @@ function ListarListaTrabajoAdministrador() {
                                 fontWeight={"200"}
                               />
                             </div>
-                            <div className="contIconoA">
-                              <Button style={{background:"none", justifyContent:"flex-end", alignItems:"center" }}>
+                            <div className="contIconoA" onClick={() => handlerPagar(datos.idWorkList)}>
                               <IconoCard
                                 icon={"mage:dollar-fill"}
                                 width={"40px"}
                                 className="iconoFlecha"
                               />
-                              </Button>
-                             
                             </div>
                           </div>
                         </div>
