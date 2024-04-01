@@ -61,28 +61,28 @@ function BienvenidaVendedor() {
       )}
       <Spacer y={5} />
       <div className=" cartas flex flex-col items-center" >
-        <div className=" cartaEspacio relative flex gap-4">
-          <div className="carta flex flex-col items-center">
+        <div className=" cartaEspacioV relative flex gap-4">
+          <div className="cartaV flex flex-col items-center">
             <PerfilIcono className={"perfilPrincipal"} ruta="/perfil/Vendedor" />
-            <h1 className="textoPrincipal">Perfil</h1>
+            <h1 className="textoPrincipalV">Perfil</h1>
           </div>
           
-          <div className=" carta flex flex-col items-center">
+          <div className=" cartaV flex flex-col items-center">
             <ProductoIcono ruta="/productos/vendedor"
               className={"producto"} />
-            <h1 className="textoPrincipal">Productos</h1>
+            <h1 className="textoPrincipalV">Productos</h1>
           </div>
           <Spacer x={1}  />
-          <div className=" carta flex flex-col items-center">
+          <div className=" cartaV flex flex-col items-center">
             <PedidoIcono ruta="/pedidos/vendedor"
               className={"pedidos"} />
-            <h1 className="textoPrincipal">Pedidos</h1>
+            <h1 className="textoPrincipalV">Pedidos</h1>
           </div>
-          <div className=" carta flex flex-col items-center">
+          <div className=" cartaV flex flex-col items-center">
             <CerrarSesionIcono ruta="/"
               eliminarCookie={eliminarCookie}
               className={"producto"} />
-            <h1 className="textoPrincipal">Cerrar sesión</h1>
+            <h1 className="textoPrincipalV">Cerrar sesión</h1>
           </div>
         </div>
       </div>
