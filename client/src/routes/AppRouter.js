@@ -52,10 +52,10 @@ const AppRouter = () => {
         <Route path="/Vendedor" element={<ProtectedRoute element={<BienvenidaVendedor />} role={3} />} />
 
         {/* Pantallas de Productos */}
-        <Route path="/productos" element={<ListarProducto />} />
-        <Route path="/productos/vendedor" element={<ListarProductoVendedor />} />
-        <Route path="/crear/producto" element={<CrearProducto />} />
-        <Route path="/editar/producto/:idProduct" element={<ActualizarProducto />} />
+        <Route path="/productos" element={<ProtectedRoute element={<ListarProducto />} role={1} />} />
+        <Route path="/productos/vendedor" element={<ProtectedRoute element={<ListarProductoVendedor />} role={3} />} />
+        <Route path="/crear/producto" element={<ProtectedRoute element={<CrearProducto />} role={1} />} />
+        <Route path="/editar/producto/:idProduct" element={<ProtectedRoute element={<ActualizarProducto />} role={1} />} />
 
         {/* Pantallas de Trabajadores */}
         <Route path="/trabajadores" element={<ListarTrabajador />} />
