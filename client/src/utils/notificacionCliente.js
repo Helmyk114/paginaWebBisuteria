@@ -38,3 +38,13 @@ export function notificacionInformativa({ icono, titulo }) {
     icon: icono
   });
 };
+
+export function notificacionTiempo({ titulo }) {
+  Swal.fire({
+    position: "top-end",
+    icon: "info",
+    title: titulo,
+    showConfirmButton: false,
+    timer: 1500
+  });
+}
