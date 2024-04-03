@@ -98,7 +98,7 @@ const Notificacion = () => {
     <NavbarContent style={{ marginTop: "0px", color: "#6977E4" }}>
       <NavbarItem>
         <div>
-          <Campana ruta={"/notificaciones"} />
+          <Campana ruta={"/notificaciones/Administrador"} />
         </div>
       </NavbarItem>
     </NavbarContent>
@@ -192,7 +192,7 @@ const Inicios = () => {
     <NavbarContent style={{ marginTop: "0px", color: "#6977E4" }}>
       <NavbarItem>
         <div>
-          <Inicio ruta="/Administracion" />
+          <Inicio ruta={"/Administracion"} />
         </div>
       </NavbarItem>
     </NavbarContent>
