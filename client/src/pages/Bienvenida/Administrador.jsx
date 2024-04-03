@@ -15,7 +15,7 @@ import PedidoIcono from "../../components/UI/iconos/Pedido";
 import CerrarSesionIcono from "../../components/UI/iconos/CerrarSesion";
 import Footer from "../../components/UI/Footer/Footer";
 import { notificacionTiempo } from "../../utils/notificacionCliente";
-import useNotificacionSocketEffect from "../../utils/notificacionSocket/iniciarSesion";
+import useNotificacionSocketEffect from "../../utils/notificacionSocket";
 
 function BienvenidaAdmi() {
   const [informacion, setInformacion] = useState([]);
@@ -37,8 +37,12 @@ function BienvenidaAdmi() {
     data();
   }, [id]);
 
-  useNotificacionSocketEffect('login:Server', (message) => {
+  useNotificacionSocketEffect('login:Server', (title, message) => {
     notificacionTiempo({ titulo: message });
+  });
+
+  useNotificacionSocketEffect('order:Server', (title ,message) => {
+    notificacionTiempo({ titulo: title, text:message });
   });
 
   return (
