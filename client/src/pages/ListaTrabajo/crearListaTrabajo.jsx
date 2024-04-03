@@ -73,7 +73,7 @@ function CrearListaTrabajo() {
 
 	informacionProductos.forEach((producto) => {
 		producto.data.forEach((pro) => {
-			const cantidadSeleccionada = cantidadProductos[pro.idProduct] || 1; // Obtener la cantidad seleccionada del estado
+			const cantidadSeleccionada = cantidadProductos[pro.idProduct] || 0; // Obtener la cantidad seleccionada del estado
 			const subtotal = laborPrices[pro.idProduct] || 0;
 			const productoInfo = {
 				idOrder: pro.idOrder,
