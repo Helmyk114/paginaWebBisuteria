@@ -11,6 +11,8 @@ import Footer from "../../components/UI/Footer/Footer";
 
 import { decodificarToken, eliminarCookie, obtenerToken } from "../../utils/token";
 import { detalleInformacionApi } from "../../api/axiosServices";
+import useNotificacionSocketEffect from "../../utils/notificacionSocket";
+import { notificacionTiempo } from "../../utils/notificacionCliente";
 
 function BienvenidaTrabajador() {
   const [informacion, setInformacion] = useState([]);
@@ -31,6 +33,10 @@ function BienvenidaTrabajador() {
     };
     data();
   }, [id]);
+
+  useNotificacionSocketEffect('payList:Server', (title ,message) => {
+    notificacionTiempo({ titulo: title, text:message });
+  });
 
   return (
     <div>

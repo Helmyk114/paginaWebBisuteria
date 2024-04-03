@@ -25,7 +25,7 @@ function ListarListaTrabajoVendedor() {
 			try {
 				const informacionListaC = await listarInformacionConDosParametroApi('listaTrabajo-Estado-Trabajador', "1", id);
 				const informacionListaT = await listarInformacionConDosParametroApi('listaTrabajo-Estado-Trabajador', "3", id);
-				const informacionListaP = await listarInformacionConDosParametroApi('listaTrabajo-Estado-Trabajador', "6", id);
+				const informacionListaP = await listarInformacionConDosParametroApi('listaTrabajo-Estado-Trabajador', "8", id);
 				setListaC(informacionListaC.data);
 				setListaT(informacionListaT.data);
 				setListaP(informacionListaP.data);
