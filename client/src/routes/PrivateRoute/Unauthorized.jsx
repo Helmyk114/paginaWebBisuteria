@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Cookies from 'js-cookie'; // Agrega la importación de Cookies
+import './Unauthorized.css';
 
 const Unauthorized = () => {
   const location = useLocation();
@@ -16,18 +17,19 @@ const Unauthorized = () => {
   };
 
   return (
-    <div>
-      <h1>Acceso no autorizado</h1>
-      <p>No tienes permisos para acceder a esta página.</p>
+    <div className="error-page">
+  <h1>Acceso no autorizado</h1>
+  <p>No tienes permisos para acceder a esta página.</p>
 
-      {/* Agrega un botón para volver a la página anterior */}
-      <button onClick={goBack}>Volver a la página anterior</button>
+  {/* Agrega un botón para volver a la página anterior */}
+  <button onClick={goBack}>Volver a la página anterior</button>
 
-      {/* Opcional: Agrega un enlace para ir a la página de inicio */}
-      <p>
-        O puedes <Link to="/">volver a la página de inicio</Link>.
-      </p>
-    </div>
+  {/* Opcional: Agrega un enlace para ir a la página de inicio */}
+  <p>
+    O puedes <Link to="/">volver a la página de inicio</Link>.
+  </p>
+</div>
+
   );
 };
 

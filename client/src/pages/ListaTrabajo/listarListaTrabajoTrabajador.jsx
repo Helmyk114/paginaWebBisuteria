@@ -221,7 +221,11 @@ function ListarListaTrabajoVendedor() {
 				</Acordeon>
 			</div>
 			<Spacer y={4} />
+			<div className="footerListaTTrabajador">
+
+			
 			<Footer />
+			</div>
 		</div>
 	);
 };
