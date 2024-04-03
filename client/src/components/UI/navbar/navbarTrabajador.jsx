@@ -88,7 +88,7 @@ const Texto = ({ titulo, nombre, rol }) => {
             fontFamily: "Roboto, sans-serif",
             fontSize: "20px",
             color: "#fff",
-            textAlign:"center"
+           
           }}
         >
           {nombre}
@@ -101,7 +101,7 @@ const Texto = ({ titulo, nombre, rol }) => {
             fontFamily: "Roboto, sans-serif",
             fontSize: "17px",
             color: "#fff",
-            textAlign:"center"
+            
           }}
         >
           {rol}

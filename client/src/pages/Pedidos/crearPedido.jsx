@@ -217,8 +217,9 @@ const CrearPedido = () => {
 												src={product.img}
 												alt={product.producto}
 												radio={"full"} />
-											<Spacer x={3} />
+											
 											<Texto1Card
+											    className="txtCrPTitulo"
 												texto={product.producto} />
 											<div style={{ display: "flex", justifyContent: "center" }}>
 												<BotonCantidad
