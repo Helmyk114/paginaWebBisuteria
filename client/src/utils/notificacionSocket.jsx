@@ -5,7 +5,11 @@ const useNotificacionSocketEffect = (eventName, callback) => {
   useEffect(() => {
     const socket = io('http://localhost:4141');
     socket.on(eventName, (data) => {
-      callback(data.message);
+      if (data.title) {
+        callback(data.title, data.message);
+      } else {
+        callback(null, data.message);
+      }
     });
 
     return () => {

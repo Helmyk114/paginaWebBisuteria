@@ -39,12 +39,13 @@ export function notificacionInformativa({ icono, titulo }) {
   });
 };
 
-export function notificacionTiempo({ titulo }) {
+export function notificacionTiempo({ titulo, text }) {
   Swal.fire({
     position: "top-end",
     icon: "info",
     title: titulo,
+    text: text,
     showConfirmButton: false,
-    timer: 1500
+    timer: 2500
   });
 }

@@ -33,7 +33,10 @@ import PerfilinfoTrabajador from "../pages/Perfil/perfilTrabajador";
 import PerfilinfoVendedor from "../pages/Perfil/perfilVendedor";
 
 import Unauthorized from "./PrivateRoute/Unauthorized";
-import Notificaciones from "../pages/notificaciones";
+
+import NotificacionesAdmin from "../pages/Notificaciones/notificacionesAdmin";
+import NotificacionesVendedor from "../pages/Notificaciones/notificacionesVendedor";
+import NotificacionesArtesano from "../pages/Notificaciones/notificacionesArtesano";
 
 const AppRouter = () => {
   return (
@@ -78,8 +81,10 @@ const AppRouter = () => {
         {/* Pantalla noAutorizado */}
         <Route path="/unauthorized" element={<Unauthorized />} />
 
-        {/* Pantalla de Notificaciones */}
-        <Route path="/notificaciones" element={<Notificaciones />} />
+        {/* Pantallas de Notificaciones */}
+        <Route path="/notificaciones/Administrador" element={<ProtectedRoute element={<NotificacionesAdmin />} role={1} />}  />
+        <Route path="/notificaciones/Vendedor" element={<ProtectedRoute element={<NotificacionesVendedor />} role={3} />} />
+        <Route path="/notificaciones/Artesano" element={<ProtectedRoute element={<NotificacionesArtesano />} role={2} />}  />
       </Routes>
     </Router>
   );
