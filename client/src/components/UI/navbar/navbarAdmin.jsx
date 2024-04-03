@@ -75,7 +75,7 @@ const Texto = ({ titulo, nombre, rol }) => {
         </h1>
         <h2
           className="nombre"
-          style={{ margin: "5px", fontFamily: "Roboto, sans-serif", fontSize: "20px", color: "#fff", textAlign:"center"}}
+          style={{ margin: "5px", fontFamily: "Roboto, sans-serif", fontSize: "20px", color: "#fff"}}
         >
           {nombre}
         </h2>
@@ -83,7 +83,7 @@ const Texto = ({ titulo, nombre, rol }) => {
           className="rol"
           style={{
             margin: "2px", marginBottom: "15px", fontFamily: "Roboto, sans-serif",
-            fontStyle: "italic", fontSize: "17px", color: "#fff", textAlign:"center"
+            fontStyle: "italic", fontSize: "17px", color: "#fff"
           }}
         >
           {rol}
