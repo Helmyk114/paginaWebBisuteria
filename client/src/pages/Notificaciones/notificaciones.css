@@ -6,7 +6,8 @@
     display: flex;
     flex-direction: column;
 }
-.cont2Notificaciones{
+
+.cont2Notificaciones {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -41,13 +42,14 @@
     margin-right: 3px;
     margin-top: -12px;
 }
-.cont1Notificaciones{
+
+.cont1Notificaciones {
     display: flex;
 }
 
 @media screen and (max-width: 767px) {
     .cardNotificaciones {
-        width: 390px;
+        width: 350px;
         display: flex;
 
     }
@@ -61,17 +63,26 @@
         justify-content: space-between;
         width: 100%;
     }
-    .contNotificaciones{
+
+    .contNotificaciones {
         display: flex;
         width: 100%;
-        justify-content:space-between ;
+        justify-content: space-between;
     }
-.iconoEliminarN {
-    display: flex;
-    justify-content: flex-end;
+
+    .iconoEliminarN {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .cardNotificacionesGap {
+        width: 100%;
+    }
+    .cont2Notificaciones{
+        margin-left: 35px; 
+    }
+
 }
-    
-}
+
 @media screen and (min-width: 768px),
 (max-width:1023) {
     .contIconoN {
