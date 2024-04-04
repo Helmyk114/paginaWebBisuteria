@@ -47,20 +47,22 @@
         flex-wrap: wrap;
         gap:15px;
         margin: 7px;
-        width: 100%;
+        
         
     }
     .cartaEspacio{
         display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: center;
         gap:5px;
         margin: 7px;  
     }
     .carta{
         padding:10px ;
-        width: 55%; 
-        max-width: 120px;
+        width: 120px;
+        height: 140px;
+        
         
         }
     
@@ -70,15 +72,15 @@
         text-align: center; 
         
       }
-    .cartaEspacioV , .cartaV{
+    .cartaEspacioV ,.cartaV{
         margin-bottom: 10px;
         flex: 1 1 calc(40% - 15px);
     }
     .cartaV{
     padding:10px ;
-    width: 45%; 
-    max-width: 120px;
-    min-height: 20px;
+    width: 50px;
+    height: 120px;
+    
     }
     .cerrarSesion, .trabajador, .pedidos, .perfilPrincipal, .listaTrabajo, .producto{
         width: 45px;
@@ -97,6 +99,10 @@
         padding: 30px;
         display: flex;
         justify-content: center;
+    }
+    .cartaV{
+        width: 120px;
+        height: 150px;
     }
     .cerrarSesion,.trabajador, .pedidos, .perfilPrincipal, .listaTrabajo, .producto{
         width: 60px;
