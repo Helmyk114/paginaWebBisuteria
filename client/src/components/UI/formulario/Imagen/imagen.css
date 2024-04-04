@@ -1,55 +1,63 @@
-@media screen and (min-width: 1024px){
-    .card{
+@media screen and (min-width: 1024px) {
+    .card {
         margin: 0 auto;
         padding: 10px;
         width: 75%;
-    }  
+    }
 }
-@media screen and (max-width: 767px){
-    .card{
+
+@media screen and (max-width: 767px) {
+    .card {
         margin: 0 auto;
         padding: 10px;
         width: 95%;
-    } 
+    }
+
+    .img {
+        display: flex;
+        justify-content: space-between;
+    }
 }
-@media (min-width: 767px) and (max-width: 1023px){
-    .card{
+
+    @media (min-width: 767px) and (max-width: 1023px) {
+        .card {
+            margin: 0 auto;
+            padding: 10px;
+            width: 75%;
+        }
+    }
+
+    .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         margin: 0 auto;
-        padding: 10px;
-        width: 75%;
-    } 
-}
-.content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin:  0 auto;
-    
-}
 
-.card{
-    background-color: rgb(238, 238, 238, 1);
+    }
 
-}
+    .card {
+        background-color: rgb(238, 238, 238, 1);
 
-.img{
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    color:rgb(124, 124, 124);
-    max-width: 100%;
-    max-height: 200px;
+    }
 
-}
+    .img {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        color: rgb(124, 124, 124);
+        max-width: 100%;
+        max-height: 200px;
 
-.descripcion{
-    display: flex;
-    justify-content: center;
-}
+    }
 
-.boton{
-    display: flex;
-    justify-content: center;
+    .descripcion {
+        display: flex;
+        justify-content: center;
+    }
 
-    
-}
+    .boton {
+        display: flex;
+        justify-content: center;
+
+
+    }
