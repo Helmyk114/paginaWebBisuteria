@@ -46,7 +46,7 @@ function ListarTrabajador() {
         setInformacionA(nuevaInformacionA);
         setInformacionI(nuevaInformacionI);
 
-        notificacionInformativa({ icono: "success", titulo: "Trabajador elimindao" });
+        notificacionInformativa({ icono: "success", titulo: "Trabajador eliminado" });
       }
     } catch (error) {
       console.error("error al eliminar: ", error);

@@ -132,6 +132,22 @@ async function actualizarInformacionSinImagenApi(endPoint, id, informacion){
   }
 };
 
+//Función para eliminar la información desde el front hacia el back
+async function eliminarInformacionApi(endPoint, id) {
+  const url = `${raizUrl}/${endPoint}`
+
+  try {
+    const response = await axios.delete(`${url}/${id}`);
+    if(response.status === 200){
+      console.log('Se elimino la informacion api');
+    } else {
+      console.error(response.data.error);
+    }
+  } catch (error) {
+    console.error(`Error en la Api eliminar: ${error.message}`);
+  }
+};
+
 export {
   añadirInformacionAPI,
   añadirInformacionSinImagenAPI,
@@ -141,5 +157,6 @@ export {
   cambiarEstadoInformacionApi,
   detalleInformacionApi,
   actualizarInformacionApi,
-  actualizarInformacionSinImagenApi
+  actualizarInformacionSinImagenApi,
+  eliminarInformacionApi
 };
