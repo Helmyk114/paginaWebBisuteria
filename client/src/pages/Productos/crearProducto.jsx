@@ -47,7 +47,6 @@ function CrearProducto() {
       <Spacer y={4} />
       <form
         className="formImagenCrearPro"
-        
         onSubmit={handleSubmit(onSubmit)}
       >
         <SubirImagen onImageChange={setSelectedImage} />
@@ -62,7 +61,7 @@ function CrearProducto() {
               type="text"
               label={<span className="custom-label">Nombre del producto</span>}
               labelPlacement="outside"
-              placeholder={"Escriba el nombre del producto"}
+              placeholder={" "}
               size="md"
             />
             {errors.nameProduct && <span>{errors.nameProduct.message}</span>}

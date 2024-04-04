@@ -78,7 +78,7 @@ function CrearTrabajador() {
                   type="text"
                   label={<span className="custom-label">Nombre</span>}
                   labelPlacement="outside"
-                  placeholder={"Escriba el nombre del trabajador"}
+                  placeholder={" "}
                   size="md"
                 />
                 {errors.workerName && <span>{errors.workerName.message}</span>}
@@ -91,12 +91,10 @@ function CrearTrabajador() {
                   type="text"
                   label={<span className="custom-label">Apellido</span>}
                   labelPlacement="outside"
-                  placeholder={"Escriba el apellido del trabajador"}
+                  placeholder={" "}
                   size="md"
                 />
-                {errors.workerLastName && (
-                  <span>{errors.workerLastName.message}</span>
-                )}
+                {errors.workerLastName && (<span>{errors.workerLastName.message}</span>)}
               </div>
             </div>
             <Spacer y={4} />
@@ -107,7 +105,7 @@ function CrearTrabajador() {
               type="text"
               label={<span className="custom-label">Correo electronico</span>}
               labelPlacement="outside"
-              placeholder={"Escriba el correo del trabajador"}
+              placeholder={" "}
               size="md"
             />
             {errors.workerEmail && <span>{errors.workerEmail.message}</span>}
@@ -124,12 +122,10 @@ function CrearTrabajador() {
                   type="text"
                   label={<span className="custom-label">Celular</span>}
                   labelPlacement="outside"
-                  placeholder={"Escriba el número de celular"}
+                  placeholder={" "}
                   size="md"
                 />
-                {errors.workerPhone && (
-                  <span>{errors.workerPhone.message}</span>
-                )}
+                {errors.workerPhone && (<span>{errors.workerPhone.message}</span>)}
               </div>
               <div className="flex flex-col">
                 <InputText
@@ -139,12 +135,10 @@ function CrearTrabajador() {
                   type="text"
                   label={<span className="custom-label">Cédula</span>}
                   labelPlacement="outside"
-                  placeholder={"Escriba el número de cédula"}
+                  placeholder={" "}
                   size="md"
                 />
-                {errors.idCardWorker && (
-                  <span>{errors.idCardWorker.message}</span>
-                )}
+                {errors.idCardWorker && (<span>{errors.idCardWorker.message}</span>)}
               </div>
             </div>
             <Spacer y={4} />
@@ -160,7 +154,7 @@ function CrearTrabajador() {
                   type="text"
                   label={<span className="custom-label">Usuario</span>}
                   labelPlacement="outside"
-                  placeholder={"Escriba el usuario"}
+                  placeholder={" "}
                   size="md"
                 />
                 {errors.userName && <span>{errors.userName.message}</span>}
@@ -172,7 +166,7 @@ function CrearTrabajador() {
                   key="password"
                   label={<span className="custom-label">Contraseña</span>}
                   labelPlacement={"outside"}
-                  placeholder={"Escriba una contraseña"}
+                  placeholder={" "}
                   size="md"
                 />
                 {errors.password && <span>{errors.password.message}</span>}
@@ -205,7 +199,7 @@ function CrearTrabajador() {
                   type="text"
                   label={<span className="custom-label">Número de cuenta</span>}
                   labelPlacement="outside"
-                  placeholder={"Escriba su número de cuenta"}
+                  placeholder={" "}
                   size="md"
                 />
                 {errors.numberBank && <span>{errors.numberBank.message}</span>}
@@ -233,7 +227,7 @@ function CrearTrabajador() {
         </form>
       </div>
       <Spacer y={4} />
-     <Footer />
+      <Footer />
     </div>
   );
 }
