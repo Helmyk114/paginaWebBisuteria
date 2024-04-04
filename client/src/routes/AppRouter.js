@@ -12,6 +12,7 @@ import ListarListaTrabajoTrabajador from "../pages/ListaTrabajo/listarListaTraba
 import CrearListaTrabajo from "../pages/ListaTrabajo/crearListaTrabajo";
 import ActualizarListaTrabajo from "../pages/ListaTrabajo/actualizarListaTrabajo";
 import DetalleTrabajo from "../pages/ListaTrabajo/detalleListaTrabajoTrabajador";
+import DetalleTrabajoTP from "../pages/ListaTrabajo/detalleListaTrabajoTrabajadorTP";
 
 import ListarPedidoAdministrador from "../pages/Pedidos/listarPedidoAdministrador";
 import ListarPedidoVendedor from "../pages/Pedidos/listarPedidoVendedor";
@@ -79,6 +80,7 @@ const AppRouter = () => {
         <Route path="/crear/listaTrabajo" element={<ProtectedRoute element={<CrearListaTrabajo />} role={1} />} />
         <Route path="/editar/listaTrabajo" element={<ProtectedRoute element={<ActualizarListaTrabajo />} role={1} />} />
         <Route path="/detalle/Trabajo/:idWorkList" element={<ProtectedRoute element={<DetalleTrabajo/>} role={2} />} />
+        <Route path="/detalle/TrabajoTP/:idWorkList" element={<ProtectedRoute element={<DetalleTrabajoTP/>} role={2} />} />
 
         {/* Pantalla noAutorizado */}
         <Route path="/unauthorized" element={<Unauthorized />} />

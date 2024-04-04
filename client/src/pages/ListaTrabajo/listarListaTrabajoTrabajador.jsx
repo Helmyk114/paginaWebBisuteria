@@ -38,7 +38,6 @@ function ListarListaTrabajoVendedor() {
 		data();
 	}, [listaC, listaP, listaT, id])
 
-
 	return (
 		<div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
 			<NavigateTRJ>
@@ -96,14 +95,14 @@ function ListarListaTrabajoVendedor() {
 					{cargando ? (
 						<Loader />
 					) : (
-						<div  style={{ justifyContent:"center", display: "flex", flexWrap:"wrap", gap: "5px" }}>
+						<div style={{ justifyContent: "center", display: "flex", flexWrap: "wrap", gap: "5px" }}>
 							{listaT && listaT.length > 0 ? (
 								listaT.map((lista) => (
-									<div  key={lista.idWorkList}>
+									<div key={lista.idWorkList}>
 										<CardPerfil className1={"cardListaTerminadaT"}
 											className2={"cardListaTerminadaTGap"}>
 											<div className="contenedor1ListaT">
-												<div className="contIconoListaT " >
+												<div className="contIconoListaT ">
 													<div className="contIconoCheck" style={{ justifyContent: "center" }}>
 														<IconoCard
 															icon={"icon-park-solid:check-one"}
@@ -135,7 +134,7 @@ function ListarListaTrabajoVendedor() {
 															/>
 														</div>
 														<div className="contIcono">
-															<Link to={`/detalle/Trabajo/${lista.idWorkList}`}>
+															<Link to={`/detalle/TrabajoTP/${lista.idWorkList}`}>
 																<IconoCard
 																	icon={"akar-icons:arrow-right"}
 																	className="iconoFlecha"
@@ -163,7 +162,7 @@ function ListarListaTrabajoVendedor() {
 					{cargando ? (
 						<Loader />
 					) : (
-						<div style={{display:"flex", flexWrap:"wrap"}}>
+						<div style={{ display: "flex", flexWrap: "wrap" }}>
 							{listaP && listaP.length > 0 ? (
 								listaP.map((lista) => (
 									<div className="cont1AcordeonListaT" key={lista.idWorkList}>
@@ -176,15 +175,14 @@ function ListarListaTrabajoVendedor() {
 															color={"#ffff"}
 														/>
 													</div >
-													<div style={{textAlign:"center"}}>
-													<Texto1Card
-														texto={"Pagas"}
-														color={"#ffff"}
-														fontWeight={"400"}
-														className="contTexto1"
-														
-													/>
-												  </div>
+													<div style={{ textAlign: "center" }}>
+														<Texto1Card
+															texto={"Pagas"}
+															color={"#ffff"}
+															fontWeight={"400"}
+															className="contTexto1"
+														/>
+													</div>
 												</div>
 												<div className="cont2ListaT">
 													<div className="contTexto1">
@@ -202,7 +200,7 @@ function ListarListaTrabajoVendedor() {
 															/>
 														</div>
 														<div className="contIcono">
-															<Link to={`/detalle/Trabajo/${lista.idWorkList}`}>
+															<Link to={`/detalle/TrabajoTP/${lista.idWorkList}`}>
 																<IconoCard
 																	icon={"akar-icons:arrow-right"}
 																	className="iconoFlecha"
@@ -225,9 +223,7 @@ function ListarListaTrabajoVendedor() {
 			</div>
 			<Spacer y={4} />
 			<div className="">
-
-			
-			<Footer />
+				<Footer />
 			</div>
 		</div>
 	);
