@@ -48,4 +48,4 @@ export function notificacionTiempo({ titulo, text }) {
     showConfirmButton: false,
     timer: 2500
   });
-}
+};

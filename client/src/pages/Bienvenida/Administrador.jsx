@@ -49,6 +49,10 @@ function BienvenidaAdmi() {
     notificacionTiempo({ titulo: title, text:message });
   });
 
+  useNotificacionSocketEffect('finish-orderAdmin:Server', (title ,message) => {
+    notificacionTiempo({ titulo: title, text:message });
+  });
+
   return (
     <div style={{marginBottom:"100px"}}>
       {cargando ? (
