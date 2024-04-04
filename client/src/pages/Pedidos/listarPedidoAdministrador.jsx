@@ -198,7 +198,7 @@ function ListarPedidoAdministrador() {
 				)}
 			</Acordeon>
 			<Spacer y={4} />
-			<div className="footerListaPeA">
+			<div className="">
 				
 			
 			<BotonComprar onClick={handleCrearListraClick} text={"Crear lista"} type={"Submit"} />

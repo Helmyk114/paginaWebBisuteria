@@ -81,11 +81,8 @@ function ListarListaTrabajoAdministrador() {
                           icon={"akar-icons:edit"}
                           width={"28px"}
                           height={"28px"} />
-                        <Spacer y={5} />
-                        <IconoCard
-                          icon={"bi:check-circle-fill"}
-                          width={"25px"}
-                          height={"25px"} />
+                        
+                       
                       </div>
                     </div>
                   </div>
@@ -166,7 +163,7 @@ function ListarListaTrabajoAdministrador() {
           {cargando ? (
             <Loader />
           ) : (
-            <div>
+            <div style={{ justifyContent: "center", display: "flex", flexWrap: "wrap", gap: "10px" }}>
               {informacionListaP && informacionListaP.length > 0 ? (
                 informacionListaP.map((datos) => (
                   <div className="cont1AcordeonListaT" key={datos.idWorkList}>
