@@ -153,8 +153,7 @@ export default function PerfilinfoVendedor() {
           )}
         </div>
       )}
-      <Spacer y={4} />
-      <div style={{ position: "flex", bottom: "0", width: "100%", marginTop: "165px" }}>
+      <div style={{ position: "flex", bottom: "0", width: "100%", marginTop: "155px" }}>
         <Footer />
       </div>
     </div>

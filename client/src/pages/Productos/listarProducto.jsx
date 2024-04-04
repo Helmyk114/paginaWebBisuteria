@@ -87,7 +87,6 @@ function ListarProducto() {
 							<div key={datos.idProduct}>
 								<CardPerfil className1={"cardListaPro"}
 									className2={"cardListaProGap"}
-
 									key={datos.idProduct}>
 									<div className="cont1CardListaPro">
 										<Avatares
@@ -100,22 +99,18 @@ function ListarProducto() {
 												texto={datos.nameProduct} />
 										</div>
 									</div>
-									<div className=" cont2CardListaPro ">
+									<div className="cont2CardListaPro ">
 										<div >
-											<div className=" relative flex" style={{ gap: "5px" }} >
-												<Texto2Card
-													texto2={"PC: "} />
-												<Texto2Card
-													texto2={`${datos.price}`} />
+											<div className="relative flex" style={{ gap: "5px" }} >
+												<Texto2Card texto2={"PC: "} />
+												<Texto2Card texto2={`${datos.price}`} />
 											</div>
 											<div style={{ display: "flex", textAlign: "left", gap: "5px" }}>
 												<div>
-													<Texto2Card
-														texto2={"PO: "} />
+													<Texto2Card texto2={"PO: "} />
 												</div>
 												<div>
-													<Texto2Card
-														texto2={`${datos.laborPrice}`} />
+													<Texto2Card texto2={`${datos.laborPrice}`} />
 												</div>
 											</div>
 										</div>
@@ -142,7 +137,6 @@ function ListarProducto() {
 				</div>
 			)}
 			<Spacer y={5} />
-
 			<Acordeon titulo={"Productos inactivos"}
 					className={"inactivos"}>
 					{cargando ? (
@@ -155,16 +149,13 @@ function ListarProducto() {
 										<CardPerfil
 											className1={"cardListaPro"}
 											className2={"cardListaProGap"}
-											
 											key={datos.idProduct}>
 											<div className="inactivoCardListaPro">
 												<Avatares
 													src={`${urlImage}/${datos.image}`}
 													radio={"full"} />
 												<div  >
-													<Texto1Card
-														
-														texto={datos.nameProduct} />
+													<Texto1Card texto={datos.nameProduct} />
 												</div>
 											</div>
 											<div className="relative flex items-center gap-1" style={{ justifyContent: "center" }}>
@@ -184,7 +175,6 @@ function ListarProducto() {
 						</div>
 					)}
 			</Acordeon>
-
 			<Spacer y={5} />
 			<Footer />
 		</div>
