@@ -45,7 +45,7 @@ function BienvenidaAdmi() {
     notificacionTiempo({ titulo: title, text:message });
   });
 
-  useNotificacionSocketEffect('listWork:Server', (title ,message) => {
+  useNotificacionSocketEffect('finish-listWork:Server', (title ,message) => {
     notificacionTiempo({ titulo: title, text:message });
   });
 

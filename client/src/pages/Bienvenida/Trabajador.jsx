@@ -34,7 +34,7 @@ function BienvenidaTrabajador() {
     data();
   }, [id]);
 
-  useNotificacionSocketEffect('payList:Server', (title ,message) => {
+  useNotificacionSocketEffect('create-payList:Server', (title ,message) => {
     notificacionTiempo({ titulo: title, text:message });
   });
 
