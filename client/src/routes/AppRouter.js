@@ -38,6 +38,8 @@ import NotificacionesAdmin from "../pages/Notificaciones/notificacionesAdmin";
 import NotificacionesVendedor from "../pages/Notificaciones/notificacionesVendedor";
 import NotificacionesArtesano from "../pages/Notificaciones/notificacionesArtesano";
 
+import Error from "../pages/error"
+
 const AppRouter = () => {
   return (
     <Router>
@@ -85,6 +87,7 @@ const AppRouter = () => {
         <Route path="/notificaciones/Administrador" element={<ProtectedRoute element={<NotificacionesAdmin />} role={1} />}  />
         <Route path="/notificaciones/Vendedor" element={<ProtectedRoute element={<NotificacionesVendedor />} role={3} />} />
         <Route path="/notificaciones/Artesano" element={<ProtectedRoute element={<NotificacionesArtesano />} role={2} />}  />
+        <Route path="*" element={<Error />} />
       </Routes>
     </Router>
   );

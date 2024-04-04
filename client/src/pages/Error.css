@@ -1,0 +1,54 @@
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa; /* Color de fondo gris claro */
+  }
+
+  .error {
+    font-size: 3em;
+    color: #ff0000; /* Color gris oscuro */
+  }
+  
+  .large-numbers {
+    font-size: 2.5em;
+    color: #6977e4; /* Color naranja */
+    font-weight: bold;
+    font-family: 'Arial', sans-serif; /* Cambia la fuente si lo deseas */
+    transform: rotate(-5deg); /* Cambia la inclinación si lo deseas */
+  }
+  
+  
+  .error-content {
+    text-align: center;
+  }
+  
+  .error-title {
+    font-size: 4em;
+    color: #f10b0b; /* Color naranja */
+  }
+  
+  .error-message {
+    font-size: 1.5em;
+    color: #555; /* Color gris oscuro */
+    margin-bottom: 20px;
+  }
+
+  /* Animación para el título */
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .error-title {
+    animation: bounce 1s infinite;
+  }
+  
