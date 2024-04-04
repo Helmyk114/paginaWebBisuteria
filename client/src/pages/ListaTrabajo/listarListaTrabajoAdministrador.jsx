@@ -3,10 +3,10 @@ import '../ListaTrabajo/ListaTrabajo.css'
 
 import { Spacer } from "@nextui-org/react";
 import NavigateADM, { Retroceder, Titulo } from "../../components/UI/navbar/navbarAdmin";
-import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 import Loader from "../../components/UI/cargando/loader";
-import Footer from "../../components/UI/Footer/Footer";
+import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 import Acordeon from "../../components/UI/Acordeon/Acordeon"
+import Footer from "../../components/UI/Footer/Footer";
 
 import { cambiarEstadoInformacionApi, listarInformacionConParametroApi } from "../../api/axiosServices";
 import { notificacionActivarInactivar, notificacionInformativa } from "../../utils/notificacionCliente";
@@ -38,15 +38,14 @@ function ListarListaTrabajoAdministrador() {
   const handlerPagar = async (idWorkList) => {
     notificacionInformativa({ icono: '', titulo: `${idWorkList}` })
     try {
-      const result = await notificacionActivarInactivar({ titulo: "¿Esta seguro que ya pago esta lista de trabajo?", boton: "Si" });
+      const result = await notificacionActivarInactivar({ titulo: "¿Esta seguro que ya pago esta lista de trabajo?", boton: "Si", cancel: "No" });
       if (result.isConfirmed) {
-        await cambiarEstadoInformacionApi('listaTrabajo-CambiarEstado', idWorkList, "8")
-
-        notificacionInformativa({ icono: "success", titulo: "Lista de trabajo pagada" })
+        await cambiarEstadoInformacionApi('listaTrabajo-CambiarEstado', idWorkList, "8");
+        notificacionInformativa({ icono: "success", titulo: "Lista de trabajo pagada" });
       }
     } catch (error) {
-      notificacionInformativa({ icono: "error", titulo: "Error al pagar la lista de trabajo" })
-      console.error('error al pagar la lista de trabajo ', error)
+      notificacionInformativa({ icono: "error", titulo: "Error al pagar la lista de trabajo" });
+      console.error('error al pagar la lista de trabajo ', error);
     }
   }
 
@@ -80,9 +79,8 @@ function ListarListaTrabajoAdministrador() {
                         <IconoCard
                           icon={"akar-icons:edit"}
                           width={"28px"}
-                          height={"28px"} />
-                        
-                       
+                          height={"28px"} 
+                        />
                       </div>
                     </div>
                   </div>
@@ -109,7 +107,7 @@ function ListarListaTrabajoAdministrador() {
                       className1={"cardListaTerminadaTA"}
                       className2={"cardListaTerminadaTAGap"}>
                       <div className="contenedor1ListaT">
-                        <div className="contIconoListaTA" >
+                        <div className="contIconoListaTA">
                           <div className="contIconoCheck" style={{ justifyContent: "center" }}>
                             <IconoCard
                               icon={"icon-park-solid:check-one"}
@@ -120,7 +118,8 @@ function ListarListaTrabajoAdministrador() {
                             texto={"Finalizado"}
                             color={"#ffff"}
                             fontWeight={"400"}
-                            className="contTexto1A" />
+                            className="contTexto1A" 
+                          />
                         </div>
                         <div className="cont2ListaTA">
                           <div className="contTexto1A">
@@ -156,7 +155,6 @@ function ListarListaTrabajoAdministrador() {
               )}
             </div>
           )}
-
         </Acordeon>
         <Spacer y={4} />
         <Acordeon className={"contAcordeonListaTA"} titulo={"Listas de trabajo pagas"}>
@@ -171,7 +169,7 @@ function ListarListaTrabajoAdministrador() {
                       className1={"cardListaTerminadaTA"}
                       className2={"cardListaTerminadaTAGap"}>
                       <div className="contenedor1ListaT">
-                        <div className="contIconoListaTA" >
+                        <div className="contIconoListaTA">
                           <div className="contIconoCheck" style={{ justifyContent: "center" }}>
                             <IconoCard
                               icon={"mage:dollar-fill"}
@@ -182,7 +180,8 @@ function ListarListaTrabajoAdministrador() {
                             texto={"Pagadas"}
                             color={"#ffff"}
                             fontWeight={"400"}
-                            className="contTexto1A" />
+                            className="contTexto1A" 
+                          />
                         </div>
                         <div className="cont2ListaTA">
                           <div className="contTexto1A">

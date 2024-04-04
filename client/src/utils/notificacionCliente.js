@@ -21,13 +21,14 @@ export function notificacionError({ titulo}) {
 };
 
 //Notificacion para confirmar el cambio de estado
-export function notificacionActivarInactivar({ titulo, boton }) {
+export function notificacionActivarInactivar({ titulo, cancel, boton }) {
   return Swal.fire({
     title: titulo,
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#6977E4",
     cancelButtonColor: "#d33",
+    cancelButtonText: cancel || "Cancelar",
     confirmButtonText: boton
   });
 };
