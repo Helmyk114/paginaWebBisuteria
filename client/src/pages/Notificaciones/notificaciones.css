@@ -1,0 +1,54 @@
+.cardNotificaciones {
+    width: 320px;
+}
+
+.cardNotificacionesGap {
+    display: flex;
+    flex-direction: column;
+}
+
+.contFecha,
+.contHora {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.contNotificaciones {
+    display: flex;
+}
+
+.iconoEliminarN {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.contIconoN {
+    justify-content: flex-start;
+    display: flex;
+    align-items: flex-start;
+    padding: 2px;
+    margin-right: 3px;
+    margin-top: -10px;
+}
+
+@media screen and (max-width: 767px) {
+    .cardNotificaciones {
+        width: 390px;
+        display: flex;
+
+    }
+
+    .contIconoN {
+        margin-top: -2px;
+    }
+
+    .cont1Notificacion {
+        width: 50%;
+    }
+    .contNotificaciones{
+        display: flex;
+        width: 100%;
+        justify-content:space-between ;
+    }
+}
