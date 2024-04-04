@@ -81,12 +81,13 @@ function DetalleTrabajoTP() {
 				</div>
 			)}
 			<Spacer y={4} />
+			<div className="footerDetalleListaT" >
 				{informacion.length > 0 && (
 					<BotonComprar2 style={{background:'#454F96'}}>
 						<Texto3 precio={`Total: ${informacion[0].total}`} />
 					</BotonComprar2>
 				)}
-			<div >
+			
 				<Footer style={{ marginTop: "auto" }} />
 			</div>
 		</div>

@@ -97,6 +97,7 @@ function DetalleTrabajo() {
 				</div>
 			)}
 			<Spacer y={4} />
+			<div className="footerDetalleListaT">
 			<form onSubmit={handleSubmit(onSubmit)}>
 				{informacion.length > 0 && (
 					<BotonComprar2 text={"Completar lista"}>
@@ -104,7 +105,7 @@ function DetalleTrabajo() {
 					</BotonComprar2>
 				)}
 			</form>
-			<div >
+			
 				<Footer style={{ marginTop: "auto" }} />
 			</div>
 		</div>
