@@ -49,35 +49,19 @@ function NotificacionesAdmin() {
 
 							<CardPerfil className1={"cardNotificaciones"}
 								className2={"cardNotificacionesGap"}>
-								<div className='contNotificaciones'>
-									<div className='contIconoN'>
-								<IconoCard
-										icon="mingcute:notification-line"
-										width={"30px"}/>
-											</div>
-									<div className='cont1Notificacion '>
 									
+								<div className='contNotificaciones'>
+									
+									<div className='cont1Notificaciones'>
+									<div className='contIconoN'>
+										<IconoCard
+											icon="mingcute:notification-line"
+											width={"25px"} />
+									</div>
+                                        <div className='contTxtPrincipal'>
 										<Texto1Card texto={noti.title} />
 										<Texto2Card texto2={noti.message} />
-									</div>
-									<Spacer y={4} />
-									<div className='con2Notificaciones'>
-										<div className='contFecha'>
-											<Texto2Card texto2={"Fecha: "}
-												fontSize={"13px"} />
-											<Spacer x={1} />
-											<Texto2Card texto2={noti.fecha}
-												fontSize={"13px"} />
 										</div>
-										<Spacer y={1} />
-										<div className='contHora'>
-											<Texto2Card texto2={"Hora: "}
-												fontSize={"13px"} />
-											<Spacer x={1} />
-											<Texto2Card texto2={noti.hora}
-												fontSize={"13px"} />
-										</div>
-										<Spacer y={4} />
 										<div className='iconoEliminarN'>
 											<Tooltip content="Eliminar ">
 												<span className="text-lg text-danger cursor-pointer active:opacity-50">
@@ -86,6 +70,28 @@ function NotificacionesAdmin() {
 											</Tooltip>
 										</div>
 									</div>
+									
+									<Spacer y={2} />
+									<div className='cont2Notificaciones'>
+										<div className='contFecha'>
+											<Texto2Card texto2={"Fecha: "}
+												fontSize={"13px"} />
+											<Spacer x={1} />
+											<Texto2Card texto2={noti.fecha}
+												fontSize={"13px"} />
+										</div>
+
+										<div className='contHora'>
+											<Texto2Card texto2={"Hora: "}
+												fontSize={"13px"} />
+											<Spacer x={1} />
+											<Texto2Card texto2={noti.hora}
+												fontSize={"13px"} />
+										</div>
+										<Spacer y={4} />
+										
+									</div>
+									
 								</div>
 							</CardPerfil>
 

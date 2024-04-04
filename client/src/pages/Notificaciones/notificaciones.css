@@ -6,6 +6,14 @@
     display: flex;
     flex-direction: column;
 }
+.cont2Notificaciones{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-left: 36px;
+}
 
 .contFecha,
 .contHora {
@@ -16,11 +24,13 @@
 
 .contNotificaciones {
     display: flex;
+    flex-direction: column;
 }
 
 .iconoEliminarN {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
 
 .contIconoN {
@@ -29,7 +39,10 @@
     align-items: flex-start;
     padding: 2px;
     margin-right: 3px;
-    margin-top: -10px;
+    margin-top: -12px;
+}
+.cont1Notificaciones{
+    display: flex;
 }
 
 @media screen and (max-width: 767px) {
@@ -40,15 +53,28 @@
     }
 
     .contIconoN {
-        margin-top: -2px;
+        margin-top: -4px;
     }
 
-    .cont1Notificacion {
-        width: 50%;
+    .cont1Notificaciones {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
     }
     .contNotificaciones{
         display: flex;
         width: 100%;
         justify-content:space-between ;
+    }
+.iconoEliminarN {
+    display: flex;
+    justify-content: flex-end;
+}
+    
+}
+@media screen and (min-width: 768px),
+(max-width:1023) {
+    .contIconoN {
+        margin-top: -4px;
     }
 }
