@@ -22,12 +22,8 @@ const Unauthorized = () => {
   <p>No tienes permisos para acceder a esta página.</p>
 
   {/* Agrega un botón para volver a la página anterior */}
-  <button onClick={goBack}>Volver a la página anterior</button>
-
-  {/* Opcional: Agrega un enlace para ir a la página de inicio */}
-  <p>
-    O puedes <Link to="/">volver a la página de inicio</Link>.
-  </p>
+  <button onClick={goBack}>volver a la página de inicio</button>
+  
 </div>
 
   );

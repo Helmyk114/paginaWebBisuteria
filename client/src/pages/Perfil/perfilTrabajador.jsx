@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../Perfil/perfiles.css"
+
 import { Spacer } from "@nextui-org/react";
-import NavigateVEN, { Retroceder, Titulo } from "../../components/UI/navbar/navbarVendedor";
+import NavigateTRJ, { Retroceder, Titulo } from "../../components/UI/navbar/navbarTrabajador";
 import CardPerfil, { IconoCard, Texto1Card, Texto2Card } from "../../components/UI/perfil/cardInfo";
 import Avatares from "../../components/UI/avatar/Avatares";
 import Loader from "../../components/UI/cargando/loader";
@@ -35,10 +36,10 @@ export default function PerfilinfoTrabajador() {
 
   return (
     <div>
-      <NavigateVEN>
-        <Retroceder />
-        <Titulo espacio="center" titulo="Perfil" />
-      </NavigateVEN>
+      <NavigateTRJ>
+				<Retroceder />
+				<Titulo espacio="center" titulo="Perfil" />
+			</NavigateTRJ>
       {cargando ? (
         <Loader />
       ) : (
