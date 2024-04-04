@@ -1,10 +1,10 @@
 // En Unauthorized.jsx
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Cookies from 'js-cookie'; // Agrega la importación de Cookies
 import './Unauthorized.css';
 
-import Img from '../../img/restriccion.png';
+import Img from '../../../img/restriccion.png';
 
 const Unauthorized = () => {
   const location = useLocation();
@@ -21,14 +21,10 @@ const Unauthorized = () => {
   return (
     <div className="error-page">
       <img src={Img} alt="Hand Stop" />
-  <h1>¡Alto! Acceso no autorizado</h1>
-  <p>No tienes permisos para acceder a esta página.</p>
-
-  {/* Agrega un botón para volver a la página anterior */}
-  <button onClick={goBack}>volver a la página de inicio</button>
-  
-</div>
-
+      <h1>¡Alto! Acceso no autorizado</h1>
+      <p>No tienes permisos para acceder a esta página.</p>
+      <button onClick={goBack}>Volver a la página de inicio</button>
+    </div>
   );
 };
 

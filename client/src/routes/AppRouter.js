@@ -37,9 +37,9 @@ import NotificacionesAdmin from "../pages/Notificaciones/notificacionesAdmin";
 import NotificacionesVendedor from "../pages/Notificaciones/notificacionesVendedor";
 import NotificacionesArtesano from "../pages/Notificaciones/notificacionesArtesano";
 
-import Unauthorized from "./PrivateRoute/Unauthorized";
+import Unauthorized from "../pages/Error/401/Unauthorized";
 
-import Error from "../pages/Error/error"
+import Error from "../pages/Error/404/error"
 
 const AppRouter = () => {
   return (
