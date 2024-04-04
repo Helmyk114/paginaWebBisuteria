@@ -120,7 +120,9 @@ function NotificacionesVendedor() {
 				</div>
 			)}
 			<Spacer y={4} />
+			<div className='footerNotificacion'>
 			<Footer />
+		    </div>  
 		</div>
 	);
 };

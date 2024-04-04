@@ -46,7 +46,11 @@
 .cont1Notificaciones {
     display: flex;
 }
-
+.footerNotificacion{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
 @media screen and (max-width: 767px) {
     .cardNotificaciones {
         width: 350px;
