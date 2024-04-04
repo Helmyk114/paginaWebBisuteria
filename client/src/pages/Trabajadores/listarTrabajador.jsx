@@ -172,7 +172,7 @@ function ListarTrabajador() {
       </Acordeon>
 
       <Spacer y={5} />
-      <div style={{ position: "flex", bottom: "0", width: "100%", marginTop: "290px" }}>
+      <div style={{ position: "flex", bottom: "0", width: "100%" }}>
 
         <Footer />
       </div>
