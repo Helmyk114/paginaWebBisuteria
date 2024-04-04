@@ -38,7 +38,7 @@ import NotificacionesArtesano from "../pages/Notificaciones/notificacionesArtesa
 
 import Unauthorized from "./PrivateRoute/Unauthorized";
 
-import Error from "../pages/error"
+import Error from "../pages/Error/error"
 
 const AppRouter = () => {
   return (
