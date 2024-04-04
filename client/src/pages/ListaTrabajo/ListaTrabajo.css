@@ -5,9 +5,7 @@
 	flex-wrap: wrap;
 	margin: 0 auto;
 }
-.cardListaTerminadaTA {
-	width: 93%;
-}
+
 
 
 .cardListaTerminadaTAGap,
@@ -17,7 +15,7 @@
 }
 
 .card1ListaT {
-	width: 88%;
+	width: 58%;
 	margin: 10px;
 }
 
@@ -41,6 +39,7 @@
 
 .contTexto1 {
 	margin-bottom: 15px;
+	
 }
 
 .card2ListaT {
@@ -100,7 +99,7 @@
 	background-color: #6977E4;
 	border-radius: 10px;
 	margin-right: 10px;
-	width: 35%;
+	width: 30%;
 	display: column;
 	padding: 20px;
 	height: 100%;
@@ -204,7 +203,7 @@
 		font-weight: 200;
 	}
 
-	.contIconoListaT,
+	
 	.contIconoListaTA {
 		background-color: #6977E4;
 		border-radius: 10px;
@@ -213,6 +212,9 @@
 		display: column;
 		padding: 20px;
 		justify-content: space-between;
+	}
+	.contIconoListaT{
+        width:30%;
 	}
 
 	.cardCrearListaT {
@@ -325,11 +327,7 @@
 		flex-direction: row;
 	}
 
-	.card1ListaT {
-		width: 88%;
-		max-width: 88%;
-		overflow: hidden;
-	}
+	
 
 	.codListaTtrabajador {
 		font-size: 14px;
@@ -447,6 +445,7 @@
 		display: column;
 		padding: 20px;
 	}
+	
 
 	.contTexto1 {
 		font-size: 17px;
@@ -519,7 +518,7 @@
 	.card1ListaT {
 		width: 100%;
 		max-width: 90%;
-		min-height:20%
+	
 	
 		
 	}
