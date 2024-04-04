@@ -262,7 +262,6 @@ function CrearListaTrabajo() {
 														<div >
 															<div className="cont2ProCrListaT">
 																<Texto2Card texto2={`Cantidad disponible: ${productos.maxQuantity}`} />
-																<Texto2Card texto2={`Precio labor: ${laborPrices[productos.idProduct] !== undefined ? laborPrices[productos.idProduct] : 0}`} />
 																<div>
 																	<BotonCantidad
 																		maxCantidad={productos.maxQuantity}
