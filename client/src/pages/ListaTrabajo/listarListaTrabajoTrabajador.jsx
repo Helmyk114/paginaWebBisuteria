@@ -162,7 +162,7 @@ function ListarListaTrabajoVendedor() {
 					{cargando ? (
 						<Loader />
 					) : (
-						<div style={{ display: "flex", flexWrap: "wrap" }}>
+						<div style={{ display: "grid", flexWrap:"wrap", justifyContent:"center", gap:"10px" }}>
 							{listaP && listaP.length > 0 ? (
 								listaP.map((lista) => (
 									<div className="cont1AcordeonListaT" key={lista.idWorkList}>
