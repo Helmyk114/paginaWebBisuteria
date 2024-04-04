@@ -153,6 +153,11 @@
 	bottom: 0;
 	width: 100%;
 }
+.footerDetalleListaT{
+ position:fixed;
+ bottom: 0;
+ width: 100%;
+}
 
 
 @media only screen and (max-width: 768px) {
@@ -263,10 +268,8 @@
 	}
 
 	.card1ListaT {
-		width: 98%;
+		width: 120px;
 		margin: 0 auto;
-		max-width: 98%;
-		
 		
 	}
 

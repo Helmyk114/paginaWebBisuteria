@@ -35,8 +35,10 @@ const ListBoxSimple = forwardRef(({ placement, fontSize, apiEndpoint, idOpcion, 
           <AutocompleteItem 
             key={item[idOpcion]} 
             textValue={`${item[idOpcion]}`}
+            
           >
-            <span className="text-medium">{item[texto]}</span> 
+            <span style={{color:"black"}} className="text-medium">{item[texto]}
+            </span> 
           </AutocompleteItem>}
         </Autocomplete>
       </div>
