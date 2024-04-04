@@ -82,7 +82,7 @@ function DetalleTrabajoTP() {
 			)}
 			<Spacer y={4} />
 				{informacion.length > 0 && (
-					<BotonComprar2 text={"Completar lista"}>
+					<BotonComprar2 style={{background:'#454F96'}}>
 						<Texto3 precio={`Total: ${informacion[0].total}`} />
 					</BotonComprar2>
 				)}
