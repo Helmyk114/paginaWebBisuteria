@@ -163,7 +163,7 @@ function ListarListaTrabajoVendedor() {
 					{cargando ? (
 						<Loader />
 					) : (
-						<div style={{ justifyContent:"center", display: "flex", flexWrap: "wrap", gap:"10px"}}>
+						<div style={{display:"flex", flexWrap:"wrap"}}>
 							{listaP && listaP.length > 0 ? (
 								listaP.map((lista) => (
 									<div className="cont1AcordeonListaT" key={lista.idWorkList}>
@@ -176,12 +176,15 @@ function ListarListaTrabajoVendedor() {
 															color={"#ffff"}
 														/>
 													</div >
+													<div style={{textAlign:"center"}}>
 													<Texto1Card
 														texto={"Pagas"}
 														color={"#ffff"}
 														fontWeight={"400"}
 														className="contTexto1"
+														
 													/>
+												  </div>
 												</div>
 												<div className="cont2ListaT">
 													<div className="contTexto1">
@@ -221,7 +224,7 @@ function ListarListaTrabajoVendedor() {
 				</Acordeon>
 			</div>
 			<Spacer y={4} />
-			<div className="footerListaTTrabajador">
+			<div className="">
 
 			
 			<Footer />
