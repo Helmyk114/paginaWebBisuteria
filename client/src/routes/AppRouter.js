@@ -64,9 +64,9 @@ const AppRouter = () => {
         <Route path="/editar/producto/:idProduct" element={<ProtectedRoute element={<ActualizarProducto />} role={1} />} />
 
         {/* Pantallas de Trabajadores */}
-        <Route path="/trabajadores" element={<ListarTrabajador />} />
-        <Route path="/crear/trabajador" element={<CrearTrabajador />} />
-        <Route path="/editar/trabajador/:idCardWorker" element={<ActualizarTrabajador />} />
+        <Route path="/trabajadores" element={<ProtectedRoute element={<ListarTrabajador />} role={1} />}  />
+        <Route path="/crear/trabajador" element={<ProtectedRoute element={<CrearTrabajador />} role={1} />} />
+        <Route path="/editar/trabajador/:idCardWorker" element={<ProtectedRoute element={<ActualizarTrabajador />} role={1} />} />
 
         {/* Pantallas de Pedidos */}
         <Route path="/pedidos/administracion" element={<ProtectedRoute element={<ListarPedidoAdministrador />} role={1} />} />
