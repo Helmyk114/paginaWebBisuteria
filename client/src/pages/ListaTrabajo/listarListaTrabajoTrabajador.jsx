@@ -58,11 +58,11 @@ function ListarListaTrabajoVendedor() {
 									<div className="cont2ListaT">
 										<div className="contTexto1">
 											<Texto1Card className="tituloCard" texto={lista.listName} fontSize={"15px"} />
-											<Texto1Card
+											{/* <Texto1Card
 												texto={`Codigo: ${lista.idWorkList}`}
 												fontWeight={"200"}
 												className={"codListaTtrabajador"}
-											/>
+											/> */}
 										</div>
 										<div className="card2ListaT">
 											<div className="contTexto2">
@@ -120,11 +120,11 @@ function ListarListaTrabajoVendedor() {
 												<div className="cont2ListaT">
 													<div className="contTexto1">
 														<Texto1Card texto={lista.listName} />
-														<Texto1Card
+														{/* <Texto1Card
 															texto={`Codigo: ${lista.idWorkList}`}
 															fontWeight={"200"}
 															className={"codListaTtrabajador"}
-														/>
+														/> */}
 													</div>
 													<div className="card2ListaT">
 														<div className="contTexto2">
@@ -187,10 +187,10 @@ function ListarListaTrabajoVendedor() {
 												<div className="cont2ListaT">
 													<div className="contTexto1">
 														<Texto1Card texto={lista.listName} />
-														<Texto1Card
+														{/* <Texto1Card
 															texto={`Codigo: ${lista.idWorkList}`}
 															fontWeight={"200"}
-														/>
+														/> */}
 													</div>
 													<div className="card2ListaT">
 														<div className="contTexto2">
